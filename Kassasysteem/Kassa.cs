@@ -27,7 +27,7 @@ namespace GUI
                 App = app;
                 UpdateKassaGegevens();
                 UpdateBestellingen();
-                cbLidNaam.Enabled = true; // In ontwikkeling
+                cbLidNaam.Enabled = true;
             }
             catch (Exception exception)
             {
@@ -87,11 +87,11 @@ namespace GUI
             {
                 if (b.Betaald == false)
                 {
-                    if (b.Persoon != null)
+                    if (b.Lid != null)
                     {
                         _item = new ListViewItem
                         {
-                            Text = b.Persoon.Voornaam + " " + b.Persoon.Achternaam,
+                            Text = b.Lid.Voornaam + " " + b.Lid.Achternaam,
                             Tag = b
                         };
                         lvBestellingen.Items.Add(_item);
@@ -144,6 +144,7 @@ namespace GUI
                 lbLedenprijs.Text = "";
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
+                btContant.Enabled = false;
             }
             catch (Exception exception)
             {
@@ -215,7 +216,7 @@ namespace GUI
                 var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
                 foreach (Bestelling b in App.GetBestellingen())
                 {
-                    if (b.Naam == bestelling.Naam || b.Persoon == bestelling.Persoon)
+                    if (b.Naam == bestelling.Naam || b.Lid == bestelling.Lid)
                     {
                         _afrekenScherm = new AfrekenScherm(App, b);
                         _afrekenScherm.ShowDialog();
@@ -235,21 +236,25 @@ namespace GUI
             var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
             foreach (Bestelling b in App.GetBestellingen())
             {
-                if (b.Persoon.Id == bestelling.Persoon.Id)
+                if (b.Lid != null)
                 {
-                    if (b.Persoon.Tussenvoegsel != "")
+                    if (b.Lid.Id == bestelling.Lid.Id)
                     {
-                        lbKlantnaam.Text = b.Persoon.Voornaam + " " + b.Persoon.Tussenvoegsel + " " + b.Persoon.Achternaam;
+                        if (b.Lid.Tussenvoegsel != "")
+                        {
+                            lbKlantnaam.Text = b.Lid.Voornaam + " " + b.Lid.Tussenvoegsel + " " + b.Lid.Achternaam;
+                        }
+                        else
+                        {
+                            lbKlantnaam.Text = b.Lid.Voornaam + " " + b.Lid.Achternaam;
+                        }
+                        lvProductenInBestelling.Items.Clear();
+                        UpdateKlantBestelling(b);
+                        btVerwijderProduct.Enabled = true;
+                        btAfrekenen.Enabled = true;
+                        groupBox4.Enabled = true;
+                        break;
                     }
-                    else
-                    {
-                        lbKlantnaam.Text = b.Persoon.Voornaam + " " + b.Persoon.Achternaam;
-                    }
-                    lvProductenInBestelling.Items.Clear();
-                    UpdateKlantBestelling(b);
-                    btVerwijderProduct.Enabled = true;
-                    btAfrekenen.Enabled = true;
-                    groupBox4.Enabled = true;
                 }
                 else
                 {
@@ -261,6 +266,7 @@ namespace GUI
                         btVerwijderProduct.Enabled = true;
                         btAfrekenen.Enabled = true;
                         groupBox4.Enabled = true;
+                        break;
                     }
                 }
             }
@@ -413,7 +419,7 @@ namespace GUI
                     var product = lvProductenInBestelling.SelectedItems[0].Tag as Product;
                     if (product != null)
                     {
-                        MessageBox.Show($@"{product.Naam} wordt uit de bestelling van {bestelling.Persoon.Voornaam} verwijderd.");
+                        MessageBox.Show($@"{product.Naam} wordt uit de bestelling van {bestelling.Lid.Voornaam} verwijderd.");
                         App.RemoveProductVanBestelling(bestelling, product);
                         UpdateKlantBestelling(bestelling);
                     }

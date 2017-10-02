@@ -45,7 +45,7 @@ namespace Kassasysteem
                         }
                         else
                         {
-                            lvi = new ListViewItem(b.Persoon.Voornaam + " " + b.Persoon.Tussenvoegsel + " " + b.Persoon.Achternaam);
+                            lvi = new ListViewItem(b.Lid.Voornaam + " " + b.Lid.Tussenvoegsel + " " + b.Lid.Achternaam);
                             SuppUpdate(lvi, b);
                         }
                     }
@@ -98,7 +98,7 @@ namespace Kassasysteem
             {
                 case "Naam":
                     _afgerekendeBestellingen.Sort((x, y) => String.Compare(x.Naam, y.Naam, StringComparison.Ordinal));
-                    _afgerekendeBestellingen.Sort((x, y) => String.Compare(x.Persoon.Voornaam, y.Persoon.Voornaam, StringComparison.Ordinal));
+                    _afgerekendeBestellingen.Sort((x, y) => String.Compare(x.Lid.Voornaam, y.Lid.Voornaam, StringComparison.Ordinal));
                     break;
                 case "Datum":
                     _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));

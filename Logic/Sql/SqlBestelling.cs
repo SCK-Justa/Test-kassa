@@ -53,23 +53,23 @@ namespace Logic.Sql
                                 while (reader.Read())
                                 {
                                     int id = reader.GetInt32(0);
-                                    Persoon persoon = null;
+                                    Lid persoon = null;
                                     string persoonNaam = "";
                                     if (!reader.IsDBNull(1))
                                     {
-                                        persoon = sqlLid.GetPersoonFromId(reader.GetInt32(1));
+                                        persoon = sqlLid.GetLidFromId(reader.GetInt32(1));
                                     }
                                     if (!reader.IsDBNull(2))
                                     {
                                         persoonNaam = reader.GetString(2);
                                     }
-                                    DateTime datum = DateTime.Parse(reader.GetString(3));
+                                    DateTime datum = reader.GetDateTime(3);
                                     bool betaald = reader.GetBoolean(4);
                                     int kassaId = reader.GetInt32(5);
                                     DateTime datumbetaald = DateTime.Parse("1-1-1900");
                                     if (betaald)
                                     {
-                                        datumbetaald = DateTime.Parse(reader.GetString(6));
+                                        datumbetaald = reader.GetDateTime(6);
                                     }
                                     bool betaaldBonnen = false;
                                     if (!reader.IsDBNull(7))
@@ -163,7 +163,7 @@ namespace Logic.Sql
             }
         }
 
-        public void AddBestelling(Bestelling bestelling)
+        public void AddBestellingMetPersoon(Bestelling bestelling)
         {
             try
             {
@@ -175,10 +175,43 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Bestelling VALUES (@persoonId, @naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag);";
+                            cmd.CommandText = "INSERT INTO Bestelling (BPersoonid, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag) VALUES (@persoonId, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag);";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@persoonId", bestelling.Persoon.Id);
+                            cmd.Parameters.AddWithValue("@persoonId", bestelling.Lid.Id);
+                            cmd.Parameters.AddWithValue("@datum", bestelling.Datum);
+                            cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
+                            cmd.Parameters.AddWithValue("@kassaId", bestelling.KassaId);
+                            cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
+                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
+                            cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public void AddBestellingMetNaam(Bestelling bestelling)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "INSERT INTO Bestelling (BNaam, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag) VALUES (@naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag);";
+                            cmd.Connection = conn;
+
                             cmd.Parameters.AddWithValue("@naam", bestelling.Naam);
                             cmd.Parameters.AddWithValue("@datum", bestelling.Datum);
                             cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
@@ -215,7 +248,7 @@ namespace Logic.Sql
                                               "WHERE BId = @bestellingId;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@persoonId", bestelling.Persoon.Id);
+                            cmd.Parameters.AddWithValue("@persoonId", bestelling.Lid.Id);
                             cmd.Parameters.AddWithValue("@naam", bestelling.Naam);
                             cmd.Parameters.AddWithValue("@datum", bestelling.Datum);
                             cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
@@ -252,7 +285,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "UPDATE Bestelling SET BBetaald = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum WHERE BId = @bestellingId;";
+                            cmd.CommandText = "UPDATE Bestelling SET BBetalld = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum WHERE BId = @bestellingId;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);

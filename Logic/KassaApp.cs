@@ -56,6 +56,8 @@ namespace Logic
                 _leden = GetLeden();
                 _gebruikers = GetGebruikers();
                 _formulieren = new List<Formulier>();
+                _gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
+                //_gebruikers = _authRepo.GetAuthentications();
                 if (_afgerekendeBestellingen.Count > 1)
                 {
                     _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
@@ -91,7 +93,7 @@ namespace Logic
         private void GetDatabaseStuff()
         {
             string ip = "192.168.2.150";
-            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=BarSysteem;User ID=sa;Password=Geschiedenis1500;");
+            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
             _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));
@@ -194,7 +196,7 @@ namespace Logic
             try
             {
                 Bestelling bestelling = new Bestelling(lid, datum);
-                _bestellingRepo.AddBestelling(bestelling);
+                _bestellingRepo.AddBestellingMetPersoon(bestelling);
                 _bestellingen.Clear();
                 GetBestellingenFromDb();
             }
@@ -209,7 +211,7 @@ namespace Logic
             try
             {
                 Bestelling bestelling = new Bestelling(name, datum);
-                _bestellingRepo.AddBestelling(bestelling);
+                _bestellingRepo.AddBestellingMetNaam(bestelling);
                 _bestellingen.Add(bestelling);
             }
             catch (Exception exception)
@@ -302,6 +304,7 @@ namespace Logic
             {
                 _leden = new List<Lid>();
                 _leden = _ledenRepo.GetAllLeden();
+                _leden.Sort((x, y) => x.Voornaam.CompareTo(y.Voornaam));
                 return _leden;
             }
             catch (Exception exception)

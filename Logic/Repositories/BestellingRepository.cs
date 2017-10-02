@@ -32,9 +32,14 @@ namespace Logic.Repositories
             return _bestellingServices.GetProductenInBestelling(bestellingId);
         }
 
-        public void AddBestelling(Bestelling bestelling)
+        public void AddBestellingMetPersoon(Bestelling bestelling)
         {
-            _bestellingServices.AddBestelling(bestelling);
+            _bestellingServices.AddBestellingMetPersoon(bestelling);
+        }
+
+        public void AddBestellingMetNaam(Bestelling bestelling)
+        {
+            _bestellingServices.AddBestellingMetNaam(bestelling);
         }
 
         public void EditBestelling(Bestelling bestelling)

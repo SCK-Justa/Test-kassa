@@ -26,21 +26,23 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM Klasse WHERE KlasseId = @lidId;";
+                            cmd.CommandText = "SELECT * FROM Klasse WHERE KlasseId = @id;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@lidId", id);
+                            cmd.Parameters.AddWithValue("@id", id);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                reader.Read();
-                                int klasseId = reader.GetInt32(0);
-                                string naam = reader.GetString(1);
-                                DateTime begin = reader.GetDateTime(2);
-                                DateTime eind = reader.GetDateTime(3);
+                                while (reader.Read())
+                                {
+                                    int klasseId = reader.GetInt32(0);
+                                    string naam = reader.GetString(1);
+                                    int begin = reader.GetInt32(2);
+                                    int eind = reader.GetInt32(3);
 
-                                Klasse klasse = new Klasse(klasseId, naam.Replace(" ", ""), begin, eind);
-                                return klasse;
+                                    Klasse klasse = new Klasse(klasseId, naam, begin, eind);
+                                    return klasse;
+                                }
                             }
                         }
                     }

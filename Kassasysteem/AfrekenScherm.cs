@@ -36,10 +36,10 @@ namespace Kassasysteem
 
         private void SetGegevens(bool bonnen, bool button, bool lbbonnen)
         {
-            if (Bestelling.Persoon != null)
+            if (Bestelling.Lid != null)
             {
-                lbNaam.Text = Bestelling.Persoon.Voornaam + " " + Bestelling.Persoon.Tussenvoegsel + " " +
-                              Bestelling.Persoon.Achternaam;
+                lbNaam.Text = Bestelling.Lid.Voornaam + " " + Bestelling.Lid.Tussenvoegsel + " " +
+                              Bestelling.Lid.Achternaam;
             }
             else
             {

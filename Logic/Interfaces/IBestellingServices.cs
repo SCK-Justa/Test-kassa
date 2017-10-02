@@ -9,7 +9,8 @@ namespace Logic.Interfaces
         List<Bestelling> GetBestellingenVanLid(Lid lid);
         List<Bestelling> GetAllBestellingen();
         List<Product> GetProductenInBestelling(int bestellingId);
-        void AddBestelling(Bestelling bestelling);
+        void AddBestellingMetPersoon(Bestelling bestelling);
+        void AddBestellingMetNaam(Bestelling bestelling);
         void EditBestelling(Bestelling bestelling);
         void DeleteBestelling(Bestelling bestelling);
         void BetaalBestelling(Bestelling bestelling);

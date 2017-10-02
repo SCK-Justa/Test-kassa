@@ -24,7 +24,7 @@ namespace Logic.Sql
             oudercontactLogic = new SqlOudercontact(connectie);
         }
 
-        public Lid GetPersoonFromId(int lidId)
+        public Lid GetLidFromId(int lidId)
         {
             try
             {
@@ -51,59 +51,32 @@ namespace Logic.Sql
                                     {
                                         bondsnummer = reader.GetInt32(1);
                                     }
-                                    string voornaam = reader.GetString(2);
-                                    string tussenvoegsel = "";
-                                    if (!reader.IsDBNull(2))
+                                    Persoon persoon = GetPersoonFromLidId(reader.GetInt32(2));
+                                    DateTime lidVanaf = reader.GetDateTime(3);
+                                    string _sterren = "";
+                                    if (!reader.IsDBNull(4))
                                     {
-                                        tussenvoegsel = reader.GetString(3);
+                                        _sterren = reader.GetString(4);
                                     }
-                                    string achternaam = reader.GetString(4);
-                                    string emailadres = "";
+                                    Klasse nhbklasse = null;
                                     if (!reader.IsDBNull(5))
                                     {
-                                        emailadres = reader.GetString(5);
+                                        nhbklasse = klasseLogic.GetKlasseById(reader.GetInt32(5));
                                     }
-                                    string geslacht = "";
-                                    if (!reader.IsDBNull(6))
-                                    {
-                                        geslacht = reader.GetString(6);
-                                    }
-                                    Adres adres = adresLogic.GetAdresById(reader.GetInt32(7));
-                                    string telefoonnummer = "";
-                                    if (!reader.IsDBNull(8))
-                                    {
-                                        telefoonnummer = reader.GetString(8);
-                                    }
-                                    string mobielnummer = "";
-                                    if (!reader.IsDBNull(9))
-                                    {
-                                        mobielnummer = reader.GetString(9);
-                                    }
-                                    DateTime lidvanaf = reader.GetDateTime(10);
-                                    string _sterren = "";
-                                    if (!reader.IsDBNull(11))
-                                    {
-                                        _sterren = reader.GetString(11);
-                                    }
-                                    DateTime geboortedatum = reader.GetDateTime(12);
-                                    Klasse nhbklasse = null;
-                                    if (!reader.IsDBNull(13))
-                                    {
-                                        nhbklasse = klasseLogic.GetKlasseById(reader.GetInt32(13));
-                                    }
-                                    Klasse verklasse = klasseLogic.GetKlasseById(reader.GetInt32(14));
+                                    Klasse verklasse = klasseLogic.GetKlasseById(reader.GetInt32(6));
                                     Oudercontact oudercontact = null;
-                                    if (!reader.IsDBNull(15))
+                                    if (!reader.IsDBNull(7))
                                     {
-                                        oudercontact = oudercontactLogic.GetOudercontactById(reader.GetInt32(15));
+                                        oudercontact = oudercontactLogic.GetOudercontactById(reader.GetInt32(7));
                                     }
                                     Bank bank = null;
-                                    if (!reader.IsDBNull(16))
+                                    if (!reader.IsDBNull(8))
                                     {
-                                        bank = bankLogic.GetBankById(reader.GetInt32(16));
+                                        bank = bankLogic.GetBankById(reader.GetInt32(8));
                                     }
-                                    Lid lid = new Lid(lidvanaf, nhbklasse, verklasse, id, bondsnummer, voornaam, tussenvoegsel, achternaam, emailadres,
-                                                        geslacht, geboortedatum, adres, telefoonnummer, mobielnummer);
+                                    Lid lid = new Lid(lidVanaf, nhbklasse, verklasse, id, bondsnummer, persoon.Voornaam,
+                                        persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
+                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
                                     lid.SetOuderContact(oudercontact);
                                     lid.SetBank(bank);
                                     if (_sterren != "")
@@ -213,7 +186,11 @@ namespace Logic.Sql
                                 while (reader.Read())
                                 {
                                     int id = reader.GetInt32(0);
-                                    int bondsnummer = reader.GetInt32(1);
+                                    int bondsnummer = 0;
+                                    if (!reader.IsDBNull(1))
+                                    {
+                                        bondsnummer = reader.GetInt32(1);
+                                    }
                                     Persoon persoon = GetPersoonFromLidId(reader.GetInt32(2));
                                     DateTime lidVanaf = reader.GetDateTime(3);
                                     string _sterren = "";
@@ -432,7 +409,7 @@ namespace Logic.Sql
             }
         }
 
-        private Persoon GetPersoonFromLidId(int lidId)
+        public Persoon GetPersoonFromLidId(int persoonId)
         {
             try
             {
@@ -444,10 +421,10 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM Lid WHERE LId = @lidId;";
+                            cmd.CommandText = "SELECT * FROM Persoon WHERE PId = @persoonId;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@lidId", lidId);
+                            cmd.Parameters.AddWithValue("@persoonId", persoonId);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
@@ -480,7 +457,7 @@ namespace Logic.Sql
                                     }
                                     DateTime geboortedatum = reader.GetDateTime(9);
 
-                                    Persoon persoon = new Persoon(id, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,geboortedatum,adres, telefoonnummer, mobielnummer);
+                                    Persoon persoon = new Persoon(id, voornaam, tussenvoegsel, achternaam, emailadres, geslacht, geboortedatum, adres, telefoonnummer, mobielnummer);
                                     return persoon;
                                 }
                             }

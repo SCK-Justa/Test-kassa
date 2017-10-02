@@ -6,7 +6,7 @@ namespace Logic.Interfaces
 {
     public interface ILidServices
     {
-        Lid GetPersoonFromId(int lidId);
+        Lid GetLidFromId(int lidId);
         Lid GetPersoonFromBondsnummer(int bondsnummer);
         Lid GetPersoonFromFullName(string firstname, string lastname);
         List<Lid> GetAllLeden();

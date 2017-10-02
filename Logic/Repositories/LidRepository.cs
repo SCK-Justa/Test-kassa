@@ -17,7 +17,7 @@ namespace Logic.Repositories
 
         public Lid GetPersoonFromId(int lidId)
         {
-            return _lidServices.GetPersoonFromId(lidId);
+            return _lidServices.GetLidFromId(lidId);
         }
 
         public Lid GetPersoonFromBondsnummer(int bondsnummer)

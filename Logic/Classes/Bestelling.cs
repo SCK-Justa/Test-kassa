@@ -7,7 +7,7 @@ namespace Logic.Classes
     {
         private List<Product> _producten;
         public int Id { get; private set; }
-        public Persoon Persoon { get; private set; }
+        public Lid Lid { get; private set; }
         public string Naam { get; private set; }
         public DateTime Datum { get; private set; }
         public DateTime DatumBetaald { get; private set; }
@@ -27,21 +27,22 @@ namespace Logic.Classes
                 DatumBetaald = DateTime.Parse("01-01-1900");
             }
         }
-        public Bestelling(Persoon persoon, DateTime datum) : this(datum)
+        public Bestelling(Lid lid, DateTime datum) : this(datum)
         {
-            Persoon = persoon;
+            Lid = lid;
             Naam = "";
         }
 
         public Bestelling(string naam, DateTime datum) : this(datum)
         {
             Naam = naam;
+            Lid = null;
         }
 
-        public Bestelling(int id, Persoon persoon, DateTime datum) : this(datum)
+        public Bestelling(int id, Lid lid, DateTime datum) : this(datum)
         {
             Id = id;
-            Persoon = persoon;
+            Lid = lid;
         }
 
         public Bestelling(int id, string naam, DateTime datum) : this(datum)
@@ -60,9 +61,9 @@ namespace Logic.Classes
             Betaald = false;
         }
 
-        public void SetPersoon(Persoon persoon)
+        public void SetPersoon(Lid lid)
         {
-            Persoon = persoon;
+            Lid = lid;
         }
 
         public void SetNaam(string naam)

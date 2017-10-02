@@ -6,27 +6,27 @@ namespace Logic.Classes
     {
         public int Id { get; private set; }
         public string Naam { get; private set; }
-        public DateTime BeginLeeftijd { get; private set; }
-        public DateTime EindLeeftijd { get; private set; }
+        public int BeginLeeftijd { get; private set; }
+        public int EindLeeftijd { get; private set; }
 
-        public Klasse(string naam, DateTime begin, DateTime eind)
+        public Klasse(string naam, int begin, int eind)
         {
             Naam = naam;
             BeginLeeftijd = begin;
             EindLeeftijd = eind;
         }
 
-        public Klasse(int id, string naam, DateTime begin, DateTime eind):this (naam, begin, eind)
+        public Klasse(int id, string naam, int begin, int eind):this (naam, begin, eind)
         {
             Id = id;
         }
 
-        public void SetBeginLeeftijd(DateTime begin)
+        public void SetBeginLeeftijd(int begin)
         {
             BeginLeeftijd = begin;
         }
 
-        public void SetEindLeeftijd(DateTime eind)
+        public void SetEindLeeftijd(int eind)
         {
             EindLeeftijd = eind;
         }
