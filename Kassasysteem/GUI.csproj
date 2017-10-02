@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C84CAEC-3D84-4F9B-9355-14EF63D9FF44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kassasysteem</RootNamespace>
+    <AssemblyName>Kassasysteem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AfrekenScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfrekenScherm.Designer.cs">
+      <DependentUpon>AfrekenScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BestelgeschiedenisScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestelgeschiedenisScherm.Designer.cs">
+      <DependentUpon>BestelgeschiedenisScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GebruikerScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GebruikerScherm.Designer.cs">
+      <DependentUpon>GebruikerScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InlogScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InlogScherm.Designer.cs">
+      <DependentUpon>InlogScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KasInUitScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KasInUitScherm.Designer.cs">
+      <DependentUpon>KasInUitScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kassa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kassa.designer.cs">
+      <DependentUpon>Kassa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LedenScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LedenScherm.Designer.cs">
+      <DependentUpon>LedenScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LidToevoegenScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LidToevoegenScherm.Designer.cs">
+      <DependentUpon>LidToevoegenScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuScherm.Designer.cs">
+      <DependentUpon>MenuScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NieuweGebruikerScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NieuweGebruikerScherm.Designer.cs">
+      <DependentUpon>NieuweGebruikerScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PenningmeesterScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PenningmeesterScherm.Designer.cs">
+      <DependentUpon>PenningmeesterScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductenScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductenScherm.Designer.cs">
+      <DependentUpon>ProductenScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VoorraadScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoorraadScherm.Designer.cs">
+      <DependentUpon>VoorraadScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AfrekenScherm.resx">
+      <DependentUpon>AfrekenScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestelgeschiedenisScherm.resx">
+      <DependentUpon>BestelgeschiedenisScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GebruikerScherm.resx">
+      <DependentUpon>GebruikerScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InlogScherm.resx">
+      <DependentUpon>InlogScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KasInUitScherm.resx">
+      <DependentUpon>KasInUitScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kassa.resx">
+      <DependentUpon>Kassa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LedenScherm.resx">
+      <DependentUpon>LedenScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LidToevoegenScherm.resx">
+      <DependentUpon>LidToevoegenScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NieuweGebruikerScherm.resx">
+      <DependentUpon>NieuweGebruikerScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PenningmeesterScherm.resx">
+      <DependentUpon>PenningmeesterScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductenScherm.resx">
+      <DependentUpon>ProductenScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoorraadScherm.resx">
+      <DependentUpon>VoorraadScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo SINTSEBASTIAAN.jpg" />
+    <None Include="Resources\LOGO Jelle_zwart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Logo SINTSEBASTIAAN_png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{384be82b-82b5-408c-859b-b29a18ff70bc}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

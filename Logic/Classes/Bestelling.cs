@@ -1,0 +1,183 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Logic.Classes
+{
+    public class Bestelling
+    {
+        private List<Product> _producten;
+        public int Id { get; private set; }
+        public Persoon Persoon { get; private set; }
+        public string Naam { get; private set; }
+        public DateTime Datum { get; private set; }
+        public DateTime DatumBetaald { get; private set; }
+        public bool Betaald { get; private set; }
+        public int KassaId { get; private set; }
+        public decimal TotaalPrijs { get; private set; }
+        public decimal TotaalLedenPrijs { get; private set; }
+        public bool BetaaldMetBonnen { get; private set; }
+        public decimal BetaaldBedrag { get; private set; }
+
+        public Bestelling(DateTime datum)
+        {
+            Datum = datum;
+            _producten = new List<Product>();
+            if (DatumBetaald < DateTime.Parse("01-01-2017"))
+            {
+                DatumBetaald = DateTime.Parse("01-01-1900");
+            }
+        }
+        public Bestelling(Persoon persoon, DateTime datum) : this(datum)
+        {
+            Persoon = persoon;
+            Naam = "";
+        }
+
+        public Bestelling(string naam, DateTime datum) : this(datum)
+        {
+            Naam = naam;
+        }
+
+        public Bestelling(int id, Persoon persoon, DateTime datum) : this(datum)
+        {
+            Id = id;
+            Persoon = persoon;
+        }
+
+        public Bestelling(int id, string naam, DateTime datum) : this(datum)
+        {
+            Id = id;
+            Naam = naam;
+        }
+
+        public Bestelling(int id, string naam, string datum, string datumBetaald)
+        {
+            Id = id;
+            Naam = naam;
+            Datum = DateTime.Parse(datum);
+            DatumBetaald = DateTime.Parse(datumBetaald);
+            KassaId = 0;
+            Betaald = false;
+        }
+
+        public void SetPersoon(Persoon persoon)
+        {
+            Persoon = persoon;
+        }
+
+        public void SetNaam(string naam)
+        {
+            Naam = naam;
+        }
+
+        public void SetDatum(DateTime datum)
+        {
+            Datum = datum;
+        }
+
+        public void SetDatumBetaald(DateTime datum)
+        {
+            DatumBetaald = datum;
+        }
+
+        public void SetBetaaldBedrag(decimal bedrag)
+        {
+            BetaaldBedrag = bedrag;
+        }
+
+        public void SetKassaId(int kassaId)
+        {
+            KassaId = kassaId;
+        }
+
+        public void SetBetaald(bool betaald)
+        {
+            Betaald = betaald;
+        }
+
+        public void SetTotaalPrijs(decimal prijs)
+        {
+            TotaalPrijs = prijs;
+        }
+
+        public void SetTotaalLedenPrijs(decimal prijs)
+        {
+            TotaalLedenPrijs = prijs;
+        }
+
+        public void SetBetaaldMetBonnen(bool value)
+        {
+            BetaaldMetBonnen = value;
+        }
+
+        public void AddProductenToList(List<Product> producten)
+        {
+            _producten = producten;
+            foreach (Product p in producten)
+            {
+                TotaalPrijs += p.Prijs;
+                TotaalLedenPrijs += p.Ledenprijs;
+            }
+        }
+
+        public List<Product> GetProducten()
+        {
+            return _producten;
+        }
+
+        public void BerekenTotaalPrijs(bool betaaldMet)
+        {
+            if (_producten.Count > 0)
+            {
+                if (betaaldMet)
+                {
+                    foreach (Product p in _producten)
+                    {
+                        TotaalLedenPrijs += p.Ledenprijs;
+                    }
+                }
+                else
+                {
+                    foreach (Product p in _producten)
+                    {
+                        TotaalPrijs += p.Prijs;
+                    }
+                }
+            }
+        }
+
+        public bool AddProductToList(Product product)
+        {
+            if (product.Voorraad > 1)
+            {
+                _producten.Add(product);
+                product.SetVoorraad(product.Voorraad - 1);
+                TotaalPrijs += product.Prijs;
+                TotaalLedenPrijs += product.Ledenprijs;
+                return true;
+            }
+            return false;
+        }
+
+        public void RemoveProductFromList(Product product)
+        {
+            foreach (Product p in _producten)
+            {
+                if (product.Id == p.Id)
+                {
+                    _producten.Remove(product);
+                    TotaalPrijs -= product.Prijs;
+                    TotaalLedenPrijs -= product.Ledenprijs;
+                    break;
+                }
+            }
+        }
+
+        public void Afrekenen(decimal bedrag, DateTime datumBetaald)
+        {
+            BetaaldBedrag = bedrag;
+            Betaald = true;
+            DatumBetaald = datumBetaald;
+        }
+    }
+}
