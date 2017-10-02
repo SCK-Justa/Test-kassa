@@ -214,48 +214,43 @@ namespace Logic.Sql
                                 {
                                     int id = reader.GetInt32(0);
                                     int bondsnummer = reader.GetInt32(1);
-                                    string voornaam = reader.GetString(2);
-                                    string tussenvoegsel = reader.GetString(3);
-                                    string achternaam = reader.GetString(4);
-                                    string emailadres = "";
-                                    string geslacht = "";
+                                    Persoon persoon = GetPersoonFromLidId(reader.GetInt32(2));
+                                    DateTime lidVanaf = reader.GetDateTime(3);
+                                    string _sterren = "";
+                                    if (!reader.IsDBNull(4))
+                                    {
+                                        _sterren = reader.GetString(4);
+                                    }
+                                    Klasse nhbklasse = null;
                                     if (!reader.IsDBNull(5))
                                     {
-                                        emailadres = reader.GetString(5);
+                                        nhbklasse = klasseLogic.GetKlasseById(reader.GetInt32(5));
                                     }
-                                    if (!reader.IsDBNull(6))
+
+                                    Klasse clubklasse = klasseLogic.GetKlasseById(reader.GetInt32(6));
+                                    Oudercontact oudercontact = null;
+                                    if (!reader.IsDBNull(7))
                                     {
-                                        geslacht = reader.GetString(6);
+                                        oudercontact = oudercontactLogic.GetOudercontactById(reader.GetInt32(7));
                                     }
-                                    Adres adres = adresLogic.GetAdresById(reader.GetInt32(7));
-                                    string telefoonnummer = "";
-                                    string mobielnummer = "";
+                                    Bank bank = null;
                                     if (!reader.IsDBNull(8))
                                     {
-                                        telefoonnummer = reader.GetString(8);
+                                        bank = bankLogic.GetBankById(reader.GetInt32(8));
                                     }
-                                    if (!reader.IsDBNull(9))
+                                    Lid lid = new Lid(lidVanaf, nhbklasse, clubklasse, id, bondsnummer, persoon.Voornaam,
+                                        persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
+                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
+                                    lid.SetOuderContact(oudercontact);
+                                    lid.SetBank(bank);
+                                    if (_sterren != "")
                                     {
-                                        mobielnummer = reader.GetString(9);
+                                        string[] sterren = _sterren.Split(';');
+                                        foreach (string s in sterren)
+                                        {
+                                            lid.AddSpeld(s);
+                                        }
                                     }
-                                    DateTime lidVanaf = reader.GetDateTime(10);
-                                    string sterren = "";
-                                    if (!reader.IsDBNull(11))
-                                    {
-                                        sterren = reader.GetString(11);
-                                    }
-                                    DateTime geboorteDatum = reader.GetDateTime(12);
-                                    Klasse nhbklasse = null;
-                                    if (!reader.IsDBNull(13))
-                                    {
-                                        nhbklasse = klasseLogic.GetKlasseById(reader.GetInt32(13));
-                                    }
-
-                                    Klasse clubklasse = klasseLogic.GetKlasseById(reader.GetInt32(14));
-
-                                    Lid lid = new Lid(lidVanaf, nhbklasse, clubklasse, id, bondsnummer, voornaam,
-                                        tussenvoegsel, achternaam, emailadres, geslacht,
-                                        geboorteDatum, adres, telefoonnummer, mobielnummer);
                                     leden.Add(lid);
                                 }
                                 return leden;
@@ -430,6 +425,69 @@ namespace Logic.Sql
                         }
                     }
                 }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        private Persoon GetPersoonFromLidId(int lidId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * FROM Lid WHERE LId = @lidId;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@lidId", lidId);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    string voornaam = reader.GetString(1);
+                                    string tussenvoegsel = "";
+                                    if (!reader.IsDBNull(2))
+                                    {
+                                        tussenvoegsel = reader.GetString(2);
+                                    }
+                                    string achternaam = reader.GetString(3);
+                                    string emailadres = "";
+                                    if (!reader.IsDBNull(4))
+                                    {
+                                        emailadres = reader.GetString(4);
+                                    }
+                                    string geslacht = reader.GetString(5);
+                                    Adres adres = adresLogic.GetAdresById(reader.GetInt32(6));
+                                    string telefoonnummer = "";
+                                    if (!reader.IsDBNull(7))
+                                    {
+                                        telefoonnummer = reader.GetString(7);
+                                    }
+                                    string mobielnummer = "";
+                                    if (!reader.IsDBNull(8))
+                                    {
+                                        mobielnummer = reader.GetString(8);
+                                    }
+                                    DateTime geboortedatum = reader.GetDateTime(9);
+
+                                    Persoon persoon = new Persoon(id, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,geboortedatum,adres, telefoonnummer, mobielnummer);
+                                    return persoon;
+                                }
+                            }
+                        }
+                    }
+                }
+                return null;
             }
             catch (Exception exception)
             {
