@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
 using Logic.Classes;
 using Logic.Repositories;
 using Logic.Sql;
