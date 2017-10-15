@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IAdresServices.cs" />
     <Compile Include="Interfaces\IAuthenticationServices.cs" />
     <Compile Include="Interfaces\IBestellingServices.cs" />
+    <Compile Include="Interfaces\IKassaServices.cs" />
     <Compile Include="Interfaces\ILidServices.cs" />
     <Compile Include="Interfaces\IOuderContactServices.cs" />
     <Compile Include="Interfaces\IProductenBestellingServices.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Repositories\AuthenticatieRepository.cs" />
     <Compile Include="Repositories\BankRepository.cs" />
     <Compile Include="Repositories\BestellingRepository.cs" />
+    <Compile Include="Repositories\KassaRepository.cs" />
     <Compile Include="Repositories\KlasseRepository.cs" />
     <Compile Include="Repositories\LidRepository.cs" />
     <Compile Include="Repositories\OudercontactRepository.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Sql\SqlAuthentication.cs" />
     <Compile Include="Sql\SqlBank.cs" />
+    <Compile Include="Sql\SqlKassa.cs" />
     <Compile Include="Sql\SqlKlasse.cs" />
     <Compile Include="Sql\SqlAdres.cs" />
     <Compile Include="Sql\SqlBestelling.cs" />

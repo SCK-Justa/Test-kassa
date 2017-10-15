@@ -18,6 +18,8 @@ namespace Kassasysteem
         private bool _contant;
         private decimal _bedrag;
         private string _getekendDoor;
+
+        private decimal bedragBij;
         private ListViewItem _item;
 
         public List<Formulier> Formulieren { get; private set; }
@@ -326,35 +328,67 @@ namespace Kassasysteem
         {
             try
             {
-                if (nudTraningskaartInkomsten.Value > 0)
-                {
-                    App.AddAndereInkomsten(nudTraningskaartInkomsten.Value);
-                    MessageBox.Show(@"Betaling trainingskaart is voldaan.");
-                    Close();
-                }
-                if (nudFooiInkomsten.Value > 0)
-                {
-                    App.AddAndereInkomsten(nudFooiInkomsten.Value);
-                    MessageBox.Show(@"Betaling fooi is voldaan.");
-                    Close();
-                }
-                if (nudDemoInkomsten.Value > 0)
-                {
-                    App.AddAndereInkomsten(nudDemoInkomsten.Value);
-                    MessageBox.Show(@"Betaling demo is voldaan.");
-                    Close();
-                }
-                if (nudAndereInkomsten.Value > 0)
-                {
-                    App.AddAndereInkomsten(nudAndereInkomsten.Value);
-                    MessageBox.Show(@"Betaling andere inkomsten is voldaan.");
-                    Close();
-                }
+
+                App.AddAndereInkomsten(Convert.ToDecimal(lbBedrag.Text));
             }
             catch (Exception exception)
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
             }
+        }
+
+        private void verhoogBedrag(decimal bedrag)
+        {
+            bedragBij += bedrag;
+            if (bedragBij >= 0)
+            {
+                lbBedrag.Text = "€" + bedragBij.ToString("##,###");
+            }
+        }
+
+        private void bt1_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(1);
+        }
+
+        private void bt2_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(2);
+        }
+
+        private void bt3_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(3);
+        }
+
+        private void bt6_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(6);
+        }
+
+        private void bt5_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(5);
+        }
+
+        private void bt4_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(4);
+        }
+
+        private void bt7_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(7);
+        }
+
+        private void bt8_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(8);
+        }
+
+        private void bt9_Click(object sender, EventArgs e)
+        {
+            verhoogBedrag(9);
         }
     }
 }
