@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Forms;
 using Kassasysteem;
 using Logic;
 using Logic.Classes;
-using Microsoft.Win32;
 
 namespace GUI
 {
@@ -108,7 +106,7 @@ namespace GUI
                     {
                         _item = new ListViewItem
                         {
-                            Text = b.Lid.Voornaam + " " + b.Lid.Achternaam,
+                            Text = b.Lid.Voornaam + @" " + b.Lid.Achternaam,
                             Tag = b
                         };
                         lvBestellingen.Items.Add(_item);
@@ -216,7 +214,7 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("U doet een losse verkoop");
+                    MessageBox.Show(@"U doet een losse verkoop");
                 }
             }
             catch (Exception exception)
@@ -231,15 +229,11 @@ namespace GUI
             try
             {
                 var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-                foreach (Bestelling b in App.GetBestellingen())
+                if (bestelling != null)
                 {
-                    if (b.Naam == bestelling.Naam || b.Lid == bestelling.Lid)
-                    {
-                        _afrekenScherm = new AfrekenScherm(App, b);
-                        _afrekenScherm.ShowDialog();
-                        UpdateAllesNaBetalen();
-                        break;
-                    }
+                    _afrekenScherm = new AfrekenScherm(App, bestelling);
+                    _afrekenScherm.ShowDialog();
+                    UpdateAllesNaBetalen();
                 }
             }
             catch (Exception exception)
@@ -251,41 +245,38 @@ namespace GUI
         private void lvBestellingen_Click(object sender, EventArgs e)
         {
             var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-            foreach (Bestelling b in App.GetBestellingen())
+            if (bestelling != null)
             {
-                if (b.Lid != null)
+                if (bestelling.Lid != null)
                 {
-                    if (b.Lid.Id == bestelling.Lid.Id)
+                    if (bestelling.Lid.Tussenvoegsel != "")
                     {
-                        if (b.Lid.Tussenvoegsel != "")
-                        {
-                            lbKlantnaam.Text = b.Lid.Voornaam + " " + b.Lid.Tussenvoegsel + " " + b.Lid.Achternaam;
-                        }
-                        else
-                        {
-                            lbKlantnaam.Text = b.Lid.Voornaam + " " + b.Lid.Achternaam;
-                        }
-                        lvProductenInBestelling.Items.Clear();
-                        UpdateKlantBestelling(b);
-                        btVerwijderProduct.Enabled = true;
-                        btAfrekenen.Enabled = true;
-                        groupBox4.Enabled = true;
-                        break;
+                        lbKlantnaam.Text = bestelling.Lid.Voornaam + @" " + bestelling.Lid.Tussenvoegsel + @" " +
+                                           bestelling.Lid.Achternaam;
                     }
+                    else
+                    {
+                        lbKlantnaam.Text = bestelling.Lid.Voornaam + @" " + bestelling.Lid.Achternaam;
+                    }
+                    lvProductenInBestelling.Items.Clear();
+                    UpdateKlantBestelling(bestelling);
+                    btVerwijderProduct.Enabled = true;
+                    btAfrekenen.Enabled = true;
+                    groupBox4.Enabled = true;
                 }
                 else
                 {
-                    if (b.Naam == bestelling.Naam)
-                    {
-                        lbKlantnaam.Text = b.Naam;
-                        lvProductenInBestelling.Items.Clear();
-                        UpdateKlantBestelling(b);
-                        btVerwijderProduct.Enabled = true;
-                        btAfrekenen.Enabled = true;
-                        groupBox4.Enabled = true;
-                        break;
-                    }
+                    lbKlantnaam.Text = bestelling.Naam;
+                    lvProductenInBestelling.Items.Clear();
+                    UpdateKlantBestelling(bestelling);
+                    btVerwijderProduct.Enabled = true;
+                    btAfrekenen.Enabled = true;
+                    groupBox4.Enabled = true;
                 }
+            }
+            else
+            {
+                MessageBox.Show(@"Er is geen bestelling geselecteerd.");
             }
         }
         #region buttonclicks
