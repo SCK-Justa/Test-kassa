@@ -54,7 +54,9 @@ namespace Logic
         public bool CheckDbConnection()
         {
             DBConnectie connectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            if (connectie.TryConnection())
+            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            _dbConnectie = new DBConnectie(connectieString);
+            if (_dbConnectie.TryConnection())
             {
                 return true;
             }
@@ -72,6 +74,7 @@ namespace Logic
                 _gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
                 if (connectie)
                 {
+                    Console.WriteLine("Connectie geslaagd.");
                     GetDatabaseStuff();
                     GetBestellingenFromDb();
                     AddProductenFromDbToVoorraad();
@@ -83,6 +86,10 @@ namespace Logic
                     {
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Connectie met database niet mogelijk.");
                 }
             }
             catch (Exception exception)
@@ -114,8 +121,10 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            string ip = "192.168.2.150";
-            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            //string ip = "192.168.2.150";
+            //_dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            _dbConnectie = new DBConnectie(connectieString);
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
             _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));

@@ -36,8 +36,9 @@ namespace Logic.Classes
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                Console.WriteLine(exception.Message);
                 return false;
             }
         }
