@@ -17,6 +17,7 @@ namespace Logic
         private AuthenticatieRepository _authRepo;
         private ProductBestellingRepository _productBestellingRepo;
         private ProductRepository _productRepo;
+        private KassaRepository _kassaRepo;
 
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
@@ -34,8 +35,15 @@ namespace Logic
         {
             try
             {
-                KassaAppSync();
                 Lokatie = lokatie;
+                if (CheckDbConnection())
+                {
+                    KassaAppSync(true);
+                }
+                else
+                {
+                    KassaAppSync(false);
+                }
             }
             catch (Exception exception)
             {
@@ -43,22 +51,45 @@ namespace Logic
             }
         }
 
-        private void KassaAppSync()
+        public bool CheckDbConnection()
+        {
+            DBConnectie connectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            _dbConnectie = new DBConnectie(connectieString);
+            if (_dbConnectie.TryConnection())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void KassaAppSync(bool connectie)
         {
             try
             {
-                GetDatabaseStuff();
-                GetBestellingenFromDb();
                 Voorraad = GetVoorraad();
-                AddProductenFromDbToVoorraad();
-                _leden = GetLeden();
-                _gebruikers = GetGebruikers();
+                BedragInKas = 0;
                 _formulieren = new List<Formulier>();
+                _gebruikers = new List<Authentication>();
                 _gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
-                //_gebruikers = _authRepo.GetAuthentications();
-                if (_afgerekendeBestellingen.Count > 1)
+                if (connectie)
                 {
-                    _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
+                    Console.WriteLine("Connectie geslaagd.");
+                    GetDatabaseStuff();
+                    GetBestellingenFromDb();
+                    AddProductenFromDbToVoorraad();
+                    BedragInKas = _kassaRepo.GetKasInhoud(0);
+                    _leden = GetLeden();
+                    _gebruikers = GetGebruikers();
+                    //_gebruikers = _authRepo.GetAuthentications();
+                    if (_afgerekendeBestellingen.Count > 1)
+                    {
+                        _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Connectie met database niet mogelijk.");
                 }
             }
             catch (Exception exception)
@@ -90,11 +121,10 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            // Intern
             //string ip = "192.168.2.150";
-            // Extern
-            string ip = "77.162.105.50";
-            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            //_dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            _dbConnectie = new DBConnectie(connectieString);
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
             _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));
@@ -103,6 +133,7 @@ namespace Logic
             _authRepo = new AuthenticatieRepository(new SqlAuthentication(_dbConnectie.GetConnectieString()));
             _productBestellingRepo = new ProductBestellingRepository(new SqlProductBestelling(_dbConnectie.GetConnectieString()));
             _productRepo = new ProductRepository(new SqlProduct(_dbConnectie.GetConnectieString()));
+            _kassaRepo = new KassaRepository(new SqlKassa(_dbConnectie.GetConnectieString()));
         }
 
         public List<Formulier> GetFormulieren()
@@ -119,6 +150,7 @@ namespace Logic
         public void AddAndereInkomsten(decimal value)
         {
             BedragInKas += value;
+            _kassaRepo.AddBedragToKas(BedragInKas);
         }
 
         public void AddLid(Lid lid)

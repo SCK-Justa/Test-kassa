@@ -23,8 +23,25 @@ namespace GUI
             {
                 InitializeComponent();
                 App = app;
-                UpdateKassaGegevens();
-                UpdateBestellingen();
+                if (App.CheckDbConnection())
+                {
+                    UpdateKassaGegevens();
+                    UpdateBestellingen();
+                }
+                else
+                {
+                    lbKassaNaam.Text = App.Lokatie;
+                    lbDagDatum.Text = DateTime.Now.ToShortDateString();
+                    lbOpenstaandeRekeningen.Text = "0";
+                    lbLoginnaam.Text = App.Authentication.FullName;
+                    lbKlantnaam.Text = "";
+                    lbDatumklant.Text = "";
+                    lbTotaalPrijs.Text = "";
+                    lbLedenprijs.Text = "";
+                    tbKlantnaam.Text = "";
+                    cbLidNaam.Text = "";
+                    btContant.Enabled = false;
+                }
                 cbLidNaam.Enabled = true;
             }
             catch (Exception exception)
