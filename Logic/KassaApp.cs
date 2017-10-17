@@ -90,7 +90,10 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            string ip = "192.168.2.150";
+            // Intern
+            //string ip = "192.168.2.150";
+            // Extern
+            string ip = "77.162.105.50";
             _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
