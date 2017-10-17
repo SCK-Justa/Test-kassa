@@ -159,6 +159,8 @@ namespace GUI
                 lbLedenprijs.Text = "";
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
+                gpDrinken.Visible = false;
+                gpEten.Visible = false;
                 btContant.Enabled = false;
             }
             catch (Exception exception)
@@ -216,6 +218,8 @@ namespace GUI
                 {
                     MessageBox.Show(@"U doet een losse verkoop");
                 }
+                gpDrinken.Visible = false;
+                gpEten.Visible = false;
             }
             catch (Exception exception)
             {
@@ -543,6 +547,16 @@ namespace GUI
         private void btContant_Click(object sender, EventArgs e)
         {
             lvBestellingen.SelectedItems.Clear();
+        }
+
+        private void btEten_Click(object sender, EventArgs e)
+        {
+            gpEten.Visible = true;
+        }
+
+        private void btDrinken_Click(object sender, EventArgs e)
+        {
+            gpDrinken.Visible = true;
         }
     }
 }
