@@ -36,7 +36,8 @@ namespace Kassasysteem
                 {
                     throw new Exception("Wachtwoord mag niet leeg zijn.");
                 }
-                App.AddGebruiker(tbGebruikersnaam.Text, tbWachtwoord.Text, tbVolledigenaam.Text, cbMachtiging.Checked);
+                // Foutje in de methode, moet gefixt worden (Alleen een geselecteerd Lid kan een authenticatie krijgen).
+                // App.AddGebruiker(tbGebruikersnaam.Text, tbWachtwoord.Text, tbVolledigenaam.Text, cbMachtiging.Checked);
                 UpdateGegevens();
             }
             catch (Exception exception)
@@ -55,8 +56,8 @@ namespace Kassasysteem
                     ListViewItem _item = new ListViewItem(auth.Id.ToString());
                     _item.SubItems.Add(auth.Username);
                     _item.SubItems.Add(auth.Password);
-                    _item.SubItems.Add(auth.FullName);
-                    _item.SubItems.Add(auth.Gemachtigd.ToString());
+                    _item.SubItems.Add(auth.GetFullName());
+                    _item.SubItems.Add(auth.AuthenticationSoort.ToString());
                     lvGebruikers.Items.Add(_item);
                 }
             }
@@ -79,8 +80,8 @@ namespace Kassasysteem
                     {
                         tbGebruikersnaam.Text = auth.Username;
                         tbWachtwoord.Text = auth.Password;
-                        tbVolledigenaam.Text = auth.FullName;
-                        cbMachtiging.Checked = auth.Gemachtigd;
+                        tbVolledigenaam.Text = auth.GetFullName();
+                        cbMachtiging.Checked = auth.AuthenticationSoort.Bestuur;
                     }
                 }
             }

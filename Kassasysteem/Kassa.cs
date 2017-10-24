@@ -33,7 +33,7 @@ namespace GUI
                     lbKassaNaam.Text = App.Lokatie;
                     lbDagDatum.Text = DateTime.Now.ToShortDateString();
                     lbOpenstaandeRekeningen.Text = "0";
-                    lbLoginnaam.Text = App.Authentication.FullName;
+                    lbLoginnaam.Text = App.Authentication.GetFullName();
                     lbKlantnaam.Text = "";
                     lbDatumklant.Text = "";
                     lbTotaalPrijs.Text = "";
@@ -152,7 +152,7 @@ namespace GUI
                 UpdateLeden();
                 lbOpenstaandeRekeningen.Text = App.GetBestellingen().Count.ToString();
                 lbDagDatum.Text = DateTime.Now.ToShortDateString();
-                lbLoginnaam.Text = App.Authentication.FullName;
+                lbLoginnaam.Text = App.Authentication.GetFullName();
                 lbKlantnaam.Text = "";
                 lbDatumklant.Text = "";
                 lbTotaalPrijs.Text = "";
@@ -161,6 +161,7 @@ namespace GUI
                 cbLidNaam.Text = "";
                 gpDrinken.Visible = false;
                 gpEten.Visible = false;
+                gpMenu.Visible = true;
                 btContant.Enabled = false;
             }
             catch (Exception exception)
@@ -218,8 +219,6 @@ namespace GUI
                 {
                     MessageBox.Show(@"U doet een losse verkoop");
                 }
-                gpDrinken.Visible = false;
-                gpEten.Visible = false;
             }
             catch (Exception exception)
             {
@@ -266,7 +265,6 @@ namespace GUI
                     UpdateKlantBestelling(bestelling);
                     btVerwijderProduct.Enabled = true;
                     btAfrekenen.Enabled = true;
-                    groupBox4.Enabled = true;
                 }
                 else
                 {
@@ -275,7 +273,6 @@ namespace GUI
                     UpdateKlantBestelling(bestelling);
                     btVerwijderProduct.Enabled = true;
                     btAfrekenen.Enabled = true;
-                    groupBox4.Enabled = true;
                 }
             }
             else
@@ -552,11 +549,25 @@ namespace GUI
         private void btEten_Click(object sender, EventArgs e)
         {
             gpEten.Visible = true;
+            gpMenu.Visible = false;
         }
 
         private void btDrinken_Click(object sender, EventArgs e)
         {
             gpDrinken.Visible = true;
+            gpMenu.Visible = false;
+        }
+
+        private void btTerug1_Click(object sender, EventArgs e)
+        {
+            gpMenu.Visible = true;
+            gpDrinken.Visible = false;
+        }
+
+        private void btTerug2_Click(object sender, EventArgs e)
+        {
+            gpMenu.Visible = true;
+            gpEten.Visible = false;
         }
     }
 }

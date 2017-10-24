@@ -26,8 +26,8 @@ namespace Kassasysteem
             try
             {
                 lbGebruikersnaam.Text = App.Authentication.Username;
-                lbVolledigeNaam.Text = App.Authentication.FullName;
-                if (!App.Authentication.Gemachtigd)
+                lbVolledigeNaam.Text = App.Authentication.GetFullName();
+                if (!App.Authentication.AuthenticationSoort.Bestuur)
                 {
                     btResetBestellingen.Visible = false;
                     btWijzigGebruikers.Visible = false;
@@ -74,7 +74,7 @@ namespace Kassasysteem
                 }
                 if (tbFullName.Text == "")
                 {
-                    fullname = App.Authentication.FullName;
+                    // Uuuuh
                 }
                 else
                 {
@@ -82,7 +82,6 @@ namespace Kassasysteem
                 }
                 App.Authentication.SetUsername(username);
                 App.Authentication.SetPassword(password);
-                App.Authentication.SetFullName(fullname);
                 MessageBox.Show(@"Uw gegevens zijn opgeslagen!","", MessageBoxButtons.OK);
                 Close();
             }

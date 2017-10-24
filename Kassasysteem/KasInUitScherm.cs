@@ -108,7 +108,7 @@ namespace Kassasysteem
                 }
                 if (soort == FormulierSoort.Uitgifteoverzicht)
                 {
-                    if (App.Authentication.Gemachtigd)
+                    if (App.Authentication.AuthenticationSoort.Bestuur)
                     {
                         Width = 1179;
                         gbDeclaratie.Visible = false;

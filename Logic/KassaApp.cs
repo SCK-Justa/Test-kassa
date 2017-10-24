@@ -53,10 +53,10 @@ namespace Logic
 
         public bool CheckDbConnection()
         {
-            DBConnectie connectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
-            _dbConnectie = new DBConnectie(connectieString);
-            if (_dbConnectie.TryConnection())
+            DBConnectie dbConnectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            //_dbConnectie = new DBConnectie(connectieString);
+            if (dbConnectie.TryConnection())
             {
                 return true;
             }
@@ -71,7 +71,7 @@ namespace Logic
                 BedragInKas = 0;
                 _formulieren = new List<Formulier>();
                 _gebruikers = new List<Authentication>();
-                _gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
+                //_gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
@@ -121,10 +121,10 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            //string ip = "192.168.2.150";
-            //_dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
-            _dbConnectie = new DBConnectie(connectieString);
+            string ip = "192.168.2.150";
+            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
+            //_dbConnectie = new DBConnectie(connectieString);
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
             _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));
@@ -211,16 +211,16 @@ namespace Logic
 
         public void AddGebruiker(string gebruikersnaam, string wachtwoord, string volledigenaam, bool isChecked)
         {
-            Authentication auth = new Authentication(gebruikersnaam, wachtwoord, volledigenaam, isChecked);
-            _gebruikers.Add(auth);
+            //Authentication auth = new Authentication(gebruikersnaam, wachtwoord, volledigenaam, isChecked);
+            //_gebruikers.Add(auth);
         }
 
         public List<Authentication> GetGebruikers()
         {
-            if (_gebruikers != null)
-            {
-                return _gebruikers;
-            }
+            //if (_gebruikers != null)
+            //{
+            //    return _gebruikers;
+            //}
             return _authRepo.GetAuthentications();
         }
 

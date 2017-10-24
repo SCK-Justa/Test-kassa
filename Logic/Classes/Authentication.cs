@@ -1,25 +1,23 @@
-﻿using System.Collections.Generic;
-
-namespace Logic.Classes
+﻿namespace Logic.Classes
 {
     public class Authentication
     {
         public int Id { get; private set; }
         public string Username { get; private set; }
         public string Password { get; private set; }
-        public string FullName { get; private set; }
+        public Lid Lid { get; private set; }
         public AuthenticationSoort AuthenticationSoort { get; private set; }
-        public bool Gemachtigd { get; private set; }
+        public AuthenticationSoort Soort { get; private set; }
         public int KassaId { get; private set; }
-        public Authentication(string username, string password, string fullname, bool gemachtigd)
+        public Authentication(string username, string password, Lid lid, AuthenticationSoort soort)
         {
             Username = username;
             Password = password;
-            FullName = fullname;
-            Gemachtigd = gemachtigd;
+            Lid = lid;
+            Soort = soort;
         }
 
-        public Authentication(int id, string username, string password, string fullname, bool gemachtigd, int kassaId) : this(username, password, fullname, gemachtigd)
+        public Authentication(int id, string username, string password, Lid lid, AuthenticationSoort soort, int kassaId) : this(username, password, lid, soort)
         {
             Id = id;
             KassaId = kassaId;
@@ -41,14 +39,23 @@ namespace Logic.Classes
             return false;
         }
 
-        public void SetFullName(string name)
+        public void SetLid(Lid lid)
         {
-            FullName = name;
+            Lid = lid;
         }
 
-        public void SetGemachtigd(bool gemachtigd)
+        public void SetAuthenticationSoort(AuthenticationSoort soort)
         {
-            Gemachtigd = gemachtigd;
+            Soort = soort;
+        }
+
+        public string GetFullName()
+        {
+            if (Lid.Tussenvoegsel != "")
+            {
+                return Lid.Voornaam + " " + Lid.Tussenvoegsel + " " + Lid.Achternaam;
+            }
+            return Lid.Voornaam + " " + Lid.Achternaam;
         }
     }
 }

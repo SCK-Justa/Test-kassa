@@ -17,7 +17,7 @@ namespace Kassasysteem
         {
             InitializeComponent();
             App = app;
-            SetAble(CheckGemachtigd(App.Authentication.Gemachtigd), CheckGemachtigd(App.Authentication.Gemachtigd));
+            SetAble(CheckGemachtigd(App.Authentication.AuthenticationSoort.Bestuur), CheckGemachtigd(App.Authentication.AuthenticationSoort.Bestuur));
             RefreshGegevens();
         }
 
@@ -54,7 +54,7 @@ namespace Kassasysteem
 
         private void lvProducten_Click(object sender, EventArgs e)
         {
-            if (CheckGemachtigd(App.Authentication.Gemachtigd))
+            if (CheckGemachtigd(App.Authentication.AuthenticationSoort.Bestuur))
             {
                 var selected = Convert.ToInt32(lvProducten.SelectedItems[0].Text);
                 foreach (Product product in App.Voorraad.GetProducten())
