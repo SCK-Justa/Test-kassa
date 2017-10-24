@@ -32,17 +32,16 @@ namespace GUI
                 {
                     lbKassaNaam.Text = App.Lokatie;
                     lbDagDatum.Text = DateTime.Now.ToShortDateString();
-                    lbOpenstaandeRekeningen.Text = "0";
-                    lbLoginnaam.Text = App.Authentication.GetFullName();
+                    lbOpenstaandeRekeningen.Text = @"0";
+                    lbLoginnaam.Text = @"Admin";
                     lbKlantnaam.Text = "";
                     lbDatumklant.Text = "";
                     lbTotaalPrijs.Text = "";
                     lbLedenprijs.Text = "";
                     tbKlantnaam.Text = "";
-                    cbLidNaam.Text = "";
+                    cbLidNaam.Enabled = false;
                     btContant.Enabled = false;
                 }
-                cbLidNaam.Enabled = true;
             }
             catch (Exception exception)
             {
@@ -366,11 +365,6 @@ namespace GUI
             AddProductToBestelling("Barbar Blond");
         }
 
-        private void btAndereSpeciaal_Click(object sender, EventArgs e)
-        {
-            AddProductToBestelling("Joope Witbier");
-        }
-
         private void btRodeWijn_Click(object sender, EventArgs e)
         {
             AddProductToBestelling("Rode Wijn");
@@ -408,7 +402,7 @@ namespace GUI
 
         private void btBonnenkaart_Click(object sender, EventArgs e)
         {
-            AddProductToBestelling("Bonnenkaart");
+            AddProductToBestelling("Munten");
         }
 
         private void btSchrobbeler_Click(object sender, EventArgs e)
@@ -452,21 +446,7 @@ namespace GUI
 
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult dialogResult = MessageBox.Show(@"Weet u zeker dat u wilt afmelden?", @"Afmelden",
-                    MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    // Alle bestellingen updaten in DB
-                    Close();
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
-                              exception.Message);
-            }
+            Afmelden();
         }
 
         private void gegevensWijzigenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -568,6 +548,29 @@ namespace GUI
         {
             gpMenu.Visible = true;
             gpEten.Visible = false;
+        }
+
+        private void afmeldenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Afmelden();
+        }
+
+        private void Afmelden()
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show(@"Weet u zeker dat u wilt afmelden?", @"Afmelden",
+                    MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
     }
 }

@@ -47,16 +47,17 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                throw;
             }
         }
 
         public bool CheckDbConnection()
         {
-            DBConnectie dbConnectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
-            //_dbConnectie = new DBConnectie(connectieString);
-            if (dbConnectie.TryConnection())
+            //_dbConnectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            // Let op, onderstaande werkt niet, moet gefixt worden voor remote connection
+            string connectieString = @"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;";
+            _dbConnectie = new DBConnectie(connectieString);
+            if (_dbConnectie.TryConnection())
             {
                 return true;
             }
@@ -71,7 +72,6 @@ namespace Logic
                 BedragInKas = 0;
                 _formulieren = new List<Formulier>();
                 _gebruikers = new List<Authentication>();
-                //_gebruikers.Add(new Authentication("Admin", "Schrader01", "Jelle Schrader", true));
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
@@ -90,6 +90,7 @@ namespace Logic
                 else
                 {
                     Console.WriteLine("Connectie met database niet mogelijk.");
+                    _gebruikers.Add(new Authentication("Admin", "system", null, new AuthenticationSoort("Admin", true, false)));
                 }
             }
             catch (Exception exception)
@@ -121,7 +122,8 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            string ip = "192.168.2.150";
+            //string ip = "192.168.2.150";
+            string ip = "77.162.105.50";
             _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
             //_dbConnectie = new DBConnectie(connectieString);

@@ -88,7 +88,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,16 +108,16 @@
             this.btDrinken = new System.Windows.Forms.Button();
             this.btEten = new System.Windows.Forms.Button();
             this.gpEten = new System.Windows.Forms.GroupBox();
+            this.btTerug2 = new System.Windows.Forms.Button();
             this.gpDrinken = new System.Windows.Forms.GroupBox();
             this.btTerug1 = new System.Windows.Forms.Button();
-            this.btTerug2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.MenuStrip.SuspendLayout();
             this.gpMenu.SuspendLayout();
             this.gpEten.SuspendLayout();
             this.gpDrinken.SuspendLayout();
@@ -354,7 +354,7 @@
             this.btBonnenkaart.Name = "btBonnenkaart";
             this.btBonnenkaart.Size = new System.Drawing.Size(128, 142);
             this.btBonnenkaart.TabIndex = 28;
-            this.btBonnenkaart.Text = "Bonnenkaart (10 bonnen)";
+            this.btBonnenkaart.Text = "Zakje munten \r\n(10 munten)";
             this.btBonnenkaart.UseVisualStyleBackColor = true;
             this.btBonnenkaart.Click += new System.EventHandler(this.btBonnenkaart_Click);
             // 
@@ -775,10 +775,10 @@
             this.columnHeader6.Text = "Ledenprijs";
             this.columnHeader6.Width = 103;
             // 
-            // menuStrip1
+            // MenuStrip
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.accountToolStripMenuItem,
             this.voorraadToolStripMenuItem,
@@ -786,11 +786,11 @@
             this.formulierenToolStripMenuItem,
             this.bestellingenToolStripMenuItem,
             this.ledenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(1008, 24);
+            this.MenuStrip.TabIndex = 4;
+            this.MenuStrip.Text = "MenuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -803,7 +803,7 @@
             // afmeldenToolStripMenuItem
             // 
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.afmeldenToolStripMenuItem.Text = "Afsluiten";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
@@ -819,15 +819,16 @@
             // gegevensWijzigenToolStripMenuItem
             // 
             this.gegevensWijzigenToolStripMenuItem.Name = "gegevensWijzigenToolStripMenuItem";
-            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gegevensWijzigenToolStripMenuItem.Text = "Gegevens...";
             this.gegevensWijzigenToolStripMenuItem.Click += new System.EventHandler(this.gegevensWijzigenToolStripMenuItem_Click);
             // 
             // afmeldenToolStripMenuItem1
             // 
             this.afmeldenToolStripMenuItem1.Name = "afmeldenToolStripMenuItem1";
-            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.afmeldenToolStripMenuItem1.Text = "Afmelden";
+            this.afmeldenToolStripMenuItem1.Click += new System.EventHandler(this.afmeldenToolStripMenuItem1_Click);
             // 
             // voorraadToolStripMenuItem
             // 
@@ -840,7 +841,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -952,6 +953,17 @@
             this.gpEten.TabStop = false;
             this.gpEten.Text = "Eten";
             // 
+            // btTerug2
+            // 
+            this.btTerug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug2.Location = new System.Drawing.Point(466, 270);
+            this.btTerug2.Name = "btTerug2";
+            this.btTerug2.Size = new System.Drawing.Size(100, 50);
+            this.btTerug2.TabIndex = 33;
+            this.btTerug2.Text = "Terug";
+            this.btTerug2.UseVisualStyleBackColor = true;
+            this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
+            // 
             // gpDrinken
             // 
             this.gpDrinken.Controls.Add(this.btTerug1);
@@ -993,17 +1005,6 @@
             this.btTerug1.UseVisualStyleBackColor = true;
             this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
-            // btTerug2
-            // 
-            this.btTerug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug2.Location = new System.Drawing.Point(466, 270);
-            this.btTerug2.Name = "btTerug2";
-            this.btTerug2.Size = new System.Drawing.Size(100, 50);
-            this.btTerug2.TabIndex = 33;
-            this.btTerug2.Text = "Terug";
-            this.btTerug2.UseVisualStyleBackColor = true;
-            this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
-            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1016,7 +1017,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.MenuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Kassa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1030,8 +1031,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.gpMenu.ResumeLayout(false);
             this.gpEten.ResumeLayout(false);
             this.gpDrinken.ResumeLayout(false);
@@ -1091,7 +1092,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbLidNaam;
         private System.Windows.Forms.Button btBonnenkaart;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
