@@ -113,6 +113,7 @@
             this.btTerug1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
+            this.verkoopgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -879,7 +880,8 @@
             // bestellingenToolStripMenuItem
             // 
             this.bestellingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bestelgeschiedenisToolStripMenuItem});
+            this.bestelgeschiedenisToolStripMenuItem,
+            this.verkoopgeschiedenisToolStripMenuItem});
             this.bestellingenToolStripMenuItem.Name = "bestellingenToolStripMenuItem";
             this.bestellingenToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.bestellingenToolStripMenuItem.Text = "Bestellingen";
@@ -887,7 +889,7 @@
             // bestelgeschiedenisToolStripMenuItem
             // 
             this.bestelgeschiedenisToolStripMenuItem.Name = "bestelgeschiedenisToolStripMenuItem";
-            this.bestelgeschiedenisToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.bestelgeschiedenisToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.bestelgeschiedenisToolStripMenuItem.Text = "Bestelgeschiedenis";
             this.bestelgeschiedenisToolStripMenuItem.Click += new System.EventHandler(this.bestelgeschiedenisToolStripMenuItem_Click);
             // 
@@ -1029,6 +1031,12 @@
             this.lbConnectie.TabIndex = 47;
             this.lbConnectie.Text = ".";
             // 
+            // verkoopgeschiedenisToolStripMenuItem
+            // 
+            this.verkoopgeschiedenisToolStripMenuItem.Name = "verkoopgeschiedenisToolStripMenuItem";
+            this.verkoopgeschiedenisToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.verkoopgeschiedenisToolStripMenuItem.Text = "Verkoopgeschiedenis";
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1154,5 +1162,6 @@
         private System.Windows.Forms.Button btTerug2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbConnectie;
+        private System.Windows.Forms.ToolStripMenuItem verkoopgeschiedenisToolStripMenuItem;
     }
 }

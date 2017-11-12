@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Logic.Interfaces;
+using System;
 
 namespace Logic.Repositories
 {
@@ -10,17 +11,17 @@ namespace Logic.Repositories
         {
             this._omzetServices = _omzetServices;
         }
-        public List<decimal> GetOmzetPerDag(int weeknr)
+        public List<decimal> GetOmzetPerDag(DateTime eersteDagVanDeWeek)
         {
-            return _omzetServices.GetOmzetPerDag(weeknr);
+            return _omzetServices.GetOmzetPerDag(eersteDagVanDeWeek);
         }
 
-        public List<decimal> GetOmzetPerWeek(int maand)
+        public List<decimal> GetOmzetPerWeek(DateTime eersteDagVanDeMaand)
         {
-            return _omzetServices.GetOmzetPerWeek(maand);
+            return _omzetServices.GetOmzetPerWeek(eersteDagVanDeMaand);
         }
 
-        public List<decimal> GetOmzetPerMaand(int jaartal)
+        public List<decimal> GetOmzetPerMaand(DateTime jaartal)
         {
             return _omzetServices.GetOmzetPerMaand(jaartal);
         }

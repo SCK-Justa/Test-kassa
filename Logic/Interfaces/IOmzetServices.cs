@@ -5,9 +5,9 @@ namespace Logic.Interfaces
 {
     public interface IOmzetServices
     {
-        List<decimal> GetOmzetPerDag(int weeknr);
-        List<decimal> GetOmzetPerWeek(int maand);
-        List<decimal> GetOmzetPerMaand(int jaartal);
+        List<decimal> GetOmzetPerDag(DateTime eersteDagVanDeWeek);
+        List<decimal> GetOmzetPerWeek(DateTime eersteDagVanDeMaand);
+        List<decimal> GetOmzetPerMaand(DateTime jaartal);
         List<decimal> GetOmzetPerJaar();
     }
 }

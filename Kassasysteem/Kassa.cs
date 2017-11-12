@@ -500,8 +500,8 @@ namespace GUI
             try
             {
                 //TODO Omzet zichbaar maken vanuit db
-                //_omzetScherm = new PenningmeesterScherm(App);
-                //_omzetScherm.ShowDialog();
+                _omzetScherm = new PenningmeesterScherm(App);
+                _omzetScherm.ShowDialog();
             }
             catch (Exception exception)
             {

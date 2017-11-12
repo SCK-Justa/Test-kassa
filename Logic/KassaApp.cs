@@ -502,7 +502,7 @@ namespace Logic
             _losseVerkopen.Add(product);
         }
 
-        public List<decimal> GetOmzetPerDag(int weeknr)
+        public List<decimal> GetOmzetPerDag(DateTime weeknr)
         {
             List<decimal> dagOmzet = _omzetRepo.GetOmzetPerDag(weeknr);
             if (dagOmzet == null)
@@ -516,7 +516,7 @@ namespace Logic
             return dagOmzet;
         }
 
-        public List<decimal> GetOmzetPerWeek(int maand)
+        public List<decimal> GetOmzetPerWeek(DateTime maand)
         {
             List<decimal> weekOmzet = _omzetRepo.GetOmzetPerWeek(maand);
             if (weekOmzet == null)

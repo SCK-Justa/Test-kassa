@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
+using System.Globalization;
 
 namespace Kassasysteem
 {
@@ -35,10 +36,10 @@ namespace Kassasysteem
             // Scheidt tekst in week en het weeknummer, weeknummer wordt doorgespeeld om de omzet van die week op te halen.
             try
             {
-                int weeknr;
+                DateTime eerstedagvandeweek;
                 string[] week = cbWeekNrs.SelectedText.Split(' ');
-                weeknr = Convert.ToInt32(week[1]);
-                _weekOmzet = App.GetOmzetPerDag(weeknr);
+                eerstedagvandeweek = FirstDateOfWeekISO8601(2017, Convert.ToInt32(week[1]));
+                _weekOmzet = App.GetOmzetPerDag(eerstedagvandeweek);
 
                 tbMaandag.Text = "€ " + _weekOmzet[0];
                 tbDinsdag.Text = "€ " + _weekOmzet[1];
@@ -52,6 +53,24 @@ namespace Kassasysteem
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        public DateTime FirstDateOfWeekISO8601(int year, int weekOfYear)
+        {
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;
+
+            DateTime firstThursday = jan1.AddDays(daysOffset);
+            var cal = CultureInfo.CurrentCulture.Calendar;
+            int firstWeek = cal.GetWeekOfYear(firstThursday, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+
+            var weekNum = weekOfYear;
+            if (firstWeek <= 1)
+            {
+                weekNum -= 1;
+            }
+            var result = firstThursday.AddDays(weekNum * 7);
+            return result.AddDays(-3);
         }
     }
 }
