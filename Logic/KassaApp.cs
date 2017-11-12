@@ -18,49 +18,49 @@ namespace Logic
         private ProductBestellingRepository _productBestellingRepo;
         private ProductRepository _productRepo;
         private KassaRepository _kassaRepo;
+        private OmzetRepository _omzetRepo;
 
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
+        private List<Product> _losseVerkopen;
         private List<Bestelling> _bestellingen;
         private List<Bestelling> _afgerekendeBestellingen;
         private List<Formulier> _formulieren;
+        private int volgendBestellingNr;
 
         public int Id { get; private set; }
         public string Lokatie { get; private set; }
         public Voorraad Voorraad { get; private set; }
         public Authentication Authentication { get; private set; }
         public decimal BedragInKas { get; private set; }
+        public bool DBConnection { get; private set; } // Geen connectie = false, dan draait de app lokaal, anders met database.
 
         public KassaApp(string lokatie)
         {
             try
             {
                 Lokatie = lokatie;
-                if (CheckDbConnection())
-                {
-                    KassaAppSync(true);
-                }
-                else
-                {
-                    KassaAppSync(false);
-                }
+                // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
+                KassaAppSync(CheckDbConnection());
             }
             catch (Exception exception)
             {
-                throw;
+                throw exception;
             }
         }
 
         public bool CheckDbConnection()
         {
-            //_dbConnectie = new DBConnectie(@"Server=192.168.2.150,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            _dbConnectie = new DBConnectie(@"Server=192.168.2.105,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             // Let op, onderstaande werkt niet, moet gefixt worden voor remote connection
-            string connectieString = @"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;";
-            _dbConnectie = new DBConnectie(connectieString);
+            //string connectieString = @"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;";
+            //_dbConnectie = new DBConnectie(connectieString);
             if (_dbConnectie.TryConnection())
             {
+                DBConnection = true;
                 return true;
             }
+            DBConnection = false;
             return false;
         }
 
@@ -72,15 +72,16 @@ namespace Logic
                 BedragInKas = 0;
                 _formulieren = new List<Formulier>();
                 _gebruikers = new List<Authentication>();
+                _losseVerkopen = new List<Product>();
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
                     GetDatabaseStuff();
-                    GetBestellingenFromDb();
                     AddProductenFromDbToVoorraad();
-                    BedragInKas = _kassaRepo.GetKasInhoud(0);
                     _leden = GetLeden();
                     _gebruikers = GetGebruikers();
+                    GetBestellingenFromDb();
+                    BedragInKas = _kassaRepo.GetKasInhoud(0);
                     //_gebruikers = _authRepo.GetAuthentications();
                     if (_afgerekendeBestellingen.Count > 1)
                     {
@@ -89,8 +90,9 @@ namespace Logic
                 }
                 else
                 {
-                    Console.WriteLine("Connectie met database niet mogelijk.");
+                    Console.WriteLine("Connectie met database niet mogelijk. Admin toegevoegd aan inlogaccounts.");
                     _gebruikers.Add(new Authentication("Admin", "system", null, new AuthenticationSoort("Admin", true, false)));
+                    GetBestellingenFromDb();
                 }
             }
             catch (Exception exception)
@@ -122,8 +124,9 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            //string ip = "192.168.2.150";
-            string ip = "77.162.105.50";
+            // Connectie hoeft niet gemaakt te worden, is al gedaan bij het controleren van de connectie.
+            string ip = "192.168.2.105";
+            //string ip = "77.162.105.50";
             _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
             //_dbConnectie = new DBConnectie(connectieString);
@@ -136,6 +139,7 @@ namespace Logic
             _productBestellingRepo = new ProductBestellingRepository(new SqlProductBestelling(_dbConnectie.GetConnectieString()));
             _productRepo = new ProductRepository(new SqlProduct(_dbConnectie.GetConnectieString()));
             _kassaRepo = new KassaRepository(new SqlKassa(_dbConnectie.GetConnectieString()));
+            _omzetRepo = new OmzetRepository(new SqlOmzet(_dbConnectie.GetConnectieString()));
         }
 
         public List<Formulier> GetFormulieren()
@@ -230,10 +234,20 @@ namespace Logic
         {
             try
             {
-                Bestelling bestelling = new Bestelling(lid, datum);
-                _bestellingRepo.AddBestellingMetPersoon(bestelling);
-                _bestellingen.Clear();
-                GetBestellingenFromDb();
+                Bestelling bestelling;
+                if (DBConnection)
+                {
+                    bestelling = new Bestelling(lid, datum);
+                    int id = _bestellingRepo.AddBestellingMetPersoon(bestelling);
+                    bestelling.SetId(id);
+                    _bestellingen.Add(bestelling);
+                }
+                else
+                {
+                    bestelling = new Bestelling(volgendBestellingNr, lid, datum);
+                    _bestellingen.Add(bestelling);
+                    volgendBestellingNr++;
+                }
             }
             catch (Exception exception)
             {
@@ -245,9 +259,20 @@ namespace Logic
         {
             try
             {
-                Bestelling bestelling = new Bestelling(name, datum);
-                _bestellingRepo.AddBestellingMetNaam(bestelling);
-                _bestellingen.Add(bestelling);
+                Bestelling bestelling;
+                if (DBConnection)
+                {
+                    bestelling = new Bestelling(name, datum);
+                    int id = _bestellingRepo.AddBestellingMetNaam(bestelling);
+                    bestelling.SetId(id);
+                    _bestellingen.Add(bestelling);
+                }
+                else
+                {
+                    bestelling = new Bestelling(volgendBestellingNr, name, datum);
+                    _bestellingen.Add(bestelling);
+                    volgendBestellingNr++;
+                }
             }
             catch (Exception exception)
             {
@@ -257,7 +282,10 @@ namespace Logic
 
         public bool RemoveProductVanBestelling(Bestelling bestelling, Product product)
         {
-            _productBestellingRepo.RemoveProductFromBestelling(bestelling, product);
+            if (DBConnection)
+            {
+                _productBestellingRepo.RemoveProductFromBestelling(bestelling, product);
+            }
             bestelling.RemoveProductFromList(product);
             return true;
         }
@@ -305,17 +333,21 @@ namespace Logic
             {
                 _bestellingen = new List<Bestelling>();
                 _afgerekendeBestellingen = new List<Bestelling>();
-                List<Bestelling> tijdelijkelijst = _bestellingRepo.GetAllBestellingen();
-                foreach (Bestelling bestelling in tijdelijkelijst)
+                if (DBConnection)
                 {
-                    if (bestelling.Betaald)
+                    List<Bestelling> tijdelijkelijst = _bestellingRepo.GetAllBestellingen();
+                    foreach (Bestelling bestelling in tijdelijkelijst)
                     {
-                        _afgerekendeBestellingen.Add(bestelling);
+                        if (bestelling.Betaald)
+                        {
+                            _afgerekendeBestellingen.Add(bestelling);
+                        }
+                        else
+                        {
+                            _bestellingen.Add(bestelling);
+                        }
                     }
-                    else
-                    {
-                        _bestellingen.Add(bestelling);
-                    }
+                    volgendBestellingNr = _bestellingen.Count + _afgerekendeBestellingen.Count;
                 }
             }
             catch (Exception exception)
@@ -328,7 +360,7 @@ namespace Logic
         {
             if (Voorraad == null)
             {
-                return new Voorraad();
+                return new Voorraad(DBConnection);
             }
             return Voorraad;
         }
@@ -355,7 +387,10 @@ namespace Logic
             BedragInKas += bestelling.BetaaldBedrag;
             _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
             _bestellingen.Remove(bestelling);
-            _bestellingRepo.BetaalBestelling(bestelling);
+            if (DBConnection)
+            {
+                _bestellingRepo.BetaalBestelling(bestelling);
+            }
             return true;
         }
 
@@ -368,8 +403,11 @@ namespace Logic
                     bool check = b.AddProductToList(product);
                     if (check)
                     {
-                        _productBestellingRepo.AddProductToBestelling(bestelling, product);
-                        _productRepo.EditProduct(product);
+                        if (DBConnection)
+                        {
+                            _productBestellingRepo.AddProductToBestelling(bestelling, product);
+                            _productRepo.EditProduct(product);
+                        }
                     }
                 }
             }
@@ -421,7 +459,7 @@ namespace Logic
         {
             foreach (Lid lid in _leden)
             {
-                if (lid.Voornaam + " " + lid.Tussenvoegsel + " " + lid.Achternaam == name)
+                if (lid.GetLidNaam() == name)
                 {
                     return lid;
                 }
@@ -433,14 +471,63 @@ namespace Logic
         {
             try
             {
-                Product product = new Product(naam, soort, voorraad, ledenprijs, prijs);
-                _productRepo.AddProduct(product);
-                Voorraad.AddProduct(_productRepo.GetProductByName(product.Naam));
+                if (DBConnection)
+                {
+                    Product product = new Product(naam, soort, voorraad, ledenprijs, prijs);
+                    _productRepo.AddProduct(product);
+                    Voorraad.AddProduct(_productRepo.GetProductByName(product.Naam));
+                }
             }
             catch (Exception exception)
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public List<Product> GetLosseVerkopen()
+        {
+            if (_losseVerkopen == null)
+            {
+                _losseVerkopen = new List<Product>();
+            }
+            return _losseVerkopen;
+        }
+
+        public void AddLosseVerkoop(Product product)
+        {
+            if (DBConnection)
+            {
+                _productBestellingRepo.AddLosseVerkoop(product);
+            }
+            _losseVerkopen.Add(product);
+        }
+
+        public List<decimal> GetOmzetPerDag(int weeknr)
+        {
+            List<decimal> dagOmzet = _omzetRepo.GetOmzetPerDag(weeknr);
+            if (dagOmzet == null)
+            {
+                dagOmzet = new List<decimal>();
+            }
+            while (dagOmzet.Count < 6)
+            {
+                dagOmzet.Add(0);
+            }
+            return dagOmzet;
+        }
+
+        public List<decimal> GetOmzetPerWeek(int maand)
+        {
+            List<decimal> weekOmzet = _omzetRepo.GetOmzetPerWeek(maand);
+            if (weekOmzet == null)
+            {
+                weekOmzet = new List<decimal>();
+            }
+            while (weekOmzet.Count < 6)
+            {
+                weekOmzet.Add(0);
+            }
+            return weekOmzet;
         }
     }
 }

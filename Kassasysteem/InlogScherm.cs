@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using GUI;
 using Logic;
@@ -16,6 +17,7 @@ namespace Kassasysteem
             {
                 InitializeComponent();
                 App = new KassaApp(Text);
+                ShowDbConnection();
             }
             catch (Exception exception)
             {
@@ -28,6 +30,20 @@ namespace Kassasysteem
             InitializeComponent();
             App = app;
             Kassa = kassa;
+        }
+
+        public void ShowDbConnection()
+        {
+            if (App.DBConnection)
+            {
+                lbConnectie.Text = @"gelukt";
+                lbConnectie.ForeColor = Color.Green;
+            }
+            else
+            {
+                lbConnectie.Text = @"mislukt";
+                lbConnectie.ForeColor = Color.Red;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

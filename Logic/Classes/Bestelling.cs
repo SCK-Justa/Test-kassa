@@ -61,6 +61,10 @@ namespace Logic.Classes
             Betaald = false;
         }
 
+        public void SetId(int id)
+        {
+            Id = id;
+        }
         public void SetPersoon(Lid lid)
         {
             Lid = lid;
@@ -179,6 +183,19 @@ namespace Logic.Classes
             BetaaldBedrag = bedrag;
             Betaald = true;
             DatumBetaald = datumBetaald;
+        }
+
+        public string GetBesteller()
+        {
+            if (Lid != null)
+            {
+                if (Lid.Tussenvoegsel != "")
+                {
+                    return Lid.Voornaam + " " + Lid.Tussenvoegsel + " " + Lid.Achternaam;
+                }
+                return Lid.Voornaam + " " + Lid.Achternaam;
+            }
+            return Naam;
         }
     }
 }

@@ -164,7 +164,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Aantal bonnen:";
+            this.label4.Text = "Aantal munten:";
             // 
             // lbBonnen
             // 
@@ -197,7 +197,7 @@
             this.btAfrekenenBonnen.Name = "btAfrekenenBonnen";
             this.btAfrekenenBonnen.Size = new System.Drawing.Size(268, 74);
             this.btAfrekenenBonnen.TabIndex = 13;
-            this.btAfrekenenBonnen.Text = "Afrekenen met bonnen";
+            this.btAfrekenenBonnen.Text = "Afrekenen met munten";
             this.btAfrekenenBonnen.UseVisualStyleBackColor = true;
             this.btAfrekenenBonnen.Click += new System.EventHandler(this.btAfrekenenBonnen_Click);
             // 

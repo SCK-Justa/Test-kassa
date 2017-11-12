@@ -4,7 +4,7 @@ using Logic.Interfaces;
 
 namespace Logic.Repositories
 {
-    public class BestellingRepository : IBestellingServices
+    public class BestellingRepository
     {
         private IBestellingServices _bestellingServices;
         public BestellingRepository(IBestellingServices bestellingeServices)
@@ -32,15 +32,16 @@ namespace Logic.Repositories
             return _bestellingServices.GetProductenInBestelling(bestellingId);
         }
 
-        public void AddBestellingMetPersoon(Bestelling bestelling)
+        public int AddBestellingMetPersoon(Bestelling bestelling)
         {
-            _bestellingServices.AddBestellingMetPersoon(bestelling);
+            return _bestellingServices.AddBestellingMetPersoon(bestelling);
         }
 
-        public void AddBestellingMetNaam(Bestelling bestelling)
+        public int AddBestellingMetNaam(Bestelling bestelling)
         {
-            _bestellingServices.AddBestellingMetNaam(bestelling);
+            return _bestellingServices.AddBestellingMetNaam(bestelling);
         }
+
 
         public void EditBestelling(Bestelling bestelling)
         {

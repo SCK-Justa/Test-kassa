@@ -36,6 +36,8 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbConnectie = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +112,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbConnectie);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btCancel);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btLogin);
@@ -122,6 +126,28 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
+            // 
+            // lbConnectie
+            // 
+            this.lbConnectie.AutoSize = true;
+            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbConnectie.Location = new System.Drawing.Point(248, 12);
+            this.lbConnectie.Name = "lbConnectie";
+            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
+            this.lbConnectie.TabIndex = 49;
+            this.lbConnectie.Text = ".";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(184, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "Connectie:";
             // 
             // InlogScherm
             // 
@@ -151,5 +177,7 @@
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lbConnectie;
+        private System.Windows.Forms.Label label7;
     }
 }

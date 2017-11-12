@@ -163,7 +163,7 @@ namespace Logic.Sql
             }
         }
 
-        public void AddBestellingMetPersoon(Bestelling bestelling)
+        public int AddBestellingMetPersoon(Bestelling bestelling)
         {
             try
             {
@@ -187,9 +187,20 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
 
                             cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT BId FROM Bestelling WHERE BPersoonid = @persoonId AND BDatum = @datum AND BBetalld = @betaald AND BKassaId = @kassaId AND BBetaaldMetBonnen = @bonnen AND BDatumBetaald = @datumbetaald AND BBetaaldBedrag = @betaaldbedrag ORDER BY BId DESC;";
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    return id;
+                                }
+                            }
                         }
                     }
                 }
+                return -1;
             }
             catch (Exception exception)
             {
@@ -197,7 +208,7 @@ namespace Logic.Sql
             }
         }
 
-        public void AddBestellingMetNaam(Bestelling bestelling)
+        public int AddBestellingMetNaam(Bestelling bestelling)
         {
             try
             {
@@ -221,9 +232,20 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
 
                             cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT BId FROM Bestelling WHERE BNaam = @naam AND BDatum = @datum AND BBetalld = @betaald AND BKassaId = @kassaId AND BBetaaldMetBonnen = @bonnen AND BDatumBetaald = @datumbetaald AND BBetaaldBedrag = @betaaldbedrag ORDER BY BId DESC;";
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    return id;
+                                }
+                            }
                         }
                     }
                 }
+                return -1;
             }
             catch (Exception exception)
             {

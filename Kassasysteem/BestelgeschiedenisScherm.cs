@@ -38,16 +38,8 @@ namespace Kassasysteem
                     foreach (Bestelling b in _afgerekendeBestellingen)
                     {
                         ListViewItem lvi;
-                        if (b.Naam != null)
-                        {
-                            lvi = new ListViewItem(b.Naam);
-                            SuppUpdate(lvi, b);
-                        }
-                        else
-                        {
-                            lvi = new ListViewItem(b.Lid.Voornaam + " " + b.Lid.Tussenvoegsel + " " + b.Lid.Achternaam);
-                            SuppUpdate(lvi, b);
-                        }
+                        lvi = new ListViewItem(b.GetBesteller());
+                        SuppUpdate(lvi, b);
                     }
                 }
             }

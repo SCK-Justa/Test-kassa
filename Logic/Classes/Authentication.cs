@@ -51,11 +51,17 @@
 
         public string GetFullName()
         {
-            if (Lid.Tussenvoegsel != "")
+            // Lid is alleen null als er geen database connectie is.
+            if (Lid != null)
             {
-                return Lid.Voornaam + " " + Lid.Tussenvoegsel + " " + Lid.Achternaam;
+                if (Lid.Tussenvoegsel != "")
+                {
+                    return Lid.Voornaam + " " + Lid.Tussenvoegsel + " " + Lid.Achternaam;
+                }
+                return Lid.Voornaam + " " + Lid.Achternaam;
             }
-            return Lid.Voornaam + " " + Lid.Achternaam;
+            return "Admin";
+
         }
     }
 }

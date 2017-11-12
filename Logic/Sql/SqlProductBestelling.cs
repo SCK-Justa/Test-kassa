@@ -26,10 +26,38 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@bestellingId, @productId);";
+                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
+                            cmd.Parameters.AddWithValue("@productId", product.Id);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public void AddLosseVerkoop(Product product)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "INSERT INTO Productbestelling (PbProductId) VALUES (@productId);";
+                            cmd.Connection = conn;
+
                             cmd.Parameters.AddWithValue("@productId", product.Id);
 
                             cmd.ExecuteNonQuery();

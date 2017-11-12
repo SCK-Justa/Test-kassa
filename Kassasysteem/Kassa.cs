@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Kassasysteem;
@@ -17,11 +18,14 @@ namespace GUI
         private PenningmeesterScherm _omzetScherm;
         private KasInUitScherm _kasinuitScherm;
 
+        private bool _contanteVerkoop;
+
         public Kassa(KassaApp app)
         {
             try
             {
                 InitializeComponent();
+                _contanteVerkoop = false;
                 App = app;
                 if (App.CheckDbConnection())
                 {
@@ -40,7 +44,8 @@ namespace GUI
                     lbLedenprijs.Text = "";
                     tbKlantnaam.Text = "";
                     cbLidNaam.Enabled = false;
-                    btContant.Enabled = false;
+                    lbConnectie.Text = @"mislukt";
+                    lbConnectie.ForeColor = Color.Red;
                 }
             }
             catch (Exception exception)
@@ -101,24 +106,12 @@ namespace GUI
             {
                 if (b.Betaald == false)
                 {
-                    if (b.Lid != null)
+                    _item = new ListViewItem
                     {
-                        _item = new ListViewItem
-                        {
-                            Text = b.Lid.Voornaam + @" " + b.Lid.Achternaam,
-                            Tag = b
-                        };
-                        lvBestellingen.Items.Add(_item);
-                    }
-                    else
-                    {
-                        _item = new ListViewItem
-                        {
-                            Text = b.Naam,
-                            Tag = b
-                        };
-                        lvBestellingen.Items.Add(_item);
-                    }
+                        Text = b.GetBesteller(),
+                        Tag = b
+                    };
+                    lvBestellingen.Items.Add(_item);
                 }
             }
         }
@@ -131,14 +124,7 @@ namespace GUI
             {
                 foreach (Lid lid in leden)
                 {
-                    if (lid.Tussenvoegsel != null || lid.Tussenvoegsel != "")
-                    {
-                        cbLidNaam.Items.Add(lid.Voornaam + " " + lid.Tussenvoegsel + " " + lid.Achternaam);
-                    }
-                    else
-                    {
-                        cbLidNaam.Items.Add(lid.Voornaam + " " + lid.Achternaam);
-                    }
+                    cbLidNaam.Items.Add(lid.GetLidNaam());
                 }
             }
         }
@@ -147,8 +133,11 @@ namespace GUI
         {
             try
             {
+                if (App.DBConnection)
+                {
+                    UpdateLeden();
+                }
                 lbKassaNaam.Text = App.Lokatie;
-                UpdateLeden();
                 lbOpenstaandeRekeningen.Text = App.GetBestellingen().Count.ToString();
                 lbDagDatum.Text = DateTime.Now.ToShortDateString();
                 lbLoginnaam.Text = App.Authentication.GetFullName();
@@ -158,10 +147,14 @@ namespace GUI
                 lbLedenprijs.Text = "";
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
+                if (App.DBConnection)
+                {
+                    lbConnectie.Text = @"gelukt";
+                    lbConnectie.ForeColor = Color.Green;
+                }
                 gpDrinken.Visible = false;
                 gpEten.Visible = false;
                 gpMenu.Visible = true;
-                btContant.Enabled = false;
             }
             catch (Exception exception)
             {
@@ -184,45 +177,79 @@ namespace GUI
                 }
                 lbTotaalPrijs.Text = @"€" + bestelling.TotaalPrijs.ToString(CultureInfo.InvariantCulture);
                 lbLedenprijs.Text = @"€" + bestelling.TotaalLedenPrijs.ToString(CultureInfo.InvariantCulture);
-                lbDatumklant.Text = bestelling.Datum.ToShortDateString() + @" - " + bestelling.Datum.ToShortTimeString();
+                lbDatumklant.Text =
+                    bestelling.Datum.ToShortDateString() + @" - " + bestelling.Datum.ToShortTimeString();
+            }
+            else
+            {
+                foreach (Product p in App.GetLosseVerkopen())
+                {
+                    ListViewItem lvi = new ListViewItem(p.Naam);
+                    lvi.SubItems.Add("€" + p.Prijs);
+                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
+                    lvi.Tag = p;
+                    lvProductenInBestelling.Items.Add(lvi);
+                }
+                decimal prijs = 0.00m;
+                foreach (Product p in App.GetLosseVerkopen())
+                {
+                    prijs += p.Prijs;
+                }
+                lbTotaalPrijs.Text = @"€" + prijs.ToString(CultureInfo.InvariantCulture);
+                prijs = 0.00m;
+                foreach (Product p in App.GetLosseVerkopen())
+                {
+                    prijs += p.Ledenprijs;
+                }
+                lbLedenprijs.Text = @"€" + prijs.ToString(CultureInfo.InvariantCulture);
+                lbDatumklant.Text = DateTime.Today.ToShortDateString();
             }
         }
 
         private void AddProductToBestelling(string productnaam)
         {
-            try
+            if (_contanteVerkoop)
             {
-                var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-                if (bestelling != null)
+                Product product = App.VindProduct(productnaam);
+                App.AddLosseVerkoop(product);
+                UpdateKlantBestelling(null);
+            }
+            else
+            {
+                try
                 {
-                    foreach (Bestelling b in App.GetBestellingen())
+                    var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
+                    if (bestelling != null)
                     {
-                        if (b.Id == bestelling.Id)
+                        foreach (Bestelling b in App.GetBestellingen())
                         {
-                            lvProductenInBestelling.Items.Clear();
-                            Product product = App.VindProduct(productnaam);
-                            if (product != null)
+                            if (b.Id == bestelling.Id)
                             {
-                                App.AddProductToBestelling(b, product);
-                                UpdateKlantBestelling(b);
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    @"Het systeem kent dit product niet, raadpleeg uw nerd voor verdere hulp.");
+                                lvProductenInBestelling.Items.Clear();
+                                Product product = App.VindProduct(productnaam);
+                                if (product != null)
+                                {
+                                    App.AddProductToBestelling(b, product);
+                                    UpdateKlantBestelling(b);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(
+                                        @"Het systeem kent dit product niet, raadpleeg uw nerd voor verdere hulp.");
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show(@"U doet een losse verkoop");
+                    }
                 }
-                else
+                catch (Exception exception)
                 {
-                    MessageBox.Show(@"U doet een losse verkoop");
+                    MessageBox.Show(@"Een error is opgetreden! Mogelijke oplossing: selecteer een bestelling. "
+                                    + Environment.NewLine + Environment.NewLine + exception.Message);
                 }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"Een error is opgetreden! Mogelijke oplossing: selecteer een bestelling. "
-                    + Environment.NewLine + Environment.NewLine + exception.Message);
             }
         }
 
@@ -249,30 +276,11 @@ namespace GUI
             var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
             if (bestelling != null)
             {
-                if (bestelling.Lid != null)
-                {
-                    if (bestelling.Lid.Tussenvoegsel != "")
-                    {
-                        lbKlantnaam.Text = bestelling.Lid.Voornaam + @" " + bestelling.Lid.Tussenvoegsel + @" " +
-                                           bestelling.Lid.Achternaam;
-                    }
-                    else
-                    {
-                        lbKlantnaam.Text = bestelling.Lid.Voornaam + @" " + bestelling.Lid.Achternaam;
-                    }
-                    lvProductenInBestelling.Items.Clear();
-                    UpdateKlantBestelling(bestelling);
-                    btVerwijderProduct.Enabled = true;
-                    btAfrekenen.Enabled = true;
-                }
-                else
-                {
-                    lbKlantnaam.Text = bestelling.Naam;
-                    lvProductenInBestelling.Items.Clear();
-                    UpdateKlantBestelling(bestelling);
-                    btVerwijderProduct.Enabled = true;
-                    btAfrekenen.Enabled = true;
-                }
+                lbKlantnaam.Text = bestelling.GetBesteller();
+                lvProductenInBestelling.Items.Clear();
+                UpdateKlantBestelling(bestelling);
+                btVerwijderProduct.Enabled = true;
+                btAfrekenen.Enabled = true;
             }
             else
             {
@@ -422,7 +430,7 @@ namespace GUI
                     var product = lvProductenInBestelling.SelectedItems[0].Tag as Product;
                     if (product != null)
                     {
-                        MessageBox.Show($@"{product.Naam} wordt uit de bestelling van {bestelling.Lid.Voornaam} verwijderd.");
+                        MessageBox.Show($@"{product.Naam} wordt uit de bestelling van {bestelling.GetBesteller()} verwijderd.");
                         App.RemoveProductVanBestelling(bestelling, product);
                         UpdateKlantBestelling(bestelling);
                     }
@@ -491,8 +499,9 @@ namespace GUI
         {
             try
             {
-                _omzetScherm = new PenningmeesterScherm(App);
-                _omzetScherm.ShowDialog();
+                //TODO Omzet zichbaar maken vanuit db
+                //_omzetScherm = new PenningmeesterScherm(App);
+                //_omzetScherm.ShowDialog();
             }
             catch (Exception exception)
             {
@@ -524,6 +533,18 @@ namespace GUI
         private void btContant_Click(object sender, EventArgs e)
         {
             lvBestellingen.SelectedItems.Clear();
+            // Als losse verkoop wordt aangeklikt, moet bestellingen maken worden uit gezet.
+            if (_contanteVerkoop)
+            {
+                btMaakBestelling.Enabled = true;
+                _contanteVerkoop = false;
+            }
+            else
+            {
+                btMaakBestelling.Enabled = false;
+                _contanteVerkoop = true;
+            }
+
         }
 
         private void btEten_Click(object sender, EventArgs e)

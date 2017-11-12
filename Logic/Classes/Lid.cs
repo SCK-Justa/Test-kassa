@@ -65,5 +65,14 @@ namespace Logic.Classes
             }
             return spelden;
         }
+
+        public string GetLidNaam()
+        {
+            if (Tussenvoegsel != "")
+            {
+                return Voornaam + " " + Tussenvoegsel + " " + Achternaam;
+            }
+            return Voornaam + " " + Achternaam;
+        }
     }
 }

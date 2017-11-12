@@ -111,6 +111,8 @@
             this.btTerug2 = new System.Windows.Forms.Button();
             this.gpDrinken = new System.Windows.Forms.GroupBox();
             this.btTerug1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbConnectie = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -709,7 +711,7 @@
             // 
             this.lbPrijslb.AutoSize = true;
             this.lbPrijslb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrijslb.Location = new System.Drawing.Point(6, 95);
+            this.lbPrijslb.Location = new System.Drawing.Point(7, 95);
             this.lbPrijslb.Name = "lbPrijslb";
             this.lbPrijslb.Size = new System.Drawing.Size(57, 20);
             this.lbPrijslb.TabIndex = 42;
@@ -803,7 +805,7 @@
             // afmeldenToolStripMenuItem
             // 
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.afmeldenToolStripMenuItem.Text = "Afsluiten";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
@@ -819,14 +821,14 @@
             // gegevensWijzigenToolStripMenuItem
             // 
             this.gegevensWijzigenToolStripMenuItem.Name = "gegevensWijzigenToolStripMenuItem";
-            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.gegevensWijzigenToolStripMenuItem.Text = "Gegevens...";
             this.gegevensWijzigenToolStripMenuItem.Click += new System.EventHandler(this.gegevensWijzigenToolStripMenuItem_Click);
             // 
             // afmeldenToolStripMenuItem1
             // 
             this.afmeldenToolStripMenuItem1.Name = "afmeldenToolStripMenuItem1";
-            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.afmeldenToolStripMenuItem1.Text = "Afmelden";
             this.afmeldenToolStripMenuItem1.Click += new System.EventHandler(this.afmeldenToolStripMenuItem1_Click);
             // 
@@ -841,7 +843,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -1005,12 +1007,36 @@
             this.btTerug1.UseVisualStyleBackColor = true;
             this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(887, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Connectie:";
+            // 
+            // lbConnectie
+            // 
+            this.lbConnectie.AutoSize = true;
+            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbConnectie.Location = new System.Drawing.Point(951, 9);
+            this.lbConnectie.Name = "lbConnectie";
+            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
+            this.lbConnectie.TabIndex = 47;
+            this.lbConnectie.Text = ".";
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.lbConnectie);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.gpMenu);
             this.Controls.Add(this.gpDrinken);
             this.Controls.Add(this.gpEten);
@@ -1126,5 +1152,7 @@
         private System.Windows.Forms.GroupBox gpDrinken;
         private System.Windows.Forms.Button btTerug1;
         private System.Windows.Forms.Button btTerug2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbConnectie;
     }
 }
