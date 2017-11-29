@@ -95,5 +95,11 @@ namespace Kassasysteem
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void btLogboek_Click(object sender, EventArgs e)
+        {
+            LedenLogScherm logScherm = new LedenLogScherm(App);
+            logScherm.Show();
+        }
     }
 }

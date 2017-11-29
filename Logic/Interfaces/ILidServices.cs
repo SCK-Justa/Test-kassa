@@ -11,7 +11,7 @@ namespace Logic.Interfaces
         Lid GetPersoonFromFullName(string firstname, string lastname);
         List<Lid> GetAllLeden();
         List<Lid> GetPersonenFromDateOfBirth(DateTime dateOfBirth);
-        List<Lid> GetPersonenFromLidVanaf(DateTime dateVanaf);
+        List<Lid> GetPersonenFromLidVanaf();
         void AddPersoon(Lid lid);
         void EditPersoon(Lid lid);
         void RemovePersoon(Lid lid);

@@ -20,6 +20,16 @@ namespace Kassasysteem
         public void UpdateScreenOnFirstLoad()
         {
             FillComboBox();
+            try
+            {
+                string omzet = App.GetOmzetPerJaar(DateTime.Now).ToString();
+                tbJaaromzet.Text = omzet;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Een error is opgetreden! Het is niet mogelijk de jaaromzet op te halen" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
 
         private void FillComboBox()
@@ -71,6 +81,11 @@ namespace Kassasysteem
             }
             var result = firstThursday.AddDays(weekNum * 7);
             return result.AddDays(-3);
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

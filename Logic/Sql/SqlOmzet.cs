@@ -69,9 +69,47 @@ namespace Logic.Sql
             throw new System.NotImplementedException();
         }
 
-        public List<decimal> GetOmzetPerJaar()
+        public decimal GetOmzetPerJaar(DateTime jaar)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                omzet = new List<decimal>();
+                //DateTime firstDay = new DateTime(jaar.Year, 1, 1);
+                //DateTime lastDay = new DateTime(jaar.Year + 1, 1, 1);
+
+                string firstDay = jaar.Year + "-1-1";
+                string lastDay = (jaar.Year + 1) + "-1-1";
+                Console.WriteLine(firstDay);
+                Console.WriteLine(lastDay);
+
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@firstDate", firstDay);
+                            cmd.Parameters.AddWithValue("@lastDate", lastDay);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                reader.Read();
+                                return reader.GetDecimal(0);
+                            }
+                        }
+                    }
+                }
+                return 0;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
     }
 }

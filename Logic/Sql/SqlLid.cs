@@ -276,7 +276,7 @@ namespace Logic.Sql
             }
         }
 
-        public List<Lid> GetPersonenFromLidVanaf(DateTime dateVanaf)
+        public List<Lid> GetPersonenFromLidVanaf()
         {
             try
             {
@@ -289,15 +289,57 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = ";";
+                            cmd.CommandText = "SELECT * FROM Lid LEFT JOIN Persoon ON LPersoonId = PId ORDER BY LLidVanaf DESC;";
                             cmd.Connection = conn;
-
-                            cmd.Parameters.AddWithValue("@", dateVanaf);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
+                                int id = reader.GetInt32(0);
+                                int bondsnummer = 0;
+                                if (!reader.IsDBNull(1))
+                                {
+                                    bondsnummer = reader.GetInt32(1);
+                                }
+                                Persoon persoon = GetPersoonFromLidId(reader.GetInt32(2));
+                                DateTime lidVanaf = reader.GetDateTime(3);
+                                string _sterren = "";
+                                if (!reader.IsDBNull(4))
+                                {
+                                    _sterren = reader.GetString(4);
+                                }
+                                Klasse nhbklasse = null;
+                                if (!reader.IsDBNull(5))
+                                {
+                                    nhbklasse = klasseLogic.GetKlasseById(reader.GetInt32(5));
+                                }
 
+                                Klasse clubklasse = klasseLogic.GetKlasseById(reader.GetInt32(6));
+                                Oudercontact oudercontact = null;
+                                if (!reader.IsDBNull(7))
+                                {
+                                    oudercontact = oudercontactLogic.GetOudercontactById(reader.GetInt32(7));
+                                }
+                                Bank bank = null;
+                                if (!reader.IsDBNull(8))
+                                {
+                                    bank = bankLogic.GetBankById(reader.GetInt32(8));
+                                }
+                                Lid lid = new Lid(lidVanaf, nhbklasse, clubklasse, id, bondsnummer, persoon.Voornaam,
+                                    persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
+                                    persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
+                                lid.SetOuderContact(oudercontact);
+                                lid.SetBank(bank);
+                                if (_sterren != "")
+                                {
+                                    string[] sterren = _sterren.Split(';');
+                                    foreach (string s in sterren)
+                                    {
+                                        lid.AddSpeld(s);
+                                    }
+                                }
+                                leden.Add(lid);
                             }
+                            return leden;
                         }
                     }
                 }

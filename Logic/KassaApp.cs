@@ -51,7 +51,7 @@ namespace Logic
 
         public bool CheckDbConnection()
         {
-            _dbConnectie = new DBConnectie(@"Server=192.168.2.105,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            _dbConnectie = new DBConnectie(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             // Let op, onderstaande werkt niet, moet gefixt worden voor remote connection
             //string connectieString = @"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;";
             //_dbConnectie = new DBConnectie(connectieString);
@@ -125,7 +125,7 @@ namespace Logic
         private void GetDatabaseStuff()
         {
             // Connectie hoeft niet gemaakt te worden, is al gedaan bij het controleren van de connectie.
-            string ip = "192.168.2.105";
+            string ip = "77.162.105.50";
             //string ip = "77.162.105.50";
             _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
@@ -528,6 +528,30 @@ namespace Logic
                 weekOmzet.Add(0);
             }
             return weekOmzet;
+        }
+
+        public decimal GetOmzetPerJaar(DateTime year)
+        {
+            try
+            {
+                return _omzetRepo.GetOmzetPerJaar(year);
+            }
+            catch (Exception exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Lid> GetLedenLog()
+        {
+            try
+            {
+                return _ledenRepo.GetPersonenFromLidVanaf();
+            }
+            catch (Exception)
+            {
+                return new List<Lid>();
+            }
         }
     }
 }

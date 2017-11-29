@@ -40,9 +40,9 @@ namespace Logic.Repositories
             return _lidServices.GetPersonenFromDateOfBirth(dateOfBirth);
         }
 
-        public List<Lid> GetPersonenFromLidVanaf(DateTime dateVanaf)
+        public List<Lid> GetPersonenFromLidVanaf()
         {
-            return _lidServices.GetPersonenFromLidVanaf(dateVanaf);
+            return _lidServices.GetPersonenFromLidVanaf();
         }
 
         public void AddPersoon(Lid lid)

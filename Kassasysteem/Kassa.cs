@@ -208,6 +208,8 @@ namespace GUI
 
         private void AddProductToBestelling(string productnaam)
         {
+            // Als er een product meteen verkocht wordt, zonder bestelling, wordt de if uitgevoerd.
+            // Bij het toevogen van en product aan een bestelling, wordt de else uitgevoerd.
             if (_contanteVerkoop)
             {
                 Product product = App.VindProduct(productnaam);
@@ -526,8 +528,17 @@ namespace GUI
 
         private void ledenlijstToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LedenScherm leden = new LedenScherm(App);
-            leden.ShowDialog();
+            try
+            {
+                LedenScherm leden = new LedenScherm(App);
+                leden.ShowDialog();
+                UpdateLeden();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
 
         private void btContant_Click(object sender, EventArgs e)

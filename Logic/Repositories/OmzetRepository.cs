@@ -26,9 +26,9 @@ namespace Logic.Repositories
             return _omzetServices.GetOmzetPerMaand(jaartal);
         }
 
-        public List<decimal> GetOmzetPerJaar()
+        public decimal GetOmzetPerJaar(DateTime jaar)
         {
-            return _omzetServices.GetOmzetPerJaar();
+            return _omzetServices.GetOmzetPerJaar(jaar);
         }
     }
 }

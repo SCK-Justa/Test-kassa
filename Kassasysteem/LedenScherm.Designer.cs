@@ -46,6 +46,7 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btToevoegen = new System.Windows.Forms.Button();
+            this.btLogboek = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvLeden
@@ -158,11 +159,22 @@
             this.btToevoegen.UseVisualStyleBackColor = true;
             this.btToevoegen.Click += new System.EventHandler(this.btToevoegen_Click);
             // 
+            // btLogboek
+            // 
+            this.btLogboek.Location = new System.Drawing.Point(141, 12);
+            this.btLogboek.Name = "btLogboek";
+            this.btLogboek.Size = new System.Drawing.Size(123, 39);
+            this.btLogboek.TabIndex = 2;
+            this.btLogboek.Text = "Logboek";
+            this.btLogboek.UseVisualStyleBackColor = true;
+            this.btLogboek.Click += new System.EventHandler(this.btLogboek_Click);
+            // 
             // LedenScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 690);
+            this.Controls.Add(this.btLogboek);
             this.Controls.Add(this.btToevoegen);
             this.Controls.Add(this.lvLeden);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -192,5 +204,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.Button btToevoegen;
+        private System.Windows.Forms.Button btLogboek;
     }
 }

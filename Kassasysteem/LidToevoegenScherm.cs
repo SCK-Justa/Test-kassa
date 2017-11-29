@@ -102,6 +102,8 @@ namespace Kassasysteem
                 Oudercontact oc = new Oudercontact(tbOVoornaam.Text, tbOTussenvoegsel.Text, tbOAchternaam.Text, tbOTel1.Text, tbOTel2.Text, tbOEmail1.Text, tbOTel2.Text);
                 Lid lid = new Lid(lidvanaf, null, null, 0, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,
                                     geboortedatum, adres, telefoonnummer, mobielnummer);
+                lid.SetBank(bank);
+                lid.SetOuderContact(oc);
                 App.AddLid(lid);
             }
             catch (Exception exception)

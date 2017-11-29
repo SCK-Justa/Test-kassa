@@ -1,0 +1,6 @@
+projectKey=my:NAAM_VAN_JE_PROJECT
+serverUrl=http://localhost:9000
+serverVersion=6.7.0.33306
+dashboardUrl=http://localhost:9000/dashboard/index/my:NAAM_VAN_JE_PROJECT
+ceTaskId=AV_eKRRoRywfg6K45aWL
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV_eKRRoRywfg6K45aWL

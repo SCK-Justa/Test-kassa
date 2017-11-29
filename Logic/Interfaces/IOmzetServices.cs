@@ -8,6 +8,6 @@ namespace Logic.Interfaces
         List<decimal> GetOmzetPerDag(DateTime eersteDagVanDeWeek);
         List<decimal> GetOmzetPerWeek(DateTime eersteDagVanDeMaand);
         List<decimal> GetOmzetPerMaand(DateTime jaartal);
-        List<decimal> GetOmzetPerJaar();
+        decimal GetOmzetPerJaar(DateTime jaar);
     }
 }
