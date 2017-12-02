@@ -9,7 +9,7 @@ namespace Logic.Interfaces
         Adres GetAdresById(int adresId);
         List<Adres> GetAdressenByCity(string city);
         List<Adres> GetAdresByPostcode(string postcode);
-        void AddAdres(Adres adres);
+        Adres AddAdres(Adres adres);
         void EditAdres(Adres adres);
         void RemoveAdres(Adres adres);
     }

@@ -23,42 +23,14 @@ namespace Kassasysteem
             {
                 _item = new ListViewItem(l.Bondsnummer.ToString());
                 _item.SubItems.Add(l.Voornaam);
-                if (l.Tussenvoegsel != "")
-                {
-                    _item.SubItems.Add(l.Tussenvoegsel);
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
+                _item.SubItems.Add(l.GetTussenvoegsel());
                 _item.SubItems.Add(l.Achternaam);
-                if (l.Emailadres != "")
-                {
-                    _item.SubItems.Add(l.Emailadres);
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
+                _item.SubItems.Add(l.GetEmailadres());
                 _item.SubItems.Add(l.Adres.Straatnaam + ", " + l.Adres.Huisnummer);
                 _item.SubItems.Add(l.Adres.Postcode);
                 _item.SubItems.Add(l.Adres.Plaats);
-                if (l.Telefoonnummer != "")
-                {
-                    _item.SubItems.Add(l.Telefoonnummer.ToString());
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
-                if (l.Mobielnummer != "")
-                {
-                    _item.SubItems.Add(l.Mobielnummer.ToString());
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
+                _item.SubItems.Add(l.GetTelefoonnummer());
+                _item.SubItems.Add(l.GetMobielnummer());
                 _item.SubItems.Add(l.LidVanaf.ToShortDateString());
                 if (l.Functie != "")
                 {
@@ -69,15 +41,9 @@ namespace Kassasysteem
                     _item.SubItems.Add("");
                 }
                 _item.SubItems.Add(l.Geboortedatum.ToShortDateString());
-                if (l.NhbKlasse != null)
-                {
-                    _item.SubItems.Add(l.NhbKlasse.Naam);
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
+                _item.SubItems.Add(l.GetNHBKlasseNaam());
                 _item.SubItems.Add(l.Klasse.Naam);
+                _item.SubItems.Add(l.Geslacht);
                 lvLeden.Items.Add(_item);
             }
         }

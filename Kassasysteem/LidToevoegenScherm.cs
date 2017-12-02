@@ -29,6 +29,7 @@ namespace Kassasysteem
         {
             InitializeComponent();
             App = app;
+            Width = 493;
         }
 
         private void btOpslaan_Click(object sender, EventArgs e)
@@ -99,8 +100,16 @@ namespace Kassasysteem
                 Adres adres = new Adres(straatnaam, huisnummer, postcode, woonplaats);
                 adres.SetEmail("Geen Email");
                 Bank bank = new Bank("INGBank", tbBankrekening.Text);
-                Oudercontact oc = new Oudercontact(tbOVoornaam.Text, tbOTussenvoegsel.Text, tbOAchternaam.Text, tbOTel1.Text, tbOTel2.Text, tbOEmail1.Text, tbOTel2.Text);
-                Lid lid = new Lid(lidvanaf, null, null, 0, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,
+                Oudercontact oc;
+                //if (tbOVoornaam.Text == "" && tbOAchternaam.Text == "")
+                //{
+                //    oc = null;
+                //}
+                //else
+                //{
+                    oc = new Oudercontact(tbOVoornaam.Text, tbOTussenvoegsel.Text, tbOAchternaam.Text, tbOTel1.Text, tbOTel2.Text, tbOEmail1.Text, tbOTel2.Text);
+                //}
+                Lid lid = new Lid(lidvanaf, 0, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,
                                     geboortedatum, adres, telefoonnummer, mobielnummer);
                 lid.SetBank(bank);
                 lid.SetOuderContact(oc);
@@ -127,6 +136,11 @@ namespace Kassasysteem
                     counter = 0;
                     break;
             }
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

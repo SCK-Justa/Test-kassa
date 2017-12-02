@@ -21,9 +21,9 @@ namespace Logic.Repositories
             return _ouderContactServices.GetOudercontacten();
         }
 
-        public void AddOudercontact(Oudercontact contact)
+        public Oudercontact AddOudercontact(Oudercontact contact)
         {
-            _ouderContactServices.AddOudercontact(contact);
+            return _ouderContactServices.AddOudercontact(contact);
         }
 
         public void EditOudercontact(Oudercontact contact)

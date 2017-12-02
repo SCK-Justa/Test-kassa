@@ -7,7 +7,7 @@ namespace Logic.Interfaces
     {
         Bank GetBankById(int id);
         List<Bank> GetBanken();
-        void AddBank(Bank bank);
+        Bank AddBank(Bank bank);
         void EditBank(Bank bank);
         void RemoveBank(Bank bank);
     }

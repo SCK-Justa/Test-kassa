@@ -355,6 +355,7 @@ namespace Logic.Sql
         {
             try
             {
+                int persoonId = addPersoon(lid);
                 using (SqlConnection conn = new SqlConnection(connectie))
                 {
                     if (conn.State != ConnectionState.Open)
@@ -363,24 +364,15 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Lid VALUES (@bondsnummer, @voornaam, @tussenvoegsel, @achternaam, @email, @geslacht, @adresId, " +
-                                              "@telefoonnummer, @mobiel, @lidvanaf, @sterren, @geboortedatum, @nhbklasse, @klasse, @oudercontactId, @bankId);";
+                            cmd.CommandText = "INSERT INTO Lid VALUES (@bondsnummer, @persoonId, @lidvanaf, @sterren, @nhbklasse, @klasse, @oudercontactId, @bankId);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bondsnummer", lid.Bondsnummer);
-                            cmd.Parameters.AddWithValue("@voornaam", lid.Bondsnummer);
-                            cmd.Parameters.AddWithValue("@tussenvoegsel", lid.Bondsnummer);
-                            cmd.Parameters.AddWithValue("@achternaam", lid.Achternaam);
-                            cmd.Parameters.AddWithValue("@email", lid.Emailadres);
-                            cmd.Parameters.AddWithValue("@geslacht", lid.Geslacht);
-                            cmd.Parameters.AddWithValue("@adresId", lid.Adres.Id);
-                            cmd.Parameters.AddWithValue("@telefoonnummer", lid.Telefoonnummer);
-                            cmd.Parameters.AddWithValue("@mobiel", lid.Mobielnummer);
+                            cmd.Parameters.AddWithValue("@persoonId", persoonId);
                             cmd.Parameters.AddWithValue("@lidvanaf", lid.LidVanaf);
                             cmd.Parameters.AddWithValue("@sterren", lid.GetSpelden());
-                            cmd.Parameters.AddWithValue("@geboortedatum", lid.Geboortedatum);
-                            cmd.Parameters.AddWithValue("@nhbklasse", lid.NhbKlasse);
-                            cmd.Parameters.AddWithValue("@klasse", lid.Klasse);
+                            cmd.Parameters.AddWithValue("@nhbklasse", lid.NhbKlasse.Id);
+                            cmd.Parameters.AddWithValue("@klasse", lid.Klasse.Id);
                             cmd.Parameters.AddWithValue("@oudercontactid", lid.Oudercontact.Id);
                             cmd.Parameters.AddWithValue("@bankId", lid.Bank.Id);
 
@@ -507,6 +499,54 @@ namespace Logic.Sql
                     }
                 }
                 return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        // Voordat een Lid toegevoegd kan worden, moet een Persoon worden toegevoegd.
+        // Returnt het id van de persoon
+        private int addPersoon(Lid lid)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "INSERT INTO Persoon VALUES(@Voornaam, @Tussenvoegsel, @Achternaam, @Emailadres, @Geslacht, @AdresId, @Telefoonnummer, @Mobielnummer, @Geboortedatum);";
+                            cmd.Connection = conn;
+
+                            // parameters moeten nog komen
+                            cmd.Parameters.AddWithValue("@Voornaam", lid.Voornaam);
+                            cmd.Parameters.AddWithValue("@Tussenvoegsel", lid.GetTelefoonnummer());
+                            cmd.Parameters.AddWithValue("@Achternaam", lid.Achternaam);
+                            cmd.Parameters.AddWithValue("@Emailadres", lid.GetEmailadres());
+                            cmd.Parameters.AddWithValue("@Geslacht", lid.GetGeslacht());
+                            cmd.Parameters.AddWithValue("@AdresId", lid.Adres.Id);
+                            cmd.Parameters.AddWithValue("@Telefoonnummer", lid.GetTelefoonnummer());
+                            cmd.Parameters.AddWithValue("@Mobielnummer",lid.GetMobielnummer());
+                            cmd.Parameters.AddWithValue("@Geboortedatum", lid.Geboortedatum);
+                            cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT PId FROM Persoon ORDER BY PId DESC;";
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                reader.Read();
+                                int id = reader.GetInt32(0);
+                                return id;
+                            }
+                        }
+                    }
+                }
+                return 0;
             }
             catch (Exception exception)
             {

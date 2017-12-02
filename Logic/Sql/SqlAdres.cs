@@ -128,7 +128,7 @@ namespace Logic.Sql
             }
         }
 
-        public void AddAdres(Adres adres)
+        public Adres AddAdres(Adres adres)
         {
             try
             {
@@ -150,9 +150,20 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@emailadres", adres.Emailadres);
 
                             cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT AdresId FROM Adres ORDER BY AdresId DESC;";
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    return GetAdresById(id);
+                                }
+                            }
                         }
                     }
                 }
+                return null;
             }
             catch (Exception exception)
             {

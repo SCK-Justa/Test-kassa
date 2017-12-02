@@ -27,9 +27,9 @@ namespace Logic.Repositories
             return _adresServices.GetAdresByPostcode(postcode);
         }
 
-        public void AddAdres(Adres adres)
+        public Adres AddAdres(Adres adres)
         {
-            _adresServices.AddAdres(adres);
+            return _adresServices.AddAdres(adres);
         }
 
         public void EditAdres(Adres adres)

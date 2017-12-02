@@ -16,7 +16,7 @@ namespace Kassasysteem
             try
             {
                 InitializeComponent();
-                App = new KassaApp(Text);
+                App = new KassaApp(SetKassaName());
                 ShowDbConnection();
             }
             catch (Exception exception)
@@ -103,6 +103,20 @@ namespace Kassasysteem
             {
                 Login();
             }
+        }
+
+        private string SetKassaName()
+        {
+            string name = Environment.MachineName;
+            if(name == "SSGPC")
+            {
+                name = "Barkassa";
+            }
+            else
+            {
+                name = "Testkassa van Jelle";
+            }
+            return name;
         }
     }
 }

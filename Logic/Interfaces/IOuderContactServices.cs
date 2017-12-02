@@ -7,7 +7,7 @@ namespace Logic.Interfaces
     {
         Oudercontact GetOudercontactById(int id);
         List<Oudercontact> GetOudercontacten();
-        void AddOudercontact(Oudercontact contact);
+        Oudercontact AddOudercontact(Oudercontact contact);
         void EditOudercontact(Oudercontact contact);
         void RemoveOudercontact(Oudercontact contact);
     }

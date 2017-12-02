@@ -20,6 +20,7 @@ namespace Logic
         private KassaRepository _kassaRepo;
         private OmzetRepository _omzetRepo;
         private LedenLogRepository _ledenLogRepo;
+        private KlasseRepository _klassenRepo;
 
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
@@ -133,6 +134,7 @@ namespace Logic
             _productRepo = new ProductRepository(new SqlProduct(_dbConnectie.GetConnectieString()));
             _kassaRepo = new KassaRepository(new SqlKassa(_dbConnectie.GetConnectieString()));
             _omzetRepo = new OmzetRepository(new SqlOmzet(_dbConnectie.GetConnectieString()));
+            _klassenRepo = new KlasseRepository(new SqlKlasse(_dbConnectie.GetConnectieString()));
         }
 
         public List<Formulier> GetFormulieren()
@@ -156,11 +158,14 @@ namespace Logic
         {
             try
             {
-                _adresRepo.AddAdres(lid.Adres);
-                _bankRepo.AddBank(lid.Bank);
-                _oudercontactRepo.AddOudercontact(lid.Oudercontact);
+                List<Klasse> klasses = _klassenRepo.GetKlasses();
+                lid.SetAdres(_adresRepo.AddAdres(lid.Adres));
+                lid.SetBank(_bankRepo.AddBank(lid.Bank));
+                lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                lid.SetKlasse(lid.CalculateKlasse(klasses));
+                lid.SetNhbKlasse(lid.CalculateKlasse(klasses));
                 _ledenRepo.AddPersoon(lid);
-                _ledenLogRepo.AddLogString(lid.GetLidNaam() + " is op " + lid.LidVanaf, true, false);
+                _ledenLogRepo.AddLogString(lid.GetLidNaam() + " is op " + lid.LidVanaf.ToShortDateString(), true, false);
                 _leden.Add(lid);
             }
             catch (Exception exception)
@@ -363,9 +368,12 @@ namespace Logic
         {
             try
             {
-                _leden = new List<Lid>();
-                _leden = _ledenRepo.GetAllLeden();
-                _leden.Sort((x, y) => x.Voornaam.CompareTo(y.Voornaam));
+                if (_leden == null)
+                {
+                    _leden = new List<Lid>();
+                    _leden = _ledenRepo.GetAllLeden();
+                    _leden.Sort((x, y) => x.Voornaam.CompareTo(y.Voornaam));
+                }
                 return _leden;
             }
             catch (Exception exception)

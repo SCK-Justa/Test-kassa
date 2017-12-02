@@ -74,7 +74,7 @@ namespace Logic.Sql
             throw new System.NotImplementedException();
         }
 
-        public void AddOudercontact(Oudercontact contact)
+        public Oudercontact AddOudercontact(Oudercontact contact)
         {
             try
             {
@@ -98,9 +98,20 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@email2", contact.Emailadres2);
 
                             cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT OcId FROM Oudercontact ORDER BY OcId DESC;";
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    return GetOudercontactById(id);
+                                }
+                            }
                         }
                     }
                 }
+                return null;
             }
             catch (Exception exception)
             {

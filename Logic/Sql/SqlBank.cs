@@ -58,7 +58,7 @@ namespace Logic.Sql
             throw new NotImplementedException();
         }
 
-        public void AddBank(Bank bank)
+        public Bank AddBank(Bank bank)
         {
             try
             {
@@ -77,9 +77,20 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@rekeningnummer", bank.Rekeningnummer);
 
                             cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "SELECT BankId FROM Bank ORDER BY BankId DESC;";
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    return GetBankById(id);
+                                }
+                            }
                         }
                     }
                 }
+                return null;
             }
             catch (Exception exception)
             {

@@ -99,5 +99,60 @@ namespace Logic.Classes
         {
             Oudercontact = contact;
         }
+        public string GetLidNaam()
+        {
+            if (Tussenvoegsel != "")
+            {
+                return Voornaam + " " + Tussenvoegsel + " " + Achternaam;
+            }
+            return Voornaam + " " + Achternaam;
+        }
+
+        public string GetTelefoonnummer()
+        {
+            if (Telefoonnummer != "")
+            {
+                return Telefoonnummer;
+            }
+            return null;
+        }
+        public string GetEmailadres()
+        {
+            if (Emailadres != "")
+            {
+                return Emailadres;
+            }
+            return null;
+        }
+        public string GetMobielnummer()
+        {
+            if (Mobielnummer != "")
+            {
+                return Mobielnummer;
+            }
+            return null;
+        }
+
+        public string GetTussenvoegsel()
+        {
+            if (Tussenvoegsel != "")
+            {
+                return Tussenvoegsel;
+            }
+            return null;
+        }
+
+        public string GetGeslacht()
+        {
+            if(Geslacht == "Heer")
+            {
+                return "H";
+            }
+            if (Geslacht == "Dame")
+            {
+                return "D";
+            }
+            return "X";
+        }
     }
 }

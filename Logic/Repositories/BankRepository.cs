@@ -22,9 +22,9 @@ namespace Logic.Repositories
             return _bankServices.GetBanken();
         }
 
-        public void AddBank(Bank bank)
+        public Bank AddBank(Bank bank)
         {
-           _bankServices.AddBank(bank);
+           return _bankServices.AddBank(bank);
         }
 
         public void EditBank(Bank bank)

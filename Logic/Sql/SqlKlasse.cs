@@ -57,7 +57,44 @@ namespace Logic.Sql
 
         public List<Klasse> GetKlasses()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Klasse> klasses = new List<Klasse>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * FROM Klasse;";
+                            cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                Klasse klasse;
+                                while (reader.Read())
+                                {
+                                    int klasseId = reader.GetInt32(0);
+                                    string naam = reader.GetString(1);
+                                    int begin = reader.GetInt32(2);
+                                    int eind = reader.GetInt32(3);
+
+                                    klasse = new Klasse(klasseId, naam, begin, eind);
+                                    klasses.Add(klasse);
+                                }
+                                return klasses;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public void AddKlasse(Klasse klasse)
