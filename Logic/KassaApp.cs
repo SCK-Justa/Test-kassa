@@ -19,6 +19,7 @@ namespace Logic
         private ProductRepository _productRepo;
         private KassaRepository _kassaRepo;
         private OmzetRepository _omzetRepo;
+        private LedenLogRepository _ledenLogRepo;
 
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
@@ -52,9 +53,6 @@ namespace Logic
         public bool CheckDbConnection()
         {
             _dbConnectie = new DBConnectie(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            // Let op, onderstaande werkt niet, moet gefixt worden voor remote connection
-            //string connectieString = @"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;";
-            //_dbConnectie = new DBConnectie(connectieString);
             if (_dbConnectie.TryConnection())
             {
                 DBConnection = true;
@@ -82,7 +80,7 @@ namespace Logic
                     _gebruikers = GetGebruikers();
                     GetBestellingenFromDb();
                     BedragInKas = _kassaRepo.GetKasInhoud(0);
-                    //_gebruikers = _authRepo.GetAuthentications();
+                    _gebruikers = _authRepo.GetAuthentications();
                     if (_afgerekendeBestellingen.Count > 1)
                     {
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
@@ -124,12 +122,7 @@ namespace Logic
 
         private void GetDatabaseStuff()
         {
-            // Connectie hoeft niet gemaakt te worden, is al gedaan bij het controleren van de connectie.
-            string ip = "77.162.105.50";
-            //string ip = "77.162.105.50";
-            _dbConnectie = new DBConnectie(@"Server=" + ip + ",1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            //string connectieString = @"Server=THUIS-JELLE\MSSQLSERVER01;Initial Catalog=BarSysteem;Integrated Security=true;";
-            //_dbConnectie = new DBConnectie(connectieString);
+            _ledenLogRepo = new LedenLogRepository(new SqlLedenLog(_dbConnectie.GetConnectieString()));
             _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
             _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
             _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));
@@ -167,6 +160,7 @@ namespace Logic
                 _bankRepo.AddBank(lid.Bank);
                 _oudercontactRepo.AddOudercontact(lid.Oudercontact);
                 _ledenRepo.AddPersoon(lid);
+                _ledenLogRepo.AddLogString(lid.GetLidNaam() + " is op " + lid.LidVanaf, true, false);
                 _leden.Add(lid);
             }
             catch (Exception exception)
@@ -538,19 +532,19 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw;
+                throw exception;
             }
         }
 
-        public List<Lid> GetLedenLog()
+        public List<string> GetLedenLog()
         {
             try
             {
-                return _ledenRepo.GetPersonenFromLidVanaf();
+                return _ledenLogRepo.GetLedenLog();
             }
             catch (Exception)
             {
-                return new List<Lid>();
+                return new List<string>();
             }
         }
     }

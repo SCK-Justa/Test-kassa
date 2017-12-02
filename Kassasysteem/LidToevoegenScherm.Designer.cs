@@ -140,9 +140,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 260);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Geslacht";
+            this.label7.Text = "Geslacht:";
             // 
             // tbMobielnummer
             // 
@@ -188,9 +188,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Emailadres";
+            this.label4.Text = "Emailadres:";
             // 
             // tbAchternaam
             // 
@@ -420,9 +420,9 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(6, 176);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 13);
+            this.label21.Size = new System.Drawing.Size(70, 13);
             this.label21.TabIndex = 22;
-            this.label21.Text = "Emailadres 2";
+            this.label21.Text = "Emailadres 2:";
             // 
             // tbOTel2
             // 
@@ -436,9 +436,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(6, 256);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(95, 13);
+            this.label20.Size = new System.Drawing.Size(98, 13);
             this.label20.TabIndex = 20;
-            this.label20.Text = "Telefoonnummer 2";
+            this.label20.Text = "Telefoonnummer 2:";
             // 
             // tbOTel1
             // 
@@ -452,9 +452,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 216);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(95, 13);
+            this.label15.Size = new System.Drawing.Size(98, 13);
             this.label15.TabIndex = 18;
-            this.label15.Text = "Telefoonnummer 1";
+            this.label15.Text = "Telefoonnummer 1:";
             // 
             // tbOEmail1
             // 
@@ -468,9 +468,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 136);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 13);
+            this.label16.Size = new System.Drawing.Size(70, 13);
             this.label16.TabIndex = 16;
-            this.label16.Text = "Emailadres 1";
+            this.label16.Text = "Emailadres 1:";
             // 
             // tbOAchternaam
             // 

@@ -7,14 +7,13 @@
         public string Password { get; private set; }
         public Lid Lid { get; private set; }
         public AuthenticationSoort AuthenticationSoort { get; private set; }
-        public AuthenticationSoort Soort { get; private set; }
         public int KassaId { get; private set; }
         public Authentication(string username, string password, Lid lid, AuthenticationSoort soort)
         {
             Username = username;
             Password = password;
             Lid = lid;
-            Soort = soort;
+            AuthenticationSoort = soort;
         }
 
         public Authentication(int id, string username, string password, Lid lid, AuthenticationSoort soort, int kassaId) : this(username, password, lid, soort)
@@ -46,7 +45,7 @@
 
         public void SetAuthenticationSoort(AuthenticationSoort soort)
         {
-            Soort = soort;
+            AuthenticationSoort = soort;
         }
 
         public string GetFullName()

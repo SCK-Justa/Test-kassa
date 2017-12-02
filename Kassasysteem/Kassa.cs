@@ -604,5 +604,10 @@ namespace GUI
                                 exception.Message);
             }
         }
+
+        private void verkoopgeschiedenisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

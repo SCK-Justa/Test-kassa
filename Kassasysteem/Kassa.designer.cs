@@ -102,6 +102,7 @@
             this.formulierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestelgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verkoopgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledenlijstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpMenu = new System.Windows.Forms.GroupBox();
@@ -113,7 +114,6 @@
             this.btTerug1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
-            this.verkoopgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -893,6 +893,13 @@
             this.bestelgeschiedenisToolStripMenuItem.Text = "Bestelgeschiedenis";
             this.bestelgeschiedenisToolStripMenuItem.Click += new System.EventHandler(this.bestelgeschiedenisToolStripMenuItem_Click);
             // 
+            // verkoopgeschiedenisToolStripMenuItem
+            // 
+            this.verkoopgeschiedenisToolStripMenuItem.Name = "verkoopgeschiedenisToolStripMenuItem";
+            this.verkoopgeschiedenisToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.verkoopgeschiedenisToolStripMenuItem.Text = "Verkoopgeschiedenis";
+            this.verkoopgeschiedenisToolStripMenuItem.Click += new System.EventHandler(this.verkoopgeschiedenisToolStripMenuItem_Click);
+            // 
             // ledenToolStripMenuItem
             // 
             this.ledenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1030,12 +1037,6 @@
             this.lbConnectie.Size = new System.Drawing.Size(10, 13);
             this.lbConnectie.TabIndex = 47;
             this.lbConnectie.Text = ".";
-            // 
-            // verkoopgeschiedenisToolStripMenuItem
-            // 
-            this.verkoopgeschiedenisToolStripMenuItem.Name = "verkoopgeschiedenisToolStripMenuItem";
-            this.verkoopgeschiedenisToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.verkoopgeschiedenisToolStripMenuItem.Text = "Verkoopgeschiedenis";
             // 
             // Kassa
             // 

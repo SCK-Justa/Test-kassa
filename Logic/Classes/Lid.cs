@@ -11,7 +11,6 @@ namespace Logic.Classes
         public Klasse NhbKlasse { get; private set; }
         public Klasse Klasse { get; private set; }
         public Oudercontact OC { get; private set; }
-        public Bank Bank { get; private set; }
         public Lid(DateTime lidvanaf, Klasse nhbklasse, Klasse klasse, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
             DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {

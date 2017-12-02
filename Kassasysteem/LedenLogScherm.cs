@@ -14,7 +14,7 @@ namespace Kassasysteem
 {
     public partial class LedenLogScherm : Form
     {
-        private List<Lid> log;
+        private List<string> log;
         public KassaApp App { get; private set; }
         public LedenLogScherm(KassaApp app)
         {
@@ -25,14 +25,14 @@ namespace Kassasysteem
 
         private void OpenOnFirstLoad()
         {
-            log = new List<Lid>();
+            log = new List<string>();
             if (App.DBConnection)
             {
                 log = App.GetLedenLog();
             }
-            foreach (Lid l in log)
+            foreach (string l in log)
             {
-                ListViewItem item = new ListViewItem(l.GetLidNaam() + " is lid geworden van Sint Sebastiaan.");
+                ListViewItem item = new ListViewItem(l);
                 item.BackColor = Color.DarkGreen;
                 listView1.Items.Add(item);
             }
