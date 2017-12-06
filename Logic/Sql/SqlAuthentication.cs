@@ -57,7 +57,7 @@ namespace Logic.Sql
                                     int kassaId = reader.GetInt32(3);
                                     Lid lid = sqllid.GetLidFromId(reader.GetInt32(5));
                                     AuthenticationSoort soort = GetSoortById(reader.GetInt32(4));
-                                    
+
                                     Authentication auth = new Authentication(id, name, wachtwoord, lid, soort, kassaId);
                                     authentications.Add(auth);
                                 }
@@ -77,7 +77,34 @@ namespace Logic.Sql
 
         public void AddAuthentication(Authentication authentication)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "INSERT INTO Authentication VALUES (@gebruikersnaam, @wachtwoord, @kassaId, @authType, @lidId);";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@gebruikersnaam", authentication.Username);
+                            cmd.Parameters.AddWithValue("@wachtwoord", authentication.Password);
+                            cmd.Parameters.AddWithValue("@kassaId", authentication.KassaId);
+                            cmd.Parameters.AddWithValue("@authType", authentication.AuthenticationSoort.Id);
+                            cmd.Parameters.AddWithValue("@lidId", authentication.Lid.Id);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public void EditAuthentication(Authentication authentication)

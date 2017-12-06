@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using Logic.Classes;
 using Logic.Repositories;
 using Logic.Sql;
@@ -44,6 +45,9 @@ namespace Logic
                 Lokatie = lokatie;
                 // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
                 KassaAppSync(CheckDbConnection());
+                DateTime date = new DateTime(1995, 05, 15);
+                DateTime achtienJaarOfOuder = new DateTime(1999, 12, 6);
+                System.Console.WriteLine(date <= achtienJaarOfOuder);
             }
             catch (Exception exception)
             {
@@ -553,6 +557,20 @@ namespace Logic
             catch (Exception)
             {
                 return new List<string>();
+            }
+        }
+
+        private void CreateAllAuthentications()
+        {
+            Authentication auth;
+            DateTime achtienJaarOfOuder = new DateTime(1999, 12, 6);
+            foreach (Lid lid in _leden)
+            {
+                if (lid.Geboortedatum <= achtienJaarOfOuder)
+                {
+                    
+                }
+                //auth = new Authentication(lid.Voornaam);
             }
         }
     }
