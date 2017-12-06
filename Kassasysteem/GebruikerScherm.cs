@@ -27,7 +27,7 @@ namespace Kassasysteem
             {
                 lbGebruikersnaam.Text = App.Authentication.Username;
                 lbVolledigeNaam.Text = App.Authentication.GetFullName();
-                if (!App.Authentication.AuthenticationSoort.Bestuur)
+                if (!App.Authentication.Lid.Type.Bestuur)
                 {
                     btResetBestellingen.Visible = false;
                     btWijzigGebruikers.Visible = false;

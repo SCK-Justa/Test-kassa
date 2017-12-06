@@ -15,5 +15,6 @@ namespace Logic.Interfaces
         void AddPersoon(Lid lid);
         void EditPersoon(Lid lid);
         void RemovePersoon(Lid lid);
+        List<LidType> GetAllLidTypes();
     }
 }

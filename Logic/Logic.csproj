@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\Adres.cs" />
     <Compile Include="Classes\Authentication.cs" />
-    <Compile Include="Classes\AuthenticationSoort.cs" />
+    <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />
     <Compile Include="Classes\DBConnectie.cs" />
@@ -65,7 +65,6 @@
     <Compile Include="Interfaces\IProductServices.cs" />
     <Compile Include="KassaApp.cs" />
     <Compile Include="Classes\Lid.cs" />
-    <Compile Include="Classes\Lidtype.cs" />
     <Compile Include="Classes\Persoon.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

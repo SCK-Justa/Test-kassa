@@ -5,26 +5,29 @@ namespace Logic.Classes
 {
     public class Lid : Persoon
     {
-        public  string Functie {  get; private set; }
+        public string Functie {  get; private set; }
         public DateTime LidVanaf {  get; private set; }
         public List<string> Spelden {  get; }
         public Klasse NhbKlasse {  get; private set; }
         public Klasse Klasse {  get; private set; }
         public Oudercontact OC { get; private set; }
+        public LidType Type { get; private set; }
         public Lid(DateTime lidvanaf, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
-            DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
+            DateTime gebdatum, Adres adres, string telnr, string mbnr, LidType type) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {
             LidVanaf = lidvanaf;
             Spelden = new List<string>();
+            Type = type;
         }
 
         public Lid(DateTime lidvanaf, Klasse nhbKlasse, Klasse klasse, int id, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
-            DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(id, bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
+            DateTime gebdatum, Adres adres, string telnr, string mbnr, LidType type) : base(id, bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {
             Klasse = klasse;
             NhbKlasse = nhbKlasse;
             LidVanaf = lidvanaf;
             Spelden = new List<string>();
+            Type = type;
         }
 
         public void SetFunctie(string functie)
@@ -86,6 +89,11 @@ namespace Logic.Classes
                 return NhbKlasse.Naam;
             }
             return null;
+        }
+
+        public void AddLidType(LidType type)
+        {
+            Type = type;
         }
 
         public Klasse CalculateKlasse(List<Klasse> klasses)

@@ -59,5 +59,10 @@ namespace Logic.Repositories
         {
             _lidServices.RemovePersoon(lid);
         }
+
+        public List<LidType> GetAllLidTypes()
+        {
+            return _lidServices.GetAllLidTypes();
+        }
     }
 }

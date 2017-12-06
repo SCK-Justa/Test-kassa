@@ -57,7 +57,7 @@ namespace Kassasysteem
                     _item.SubItems.Add(auth.Username);
                     _item.SubItems.Add(auth.Password);
                     _item.SubItems.Add(auth.GetFullName());
-                    _item.SubItems.Add(auth.AuthenticationSoort.ToString());
+                    _item.SubItems.Add(auth.Lid.Type.ToString());
                     lvGebruikers.Items.Add(_item);
                 }
             }
@@ -81,7 +81,7 @@ namespace Kassasysteem
                         tbGebruikersnaam.Text = auth.Username;
                         tbWachtwoord.Text = auth.Password;
                         tbVolledigenaam.Text = auth.GetFullName();
-                        cbMachtiging.Checked = auth.AuthenticationSoort.Bestuur;
+                        cbMachtiging.Checked = auth.Lid.Type.Bestuur;
                     }
                 }
             }

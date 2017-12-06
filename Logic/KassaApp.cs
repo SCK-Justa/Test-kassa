@@ -45,9 +45,6 @@ namespace Logic
                 Lokatie = lokatie;
                 // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
                 KassaAppSync(CheckDbConnection());
-                DateTime date = new DateTime(1995, 05, 15);
-                DateTime achtienJaarOfOuder = new DateTime(1999, 12, 6);
-                System.Console.WriteLine(date <= achtienJaarOfOuder);
             }
             catch (Exception exception)
             {
@@ -94,7 +91,7 @@ namespace Logic
                 else
                 {
                     Console.WriteLine("Connectie met database niet mogelijk. Admin toegevoegd aan inlogaccounts.");
-                    _gebruikers.Add(new Authentication("Admin", "system", null, new AuthenticationSoort("Admin", true, false)));
+                    _gebruikers.Add(new Authentication("Admin", "system", null));
                     GetBestellingenFromDb();
                 }
             }
@@ -557,20 +554,6 @@ namespace Logic
             catch (Exception)
             {
                 return new List<string>();
-            }
-        }
-
-        private void CreateAllAuthentications()
-        {
-            Authentication auth;
-            DateTime achtienJaarOfOuder = new DateTime(1999, 12, 6);
-            foreach (Lid lid in _leden)
-            {
-                if (lid.Geboortedatum <= achtienJaarOfOuder)
-                {
-                    
-                }
-                //auth = new Authentication(lid.Voornaam);
             }
         }
     }
