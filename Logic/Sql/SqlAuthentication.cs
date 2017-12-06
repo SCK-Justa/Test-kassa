@@ -107,7 +107,32 @@ namespace Logic.Sql
 
         public void EditAuthentication(Authentication authentication)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "UPDATE Authenticatie SET AuthGebruikersnaam = @gebruikersnaam, AuthWachtwoord = @wachtwoord WHERE AuthLidId = @lidId;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@gebruikersnaam", authentication.Username);
+                            cmd.Parameters.AddWithValue("@wachtwoord", authentication.Password);
+                            cmd.Parameters.AddWithValue("@lidId", authentication.Lid.Id);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public void RemoveAuthentication(Authentication authentication)

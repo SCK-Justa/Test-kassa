@@ -32,14 +32,7 @@ namespace Kassasysteem
                 _item.SubItems.Add(l.GetTelefoonnummer());
                 _item.SubItems.Add(l.GetMobielnummer());
                 _item.SubItems.Add(l.LidVanaf.ToShortDateString());
-                if (l.Functie != "")
-                {
-                    _item.SubItems.Add(l.Functie);
-                }
-                else
-                {
-                    _item.SubItems.Add("");
-                }
+                _item.SubItems.Add(l.GetLidTypesAsString());
                 _item.SubItems.Add(l.Geboortedatum.ToShortDateString());
                 _item.SubItems.Add(l.GetNHBKlasseNaam());
                 _item.SubItems.Add(l.Klasse.Naam);

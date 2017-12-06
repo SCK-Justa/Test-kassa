@@ -82,7 +82,6 @@ namespace Logic
                     _gebruikers = GetGebruikers();
                     GetBestellingenFromDb();
                     BedragInKas = _kassaRepo.GetKasInhoud(0);
-                    _gebruikers = _authRepo.GetAuthentications();
                     if (_afgerekendeBestellingen.Count > 1)
                     {
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
@@ -554,6 +553,18 @@ namespace Logic
             catch (Exception)
             {
                 return new List<string>();
+            }
+        }
+
+        public void ChangeAuthenticationCredits(Authentication auth)
+        {
+            try
+            {
+                _authRepo.EditAuthentication(auth);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
             }
         }
     }

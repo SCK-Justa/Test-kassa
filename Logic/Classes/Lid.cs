@@ -11,23 +11,21 @@ namespace Logic.Classes
         public Klasse NhbKlasse {  get; private set; }
         public Klasse Klasse {  get; private set; }
         public Oudercontact OC { get; private set; }
-        public LidType Type { get; private set; }
+        public List<LidType> LidTypes { get; private set; }
         public Lid(DateTime lidvanaf, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
-            DateTime gebdatum, Adres adres, string telnr, string mbnr, LidType type) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
+            DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {
             LidVanaf = lidvanaf;
             Spelden = new List<string>();
-            Type = type;
         }
 
         public Lid(DateTime lidvanaf, Klasse nhbKlasse, Klasse klasse, int id, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
-            DateTime gebdatum, Adres adres, string telnr, string mbnr, LidType type) : base(id, bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
+            DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(id, bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {
             Klasse = klasse;
             NhbKlasse = nhbKlasse;
             LidVanaf = lidvanaf;
             Spelden = new List<string>();
-            Type = type;
         }
 
         public void SetFunctie(string functie)
@@ -43,6 +41,11 @@ namespace Logic.Classes
         public void SetNhbKlasse(Klasse klasse)
         {
             NhbKlasse = klasse;
+        }
+
+        public void SetTypes(List<LidType> types)
+        {
+            LidTypes = types;
         }
 
         public void AddSpeld(string speld)
@@ -93,7 +96,7 @@ namespace Logic.Classes
 
         public void AddLidType(LidType type)
         {
-            Type = type;
+            LidTypes.Add(type);
         }
 
         public Klasse CalculateKlasse(List<Klasse> klasses)
@@ -113,6 +116,30 @@ namespace Logic.Classes
                 throw new Exception("Persoon is te jong of te oud om lid te worden.");
             }
             return klas;
+        }
+
+        public bool GetBestuursfunctie()
+        {
+            foreach (LidType type in LidTypes)
+            {
+                return type.Bestuur;
+            }
+            return false;
+        }
+
+        public List<LidType> GetLidTypes()
+        {
+            return LidTypes;
+        }
+
+        public string GetLidTypesAsString()
+        {
+            string stringTypes = "";
+            foreach (LidType type in LidTypes)
+            {
+                stringTypes += type.ToString() + ", ";
+            }
+            return stringTypes;
         }
     }
 }

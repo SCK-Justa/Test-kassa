@@ -18,5 +18,10 @@
         {
             Id = id;
         }
+
+        public override string ToString()
+        {
+            return Naam;
+        }
     }
 }

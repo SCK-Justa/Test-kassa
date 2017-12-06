@@ -74,16 +74,12 @@ namespace Logic.Sql
                                     {
                                         bank = bankLogic.GetBankById(reader.GetInt32(8));
                                     }
-                                    LidType type = null;
-                                    if (!reader.IsDBNull(9))
-                                    {
-                                        type = GetLidTypeFromId(reader.GetInt32(9));
-                                    }
                                     Lid lid = new Lid(lidVanaf, nhbklasse, verklasse, id, bondsnummer, persoon.Voornaam,
                                         persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
-                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer, type);
+                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
                                     lid.SetOuderContact(oudercontact);
                                     lid.SetBank(bank);
+                                    lid.SetTypes(GetLidTypesFromId(lid.Id));
                                     if (_sterren != "")
                                     {
                                         string[] sterren = _sterren.Split(';');
@@ -220,16 +216,12 @@ namespace Logic.Sql
                                     {
                                         bank = bankLogic.GetBankById(reader.GetInt32(8));
                                     }
-                                    LidType type = null;
-                                    if (!reader.IsDBNull(9))
-                                    {
-                                        type = GetLidTypeFromId(reader.GetInt32(9));
-                                    }
                                     Lid lid = new Lid(lidVanaf, nhbklasse, clubklasse, id, bondsnummer, persoon.Voornaam,
                                         persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
-                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer, type);
+                                        persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
                                     lid.SetOuderContact(oudercontact);
                                     lid.SetBank(bank);
+                                    lid.SetTypes(GetLidTypesFromId(lid.Id));
                                     if (_sterren != "")
                                     {
                                         string[] sterren = _sterren.Split(';');
@@ -334,16 +326,12 @@ namespace Logic.Sql
                                 {
                                     bank = bankLogic.GetBankById(reader.GetInt32(8));
                                 }
-                                LidType type = null;
-                                if (!reader.IsDBNull(9))
-                                {
-                                    type = GetLidTypeFromId(reader.GetInt32(9));
-                                }
                                 Lid lid = new Lid(lidVanaf, nhbklasse, clubklasse, id, bondsnummer, persoon.Voornaam,
                                     persoon.Tussenvoegsel, persoon.Achternaam, persoon.Emailadres, persoon.Geslacht,
-                                    persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer, type);
+                                    persoon.Geboortedatum, persoon.Adres, persoon.Telefoonnummer, persoon.Mobielnummer);
                                 lid.SetOuderContact(oudercontact);
                                 lid.SetBank(bank);
+                                lid.SetTypes(GetLidTypesFromId(lid.Id));
                                 if (_sterren != "")
                                 {
                                     string[] sterren = _sterren.Split(';');
@@ -379,7 +367,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Lid VALUES (@bondsnummer, @persoonId, @lidvanaf, @sterren, @nhbklasse, @klasse, @oudercontactId, @bankId, @typeId);";
+                            cmd.CommandText = "INSERT INTO Lid VALUES (@bondsnummer, @persoonId, @lidvanaf, @sterren, @nhbklasse, @klasse, @oudercontactId, @bankId);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bondsnummer", lid.Bondsnummer);
@@ -390,7 +378,6 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@klasse", lid.Klasse.Id);
                             cmd.Parameters.AddWithValue("@oudercontactid", lid.Oudercontact.Id);
                             cmd.Parameters.AddWithValue("@bankId", lid.Bank.Id);
-                            cmd.Parameters.AddWithValue("@lidTypeId", lid.Type.Id);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -547,7 +534,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@Geslacht", lid.GetGeslacht());
                             cmd.Parameters.AddWithValue("@AdresId", lid.Adres.Id);
                             cmd.Parameters.AddWithValue("@Telefoonnummer", lid.GetTelefoonnummer());
-                            cmd.Parameters.AddWithValue("@Mobielnummer",lid.GetMobielnummer());
+                            cmd.Parameters.AddWithValue("@Mobielnummer", lid.GetMobielnummer());
                             cmd.Parameters.AddWithValue("@Geboortedatum", lid.Geboortedatum);
                             cmd.ExecuteNonQuery();
 
@@ -626,6 +613,49 @@ namespace Logic.Sql
                         {
                             cmd.CommandText = "SELECT * FROM Type;";
                             cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    string name = reader.GetString(1);
+                                    bool bestuur = reader.GetBoolean(2);
+                                    bool commissie = reader.GetBoolean(3);
+
+                                    LidType soort = new LidType(id, name, bestuur, commissie);
+                                    soorten.Add(soort);
+                                }
+                                return soorten;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        private List<LidType> GetLidTypesFromId(int lidId)
+        {
+            try
+            {
+                List<LidType> soorten = new List<LidType>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT TypeID, TypeNaam, TypeBestuur, TypeCommissie FROM Type JOIN LidType ON LtTypeId = TypeId JOIN Lid ON LId = LtLidId WHERE LId = @lidId;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@lidId", lidId);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
