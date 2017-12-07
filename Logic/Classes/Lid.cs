@@ -10,7 +10,6 @@ namespace Logic.Classes
         public List<string> Spelden {  get; }
         public Klasse NhbKlasse {  get; private set; }
         public Klasse Klasse {  get; private set; }
-        public Oudercontact OC { get; private set; }
         public List<LidType> LidTypes { get; private set; }
         public Lid(DateTime lidvanaf, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
             DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
@@ -76,6 +75,11 @@ namespace Logic.Classes
             return spelden;
         }
 
+        public Oudercontact GetOudercontact()
+        {
+            return Oudercontact;
+        }
+
         public int GetBondsnummer()
         {
             if (Bondsnummer > 0)
@@ -137,7 +141,7 @@ namespace Logic.Classes
             string stringTypes = "";
             foreach (LidType type in LidTypes)
             {
-                stringTypes += type.ToString() + ", ";
+                stringTypes += type + ", ";
             }
             return stringTypes;
         }

@@ -47,6 +47,9 @@
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btToevoegen = new System.Windows.Forms.Button();
             this.btLogboek = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btVerwijderen = new System.Windows.Forms.Button();
+            this.btBewerken = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvLeden
@@ -155,13 +158,13 @@
             this.btToevoegen.Name = "btToevoegen";
             this.btToevoegen.Size = new System.Drawing.Size(123, 39);
             this.btToevoegen.TabIndex = 1;
-            this.btToevoegen.Text = "Toevoegen";
+            this.btToevoegen.Text = "Lid toevoegen";
             this.btToevoegen.UseVisualStyleBackColor = true;
             this.btToevoegen.Click += new System.EventHandler(this.btToevoegen_Click);
             // 
             // btLogboek
             // 
-            this.btLogboek.Location = new System.Drawing.Point(141, 12);
+            this.btLogboek.Location = new System.Drawing.Point(399, 12);
             this.btLogboek.Name = "btLogboek";
             this.btLogboek.Size = new System.Drawing.Size(123, 39);
             this.btLogboek.TabIndex = 2;
@@ -169,11 +172,44 @@
             this.btLogboek.UseVisualStyleBackColor = true;
             this.btLogboek.Click += new System.EventHandler(this.btLogboek_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(857, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 39);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Cancel);
+            // 
+            // btVerwijderen
+            // 
+            this.btVerwijderen.Location = new System.Drawing.Point(270, 12);
+            this.btVerwijderen.Name = "btVerwijderen";
+            this.btVerwijderen.Size = new System.Drawing.Size(123, 39);
+            this.btVerwijderen.TabIndex = 4;
+            this.btVerwijderen.Text = "Verwijderen";
+            this.btVerwijderen.UseVisualStyleBackColor = true;
+            this.btVerwijderen.Click += new System.EventHandler(this.btVerwijderen_Click);
+            // 
+            // btBewerken
+            // 
+            this.btBewerken.Location = new System.Drawing.Point(141, 12);
+            this.btBewerken.Name = "btBewerken";
+            this.btBewerken.Size = new System.Drawing.Size(123, 39);
+            this.btBewerken.TabIndex = 5;
+            this.btBewerken.Text = "Bewerken";
+            this.btBewerken.UseVisualStyleBackColor = true;
+            this.btBewerken.Click += new System.EventHandler(this.btBewerken_Click);
+            // 
             // LedenScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 690);
+            this.Controls.Add(this.btBewerken);
+            this.Controls.Add(this.btVerwijderen);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btLogboek);
             this.Controls.Add(this.btToevoegen);
             this.Controls.Add(this.lvLeden);
@@ -205,5 +241,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.Button btToevoegen;
         private System.Windows.Forms.Button btLogboek;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btVerwijderen;
+        private System.Windows.Forms.Button btBewerken;
     }
 }

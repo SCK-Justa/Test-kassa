@@ -161,7 +161,10 @@ namespace Logic
                 List<Klasse> klasses = _klassenRepo.GetKlasses();
                 lid.SetAdres(_adresRepo.AddAdres(lid.Adres));
                 lid.SetBank(_bankRepo.AddBank(lid.Bank));
-                lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                if (lid.Oudercontact != null)
+                {
+                    lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                }
                 lid.SetKlasse(lid.CalculateKlasse(klasses));
                 lid.SetNhbKlasse(lid.CalculateKlasse(klasses));
                 _ledenRepo.AddPersoon(lid);
@@ -561,6 +564,26 @@ namespace Logic
             try
             {
                 _authRepo.EditAuthentication(auth);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public void RemoveLidFromLedenlijst(Lid lid, DateTime uitschrijfDatum)
+        {
+            _ledenRepo.DeletePersoon(lid);
+            _ledenLogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum, false, true);
+        }
+
+        public void EditLid(Lid nieuwLid, Lid oudLid)
+        {
+            try
+            {
+                _ledenRepo.EditPersoon(nieuwLid);
+                _leden.Remove(oudLid);
+                _leden.Add(nieuwLid);
             }
             catch (Exception exception)
             {
