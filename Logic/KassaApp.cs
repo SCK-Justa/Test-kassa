@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using Logic.Classes;
 using Logic.Repositories;
 using Logic.Sql;
@@ -507,18 +506,9 @@ namespace Logic
             _losseVerkopen.Add(product);
         }
 
-        public List<decimal> GetOmzetPerDag(DateTime weeknr)
+        public decimal GetOmzetPerDag(DateTime dag)
         {
-            List<decimal> dagOmzet = _omzetRepo.GetOmzetPerDag(weeknr);
-            if (dagOmzet == null)
-            {
-                dagOmzet = new List<decimal>();
-            }
-            while (dagOmzet.Count < 6)
-            {
-                dagOmzet.Add(0);
-            }
-            return dagOmzet;
+            return _omzetRepo.GetOmzetPerDag(dag);
         }
 
         public List<decimal> GetOmzetPerWeek(DateTime maand)

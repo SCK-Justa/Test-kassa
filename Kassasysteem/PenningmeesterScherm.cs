@@ -8,7 +8,7 @@ namespace Kassasysteem
 {
     public partial class PenningmeesterScherm : Form
     {
-        List<decimal> _weekOmzet = new List<decimal>();
+
         public KassaApp App { get; private set; }
         public PenningmeesterScherm(KassaApp app)
         {
@@ -46,10 +46,17 @@ namespace Kassasysteem
             // Scheidt tekst in week en het weeknummer, weeknummer wordt doorgespeeld om de omzet van die week op te halen.
             try
             {
-                DateTime eerstedagvandeweek;
-                string[] week = cbWeekNrs.SelectedText.Split(' ');
-                eerstedagvandeweek = FirstDateOfWeekISO8601(2017, Convert.ToInt32(week[1]));
-                _weekOmzet = App.GetOmzetPerDag(eerstedagvandeweek);
+                string s = (string)cbWeekNrs.SelectedItem;
+                string[] week = s.Split(' ');
+                decimal[] _weekOmzet = new decimal[7];
+                DateTime eerstedagvandeweek = FirstDateOfWeekISO8601(DateTime.Now.Year, Convert.ToInt32(week[1]));
+                for (int i = 0; i < 7; i++)
+                {
+                    _weekOmzet[i] = App.GetOmzetPerDag(eerstedagvandeweek);
+                    Console.WriteLine(i + ": " + _weekOmzet[i]);
+                    eerstedagvandeweek = eerstedagvandeweek.AddDays(1);
+                    Console.WriteLine(eerstedagvandeweek.Day);
+                }
 
                 tbMaandag.Text = "€ " + _weekOmzet[0];
                 tbDinsdag.Text = "€ " + _weekOmzet[1];

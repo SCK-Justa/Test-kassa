@@ -79,6 +79,7 @@ namespace Kassasysteem
                     DateTime olddate = DateTime.Now.AddMonths(1);
                     DateTime newDate = new DateTime(olddate.Year, olddate.Month, 1);
                     App.RemoveLidFromLedenlijst(selectedLid, newDate);
+                    UpdateLedenlijst();
                     MessageBox.Show(selectedLid.GetLidNaam() + " is van de ledenlijst verwijderd.");
                 }
                 else
@@ -107,6 +108,7 @@ namespace Kassasysteem
                 Lid selectedLid = lvLeden.SelectedItems[0].Tag as Lid;
                 LidToevoegenScherm scherm = new LidToevoegenScherm(App, selectedLid);
                 scherm.Show();
+                UpdateLedenlijst();
             }
             catch (Exception exception)
             {

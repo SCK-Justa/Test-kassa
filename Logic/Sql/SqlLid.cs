@@ -436,6 +436,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@", lid);
 
                             cmd.ExecuteNonQuery();
+                            removePersoon(lid);
                         }
                     }
                 }
@@ -444,6 +445,12 @@ namespace Logic.Sql
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        // Verwijdert de persoon uit de database
+        private void removePersoon(Lid lid)
+        {
+            
         }
 
         public Persoon GetPersoonFromLidId(int persoonId)

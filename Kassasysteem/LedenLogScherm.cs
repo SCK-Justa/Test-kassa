@@ -34,6 +34,7 @@ namespace Kassasysteem
             {
                 ListViewItem item = new ListViewItem(l);
                 item.BackColor = Color.DarkGreen;
+                item.ForeColor = Color.White;
                 listView1.Items.Add(item);
             }
         }

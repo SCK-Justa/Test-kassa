@@ -72,11 +72,13 @@ namespace Kassasysteem
                         {
                             GebruikerScherm scherm = new GebruikerScherm(App);
                             Close();
+                            Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
                             scherm.ShowDialog();
                         }
                         else
                         {
                             Kassa = new Kassa(App);
+                            Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
                             Kassa.ShowDialog();
                             Kassa = null;
                         }
