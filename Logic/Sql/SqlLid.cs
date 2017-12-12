@@ -525,7 +525,7 @@ namespace Logic.Sql
 
                             // parameters moeten nog komen
                             cmd.Parameters.AddWithValue("@Voornaam", lid.Voornaam);
-                            cmd.Parameters.AddWithValue("@Tussenvoegsel", lid.GetTelefoonnummer());
+                            cmd.Parameters.AddWithValue("@Tussenvoegsel", lid.GetTussenvoegsel());
                             cmd.Parameters.AddWithValue("@Achternaam", lid.Achternaam);
                             cmd.Parameters.AddWithValue("@Emailadres", lid.GetEmailadres());
                             cmd.Parameters.AddWithValue("@Geslacht", lid.GetGeslacht());
