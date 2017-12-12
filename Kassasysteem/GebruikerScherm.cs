@@ -27,7 +27,7 @@ namespace Kassasysteem
             {
                 lbGebruikersnaam.Text = App.Authentication.Username;
                 lbVolledigeNaam.Text = App.Authentication.GetFullName();
-                if (!App.Authentication.AuthenticationSoort.Bestuur)
+                if (!App.Authentication.Lid.GetBestuursfunctie())
                 {
                     btResetBestellingen.Visible = false;
                     btWijzigGebruikers.Visible = false;
@@ -82,6 +82,7 @@ namespace Kassasysteem
                 }
                 App.Authentication.SetUsername(username);
                 App.Authentication.SetPassword(password);
+                App.ChangeAuthenticationCredits(App.Authentication);
                 MessageBox.Show(@"Uw gegevens zijn opgeslagen!","", MessageBoxButtons.OK);
                 Close();
             }

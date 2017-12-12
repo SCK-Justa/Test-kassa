@@ -86,20 +86,27 @@ namespace Kassasysteem
 
         private void SortBy(string sort)
         {
-            switch (sort)
+            try
             {
-                case "Naam":
-                    _afgerekendeBestellingen.Sort((x, y) => String.Compare(x.Naam, y.Naam, StringComparison.Ordinal));
-                    _afgerekendeBestellingen.Sort((x, y) => String.Compare(x.Lid.Voornaam, y.Lid.Voornaam, StringComparison.Ordinal));
-                    break;
-                case "Datum":
-                    _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
-                    break;
-                case "Totaalprijs":
-                    _afgerekendeBestellingen.Sort((x, y) => -x.TotaalPrijs.CompareTo(y.TotaalPrijs));
-                    break;
+                switch (sort)
+                {
+                    case "Naam":
+                        _afgerekendeBestellingen.Sort((x, y) =>
+                            String.Compare(x.GetBesteller(), y.GetBesteller(), StringComparison.Ordinal));
+                        break;
+                    case "Datum":
+                        _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
+                        break;
+                    case "Totaalprijs":
+                        _afgerekendeBestellingen.Sort((x, y) => -x.TotaalPrijs.CompareTo(y.TotaalPrijs));
+                        break;
+                }
+                UpdateAfgerekendeBestellingen();
             }
-            UpdateAfgerekendeBestellingen();
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+            }
         }
 
         private void lvAfgerekendeBestellingen_Click(object sender, EventArgs e)

@@ -5,12 +5,12 @@ namespace Logic.Classes
 {
     public class Lid : Persoon
     {
-        public  string Functie {  get; private set; }
+        public string Functie {  get; private set; }
         public DateTime LidVanaf {  get; private set; }
         public List<string> Spelden {  get; }
         public Klasse NhbKlasse {  get; private set; }
         public Klasse Klasse {  get; private set; }
-        public Oudercontact OC { get; private set; }
+        public List<LidType> LidTypes { get; private set; }
         public Lid(DateTime lidvanaf, int bnr, string vnaam, string tvoegsel, string anaam, string email, string geslacht, 
             DateTime gebdatum, Adres adres, string telnr, string mbnr) : base(bnr, vnaam, tvoegsel, anaam, email, geslacht, gebdatum, adres, telnr, mbnr)
         {
@@ -42,6 +42,11 @@ namespace Logic.Classes
             NhbKlasse = klasse;
         }
 
+        public void SetTypes(List<LidType> types)
+        {
+            LidTypes = types;
+        }
+
         public void AddSpeld(string speld)
         {
             Spelden.Add(speld);
@@ -70,6 +75,11 @@ namespace Logic.Classes
             return spelden;
         }
 
+        public Oudercontact GetOudercontact()
+        {
+            return Oudercontact;
+        }
+
         public int GetBondsnummer()
         {
             if (Bondsnummer > 0)
@@ -86,6 +96,11 @@ namespace Logic.Classes
                 return NhbKlasse.Naam;
             }
             return null;
+        }
+
+        public void AddLidType(LidType type)
+        {
+            LidTypes.Add(type);
         }
 
         public Klasse CalculateKlasse(List<Klasse> klasses)
@@ -105,6 +120,30 @@ namespace Logic.Classes
                 throw new Exception("Persoon is te jong of te oud om lid te worden.");
             }
             return klas;
+        }
+
+        public bool GetBestuursfunctie()
+        {
+            foreach (LidType type in LidTypes)
+            {
+                return type.Bestuur;
+            }
+            return false;
+        }
+
+        public List<LidType> GetLidTypes()
+        {
+            return LidTypes;
+        }
+
+        public string GetLidTypesAsString()
+        {
+            string stringTypes = "";
+            foreach (LidType type in LidTypes)
+            {
+                stringTypes += type + ", ";
+            }
+            return stringTypes;
         }
     }
 }

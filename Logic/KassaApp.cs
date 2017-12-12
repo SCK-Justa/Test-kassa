@@ -81,7 +81,6 @@ namespace Logic
                     _gebruikers = GetGebruikers();
                     GetBestellingenFromDb();
                     BedragInKas = _kassaRepo.GetKasInhoud(0);
-                    _gebruikers = _authRepo.GetAuthentications();
                     if (_afgerekendeBestellingen.Count > 1)
                     {
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
@@ -90,7 +89,7 @@ namespace Logic
                 else
                 {
                     Console.WriteLine("Connectie met database niet mogelijk. Admin toegevoegd aan inlogaccounts.");
-                    _gebruikers.Add(new Authentication("Admin", "system", null, new AuthenticationSoort("Admin", true, false)));
+                    _gebruikers.Add(new Authentication("Admin", "system", null));
                     GetBestellingenFromDb();
                 }
             }
@@ -161,7 +160,10 @@ namespace Logic
                 List<Klasse> klasses = _klassenRepo.GetKlasses();
                 lid.SetAdres(_adresRepo.AddAdres(lid.Adres));
                 lid.SetBank(_bankRepo.AddBank(lid.Bank));
-                lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                if (lid.Oudercontact != null)
+                {
+                    lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                }
                 lid.SetKlasse(lid.CalculateKlasse(klasses));
                 lid.SetNhbKlasse(lid.CalculateKlasse(klasses));
                 _ledenRepo.AddPersoon(lid);
@@ -504,18 +506,9 @@ namespace Logic
             _losseVerkopen.Add(product);
         }
 
-        public List<decimal> GetOmzetPerDag(DateTime weeknr)
+        public decimal GetOmzetPerDag(DateTime dag)
         {
-            List<decimal> dagOmzet = _omzetRepo.GetOmzetPerDag(weeknr);
-            if (dagOmzet == null)
-            {
-                dagOmzet = new List<decimal>();
-            }
-            while (dagOmzet.Count < 6)
-            {
-                dagOmzet.Add(0);
-            }
-            return dagOmzet;
+            return _omzetRepo.GetOmzetPerDag(dag);
         }
 
         public List<decimal> GetOmzetPerWeek(DateTime maand)
@@ -553,6 +546,38 @@ namespace Logic
             catch (Exception)
             {
                 return new List<string>();
+            }
+        }
+
+        public void ChangeAuthenticationCredits(Authentication auth)
+        {
+            try
+            {
+                _authRepo.EditAuthentication(auth);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public void RemoveLidFromLedenlijst(Lid lid, DateTime uitschrijfDatum)
+        {
+            _ledenRepo.DeletePersoon(lid);
+            _ledenLogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum, false, true);
+        }
+
+        public void EditLid(Lid nieuwLid, Lid oudLid)
+        {
+            try
+            {
+                _ledenRepo.EditPersoon(nieuwLid);
+                _leden.Remove(oudLid);
+                _leden.Add(nieuwLid);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
             }
         }
     }

@@ -77,10 +77,14 @@
             this.tbOVoornaam = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.btOuder = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tbBondsnummer = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -113,16 +117,16 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(7, 300);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 13);
+            this.label8.Size = new System.Drawing.Size(90, 13);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Geboortedatum:";
+            this.label8.Text = "* Geboortedatum:";
             // 
             // dtGebdatum
             // 
             this.dtGebdatum.Location = new System.Drawing.Point(10, 316);
             this.dtGebdatum.Name = "dtGebdatum";
             this.dtGebdatum.Size = new System.Drawing.Size(169, 20);
-            this.dtGebdatum.TabIndex = 14;
+            this.dtGebdatum.TabIndex = 8;
             // 
             // cbGeslacht
             // 
@@ -133,23 +137,23 @@
             this.cbGeslacht.Location = new System.Drawing.Point(10, 276);
             this.cbGeslacht.Name = "cbGeslacht";
             this.cbGeslacht.Size = new System.Drawing.Size(169, 21);
-            this.cbGeslacht.TabIndex = 13;
+            this.cbGeslacht.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 260);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Geslacht:";
+            this.label7.Text = "* Geslacht:";
             // 
             // tbMobielnummer
             // 
             this.tbMobielnummer.Location = new System.Drawing.Point(10, 237);
             this.tbMobielnummer.Name = "tbMobielnummer";
             this.tbMobielnummer.Size = new System.Drawing.Size(169, 20);
-            this.tbMobielnummer.TabIndex = 11;
+            this.tbMobielnummer.TabIndex = 6;
             // 
             // label6
             // 
@@ -165,7 +169,7 @@
             this.tbTelefoonnummer.Location = new System.Drawing.Point(10, 197);
             this.tbTelefoonnummer.Name = "tbTelefoonnummer";
             this.tbTelefoonnummer.Size = new System.Drawing.Size(169, 20);
-            this.tbTelefoonnummer.TabIndex = 9;
+            this.tbTelefoonnummer.TabIndex = 5;
             // 
             // label5
             // 
@@ -181,39 +185,39 @@
             this.tbEmailadres.Location = new System.Drawing.Point(10, 157);
             this.tbEmailadres.Name = "tbEmailadres";
             this.tbEmailadres.Size = new System.Drawing.Size(169, 20);
-            this.tbEmailadres.TabIndex = 7;
+            this.tbEmailadres.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Emailadres:";
+            this.label4.Text = "* Emailadres:";
             // 
             // tbAchternaam
             // 
             this.tbAchternaam.Location = new System.Drawing.Point(10, 117);
             this.tbAchternaam.Name = "tbAchternaam";
             this.tbAchternaam.Size = new System.Drawing.Size(169, 20);
-            this.tbAchternaam.TabIndex = 5;
+            this.tbAchternaam.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Achternaam:";
+            this.label3.Text = "* Achternaam:";
             // 
             // tbTussenvoegsel
             // 
             this.tbTussenvoegsel.Location = new System.Drawing.Point(10, 77);
             this.tbTussenvoegsel.Name = "tbTussenvoegsel";
             this.tbTussenvoegsel.Size = new System.Drawing.Size(169, 20);
-            this.tbTussenvoegsel.TabIndex = 3;
+            this.tbTussenvoegsel.TabIndex = 2;
             // 
             // label2
             // 
@@ -236,9 +240,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Voornaam:";
+            this.label1.Text = "* Voornaam:";
             // 
             // groupBox2
             // 
@@ -262,64 +266,64 @@
             this.tbHuisnummer.Location = new System.Drawing.Point(187, 37);
             this.tbHuisnummer.Name = "tbHuisnummer";
             this.tbHuisnummer.Size = new System.Drawing.Size(65, 20);
-            this.tbHuisnummer.TabIndex = 13;
+            this.tbHuisnummer.TabIndex = 10;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(184, 20);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 13);
+            this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 12;
-            this.label14.Text = "Huisnummer:";
+            this.label14.Text = "* Huisnummer:";
             // 
             // tbWoonplaats
             // 
             this.tbWoonplaats.Location = new System.Drawing.Point(9, 117);
             this.tbWoonplaats.Name = "tbWoonplaats";
             this.tbWoonplaats.Size = new System.Drawing.Size(169, 20);
-            this.tbWoonplaats.TabIndex = 11;
+            this.tbWoonplaats.TabIndex = 12;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 100);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 13);
+            this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 10;
-            this.label11.Text = "Woonplaats:";
+            this.label11.Text = "* Woonplaats:";
             // 
             // tbPostcode
             // 
             this.tbPostcode.Location = new System.Drawing.Point(9, 77);
             this.tbPostcode.Name = "tbPostcode";
             this.tbPostcode.Size = new System.Drawing.Size(169, 20);
-            this.tbPostcode.TabIndex = 9;
+            this.tbPostcode.TabIndex = 11;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 60);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 13);
+            this.label12.Size = new System.Drawing.Size(62, 13);
             this.label12.TabIndex = 8;
-            this.label12.Text = "Postcode:";
+            this.label12.Text = "* Postcode:";
             // 
             // tbStraatnaam
             // 
             this.tbStraatnaam.Location = new System.Drawing.Point(9, 37);
             this.tbStraatnaam.Name = "tbStraatnaam";
             this.tbStraatnaam.Size = new System.Drawing.Size(169, 20);
-            this.tbStraatnaam.TabIndex = 7;
+            this.tbStraatnaam.TabIndex = 9;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 20);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 13);
+            this.label13.Size = new System.Drawing.Size(71, 13);
             this.label13.TabIndex = 6;
-            this.label13.Text = "Straatnaam:";
+            this.label13.Text = "* Straatnaam:";
             // 
             // groupBox3
             // 
@@ -339,49 +343,49 @@
             this.tbBankrekening.Location = new System.Drawing.Point(9, 72);
             this.tbBankrekening.Name = "tbBankrekening";
             this.tbBankrekening.Size = new System.Drawing.Size(169, 20);
-            this.tbBankrekening.TabIndex = 23;
+            this.tbBankrekening.TabIndex = 14;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 55);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 13);
+            this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Bankrekening:";
+            this.label10.Text = "* Bankrekening:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 16);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 21;
-            this.label9.Text = "Lid vanaf:";
+            this.label9.Text = "* Lid vanaf:";
             // 
             // dtLidVanafDatum
             // 
             this.dtLidVanafDatum.Location = new System.Drawing.Point(9, 32);
             this.dtLidVanafDatum.Name = "dtLidVanafDatum";
             this.dtLidVanafDatum.Size = new System.Drawing.Size(169, 20);
-            this.dtLidVanafDatum.TabIndex = 20;
+            this.dtLidVanafDatum.TabIndex = 13;
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(381, 332);
+            this.btCancel.Location = new System.Drawing.Point(109, 365);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(89, 29);
-            this.btCancel.TabIndex = 3;
+            this.btCancel.TabIndex = 16;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btOpslaan
             // 
-            this.btOpslaan.Location = new System.Drawing.Point(286, 332);
+            this.btOpslaan.Location = new System.Drawing.Point(14, 365);
             this.btOpslaan.Name = "btOpslaan";
             this.btOpslaan.Size = new System.Drawing.Size(89, 29);
-            this.btOpslaan.TabIndex = 4;
+            this.btOpslaan.TabIndex = 17;
             this.btOpslaan.Text = "Opslaan";
             this.btOpslaan.UseVisualStyleBackColor = true;
             this.btOpslaan.Click += new System.EventHandler(this.btOpslaan_Click);
@@ -404,8 +408,8 @@
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Location = new System.Drawing.Point(477, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(186, 297);
-            this.groupBox4.TabIndex = 5;
+            this.groupBox4.Size = new System.Drawing.Size(186, 323);
+            this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Contactgegevens volwassene";
             // 
@@ -430,7 +434,7 @@
             this.tbOTel2.Location = new System.Drawing.Point(9, 273);
             this.tbOTel2.Name = "tbOTel2";
             this.tbOTel2.Size = new System.Drawing.Size(169, 20);
-            this.tbOTel2.TabIndex = 21;
+            this.tbOTel2.TabIndex = 25;
             // 
             // label20
             // 
@@ -446,7 +450,7 @@
             this.tbOTel1.Location = new System.Drawing.Point(9, 233);
             this.tbOTel1.Name = "tbOTel1";
             this.tbOTel1.Size = new System.Drawing.Size(169, 20);
-            this.tbOTel1.TabIndex = 19;
+            this.tbOTel1.TabIndex = 24;
             // 
             // label15
             // 
@@ -462,7 +466,7 @@
             this.tbOEmail1.Location = new System.Drawing.Point(9, 153);
             this.tbOEmail1.Name = "tbOEmail1";
             this.tbOEmail1.Size = new System.Drawing.Size(169, 20);
-            this.tbOEmail1.TabIndex = 17;
+            this.tbOEmail1.TabIndex = 22;
             // 
             // label16
             // 
@@ -478,7 +482,7 @@
             this.tbOAchternaam.Location = new System.Drawing.Point(9, 113);
             this.tbOAchternaam.Name = "tbOAchternaam";
             this.tbOAchternaam.Size = new System.Drawing.Size(169, 20);
-            this.tbOAchternaam.TabIndex = 15;
+            this.tbOAchternaam.TabIndex = 21;
             // 
             // label17
             // 
@@ -494,7 +498,7 @@
             this.tbOTussenvoegsel.Location = new System.Drawing.Point(9, 73);
             this.tbOTussenvoegsel.Name = "tbOTussenvoegsel";
             this.tbOTussenvoegsel.Size = new System.Drawing.Size(169, 20);
-            this.tbOTussenvoegsel.TabIndex = 13;
+            this.tbOTussenvoegsel.TabIndex = 20;
             // 
             // label18
             // 
@@ -510,7 +514,7 @@
             this.tbOVoornaam.Location = new System.Drawing.Point(9, 33);
             this.tbOVoornaam.Name = "tbOVoornaam";
             this.tbOVoornaam.Size = new System.Drawing.Size(169, 20);
-            this.tbOVoornaam.TabIndex = 11;
+            this.tbOVoornaam.TabIndex = 19;
             // 
             // label19
             // 
@@ -523,19 +527,47 @@
             // 
             // btOuder
             // 
-            this.btOuder.Location = new System.Drawing.Point(380, 289);
+            this.btOuder.Location = new System.Drawing.Point(333, 365);
             this.btOuder.Name = "btOuder";
-            this.btOuder.Size = new System.Drawing.Size(89, 37);
-            this.btOuder.TabIndex = 6;
+            this.btOuder.Size = new System.Drawing.Size(137, 29);
+            this.btOuder.TabIndex = 18;
             this.btOuder.Text = "Oudercontact toevoegen";
             this.btOuder.UseVisualStyleBackColor = true;
             this.btOuder.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tbBondsnummer);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Location = new System.Drawing.Point(210, 277);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(261, 59);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Clubinformatie";
+            // 
+            // tbBondsnummer
+            // 
+            this.tbBondsnummer.Location = new System.Drawing.Point(9, 33);
+            this.tbBondsnummer.Name = "tbBondsnummer";
+            this.tbBondsnummer.Size = new System.Drawing.Size(169, 20);
+            this.tbBondsnummer.TabIndex = 15;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(77, 13);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Bondsnummer:";
             // 
             // LidToevoegenScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 365);
+            this.ClientSize = new System.Drawing.Size(682, 402);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btOuder);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btOpslaan);
@@ -543,7 +575,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LidToevoegenScherm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -552,6 +586,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -607,5 +643,8 @@
         private System.Windows.Forms.TextBox tbOVoornaam;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btOuder;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox tbBondsnummer;
+        private System.Windows.Forms.Label label22;
     }
 }

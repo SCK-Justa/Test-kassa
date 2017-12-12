@@ -11,7 +11,7 @@ namespace Logic.Repositories
         {
             this._omzetServices = _omzetServices;
         }
-        public List<decimal> GetOmzetPerDag(DateTime eersteDagVanDeWeek)
+        public decimal GetOmzetPerDag(DateTime eersteDagVanDeWeek)
         {
             return _omzetServices.GetOmzetPerDag(eersteDagVanDeWeek);
         }

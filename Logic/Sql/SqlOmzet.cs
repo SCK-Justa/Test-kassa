@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using Logic.Classes;
 using Logic.Interfaces;
 
 namespace Logic.Sql
@@ -15,11 +14,11 @@ namespace Logic.Sql
         {
             connectie = dbConnectie;
         }
-        public List<decimal> GetOmzetPerDag(DateTime eerstedagvandeweek)
+        public decimal GetOmzetPerDag(DateTime datum)
         {
             try
             {
-                omzet = new List<decimal>();
+                decimal totaalBedrag = 0;
                 using (SqlConnection conn = new SqlConnection(connectie))
                 {
                     if (conn.State != ConnectionState.Open)
@@ -28,30 +27,30 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT BBetaaldBedrag FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @dag1 AND BDatumBetaald < @dag2;";
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @beginDag AND BDatumBetaald <= @eindDag;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@dag1", eerstedagvandeweek);
-                            cmd.Parameters.AddWithValue("@dag2", eerstedagvandeweek.AddDays(7)); // Add 7 dagen want de 7e dag is maandag 00:00:00 AM
+                            cmd.Parameters.AddWithValue("@beginDag", datum);
+                            datum = datum.AddDays(1);
+                            cmd.Parameters.AddWithValue("@eindDag", datum);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
-                                    for(int i = 0; i < 6; i++)
+                                    decimal totaal = 0;
+                                    if (!reader.IsDBNull(0))
                                     {
-                                        if (!reader.IsDBNull(i))
-                                        {
-                                            omzet.Add(reader.GetDecimal(i));
-                                        }
+                                        totaal = reader.GetDecimal(0);
                                     }
-                                    return omzet;
+                                    totaalBedrag = totaal;
                                 }
+                                return totaalBedrag;
                             }
                         }
                     }
                 }
-                return null;
+                return 0;
             }
             catch (Exception exception)
             {

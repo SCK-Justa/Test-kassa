@@ -6,17 +6,15 @@
         public string Username { get; private set; }
         public string Password { get; private set; }
         public Lid Lid { get; private set; }
-        public AuthenticationSoort AuthenticationSoort { get; private set; }
         public int KassaId { get; private set; }
-        public Authentication(string username, string password, Lid lid, AuthenticationSoort soort)
+        public Authentication(string username, string password, Lid lid)
         {
             Username = username;
             Password = password;
             Lid = lid;
-            AuthenticationSoort = soort;
         }
 
-        public Authentication(int id, string username, string password, Lid lid, AuthenticationSoort soort, int kassaId) : this(username, password, lid, soort)
+        public Authentication(int id, string username, string password, Lid lid, int kassaId) : this(username, password, lid)
         {
             Id = id;
             KassaId = kassaId;
@@ -42,12 +40,6 @@
         {
             Lid = lid;
         }
-
-        public void SetAuthenticationSoort(AuthenticationSoort soort)
-        {
-            AuthenticationSoort = soort;
-        }
-
         public string GetFullName()
         {
             // Lid is alleen null als er geen database connectie is.
@@ -60,7 +52,6 @@
                 return Lid.Voornaam + " " + Lid.Achternaam;
             }
             return "Admin";
-
         }
     }
 }

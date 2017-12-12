@@ -55,10 +55,9 @@ namespace Logic.Sql
                                     string name = reader.GetString(1);
                                     string wachtwoord = reader.GetString(2);
                                     int kassaId = reader.GetInt32(3);
-                                    Lid lid = sqllid.GetLidFromId(reader.GetInt32(5));
-                                    AuthenticationSoort soort = GetSoortById(reader.GetInt32(4));
-                                    
-                                    Authentication auth = new Authentication(id, name, wachtwoord, lid, soort, kassaId);
+                                    Lid lid = sqllid.GetLidFromId(reader.GetInt32(4));
+
+                                    Authentication auth = new Authentication(id, name, wachtwoord, lid, kassaId);
                                     authentications.Add(auth);
                                 }
                                 return authentications;
@@ -77,20 +76,36 @@ namespace Logic.Sql
 
         public void AddAuthentication(Authentication authentication)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "INSERT INTO Authenticatie (AuthGebruikersnaam, AuthWachtwoord, AuthKassaId, AuthLidId) VALUES (@gebruikersnaam, @wachtwoord, @kassaId, @lidId);";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@gebruikersnaam", authentication.Username);
+                            cmd.Parameters.AddWithValue("@wachtwoord", authentication.Password);
+                            cmd.Parameters.AddWithValue("@kassaId", authentication.KassaId);
+                            cmd.Parameters.AddWithValue("@lidId", authentication.Lid.Id);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public void EditAuthentication(Authentication authentication)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveAuthentication(Authentication authentication)
-        {
-            throw new NotImplementedException();
-        }
-
-        public AuthenticationSoort GetSoortById(int soortId)
         {
             try
             {
@@ -102,33 +117,27 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM Type WHERE TypeId = @Id;";
+                            cmd.CommandText = "UPDATE Authenticatie SET AuthGebruikersnaam = @gebruikersnaam, AuthWachtwoord = @wachtwoord WHERE AuthLidId = @lidId;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@Id", soortId);
+                            cmd.Parameters.AddWithValue("@gebruikersnaam", authentication.Username);
+                            cmd.Parameters.AddWithValue("@wachtwoord", authentication.Password);
+                            cmd.Parameters.AddWithValue("@lidId", authentication.Lid.Id);
 
-                            using (SqlDataReader reader = cmd.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    int id = reader.GetInt32(0);
-                                    string name = reader.GetString(1);
-                                    bool bestuur = reader.GetBoolean(2);
-                                    bool commissie = reader.GetBoolean(3);
-
-                                    AuthenticationSoort soort = new AuthenticationSoort(id, name, bestuur, commissie);
-                                    return soort;
-                                }
-                            }
+                            cmd.ExecuteNonQuery();
                         }
                     }
                 }
-                return null;
             }
             catch (Exception exception)
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public void RemoveAuthentication(Authentication authentication)
+        {
+            throw new NotImplementedException();
         }
     }
 }
