@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using Logic.Classes;
 using Logic.Interfaces;
 
 namespace Logic.Sql
