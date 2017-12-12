@@ -44,6 +44,7 @@
     <Compile Include="Classes\Adres.cs" />
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\BankNaamEnum.cs" />
+    <Compile Include="Classes\BestellingSoortEnum.cs" />
     <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />

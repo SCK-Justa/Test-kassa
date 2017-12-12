@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btBetalenAanKas = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.gbDeclaratie = new System.Windows.Forms.GroupBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -124,20 +122,10 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bt3 = new System.Windows.Forms.Button();
-            this.bt2 = new System.Windows.Forms.Button();
-            this.bt1 = new System.Windows.Forms.Button();
-            this.bt4 = new System.Windows.Forms.Button();
-            this.bt5 = new System.Windows.Forms.Button();
-            this.bt6 = new System.Windows.Forms.Button();
-            this.bt7 = new System.Windows.Forms.Button();
-            this.bt8 = new System.Windows.Forms.Button();
-            this.bt9 = new System.Windows.Forms.Button();
-            this.lbBedrag = new System.Windows.Forms.Label();
-            this.btClear = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbBedrag = new System.Windows.Forms.TextBox();
+            this.lbBedraguitKas = new System.Windows.Forms.Label();
+            this.btOk = new System.Windows.Forms.Button();
             this.gbDeclaratie.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDKm)).BeginInit();
@@ -164,42 +152,8 @@
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.gbOverzichtFormulieren.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btClear);
-            this.groupBox1.Controls.Add(this.lbBedrag);
-            this.groupBox1.Controls.Add(this.bt7);
-            this.groupBox1.Controls.Add(this.bt8);
-            this.groupBox1.Controls.Add(this.bt9);
-            this.groupBox1.Controls.Add(this.bt4);
-            this.groupBox1.Controls.Add(this.bt5);
-            this.groupBox1.Controls.Add(this.bt6);
-            this.groupBox1.Controls.Add(this.bt1);
-            this.groupBox1.Controls.Add(this.bt2);
-            this.groupBox1.Controls.Add(this.bt3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.btBetalenAanKas);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 405);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Inkomsten";
-            // 
-            // btBetalenAanKas
-            // 
-            this.btBetalenAanKas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btBetalenAanKas.Location = new System.Drawing.Point(7, 370);
-            this.btBetalenAanKas.Name = "btBetalenAanKas";
-            this.btBetalenAanKas.Size = new System.Drawing.Size(242, 29);
-            this.btBetalenAanKas.TabIndex = 3;
-            this.btBetalenAanKas.Text = "Betalen aan kas";
-            this.btBetalenAanKas.UseVisualStyleBackColor = true;
-            this.btBetalenAanKas.Click += new System.EventHandler(this.btBetalenAanKas_Click);
             // 
             // btCancel
             // 
@@ -1170,147 +1124,56 @@
             this.columnHeader11.Text = "Gereden km";
             this.columnHeader11.Width = 63;
             // 
-            // textBox1
+            // groupBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 344);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 21);
-            this.textBox1.TabIndex = 4;
+            this.groupBox1.Controls.Add(this.btOk);
+            this.groupBox1.Controls.Add(this.lbBedraguitKas);
+            this.groupBox1.Controls.Add(this.tbBedrag);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(255, 403);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
             // 
-            // label1
+            // tbBedrag
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Reden betaling:";
+            this.tbBedrag.Location = new System.Drawing.Point(91, 17);
+            this.tbBedrag.Name = "tbBedrag";
+            this.tbBedrag.Size = new System.Drawing.Size(79, 20);
+            this.tbBedrag.TabIndex = 0;
             // 
-            // bt3
+            // lbBedraguitKas
             // 
-            this.bt3.Location = new System.Drawing.Point(176, 69);
-            this.bt3.Name = "bt3";
-            this.bt3.Size = new System.Drawing.Size(78, 72);
-            this.bt3.TabIndex = 8;
-            this.bt3.Text = "3";
-            this.bt3.UseVisualStyleBackColor = true;
-            this.bt3.Click += new System.EventHandler(this.bt3_Click);
+            this.lbBedraguitKas.AutoSize = true;
+            this.lbBedraguitKas.Location = new System.Drawing.Point(7, 20);
+            this.lbBedraguitKas.Name = "lbBedraguitKas";
+            this.lbBedraguitKas.Size = new System.Drawing.Size(78, 13);
+            this.lbBedraguitKas.TabIndex = 1;
+            this.lbBedraguitKas.Text = "Bedrag uit kas:";
             // 
-            // bt2
+            // btOk
             // 
-            this.bt2.Location = new System.Drawing.Point(92, 70);
-            this.bt2.Name = "bt2";
-            this.bt2.Size = new System.Drawing.Size(78, 72);
-            this.bt2.TabIndex = 9;
-            this.bt2.Text = "2";
-            this.bt2.UseVisualStyleBackColor = true;
-            this.bt2.Click += new System.EventHandler(this.bt2_Click);
-            // 
-            // bt1
-            // 
-            this.bt1.Location = new System.Drawing.Point(8, 70);
-            this.bt1.Name = "bt1";
-            this.bt1.Size = new System.Drawing.Size(78, 72);
-            this.bt1.TabIndex = 10;
-            this.bt1.Text = "1";
-            this.bt1.UseVisualStyleBackColor = true;
-            this.bt1.Click += new System.EventHandler(this.bt1_Click);
-            // 
-            // bt4
-            // 
-            this.bt4.Location = new System.Drawing.Point(8, 145);
-            this.bt4.Name = "bt4";
-            this.bt4.Size = new System.Drawing.Size(78, 72);
-            this.bt4.TabIndex = 13;
-            this.bt4.Text = "4";
-            this.bt4.UseVisualStyleBackColor = true;
-            this.bt4.Click += new System.EventHandler(this.bt4_Click);
-            // 
-            // bt5
-            // 
-            this.bt5.Location = new System.Drawing.Point(92, 144);
-            this.bt5.Name = "bt5";
-            this.bt5.Size = new System.Drawing.Size(78, 72);
-            this.bt5.TabIndex = 12;
-            this.bt5.Text = "5";
-            this.bt5.UseVisualStyleBackColor = true;
-            this.bt5.Click += new System.EventHandler(this.bt5_Click);
-            // 
-            // bt6
-            // 
-            this.bt6.Location = new System.Drawing.Point(176, 144);
-            this.bt6.Name = "bt6";
-            this.bt6.Size = new System.Drawing.Size(78, 72);
-            this.bt6.TabIndex = 11;
-            this.bt6.Text = "6";
-            this.bt6.UseVisualStyleBackColor = true;
-            this.bt6.Click += new System.EventHandler(this.bt6_Click);
-            // 
-            // bt7
-            // 
-            this.bt7.Location = new System.Drawing.Point(8, 221);
-            this.bt7.Name = "bt7";
-            this.bt7.Size = new System.Drawing.Size(78, 72);
-            this.bt7.TabIndex = 16;
-            this.bt7.Text = "7";
-            this.bt7.UseVisualStyleBackColor = true;
-            this.bt7.Click += new System.EventHandler(this.bt7_Click);
-            // 
-            // bt8
-            // 
-            this.bt8.Location = new System.Drawing.Point(92, 221);
-            this.bt8.Name = "bt8";
-            this.bt8.Size = new System.Drawing.Size(78, 72);
-            this.bt8.TabIndex = 15;
-            this.bt8.Text = "8";
-            this.bt8.UseVisualStyleBackColor = true;
-            this.bt8.Click += new System.EventHandler(this.bt8_Click);
-            // 
-            // bt9
-            // 
-            this.bt9.Location = new System.Drawing.Point(176, 220);
-            this.bt9.Name = "bt9";
-            this.bt9.Size = new System.Drawing.Size(78, 72);
-            this.bt9.TabIndex = 14;
-            this.bt9.Text = "9";
-            this.bt9.UseVisualStyleBackColor = true;
-            this.bt9.Click += new System.EventHandler(this.bt9_Click);
-            // 
-            // lbBedrag
-            // 
-            this.lbBedrag.AutoSize = true;
-            this.lbBedrag.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbBedrag.Location = new System.Drawing.Point(6, 25);
-            this.lbBedrag.Name = "lbBedrag";
-            this.lbBedrag.Size = new System.Drawing.Size(41, 31);
-            this.lbBedrag.TabIndex = 17;
-            this.lbBedrag.Text = "lbl";
-            // 
-            // btClear
-            // 
-            this.btClear.Location = new System.Drawing.Point(176, 20);
-            this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(78, 46);
-            this.btClear.TabIndex = 18;
-            this.btClear.Text = "C";
-            this.btClear.UseVisualStyleBackColor = true;
+            this.btOk.Location = new System.Drawing.Point(173, 15);
+            this.btOk.Name = "btOk";
+            this.btOk.Size = new System.Drawing.Size(75, 23);
+            this.btOk.TabIndex = 2;
+            this.btOk.Text = "OK";
+            this.btOk.UseVisualStyleBackColor = true;
+            this.btOk.Click += new System.EventHandler(this.btOk_Click);
             // 
             // KasInUitScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 537);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbOverzichtFormulieren);
             this.Controls.Add(this.gbVoorschot);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbDeclaratie);
             this.Controls.Add(this.btCancel);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "KasInUitScherm";
-            this.Text = "KasInUit";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.gbDeclaratie.ResumeLayout(false);
             this.gbDeclaratie.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1345,14 +1208,13 @@
             this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.gbOverzichtFormulieren.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btBetalenAanKas;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.GroupBox gbDeclaratie;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1447,18 +1309,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button bt7;
-        private System.Windows.Forms.Button bt8;
-        private System.Windows.Forms.Button bt9;
-        private System.Windows.Forms.Button bt4;
-        private System.Windows.Forms.Button bt5;
-        private System.Windows.Forms.Button bt6;
-        private System.Windows.Forms.Button bt1;
-        private System.Windows.Forms.Button bt2;
-        private System.Windows.Forms.Button bt3;
-        private System.Windows.Forms.Label lbBedrag;
-        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btOk;
+        private System.Windows.Forms.Label lbBedraguitKas;
+        private System.Windows.Forms.TextBox tbBedrag;
     }
 }

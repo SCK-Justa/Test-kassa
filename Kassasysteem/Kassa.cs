@@ -19,6 +19,7 @@ namespace GUI
         private KasInUitScherm _kasinuitScherm;
 
         private bool _contanteVerkoop;
+        private bool _contanteVerkoopLid;
 
         public Kassa(KassaApp app)
         {
@@ -27,6 +28,7 @@ namespace GUI
                 InitializeComponent();
                 _contanteVerkoop = false;
                 App = app;
+                timer.Start();
                 if (App.CheckDbConnection())
                 {
                     UpdateKassaGegevens();
@@ -147,6 +149,7 @@ namespace GUI
                 lbLedenprijs.Text = "";
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
+                groupBox6.Visible = false;
                 if (App.DBConnection)
                 {
                     lbConnectie.Text = @"gelukt";
@@ -482,21 +485,6 @@ namespace GUI
             _voorraadScherm.ShowDialog();
         }
 
-        private void andereInkomstenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _kasinuitScherm = new KasInUitScherm(App);
-                _kasinuitScherm.Show();
-                UpdateKassaGegevens();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
-                                exception.Message);
-            }
-        }
-
         private void omzetInzienToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -543,18 +531,6 @@ namespace GUI
 
         private void btContant_Click(object sender, EventArgs e)
         {
-            lvBestellingen.SelectedItems.Clear();
-            // Als losse verkoop wordt aangeklikt, moet bestellingen maken worden uit gezet.
-            if (_contanteVerkoop)
-            {
-                btMaakBestelling.Enabled = true;
-                _contanteVerkoop = false;
-            }
-            else
-            {
-                btMaakBestelling.Enabled = false;
-                _contanteVerkoop = true;
-            }
 
         }
 
@@ -608,6 +584,105 @@ namespace GUI
         private void verkoopgeschiedenisToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void sUKToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _kasinuitScherm = new KasInUitScherm(App);
+                _kasinuitScherm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                    exception.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSoortVerkoop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selected = cbSoortVerkoop.SelectedItem.ToString();
+                if (selected == null)
+                {
+                    throw new Exception("Er is niets geselecteerd.");
+                }
+                if (selected == "Losse verkoop wel lid")
+                {
+                    BestellingSoortEnum soort = BestellingSoortEnum.Losse_verkoop_wel_lid;
+                    SelectCorrectSellMethod(soort);
+                }
+                else
+                {
+                    if (selected == "Losse verkoop niet lid")
+                    {
+                        BestellingSoortEnum soort = BestellingSoortEnum.Losse_verkoop_niet_lid;
+                        SelectCorrectSellMethod(soort);
+                    }
+                    else
+                    {
+                        BestellingSoortEnum soort = (BestellingSoortEnum)Enum.Parse(typeof(BestellingSoortEnum), selected);
+                        SelectCorrectSellMethod(soort);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+            }
+        }
+
+        private void SelectCorrectSellMethod(BestellingSoortEnum sellMethod)
+        {
+            switch (sellMethod)
+            {
+                case BestellingSoortEnum.Bestelling:
+                    SelectSellMethod(true, true);
+                    break;
+                case BestellingSoortEnum.Losse_verkoop_niet_lid:
+                    SelectSellMethod(false, false);
+                    break;
+                case BestellingSoortEnum.Losse_verkoop_wel_lid:
+                    SelectSellMethod(false, true);
+                    break;
+            }
+        }
+
+        private void SelectSellMethod(bool isBestelling, bool isLid)
+        {
+            if (isBestelling)
+            {
+                groupBox6.Visible = true;
+                _contanteVerkoop = false;
+                _contanteVerkoopLid = false;
+            }
+            else
+            {
+                if (isLid)
+                {
+                    groupBox6.Visible = false;
+                    _contanteVerkoop = true;
+                    _contanteVerkoopLid = true;
+                }
+                else
+                {
+                    groupBox6.Visible = false;
+                    _contanteVerkoop = true;
+                    _contanteVerkoopLid = false;
+                }
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            SelectSellMethod(true, true);
         }
     }
 }

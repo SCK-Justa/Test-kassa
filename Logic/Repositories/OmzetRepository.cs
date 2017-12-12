@@ -30,5 +30,10 @@ namespace Logic.Repositories
         {
             return _omzetServices.GetOmzetPerJaar(jaar);
         }
+
+        public void SetBedragInKas(decimal bedrag)
+        {
+            _omzetServices.SetBedragInKas(bedrag);
+        }
     }
 }

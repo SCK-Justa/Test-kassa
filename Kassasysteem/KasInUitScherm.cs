@@ -324,71 +324,17 @@ namespace Kassasysteem
             Close();
         }
 
-        private void btBetalenAanKas_Click(object sender, EventArgs e)
+        private void btOk_Click(object sender, EventArgs e)
         {
             try
             {
-
-                App.AddAndereInkomsten(Convert.ToDecimal(lbBedrag.Text));
+                decimal bedrag = Convert.ToDecimal(tbBedrag.Text);
+                App.NeemBedragUitKas(bedrag);
             }
             catch (Exception exception)
             {
-                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+                MessageBox.Show(@"Een error is opgetreden! Voer alleen een bedrag in (cijfers)." + Environment.NewLine + Environment.NewLine + exception.Message);
             }
-        }
-
-        private void verhoogBedrag(decimal bedrag)
-        {
-            bedragBij += bedrag;
-            if (bedragBij >= 0)
-            {
-                lbBedrag.Text = "€" + bedragBij.ToString("##,###");
-            }
-        }
-
-        private void bt1_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(1);
-        }
-
-        private void bt2_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(2);
-        }
-
-        private void bt3_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(3);
-        }
-
-        private void bt6_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(6);
-        }
-
-        private void bt5_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(5);
-        }
-
-        private void bt4_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(4);
-        }
-
-        private void bt7_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(7);
-        }
-
-        private void bt8_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(8);
-        }
-
-        private void bt9_Click(object sender, EventArgs e)
-        {
-            verhoogBedrag(9);
         }
     }
 }

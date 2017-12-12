@@ -9,5 +9,6 @@ namespace Logic.Interfaces
         List<decimal> GetOmzetPerWeek(DateTime eersteDagVanDeMaand);
         List<decimal> GetOmzetPerMaand(DateTime jaartal);
         decimal GetOmzetPerJaar(DateTime jaar);
+        void SetBedragInKas(decimal bedrag);
     }
 }

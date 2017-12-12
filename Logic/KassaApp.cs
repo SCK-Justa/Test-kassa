@@ -183,6 +183,7 @@ namespace Logic
                 if (!(value > BedragInKas))
                 {
                     BedragInKas -= value;
+                    _omzetRepo.SetBedragInKas(BedragInKas);
                 }
                 else
                 {

@@ -110,5 +110,33 @@ namespace Logic.Sql
                 return 0;
             }
         }
+
+        public void SetBedragInKas(decimal bedrag)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "UPDATE Kassa SET KassaInhoud = @bedrag WHERE KassaId = 0;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@bedrag", bedrag);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
     }
 }
