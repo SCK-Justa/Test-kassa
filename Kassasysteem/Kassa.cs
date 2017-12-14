@@ -141,7 +141,7 @@ namespace GUI
                 }
                 lbKassaNaam.Text = App.Lokatie;
                 lbOpenstaandeRekeningen.Text = App.GetBestellingen().Count.ToString();
-                lbDagDatum.Text = DateTime.Now.ToShortDateString();
+                lbDagDatum.Text = DateTime.Now.DayOfWeek + " " + DateTime.Now.ToShortDateString();
                 lbLoginnaam.Text = App.Authentication.GetFullName();
                 lbKlantnaam.Text = "";
                 lbDatumklant.Text = "";
@@ -213,11 +213,20 @@ namespace GUI
         {
             // Als er een product meteen verkocht wordt, zonder bestelling, wordt de if uitgevoerd.
             // Bij het toevogen van en product aan een bestelling, wordt de else uitgevoerd.
-            if (_contanteVerkoop)
+            if (_contanteVerkoop || _contanteVerkoopLid)
             {
-                Product product = App.VindProduct(productnaam);
-                App.AddLosseVerkoop(product);
-                UpdateKlantBestelling(null);
+                if (_contanteVerkoop) // Losse verkoop als niet lid
+                {
+                    Product product = App.VindProduct(productnaam);
+                    App.AddLosseVerkoop(product, false);
+                    UpdateKlantBestelling(null);
+                }
+                else // Losse verkoop als lid
+                {
+                    Product product = App.VindProduct(productnaam);
+                    App.AddLosseVerkoop(product, true);
+                    UpdateKlantBestelling(null);
+                }
             }
             else
             {
@@ -590,8 +599,15 @@ namespace GUI
         {
             try
             {
-                _kasinuitScherm = new KasInUitScherm(App);
-                _kasinuitScherm.Show();
+                if (App.Authentication.Lid.GetBestuursfunctie())
+                {
+                    _kasinuitScherm = new KasInUitScherm(App);
+                    _kasinuitScherm.Show();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {
@@ -665,6 +681,15 @@ namespace GUI
             }
             else
             {
+                lvProductenInBestelling.Items.Clear();
+                foreach (Product p in App.GetLosseVerkopen())
+                {
+                    ListViewItem lvi = new ListViewItem(p.Naam);
+                    lvi.SubItems.Add("€" + p.Prijs);
+                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
+                    lvi.Tag = p;
+                    lvProductenInBestelling.Items.Add(lvi);
+                }
                 if (isLid)
                 {
                     groupBox6.Visible = false;
@@ -683,6 +708,7 @@ namespace GUI
         private void timer_Tick(object sender, EventArgs e)
         {
             SelectSellMethod(true, true);
+            cbSoortVerkoop.Text = "Bestelling";
         }
     }
 }

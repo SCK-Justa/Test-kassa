@@ -17,17 +17,8 @@ namespace Kassasysteem
         {
             InitializeComponent();
             App = app;
-            SetAble(CheckGemachtigd(App.Authentication.Lid.GetBestuursfunctie()), CheckGemachtigd(App.Authentication.Lid.GetBestuursfunctie()));
+            SetAble(App.Authentication.Lid.GetBestuursfunctie(), App.Authentication.Lid.GetBestuursfunctie());
             RefreshGegevens();
-        }
-
-        private bool CheckGemachtigd(bool gemachtigd)
-        {
-            if (gemachtigd)
-            {
-                return true;
-            }
-            return false;
         }
 
         private void SetAble(bool ableChange, bool ableNew)
@@ -54,40 +45,19 @@ namespace Kassasysteem
 
         private void lvProducten_Click(object sender, EventArgs e)
         {
-            if (CheckGemachtigd(App.Authentication.Lid.GetBestuursfunctie()))
+            var selected = Convert.ToInt32(lvProducten.SelectedItems[0].Text);
+            foreach (Product product in App.Voorraad.GetProducten())
             {
-                var selected = Convert.ToInt32(lvProducten.SelectedItems[0].Text);
-                foreach (Product product in App.Voorraad.GetProducten())
+                if (product.Id == selected)
                 {
-                    if (product.Id == selected)
-                    {
-                        _product = product;
-                        SetAble(true, true);
-                        btOpslaan.Enabled = true;
-                        tbNaam.Text = product.Naam;
-                        tbSoort.Text = product.Soort;
-                        nudVoorraad.Value = product.Voorraad;
-                        nudPrijs.Value = product.Prijs;
-                        nudLedenprijs.Value = product.Ledenprijs;
-                    }
-                }
-            }
-            else
-            {
-                var selected = Convert.ToInt32(lvProducten.SelectedItems[0].Text);
-                foreach (Product product in App.Voorraad.GetProducten())
-                {
-                    if (product.Id == selected)
-                    {
-                        _product = product;
-                        SetAble(true, false);
-                        btOpslaan.Enabled = false;
-                        tbNaam.Text = product.Naam;
-                        tbSoort.Text = product.Soort;
-                        nudVoorraad.Value = product.Voorraad;
-                        nudPrijs.Value = product.Prijs;
-                        nudLedenprijs.Value = product.Ledenprijs;
-                    }
+                    _product = product;
+                    SetAble(App.Authentication.Lid.GetBestuursfunctie(), App.Authentication.Lid.GetBestuursfunctie());
+                    btOpslaan.Enabled = App.Authentication.Lid.GetBestuursfunctie();
+                    tbNaam.Text = product.Naam;
+                    tbSoort.Text = product.Soort;
+                    nudVoorraad.Value = product.Voorraad;
+                    nudPrijs.Value = product.Prijs;
+                    nudLedenprijs.Value = product.Ledenprijs;
                 }
             }
         }
@@ -116,15 +86,12 @@ namespace Kassasysteem
                 {
                     throw new Exception(@"U moet een ledenprijs invullen.");
                 }
-                int id = lvProducten.Items.Count + 1;
-                _item = new ListViewItem(id.ToString());
-                _item.SubItems.Add(tbNaam.Text);
-                _item.SubItems.Add(tbSoort.Text);
-                _item.SubItems.Add(nudVoorraad.Value.ToString());
-                _item.SubItems.Add("€" + nudPrijs.Value);
-                _item.SubItems.Add("€" + nudLedenprijs.Value);
-                lvProducten.Items.Add(_item);
-                App.Voorraad.ChangeProduct(_product.Id, new Product(id, tbNaam.Text, tbSoort.Text, Convert.ToInt32(nudVoorraad.Value), nudLedenprijs.Value, nudPrijs.Value));
+                _product.SetNaam(tbNaam.Text);
+                _product.SetSoort(tbSoort.Text);
+                _product.SetVoorraad(Convert.ToInt32(nudVoorraad.Value));
+                _product.SetPrijs(nudPrijs.Value);
+                _product.SetLedenprijs(nudLedenprijs.Value);
+                App.EditProduct(_product);
                 RefreshGegevens();
             }
             catch (Exception exception)
