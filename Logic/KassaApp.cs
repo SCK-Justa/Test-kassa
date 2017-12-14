@@ -498,7 +498,7 @@ namespace Logic
             return _losseVerkopen;
         }
 
-        public void AddLosseVerkoop(Product product)
+        public void AddLosseVerkoop(Product product, bool isLid)
         {
             if (DBConnection)
             {
@@ -575,6 +575,19 @@ namespace Logic
                 _ledenRepo.EditPersoon(nieuwLid);
                 _leden.Remove(oudLid);
                 _leden.Add(nieuwLid);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public void EditProduct(Product product)
+        {
+            try
+            {
+                Voorraad.ChangeProduct(product);
+                _productRepo.EditProduct(product);
             }
             catch (Exception exception)
             {

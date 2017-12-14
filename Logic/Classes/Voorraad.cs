@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Logic.Classes
 {
@@ -27,11 +26,11 @@ namespace Logic.Classes
             ProductenInVoorraad = producten;
         }
 
-        public void ChangeProduct(int oId, Product _product)
+        public void ChangeProduct(Product _product)
         {
             foreach (Product product in ProductenInVoorraad)
             {
-                if (product.Id == oId)
+                if (product.Id == _product.Id)
                 {
                     product.SetNaam(_product.Naam);
                     product.SetSoort(_product.Soort);

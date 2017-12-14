@@ -19,7 +19,6 @@ namespace Kassasysteem
         private decimal _bedrag;
         private string _getekendDoor;
 
-        private decimal bedragBij;
         private ListViewItem _item;
 
         public List<Formulier> Formulieren { get; private set; }

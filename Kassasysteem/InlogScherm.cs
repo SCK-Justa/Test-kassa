@@ -73,12 +73,14 @@ namespace Kassasysteem
                             GebruikerScherm scherm = new GebruikerScherm(App);
                             Close();
                             Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
+                            Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
                             scherm.ShowDialog();
                         }
                         else
                         {
                             Kassa = new Kassa(App);
                             Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
+                            Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
                             Kassa.ShowDialog();
                             Kassa = null;
                         }
