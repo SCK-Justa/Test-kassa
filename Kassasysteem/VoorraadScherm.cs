@@ -62,8 +62,8 @@ namespace Kassasysteem
                     if (product.Id == selected)
                     {
                         _product = product;
-                        SetAble(true, false);
-                        btOpslaan.Enabled = false;
+                        SetAble(true, true);
+                        btOpslaan.Enabled = true;
                         tbNaam.Text = product.Naam;
                         tbSoort.Text = product.Soort;
                         nudVoorraad.Value = product.Voorraad;
