@@ -135,7 +135,7 @@ namespace GUI
         {
             try
             {
-                if (App.DBConnection)
+                if (App.Database.GetIsConnected())
                 {
                     UpdateLeden();
                 }
@@ -150,7 +150,7 @@ namespace GUI
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
                 groupBox6.Visible = false;
-                if (App.DBConnection)
+                if (App.Database.GetIsConnected())
                 {
                     lbConnectie.Text = @"gelukt";
                     lbConnectie.ForeColor = Color.Green;

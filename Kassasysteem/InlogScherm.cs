@@ -34,7 +34,7 @@ namespace Kassasysteem
 
         public void ShowDbConnection()
         {
-            if (App.DBConnection)
+            if (App.Database.GetIsConnected())
             {
                 lbConnectie.Text = @"gelukt";
                 lbConnectie.ForeColor = Color.Green;

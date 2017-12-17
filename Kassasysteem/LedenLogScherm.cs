@@ -26,7 +26,7 @@ namespace Kassasysteem
         private void OpenOnFirstLoad()
         {
             log = new List<string>();
-            if (App.DBConnection)
+            if (App.Database.GetIsConnected())
             {
                 log = App.GetLedenLog();
             }

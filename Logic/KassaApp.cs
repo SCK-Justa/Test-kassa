@@ -8,20 +8,6 @@ namespace Logic
 {
     public class KassaApp
     {
-        private DBConnectie _dbConnectie;
-        private BestellingRepository _bestellingRepo;
-        private LidRepository _ledenRepo;
-        private AdresRepository _adresRepo;
-        private BankRepository _bankRepo;
-        private OudercontactRepository _oudercontactRepo;
-        private AuthenticatieRepository _authRepo;
-        private ProductBestellingRepository _productBestellingRepo;
-        private ProductRepository _productRepo;
-        private KassaRepository _kassaRepo;
-        private OmzetRepository _omzetRepo;
-        private LedenLogRepository _ledenLogRepo;
-        private KlasseRepository _klassenRepo;
-
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
         private List<Product> _losseVerkopen;
@@ -35,7 +21,7 @@ namespace Logic
         public Voorraad Voorraad { get; private set; }
         public Authentication Authentication { get; private set; }
         public decimal BedragInKas { get; private set; }
-        public bool DBConnection { get; private set; } // Geen connectie = false, dan draait de app lokaal, anders met database.
+        public Database Database { get; private set; }
 
         public KassaApp(string lokatie)
         {
@@ -43,6 +29,7 @@ namespace Logic
             {
                 Lokatie = lokatie;
                 // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
+                Database = new Database(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
                 KassaAppSync(CheckDbConnection());
             }
             catch (Exception exception)
@@ -53,13 +40,10 @@ namespace Logic
 
         public bool CheckDbConnection()
         {
-            _dbConnectie = new DBConnectie(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
-            if (_dbConnectie.TryConnection())
+            if (Database.GetIsConnected())
             {
-                DBConnection = true;
                 return true;
             }
-            DBConnection = false;
             return false;
         }
 
@@ -75,12 +59,11 @@ namespace Logic
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
-                    GetDatabaseStuff();
                     AddProductenFromDbToVoorraad();
                     _leden = GetLeden();
                     _gebruikers = GetGebruikers();
                     GetBestellingenFromDb();
-                    BedragInKas = _kassaRepo.GetKasInhoud(0);
+                    BedragInKas = Database.KassaRepo.GetKasInhoud(0);
                     if (_afgerekendeBestellingen.Count > 1)
                     {
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
@@ -120,22 +103,6 @@ namespace Logic
             return false;
         }
 
-        private void GetDatabaseStuff()
-        {
-            _ledenLogRepo = new LedenLogRepository(new SqlLedenLog(_dbConnectie.GetConnectieString()));
-            _bestellingRepo = new BestellingRepository(new SqlBestelling(_dbConnectie.GetConnectieString()));
-            _ledenRepo = new LidRepository(new SqlLid(_dbConnectie.GetConnectieString()));
-            _adresRepo = new AdresRepository(new SqlAdres(_dbConnectie.GetConnectieString()));
-            _bankRepo = new BankRepository(new SqlBank(_dbConnectie.GetConnectieString()));
-            _oudercontactRepo = new OudercontactRepository(new SqlOudercontact(_dbConnectie.GetConnectieString()));
-            _authRepo = new AuthenticatieRepository(new SqlAuthentication(_dbConnectie.GetConnectieString()));
-            _productBestellingRepo = new ProductBestellingRepository(new SqlProductBestelling(_dbConnectie.GetConnectieString()));
-            _productRepo = new ProductRepository(new SqlProduct(_dbConnectie.GetConnectieString()));
-            _kassaRepo = new KassaRepository(new SqlKassa(_dbConnectie.GetConnectieString()));
-            _omzetRepo = new OmzetRepository(new SqlOmzet(_dbConnectie.GetConnectieString()));
-            _klassenRepo = new KlasseRepository(new SqlKlasse(_dbConnectie.GetConnectieString()));
-        }
-
         public List<Formulier> GetFormulieren()
         {
             _formulieren.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
@@ -150,24 +117,24 @@ namespace Logic
         public void AddAndereInkomsten(decimal value)
         {
             BedragInKas += value;
-            _kassaRepo.AddBedragToKas(BedragInKas);
+            Database.KassaRepo.AddBedragToKas(BedragInKas);
         }
 
         public void AddLid(Lid lid)
         {
             try
             {
-                List<Klasse> klasses = _klassenRepo.GetKlasses();
-                lid.SetAdres(_adresRepo.AddAdres(lid.Adres));
-                lid.SetBank(_bankRepo.AddBank(lid.Bank));
+                List<Klasse> klasses = Database.KlasseRepo.GetKlasses();
+                lid.SetAdres(Database.AdresRepo.AddAdres(lid.Adres));
+                lid.SetBank(Database.BankRepo.AddBank(lid.Bank));
                 if (lid.Oudercontact != null)
                 {
-                    lid.SetOuderContact(_oudercontactRepo.AddOudercontact(lid.Oudercontact));
+                    lid.SetOuderContact(Database.OudercontactRepo.AddOudercontact(lid.Oudercontact));
                 }
                 lid.SetKlasse(lid.CalculateKlasse(klasses));
                 lid.SetNhbKlasse(lid.CalculateKlasse(klasses));
-                _ledenRepo.AddPersoon(lid);
-                _ledenLogRepo.AddLogString(lid.GetLidNaam() + " is op " + lid.LidVanaf.ToShortDateString(), true, false);
+                Database.LedenRepo.AddPersoon(lid);
+                Database.LedenlogRepo.AddLogString(lid.GetLidNaam() + " is op " + lid.LidVanaf.ToShortDateString(), true, false);
                 _leden.Add(lid);
             }
             catch (Exception exception)
@@ -183,7 +150,7 @@ namespace Logic
                 if (!(value > BedragInKas))
                 {
                     BedragInKas -= value;
-                    _omzetRepo.SetBedragInKas(BedragInKas);
+                    Database.OmzetRepo.SetBedragInKas(BedragInKas);
                 }
                 else
                 {
@@ -229,7 +196,7 @@ namespace Logic
             //{
             //    return _gebruikers;
             //}
-            return _authRepo.GetAuthentications();
+            return Database.AuthenticatieRepo.GetAuthentications();
         }
 
         public void AddBestelling(Lid lid, DateTime datum)
@@ -237,10 +204,10 @@ namespace Logic
             try
             {
                 Bestelling bestelling;
-                if (DBConnection)
+                if (Database.GetIsConnected())
                 {
                     bestelling = new Bestelling(lid, datum);
-                    int id = _bestellingRepo.AddBestellingMetPersoon(bestelling);
+                    int id = Database.BestellingRepo.AddBestellingMetPersoon(bestelling);
                     bestelling.SetId(id);
                     _bestellingen.Add(bestelling);
                 }
@@ -262,10 +229,10 @@ namespace Logic
             try
             {
                 Bestelling bestelling;
-                if (DBConnection)
+                if (Database.GetIsConnected())
                 {
                     bestelling = new Bestelling(name, datum);
-                    int id = _bestellingRepo.AddBestellingMetNaam(bestelling);
+                    int id = Database.BestellingRepo.AddBestellingMetNaam(bestelling);
                     bestelling.SetId(id);
                     _bestellingen.Add(bestelling);
                 }
@@ -284,9 +251,9 @@ namespace Logic
 
         public bool RemoveProductVanBestelling(Bestelling bestelling, Product product)
         {
-            if (DBConnection)
+            if (Database.GetIsConnected())
             {
-                _productBestellingRepo.RemoveProductFromBestelling(bestelling, product);
+                Database.ProductbestellingRepo.RemoveProductFromBestelling(bestelling, product);
             }
             bestelling.RemoveProductFromList(product);
             return true;
@@ -294,7 +261,7 @@ namespace Logic
 
         public void AddProductenFromDbToVoorraad()
         {
-            Voorraad.AddProductenFromDb(_productRepo.GetProducten());
+            Voorraad.AddProductenFromDb(Database.ProductRepo.GetProducten());
         }
 
         public List<Bestelling> GetBestellingen()
@@ -335,9 +302,9 @@ namespace Logic
             {
                 _bestellingen = new List<Bestelling>();
                 _afgerekendeBestellingen = new List<Bestelling>();
-                if (DBConnection)
+                if (Database.GetIsConnected())
                 {
-                    List<Bestelling> tijdelijkelijst = _bestellingRepo.GetAllBestellingen();
+                    List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetAllBestellingen();
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)
@@ -362,7 +329,7 @@ namespace Logic
         {
             if (Voorraad == null)
             {
-                return new Voorraad(DBConnection);
+                return new Voorraad(Database.GetIsConnected());
             }
             return Voorraad;
         }
@@ -374,7 +341,7 @@ namespace Logic
                 if (_leden == null)
                 {
                     _leden = new List<Lid>();
-                    _leden = _ledenRepo.GetAllLeden();
+                    _leden = Database.LedenRepo.GetAllLeden();
                     _leden.Sort((x, y) => x.Voornaam.CompareTo(y.Voornaam));
                 }
                 return _leden;
@@ -392,9 +359,9 @@ namespace Logic
             BedragInKas += bestelling.BetaaldBedrag;
             _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
             _bestellingen.Remove(bestelling);
-            if (DBConnection)
+            if (Database.GetIsConnected())
             {
-                _bestellingRepo.BetaalBestelling(bestelling);
+                Database.BestellingRepo.BetaalBestelling(bestelling);
             }
             return true;
         }
@@ -408,10 +375,10 @@ namespace Logic
                     bool check = b.AddProductToList(product);
                     if (check)
                     {
-                        if (DBConnection)
+                        if (Database.GetIsConnected())
                         {
-                            _productBestellingRepo.AddProductToBestelling(bestelling, product);
-                            _productRepo.EditProduct(product);
+                            Database.ProductbestellingRepo.AddProductToBestelling(bestelling, product);
+                            Database.ProductRepo.EditProduct(product);
                         }
                     }
                 }
@@ -476,11 +443,11 @@ namespace Logic
         {
             try
             {
-                if (DBConnection)
+                if (Database.GetIsConnected())
                 {
                     Product product = new Product(naam, soort, voorraad, ledenprijs, prijs);
-                    _productRepo.AddProduct(product);
-                    Voorraad.AddProduct(_productRepo.GetProductByName(product.Naam));
+                    Database.ProductRepo.AddProduct(product);
+                    Voorraad.AddProduct(Database.ProductRepo.GetProductByName(product.Naam));
                 }
             }
             catch (Exception exception)
@@ -500,21 +467,21 @@ namespace Logic
 
         public void AddLosseVerkoop(Product product, bool isLid)
         {
-            if (DBConnection)
+            if (Database.GetIsConnected())
             {
-                _productBestellingRepo.AddLosseVerkoop(product);
+                Database.ProductbestellingRepo.AddLosseVerkoop(product);
             }
             _losseVerkopen.Add(product);
         }
 
         public decimal GetOmzetPerDag(DateTime dag)
         {
-            return _omzetRepo.GetOmzetPerDag(dag);
+            return Database.OmzetRepo.GetOmzetPerDag(dag);
         }
 
         public List<decimal> GetOmzetPerWeek(DateTime maand)
         {
-            List<decimal> weekOmzet = _omzetRepo.GetOmzetPerWeek(maand);
+            List<decimal> weekOmzet = Database.OmzetRepo.GetOmzetPerWeek(maand);
             if (weekOmzet == null)
             {
                 weekOmzet = new List<decimal>();
@@ -530,7 +497,7 @@ namespace Logic
         {
             try
             {
-                return _omzetRepo.GetOmzetPerJaar(year);
+                return Database.OmzetRepo.GetOmzetPerJaar(year);
             }
             catch (Exception exception)
             {
@@ -542,7 +509,7 @@ namespace Logic
         {
             try
             {
-                return _ledenLogRepo.GetLedenLog();
+                return Database.LedenlogRepo.GetLedenLog();
             }
             catch (Exception)
             {
@@ -554,7 +521,7 @@ namespace Logic
         {
             try
             {
-                _authRepo.EditAuthentication(auth);
+                Database.AuthenticatieRepo.EditAuthentication(auth);
             }
             catch (Exception exception)
             {
@@ -564,15 +531,15 @@ namespace Logic
 
         public void RemoveLidFromLedenlijst(Lid lid, DateTime uitschrijfDatum)
         {
-            _ledenRepo.DeletePersoon(lid);
-            _ledenLogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum, false, true);
+            Database.LedenRepo.DeletePersoon(lid);
+            Database.LedenlogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum, false, true);
         }
 
         public void EditLid(Lid nieuwLid, Lid oudLid)
         {
             try
             {
-                _ledenRepo.EditPersoon(nieuwLid);
+                Database.LedenRepo.EditPersoon(nieuwLid);
                 _leden.Remove(oudLid);
                 _leden.Add(nieuwLid);
             }
@@ -587,7 +554,7 @@ namespace Logic
             try
             {
                 Voorraad.ChangeProduct(product);
-                _productRepo.EditProduct(product);
+                Database.ProductRepo.EditProduct(product);
             }
             catch (Exception exception)
             {

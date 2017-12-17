@@ -4,7 +4,7 @@ using Logic.Interfaces;
 
 namespace Logic.Repositories
 {
-    class AuthenticatieRepository
+    public class AuthenticatieRepository
     {
         private IAuthenticationServices _authenticationServices;
         public AuthenticatieRepository(IAuthenticationServices authenticationServices)
@@ -13,7 +13,7 @@ namespace Logic.Repositories
         }
         public bool CheckLogin(string gebruikersnaam, string wachtwoord)
         {
-           return _authenticationServices.CheckLogin(gebruikersnaam, wachtwoord);
+            return _authenticationServices.CheckLogin(gebruikersnaam, wachtwoord);
         }
 
         public int GetPersoonIdFromLogin(string gebruikersnaam, string wachtwoord)
@@ -28,7 +28,7 @@ namespace Logic.Repositories
 
         public List<Authentication> GetAuthentications()
         {
-           return _authenticationServices.GetAuthentications();
+            return _authenticationServices.GetAuthentications();
         }
 
         public void AddAuthentication(Authentication authentication)

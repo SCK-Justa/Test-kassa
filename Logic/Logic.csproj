@@ -45,10 +45,10 @@
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\BankNaamEnum.cs" />
     <Compile Include="Classes\BestellingSoortEnum.cs" />
+    <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />
-    <Compile Include="Classes\DBConnectie.cs" />
     <Compile Include="Classes\Formulier.cs" />
     <Compile Include="Classes\FormulierSoort.cs" />
     <Compile Include="Classes\Klasse.cs" />

@@ -4,7 +4,7 @@ using Logic.Interfaces;
 
 namespace Logic.Repositories
 {
-    class ProductRepository
+    public class ProductRepository
     {
         private IProductServices _productServices;
 
@@ -35,7 +35,7 @@ namespace Logic.Repositories
 
         public void EditProduct(Product product)
         {
-           _productServices.EditProduct(product);
+            _productServices.EditProduct(product);
         }
 
         public void RemoveProduct(Product product)
