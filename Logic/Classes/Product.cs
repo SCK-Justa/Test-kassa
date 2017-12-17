@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Logic.Classes
+﻿namespace Logic.Classes
 {
     public class Product
     {

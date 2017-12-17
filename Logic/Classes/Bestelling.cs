@@ -68,11 +68,13 @@ namespace Logic.Classes
         public void SetPersoon(Lid lid)
         {
             Lid = lid;
+            Naam = "";
         }
 
         public void SetNaam(string naam)
         {
             Naam = naam;
+            Lid = null;
         }
 
         public void SetDatum(DateTime datum)
@@ -118,37 +120,19 @@ namespace Logic.Classes
         public void AddProductenToList(List<Product> producten)
         {
             _producten = producten;
-            foreach (Product p in producten)
+            if (_producten != null)
             {
-                TotaalPrijs += p.Prijs;
-                TotaalLedenPrijs += p.Ledenprijs;
+                foreach (Product p in producten)
+                {
+                    TotaalPrijs += p.Prijs;
+                    TotaalLedenPrijs += p.Ledenprijs;
+                }
             }
         }
 
         public List<Product> GetProducten()
         {
             return _producten;
-        }
-
-        public void BerekenTotaalPrijs(bool betaaldMet)
-        {
-            if (_producten.Count > 0)
-            {
-                if (betaaldMet)
-                {
-                    foreach (Product p in _producten)
-                    {
-                        TotaalLedenPrijs += p.Ledenprijs;
-                    }
-                }
-                else
-                {
-                    foreach (Product p in _producten)
-                    {
-                        TotaalPrijs += p.Prijs;
-                    }
-                }
-            }
         }
 
         public bool AddProductToList(Product product)
