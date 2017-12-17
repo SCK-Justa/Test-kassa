@@ -7,7 +7,7 @@ namespace Logic.Interfaces
     {
         decimal GetOmzetPerDag(DateTime eersteDagVanDeWeek);
         List<decimal> GetOmzetPerWeek(DateTime eersteDagVanDeMaand);
-        List<decimal> GetOmzetPerMaand(DateTime jaartal);
+        decimal GetOmzetPerMaand(DateTime begindag, DateTime einddag);
         decimal GetOmzetPerJaar(DateTime jaar);
         void SetBedragInKas(decimal bedrag);
     }

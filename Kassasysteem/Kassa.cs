@@ -149,7 +149,6 @@ namespace GUI
                 lbLedenprijs.Text = "";
                 tbKlantnaam.Text = "";
                 cbLidNaam.Text = "";
-                groupBox6.Visible = false;
                 if (App.Database.GetIsConnected())
                 {
                     lbConnectie.Text = @"gelukt";

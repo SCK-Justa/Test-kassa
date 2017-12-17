@@ -55,6 +55,7 @@ namespace Kassasysteem
             lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
                              b.DatumBetaald.ToShortTimeString());
             lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
+            lvi.Tag = b;
             lvAfgerekendeBestellingen.Items.Add(lvi);
         }
 
@@ -98,7 +99,7 @@ namespace Kassasysteem
                         _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
                         break;
                     case "Totaalprijs":
-                        _afgerekendeBestellingen.Sort((x, y) => -x.TotaalPrijs.CompareTo(y.TotaalPrijs));
+                        _afgerekendeBestellingen.Sort((x, y) => -x.BetaaldBedrag.CompareTo(y.BetaaldBedrag));
                         break;
                 }
                 UpdateAfgerekendeBestellingen();

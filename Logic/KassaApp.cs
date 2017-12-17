@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Logic.Classes;
-using Logic.Repositories;
-using Logic.Sql;
 
 namespace Logic
 {
@@ -29,7 +27,6 @@ namespace Logic
             {
                 Lokatie = lokatie;
                 // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
-                Database = new Database(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
                 KassaAppSync(CheckDbConnection());
             }
             catch (Exception exception)
@@ -40,6 +37,7 @@ namespace Logic
 
         public bool CheckDbConnection()
         {
+            Database = new Database(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
             if (Database.GetIsConnected())
             {
                 return true;
@@ -304,7 +302,8 @@ namespace Logic
                 _afgerekendeBestellingen = new List<Bestelling>();
                 if (Database.GetIsConnected())
                 {
-                    List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetAllBestellingen();
+                    List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetBestellingenBetweenDates(DateTime.Now.AddDays(-7), DateTime.Now);
+                    tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)
@@ -469,7 +468,7 @@ namespace Logic
         {
             if (Database.GetIsConnected())
             {
-                Database.ProductbestellingRepo.AddLosseVerkoop(product);
+                Database.ProductbestellingRepo.AddLosseVerkoop(product, isLid);
             }
             _losseVerkopen.Add(product);
         }
@@ -491,6 +490,20 @@ namespace Logic
                 weekOmzet.Add(0);
             }
             return weekOmzet;
+        }
+
+        public decimal GetOmzetPerMaand(DateTime maand)
+        {
+            try
+            {
+                DateTime begindag = maand;
+                DateTime einddag = maand.AddMonths(1);
+                return Database.OmzetRepo.GetOmzetPerMaand(begindag, einddag);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         public decimal GetOmzetPerJaar(DateTime year)
@@ -532,7 +545,7 @@ namespace Logic
         public void RemoveLidFromLedenlijst(Lid lid, DateTime uitschrijfDatum)
         {
             Database.LedenRepo.DeletePersoon(lid);
-            Database.LedenlogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum, false, true);
+            Database.LedenlogRepo.AddLogString(lid.GetLidNaam() + " heeft op " + uitschrijfDatum.ToShortDateString(), false, true);
         }
 
         public void EditLid(Lid nieuwLid, Lid oudLid)

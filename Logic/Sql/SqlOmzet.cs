@@ -31,8 +31,8 @@ namespace Logic.Sql
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@beginDag", datum);
-                            datum = datum.AddDays(1);
-                            cmd.Parameters.AddWithValue("@eindDag", datum);
+                            DateTime einddatum = datum.AddDays(1);
+                            cmd.Parameters.AddWithValue("@eindDag", einddatum);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
@@ -45,8 +45,9 @@ namespace Logic.Sql
                                     }
                                     totaalBedrag = totaal;
                                 }
-                                return totaalBedrag;
                             }
+                            totaalBedrag += GetLosseBetalingen(datum, einddatum);
+                            return totaalBedrag;
                         }
                     }
                 }
@@ -63,9 +64,48 @@ namespace Logic.Sql
             throw new System.NotImplementedException();
         }
 
-        public List<decimal> GetOmzetPerMaand(DateTime jaartal)
+        public decimal GetOmzetPerMaand(DateTime begindag, DateTime einddag)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                decimal totaalBedrag = 0;
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@firstDate", begindag);
+                            cmd.Parameters.AddWithValue("@lastDate", einddag);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    decimal totaal = 0;
+                                    if (!reader.IsDBNull(0))
+                                    {
+                                        totaal = reader.GetDecimal(0);
+                                    }
+                                    totaalBedrag = totaal;
+                                }
+                            }
+                            totaalBedrag += GetLosseBetalingen(begindag, einddag);
+                            return totaalBedrag;
+                        }
+                    }
+                }
+                return 0;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         public decimal GetOmzetPerJaar(DateTime jaar)
@@ -73,13 +113,9 @@ namespace Logic.Sql
             try
             {
                 omzet = new List<decimal>();
-                //DateTime firstDay = new DateTime(jaar.Year, 1, 1);
-                //DateTime lastDay = new DateTime(jaar.Year + 1, 1, 1);
 
                 string firstDay = jaar.Year + "-1-1";
                 string lastDay = (jaar.Year + 1) + "-1-1";
-                Console.WriteLine(firstDay);
-                Console.WriteLine(lastDay);
 
                 using (SqlConnection conn = new SqlConnection(connectie))
                 {
@@ -89,7 +125,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@firstDate", firstDay);
@@ -132,6 +168,55 @@ namespace Logic.Sql
                         }
                     }
                 }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public decimal GetLosseBetalingen(DateTime begindatum, DateTime einddatum)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT PbIsLid, ProdPrijs, ProdLedenPrijs AS TotaalOmzet FROM Productbestelling LEFT JOIN Product ON ProdId = PbProductId " +
+                                "WHERE PbBestellingId IS NULL AND PbDatum BETWEEN @beginDag AND @eindDag;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@beginDag", begindatum);
+                            cmd.Parameters.AddWithValue("@eindDag", einddatum);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                decimal totaal = 0;
+                                while (reader.Read())
+                                {
+                                    if(!reader.IsDBNull(0))
+                                    {
+                                        if(reader.GetBoolean(0))
+                                        {
+                                            totaal += reader.GetDecimal(2);
+                                        }
+                                        else
+                                        {
+                                            totaal += reader.GetDecimal(1);
+                                        }
+                                    }
+                                }
+                                return totaal;
+                            }
+                        }
+                    }
+                }
+                return 0;
             }
             catch (Exception exception)
             {

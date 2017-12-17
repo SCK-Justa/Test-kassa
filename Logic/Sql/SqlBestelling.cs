@@ -104,6 +104,162 @@ namespace Logic.Sql
             }
         }
 
+        public List<Bestelling> GetUnpaidBestellingen()
+        {
+            try
+            {
+                List<Bestelling> bestellingen = new List<Bestelling>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * " +
+                                              "FROM Bestelling " +
+                                              "WHERE BKassaId = @kassaId AND BBetalld = 0;";
+
+
+                            cmd.Parameters.AddWithValue("@kassaId", 0);
+                            cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    Lid persoon = null;
+                                    string persoonNaam = "";
+                                    if (!reader.IsDBNull(1))
+                                    {
+                                        persoon = sqlLid.GetLidFromId(reader.GetInt32(1));
+                                    }
+                                    if (!reader.IsDBNull(2))
+                                    {
+                                        persoonNaam = reader.GetString(2);
+                                    }
+                                    DateTime datum = reader.GetDateTime(3);
+                                    bool betaald = reader.GetBoolean(4);
+                                    int kassaId = reader.GetInt32(5);
+                                    DateTime datumbetaald = DateTime.Parse("1-1-1900");
+                                    if (betaald)
+                                    {
+                                        datumbetaald = reader.GetDateTime(6);
+                                    }
+                                    bool betaaldBonnen = false;
+                                    if (!reader.IsDBNull(7))
+                                    {
+                                        betaaldBonnen = reader.GetBoolean(7);
+                                    }
+                                    decimal betaaldBedrag = reader.GetDecimal(8);
+                                    Bestelling _bestelling;
+
+                                    if (persoon != null)
+                                    {
+                                        _bestelling = new Bestelling(id, persoon, datum);
+                                    }
+                                    else
+                                    {
+                                        _bestelling = new Bestelling(id, persoonNaam, datum);
+                                    }
+                                    _bestelling.AddProductenToList(GetProductenInBestelling(id));
+                                    _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
+                                }
+                            }
+                            return bestellingen;
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public List<Bestelling> GetBestellingenBetweenDates(DateTime beginDate, DateTime endDate)
+        {
+            try
+            {
+                List<Bestelling> bestellingen = new List<Bestelling>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * " +
+                                              "FROM Bestelling " +
+                                              "WHERE BKassaId = @kassaId AND BDatum >= @beginDate AND BDatum <= @endDate;";
+
+
+                            cmd.Parameters.AddWithValue("@kassaId", 0);
+                            cmd.Parameters.AddWithValue("@beginDate", beginDate);
+                            cmd.Parameters.AddWithValue("@endDate", endDate);
+                            cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    Lid persoon = null;
+                                    string persoonNaam = "";
+                                    if (!reader.IsDBNull(1))
+                                    {
+                                        persoon = sqlLid.GetLidFromId(reader.GetInt32(1));
+                                    }
+                                    if (!reader.IsDBNull(2))
+                                    {
+                                        persoonNaam = reader.GetString(2);
+                                    }
+                                    DateTime datum = reader.GetDateTime(3);
+                                    bool betaald = reader.GetBoolean(4);
+                                    int kassaId = reader.GetInt32(5);
+                                    DateTime datumbetaald = DateTime.Parse("1-1-1900");
+                                    if (betaald)
+                                    {
+                                        datumbetaald = reader.GetDateTime(6);
+                                    }
+                                    bool betaaldBonnen = false;
+                                    if (!reader.IsDBNull(7))
+                                    {
+                                        betaaldBonnen = reader.GetBoolean(7);
+                                    }
+                                    decimal betaaldBedrag = reader.GetDecimal(8);
+                                    Bestelling _bestelling;
+
+                                    if (persoon != null)
+                                    {
+                                        _bestelling = new Bestelling(id, persoon, datum);
+                                    }
+                                    else
+                                    {
+                                        _bestelling = new Bestelling(id, persoonNaam, datum);
+                                    }
+                                    _bestelling.AddProductenToList(GetProductenInBestelling(id));
+                                    _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
+                                }
+                            }
+                            return bestellingen;
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
         private Bestelling SuppGetAllBestellingen(Bestelling bestelling, bool betaald, int kassaid,
             DateTime datumbetaald, bool bonnen)
         {

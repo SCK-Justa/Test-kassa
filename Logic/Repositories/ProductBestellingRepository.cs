@@ -15,9 +15,9 @@ namespace Logic.Repositories
             _productenBestellingServices.AddProductToBestelling(bestelling, product);
         }
 
-        public void AddLosseVerkoop(Product product)
+        public void AddLosseVerkoop(Product product, bool isLid)
         {
-            _productenBestellingServices.AddLosseVerkoop(product);
+            _productenBestellingServices.AddLosseVerkoop(product, isLid);
         }
 
         public void EditProductInBestelling(Bestelling bestelling, Product product)

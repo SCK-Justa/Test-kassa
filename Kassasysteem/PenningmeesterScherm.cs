@@ -21,8 +21,19 @@ namespace Kassasysteem
             FillComboBox();
             try
             {
-                string omzet = App.GetOmzetPerJaar(DateTime.Now).ToString();
-                tbJaaromzet.Text = omzet;
+                tbJaaromzet.Text = "€ " + App.GetOmzetPerJaar(DateTime.Now).ToString();
+                tbJanuari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 1, 1));
+                tbFebruari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 2, 1));
+                tbMaart.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 3, 1));
+                tbApril.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 4, 1));
+                tbMei.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 5, 1));
+                tbJuni.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 6, 1));
+                tbJuli.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 7, 1));
+                tbAugustus.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 8, 1));
+                tbSeptember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 9, 1));
+                tbOktober.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 10, 1));
+                tbNovember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 11, 1));
+                tbDecember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 12, 1));
             }
             catch (Exception exception)
             {
@@ -64,6 +75,22 @@ namespace Kassasysteem
                 tbVrijdag.Text = "€ " + _weekOmzet[4];
                 tbZaterdag.Text = "€ " + _weekOmzet[5];
                 tbZondag.Text = "€ " + _weekOmzet[6];
+
+                DateTime dag = FirstDateOfWeekISO8601(DateTime.Now.Year, Convert.ToInt32(week[1]));
+                lbDatumDag1.Text = dag.Date.ToShortDateString();
+                lbDatumDag2.Text = dag.AddDays(1).Date.ToShortDateString();
+                lbDatumDag3.Text = dag.AddDays(2).Date.ToShortDateString();
+                lbDatumDag4.Text = dag.AddDays(3).Date.ToShortDateString();
+                lbDatumDag5.Text = dag.AddDays(4).Date.ToShortDateString();
+                lbDatumDag6.Text = dag.AddDays(5).Date.ToShortDateString();
+                lbDatumDag7.Text = dag.AddDays(6).Date.ToShortDateString();
+
+                decimal omzetWeek = 0;
+                for (int i = 0; i < 7; i++)
+                {
+                    omzetWeek += _weekOmzet[i];
+                }
+                tbWeekomzet.Text = "€ " + omzetWeek;
             }
             catch (Exception exception)
             {

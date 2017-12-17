@@ -97,6 +97,7 @@
             this.afmeldenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.voorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.voorraadToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omzetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omzetInzienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formulierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +118,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.voorraadToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -243,6 +244,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.cbSoortVerkoop);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.lvBestellingen);
@@ -855,6 +857,12 @@
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // voorraadToevoegenToolStripMenuItem
+            // 
+            this.voorraadToevoegenToolStripMenuItem.Name = "voorraadToevoegenToolStripMenuItem";
+            this.voorraadToevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.voorraadToevoegenToolStripMenuItem.Text = "Voorraad toevoegen";
+            // 
             // omzetToolStripMenuItem
             // 
             this.omzetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -882,13 +890,13 @@
             // formulierenToolStripMenuItem1
             // 
             this.formulierenToolStripMenuItem1.Name = "formulierenToolStripMenuItem1";
-            this.formulierenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.formulierenToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.formulierenToolStripMenuItem1.Text = "Formulieren";
             // 
             // sUKToolStripMenuItem
             // 
             this.sUKToolStripMenuItem.Name = "sUKToolStripMenuItem";
-            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sUKToolStripMenuItem.Text = "SUK";
             this.sUKToolStripMenuItem.Click += new System.EventHandler(this.sUKToolStripMenuItem_Click);
             // 
@@ -1055,14 +1063,18 @@
             // 
             // timer
             // 
-            this.timer.Interval = 10000;
+            this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // voorraadToevoegenToolStripMenuItem
+            // button1
             // 
-            this.voorraadToevoegenToolStripMenuItem.Name = "voorraadToevoegenToolStripMenuItem";
-            this.voorraadToevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.voorraadToevoegenToolStripMenuItem.Text = "Voorraad toevoegen";
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(407, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 49);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Toon losse verkopen";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Kassa
             // 
@@ -1193,5 +1205,6 @@
         private System.Windows.Forms.ComboBox cbSoortVerkoop;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripMenuItem voorraadToevoegenToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

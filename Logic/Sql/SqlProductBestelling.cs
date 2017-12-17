@@ -43,7 +43,7 @@ namespace Logic.Sql
             }
         }
 
-        public void AddLosseVerkoop(Product product)
+        public void AddLosseVerkoop(Product product, bool isLid)
         {
             try
             {
@@ -55,10 +55,11 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling (PbProductId) VALUES (@productId);";
+                            cmd.CommandText = "INSERT INTO Productbestelling (PbProductId, PbIsLid) VALUES (@productId, @isLid);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@productId", product.Id);
+                            cmd.Parameters.AddWithValue("@isLid", isLid);
 
                             cmd.ExecuteNonQuery();
                         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Logic.Classes;
 using Logic.Interfaces;
 
@@ -25,6 +26,16 @@ namespace Logic.Repositories
         public List<Bestelling> GetAllBestellingen()
         {
             return _bestellingServices.GetAllBestellingen();
+        }
+
+        public List<Bestelling> GetUnpaidBestellingen()
+        {
+            return _bestellingServices.GetUnpaidBestellingen();
+        }
+
+        public List<Bestelling> GetBestellingenBetweenDates(DateTime beginDate, DateTime endDate)
+        {
+            return _bestellingServices.GetBestellingenBetweenDates(beginDate, endDate);
         }
 
         public List<Product> GetProductenInBestelling(int bestellingId)
