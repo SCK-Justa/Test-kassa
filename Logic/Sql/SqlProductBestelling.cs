@@ -26,11 +26,13 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId);";
+                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
                             cmd.Parameters.AddWithValue("@productId", product.Id);
+                            cmd.Parameters.AddWithValue("@isLid", true);
+                            cmd.Parameters.AddWithValue("@datum", DateTime.Now);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -55,11 +57,13 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling (PbProductId, PbIsLid) VALUES (@productId, @isLid);";
+                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@productId", product.Id);
+                            cmd.Parameters.AddWithValue("@bestellingId", DBNull.Value);
                             cmd.Parameters.AddWithValue("@isLid", isLid);
+                            cmd.Parameters.AddWithValue("@datum", DateTime.Now);
 
                             cmd.ExecuteNonQuery();
                         }

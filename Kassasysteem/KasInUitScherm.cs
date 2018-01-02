@@ -327,8 +327,9 @@ namespace Kassasysteem
         {
             try
             {
+                string reden = tbReden.Text;
                 decimal bedrag = Convert.ToDecimal(tbBedrag.Text);
-                App.NeemBedragUitKas(bedrag);
+                App.NeemBedragUitKas(bedrag, reden);
             }
             catch (Exception exception)
             {

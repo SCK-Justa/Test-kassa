@@ -21,7 +21,8 @@ namespace Kassasysteem
             FillComboBox();
             try
             {
-                tbJaaromzet.Text = "€ " + App.GetOmzetPerJaar(DateTime.Now).ToString();
+                lbOmzetToday.Text = "Datum vandaag: " + DateTime.Today.DayOfWeek +", " + DateTime.Today.ToShortDateString();
+                tbJaaromzet.Text = "€ " + App.GetOmzetPerJaar(DateTime.Now);
                 tbJanuari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 1, 1));
                 tbFebruari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 2, 1));
                 tbMaart.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 3, 1));

@@ -37,7 +37,6 @@
             this.lbDatumDag3 = new System.Windows.Forms.Label();
             this.lbDatumDag2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbJuni = new System.Windows.Forms.TextBox();
             this.tbWeekomzet = new System.Windows.Forms.TextBox();
             this.btOpenWeekOmzet = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbWeekNrs = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tbMaandag = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbZondag = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.tbDonderdag = new System.Windows.Forms.TextBox();
             this.tbWoensdag = new System.Windows.Forms.TextBox();
             this.tbDinsdag = new System.Windows.Forms.TextBox();
-            this.tbMaandag = new System.Windows.Forms.TextBox();
+            this.tbJuni = new System.Windows.Forms.TextBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@
             this.tbApril = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbSeptember = new System.Windows.Forms.TextBox();
+            this.lbOmzetToday = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -202,13 +203,6 @@
             this.label10.TabIndex = 30;
             this.label10.Text = "Weekomzet:";
             // 
-            // tbJuni
-            // 
-            this.tbJuni.Location = new System.Drawing.Point(251, 96);
-            this.tbJuni.Name = "tbJuni";
-            this.tbJuni.Size = new System.Drawing.Size(87, 20);
-            this.tbJuni.TabIndex = 41;
-            // 
             // tbWeekomzet
             // 
             this.tbWeekomzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -275,6 +269,13 @@
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 25;
             this.label5.Text = "Vrijdag:";
+            // 
+            // tbMaandag
+            // 
+            this.tbMaandag.Location = new System.Drawing.Point(302, 16);
+            this.tbMaandag.Name = "tbMaandag";
+            this.tbMaandag.Size = new System.Drawing.Size(87, 20);
+            this.tbMaandag.TabIndex = 14;
             // 
             // label1
             // 
@@ -358,12 +359,12 @@
             this.tbDinsdag.Size = new System.Drawing.Size(87, 20);
             this.tbDinsdag.TabIndex = 19;
             // 
-            // tbMaandag
+            // tbJuni
             // 
-            this.tbMaandag.Location = new System.Drawing.Point(302, 16);
-            this.tbMaandag.Name = "tbMaandag";
-            this.tbMaandag.Size = new System.Drawing.Size(87, 20);
-            this.tbMaandag.TabIndex = 14;
+            this.tbJuni.Location = new System.Drawing.Point(251, 96);
+            this.tbJuni.Name = "tbJuni";
+            this.tbJuni.Size = new System.Drawing.Size(87, 20);
+            this.tbJuni.TabIndex = 41;
             // 
             // btCancel
             // 
@@ -377,6 +378,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbOmzetToday);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.btCancel);
             this.groupBox1.Controls.Add(this.label9);
@@ -626,6 +628,16 @@
             this.tbSeptember.Size = new System.Drawing.Size(87, 20);
             this.tbSeptember.TabIndex = 47;
             // 
+            // lbOmzetToday
+            // 
+            this.lbOmzetToday.AutoSize = true;
+            this.lbOmzetToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbOmzetToday.Location = new System.Drawing.Point(203, 16);
+            this.lbOmzetToday.Name = "lbOmzetToday";
+            this.lbOmzetToday.Size = new System.Drawing.Size(13, 20);
+            this.lbOmzetToday.TabIndex = 54;
+            this.lbOmzetToday.Text = ".";
+            // 
             // PenningmeesterScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,5 +713,6 @@
         private System.Windows.Forms.Label lbDatumDag4;
         private System.Windows.Forms.Label lbDatumDag3;
         private System.Windows.Forms.Label lbDatumDag2;
+        private System.Windows.Forms.Label lbOmzetToday;
     }
 }
