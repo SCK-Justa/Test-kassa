@@ -18,29 +18,9 @@ namespace Kassasysteem
 
         public void UpdateScreenOnFirstLoad()
         {
+            lbOmzetToday.Text = "Datum vandaag: " + DateTime.Today.DayOfWeek + ", " + DateTime.Today.ToShortDateString();
             FillComboBox();
-            try
-            {
-                lbOmzetToday.Text = "Datum vandaag: " + DateTime.Today.DayOfWeek +", " + DateTime.Today.ToShortDateString();
-                tbJaaromzet.Text = "€ " + App.GetOmzetPerJaar(DateTime.Now);
-                tbJanuari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 1, 1));
-                tbFebruari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 2, 1));
-                tbMaart.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 3, 1));
-                tbApril.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 4, 1));
-                tbMei.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 5, 1));
-                tbJuni.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 6, 1));
-                tbJuli.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 7, 1));
-                tbAugustus.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 8, 1));
-                tbSeptember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 9, 1));
-                tbOktober.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 10, 1));
-                tbNovember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 11, 1));
-                tbDecember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(DateTime.Now.Year, 12, 1));
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Een error is opgetreden! Het is niet mogelijk de jaaromzet op te halen" + Environment.NewLine + Environment.NewLine +
-                                exception.Message);
-            }
+            ShowJaarOmzet(DateTime.Now);
         }
 
         private void FillComboBox()
@@ -49,6 +29,12 @@ namespace Kassasysteem
             for (int i = 1; i < 53; i++)
             {
                 cbWeekNrs.Items.Add("Week " + i);
+            }
+
+            // Vult de combobox met jaarnummers van 2016 tot het huidige jaar
+            for (int i = 2016; i <= DateTime.Now.Year; i++)
+            {
+                cbJaarNr.Items.Add(i);
             }
         }
 
@@ -120,6 +106,45 @@ namespace Kassasysteem
         private void btCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btOpenJaarOmzet_Click(object sender, EventArgs e)
+        {
+            int selected = (int)cbJaarNr.SelectedItem;
+            if (selected != null || selected >= 0)
+            {
+                ShowJaarOmzet(new DateTime(selected, 1, 1));
+            }
+        }
+
+        private void ShowDagOmzet()
+        {
+
+        }
+
+        private void ShowJaarOmzet(DateTime date)
+        {
+            try
+            {
+                tbJaaromzet.Text = "€ " + App.GetOmzetPerJaar(date);
+                tbJanuari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 1, 1));
+                tbFebruari.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 2, 1));
+                tbMaart.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 3, 1));
+                tbApril.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 4, 1));
+                tbMei.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 5, 1));
+                tbJuni.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 6, 1));
+                tbJuli.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 7, 1));
+                tbAugustus.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 8, 1));
+                tbSeptember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 9, 1));
+                tbOktober.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 10, 1));
+                tbNovember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 11, 1));
+                tbDecember.Text = "€ " + App.GetOmzetPerMaand(new DateTime(date.Year, 12, 1));
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Een error is opgetreden! Het is niet mogelijk de jaaromzet op te halen" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
     }
 }

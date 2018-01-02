@@ -14,7 +14,7 @@ namespace Kassasysteem
             InitializeComponent();
             App = app;
             UpdateLedenlijst();
-            SetButtonsForBestuur(App.Authentication.Lid.GetBestuursfunctie());
+            SetButtonsForBestuur(App.GetIsGemachtigd());
         }
 
         private void UpdateLedenlijst()

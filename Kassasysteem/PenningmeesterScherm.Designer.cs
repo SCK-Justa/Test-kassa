@@ -58,6 +58,7 @@
             this.tbJuni = new System.Windows.Forms.TextBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbOmzetToday = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbDecember = new System.Windows.Forms.TextBox();
@@ -83,7 +84,9 @@
             this.tbApril = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbSeptember = new System.Windows.Forms.TextBox();
-            this.lbOmzetToday = new System.Windows.Forms.Label();
+            this.btOpenJaarOmzet = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cbJaarNr = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -236,7 +239,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(10, 16);
+            this.label8.Location = new System.Drawing.Point(6, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 20);
             this.label8.TabIndex = 15;
@@ -255,7 +258,7 @@
             // cbWeekNrs
             // 
             this.cbWeekNrs.FormattingEnabled = true;
-            this.cbWeekNrs.Location = new System.Drawing.Point(6, 41);
+            this.cbWeekNrs.Location = new System.Drawing.Point(6, 39);
             this.cbWeekNrs.Name = "cbWeekNrs";
             this.cbWeekNrs.Size = new System.Drawing.Size(121, 21);
             this.cbWeekNrs.TabIndex = 14;
@@ -361,7 +364,7 @@
             // 
             // tbJuni
             // 
-            this.tbJuni.Location = new System.Drawing.Point(251, 96);
+            this.tbJuni.Location = new System.Drawing.Point(389, 99);
             this.tbJuni.Name = "tbJuni";
             this.tbJuni.Size = new System.Drawing.Size(87, 20);
             this.tbJuni.TabIndex = 41;
@@ -378,6 +381,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btOpenJaarOmzet);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.cbJaarNr);
             this.groupBox1.Controls.Add(this.lbOmzetToday);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.btCancel);
@@ -413,11 +419,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jaaroverzicht";
             // 
+            // lbOmzetToday
+            // 
+            this.lbOmzetToday.AutoSize = true;
+            this.lbOmzetToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbOmzetToday.Location = new System.Drawing.Point(341, 19);
+            this.lbOmzetToday.Name = "lbOmzetToday";
+            this.lbOmzetToday.Size = new System.Drawing.Size(13, 20);
+            this.lbOmzetToday.TabIndex = 54;
+            this.lbOmzetToday.Text = ".";
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label20.Location = new System.Drawing.Point(535, 94);
+            this.label20.Location = new System.Drawing.Point(673, 97);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(87, 20);
             this.label20.TabIndex = 52;
@@ -427,7 +443,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Location = new System.Drawing.Point(144, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 20);
             this.label9.TabIndex = 29;
@@ -435,7 +451,7 @@
             // 
             // tbDecember
             // 
-            this.tbDecember.Location = new System.Drawing.Point(628, 96);
+            this.tbDecember.Location = new System.Drawing.Point(766, 99);
             this.tbDecember.Name = "tbDecember";
             this.tbDecember.Size = new System.Drawing.Size(87, 20);
             this.tbDecember.TabIndex = 53;
@@ -443,7 +459,7 @@
             // tbJaaromzet
             // 
             this.tbJaaromzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbJaaromzet.Location = new System.Drawing.Point(110, 18);
+            this.tbJaaromzet.Location = new System.Drawing.Point(248, 21);
             this.tbJaaromzet.Name = "tbJaaromzet";
             this.tbJaaromzet.Size = new System.Drawing.Size(87, 20);
             this.tbJaaromzet.TabIndex = 29;
@@ -452,7 +468,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(6, 42);
+            this.label11.Location = new System.Drawing.Point(144, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 20);
             this.label11.TabIndex = 30;
@@ -462,7 +478,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label16.Location = new System.Drawing.Point(203, 94);
+            this.label16.Location = new System.Drawing.Point(341, 97);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(42, 20);
             this.label16.TabIndex = 40;
@@ -472,7 +488,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label21.Location = new System.Drawing.Point(535, 68);
+            this.label21.Location = new System.Drawing.Point(673, 71);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 20);
             this.label21.TabIndex = 50;
@@ -480,21 +496,21 @@
             // 
             // tbJanuari
             // 
-            this.tbJanuari.Location = new System.Drawing.Point(110, 44);
+            this.tbJanuari.Location = new System.Drawing.Point(248, 47);
             this.tbJanuari.Name = "tbJanuari";
             this.tbJanuari.Size = new System.Drawing.Size(87, 20);
             this.tbJanuari.TabIndex = 31;
             // 
             // tbJuli
             // 
-            this.tbJuli.Location = new System.Drawing.Point(442, 44);
+            this.tbJuli.Location = new System.Drawing.Point(580, 47);
             this.tbJuli.Name = "tbJuli";
             this.tbJuli.Size = new System.Drawing.Size(87, 20);
             this.tbJuli.TabIndex = 43;
             // 
             // tbNovember
             // 
-            this.tbNovember.Location = new System.Drawing.Point(628, 70);
+            this.tbNovember.Location = new System.Drawing.Point(766, 73);
             this.tbNovember.Name = "tbNovember";
             this.tbNovember.Size = new System.Drawing.Size(87, 20);
             this.tbNovember.TabIndex = 51;
@@ -503,7 +519,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label15.Location = new System.Drawing.Point(203, 68);
+            this.label15.Location = new System.Drawing.Point(341, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(38, 20);
             this.label15.TabIndex = 38;
@@ -511,7 +527,7 @@
             // 
             // tbFebruari
             // 
-            this.tbFebruari.Location = new System.Drawing.Point(110, 70);
+            this.tbFebruari.Location = new System.Drawing.Point(248, 73);
             this.tbFebruari.Name = "tbFebruari";
             this.tbFebruari.Size = new System.Drawing.Size(87, 20);
             this.tbFebruari.TabIndex = 33;
@@ -520,7 +536,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label17.Location = new System.Drawing.Point(344, 42);
+            this.label17.Location = new System.Drawing.Point(482, 45);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(36, 20);
             this.label17.TabIndex = 42;
@@ -530,7 +546,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label22.Location = new System.Drawing.Point(535, 42);
+            this.label22.Location = new System.Drawing.Point(673, 45);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(70, 20);
             this.label22.TabIndex = 48;
@@ -538,7 +554,7 @@
             // 
             // tbMei
             // 
-            this.tbMei.Location = new System.Drawing.Point(251, 70);
+            this.tbMei.Location = new System.Drawing.Point(389, 73);
             this.tbMei.Name = "tbMei";
             this.tbMei.Size = new System.Drawing.Size(87, 20);
             this.tbMei.TabIndex = 39;
@@ -547,7 +563,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label12.Location = new System.Drawing.Point(6, 68);
+            this.label12.Location = new System.Drawing.Point(144, 71);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 20);
             this.label12.TabIndex = 32;
@@ -555,14 +571,14 @@
             // 
             // tbAugustus
             // 
-            this.tbAugustus.Location = new System.Drawing.Point(442, 70);
+            this.tbAugustus.Location = new System.Drawing.Point(580, 73);
             this.tbAugustus.Name = "tbAugustus";
             this.tbAugustus.Size = new System.Drawing.Size(87, 20);
             this.tbAugustus.TabIndex = 45;
             // 
             // tbOktober
             // 
-            this.tbOktober.Location = new System.Drawing.Point(628, 44);
+            this.tbOktober.Location = new System.Drawing.Point(766, 47);
             this.tbOktober.Name = "tbOktober";
             this.tbOktober.Size = new System.Drawing.Size(87, 20);
             this.tbOktober.TabIndex = 49;
@@ -571,7 +587,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(203, 42);
+            this.label14.Location = new System.Drawing.Point(341, 45);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 20);
             this.label14.TabIndex = 36;
@@ -579,7 +595,7 @@
             // 
             // tbMaart
             // 
-            this.tbMaart.Location = new System.Drawing.Point(110, 96);
+            this.tbMaart.Location = new System.Drawing.Point(248, 99);
             this.tbMaart.Name = "tbMaart";
             this.tbMaart.Size = new System.Drawing.Size(87, 20);
             this.tbMaart.TabIndex = 35;
@@ -588,7 +604,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label18.Location = new System.Drawing.Point(344, 68);
+            this.label18.Location = new System.Drawing.Point(482, 71);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(81, 20);
             this.label18.TabIndex = 44;
@@ -598,7 +614,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label19.Location = new System.Drawing.Point(344, 94);
+            this.label19.Location = new System.Drawing.Point(482, 97);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(92, 20);
             this.label19.TabIndex = 46;
@@ -606,7 +622,7 @@
             // 
             // tbApril
             // 
-            this.tbApril.Location = new System.Drawing.Point(251, 44);
+            this.tbApril.Location = new System.Drawing.Point(389, 47);
             this.tbApril.Name = "tbApril";
             this.tbApril.Size = new System.Drawing.Size(87, 20);
             this.tbApril.TabIndex = 37;
@@ -615,7 +631,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(6, 94);
+            this.label13.Location = new System.Drawing.Point(144, 97);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 20);
             this.label13.TabIndex = 34;
@@ -623,20 +639,39 @@
             // 
             // tbSeptember
             // 
-            this.tbSeptember.Location = new System.Drawing.Point(442, 96);
+            this.tbSeptember.Location = new System.Drawing.Point(580, 99);
             this.tbSeptember.Name = "tbSeptember";
             this.tbSeptember.Size = new System.Drawing.Size(87, 20);
             this.tbSeptember.TabIndex = 47;
             // 
-            // lbOmzetToday
+            // btOpenJaarOmzet
             // 
-            this.lbOmzetToday.AutoSize = true;
-            this.lbOmzetToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbOmzetToday.Location = new System.Drawing.Point(203, 16);
-            this.lbOmzetToday.Name = "lbOmzetToday";
-            this.lbOmzetToday.Size = new System.Drawing.Size(13, 20);
-            this.lbOmzetToday.TabIndex = 54;
-            this.lbOmzetToday.Text = ".";
+            this.btOpenJaarOmzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btOpenJaarOmzet.Location = new System.Drawing.Point(6, 66);
+            this.btOpenJaarOmzet.Name = "btOpenJaarOmzet";
+            this.btOpenJaarOmzet.Size = new System.Drawing.Size(121, 27);
+            this.btOpenJaarOmzet.TabIndex = 57;
+            this.btOpenJaarOmzet.Text = "Open";
+            this.btOpenJaarOmzet.UseVisualStyleBackColor = true;
+            this.btOpenJaarOmzet.Click += new System.EventHandler(this.btOpenJaarOmzet_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label23.Location = new System.Drawing.Point(6, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(111, 20);
+            this.label23.TabIndex = 56;
+            this.label23.Text = "Selecteer jaar:";
+            // 
+            // cbJaarNr
+            // 
+            this.cbJaarNr.FormattingEnabled = true;
+            this.cbJaarNr.Location = new System.Drawing.Point(6, 39);
+            this.cbJaarNr.Name = "cbJaarNr";
+            this.cbJaarNr.Size = new System.Drawing.Size(121, 21);
+            this.cbJaarNr.TabIndex = 55;
             // 
             // PenningmeesterScherm
             // 
@@ -714,5 +749,8 @@
         private System.Windows.Forms.Label lbDatumDag3;
         private System.Windows.Forms.Label lbDatumDag2;
         private System.Windows.Forms.Label lbOmzetToday;
+        private System.Windows.Forms.Button btOpenJaarOmzet;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox cbJaarNr;
     }
 }

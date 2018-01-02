@@ -571,5 +571,29 @@ namespace Logic
                 throw new Exception(exception.Message);
             }
         }
+
+        public bool GetIsGemachtigd()
+        {
+            bool value = false;
+            if(Authentication.Lid.GetBestuursfunctie())
+            {
+                value = true;
+            }
+            return value;
+        }
+
+        public void VoegVoorraadToe(Product product, int hoeveelheid)
+        {
+            try
+            {
+                int totaleHoeveelheid = product.Voorraad + hoeveelheid;
+                Database.ProductRepo.VoegVoorraadToe(product, totaleHoeveelheid);
+                Voorraad.VoegVoorraadToe(product, totaleHoeveelheid);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
     }
 }

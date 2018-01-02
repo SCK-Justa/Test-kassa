@@ -4,7 +4,6 @@ namespace Logic.Classes
 {
     public class Voorraad // Berging
     {
-        private Product product;
         public List<Product> ProductenInVoorraad { get; private set; }
 
         public Voorraad(bool dbconnectie)
@@ -74,10 +73,9 @@ namespace Logic.Classes
             return null;
         }
 
-        public void PasVoorraadAan(int hoeveelheid, string productnaam)
+        public void VoegVoorraadToe(Product product, int hoeveelheid)
         {
-            product = VindProductOpNaam(productnaam);
-            product.SetVoorraad(product.Voorraad - hoeveelheid);
+            product.SetVoorraad(hoeveelheid);
         }
 
         public void AddProductList()

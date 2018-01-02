@@ -540,11 +540,6 @@ namespace GUI
             }
         }
 
-        private void btContant_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btEten_Click(object sender, EventArgs e)
         {
             gpEten.Visible = true;
@@ -594,14 +589,14 @@ namespace GUI
 
         private void verkoopgeschiedenisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // TODO: losse verkopen weergave 
         }
 
         private void sUKToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (App.Authentication.Lid.GetBestuursfunctie())
+                if (App.GetIsGemachtigd())
                 {
                     _kasinuitScherm = new KasInUitScherm(App);
                     _kasinuitScherm.Show();
@@ -616,11 +611,6 @@ namespace GUI
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                     exception.Message);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cbSoortVerkoop_SelectedIndexChanged(object sender, EventArgs e)
@@ -717,8 +707,15 @@ namespace GUI
         {
             try
             {
-                LeveringScherm scherm = new LeveringScherm(App);
-                scherm.Show();
+                if (App.GetIsGemachtigd())
+                {
+                    LeveringScherm scherm = new LeveringScherm(App);
+                    scherm.Show();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {

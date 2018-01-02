@@ -214,5 +214,34 @@ namespace Logic.Sql
                 throw new Exception(exception.Message);
             }
         }
+
+        public void VoegVoorraadToe(Product product, int hoeveelheid)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "UPDATE Product SET ProdVoorraad = @hoeveelheid WHERE ProdId = @productId;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@productId", product.Id);
+                            cmd.Parameters.AddWithValue("@hoeveelheid", hoeveelheid);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
     }
 }

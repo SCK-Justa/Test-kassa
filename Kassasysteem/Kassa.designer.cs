@@ -102,7 +102,6 @@
             this.omzetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omzetInzienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formulierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formulierenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestelgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -863,7 +862,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -892,22 +891,15 @@
             // formulierenToolStripMenuItem
             // 
             this.formulierenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formulierenToolStripMenuItem1,
             this.sUKToolStripMenuItem});
             this.formulierenToolStripMenuItem.Name = "formulierenToolStripMenuItem";
             this.formulierenToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.formulierenToolStripMenuItem.Text = "Bestuur";
             // 
-            // formulierenToolStripMenuItem1
-            // 
-            this.formulierenToolStripMenuItem1.Name = "formulierenToolStripMenuItem1";
-            this.formulierenToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
-            this.formulierenToolStripMenuItem1.Text = "Formulieren";
-            // 
             // sUKToolStripMenuItem
             // 
             this.sUKToolStripMenuItem.Name = "sUKToolStripMenuItem";
-            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sUKToolStripMenuItem.Text = "SUK";
             this.sUKToolStripMenuItem.Click += new System.EventHandler(this.sUKToolStripMenuItem_Click);
             // 
@@ -1201,7 +1193,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbConnectie;
         private System.Windows.Forms.ToolStripMenuItem verkoopgeschiedenisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formulierenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sUKToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbSoortVerkoop;
         private System.Windows.Forms.Timer timer;

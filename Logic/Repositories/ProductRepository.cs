@@ -42,5 +42,10 @@ namespace Logic.Repositories
         {
             _productServices.RemoveProduct(product);
         }
+
+        public void VoegVoorraadToe(Product product, int hoeveelheid)
+        {
+            _productServices.VoegVoorraadToe(product, hoeveelheid);
+        }
     }
 }

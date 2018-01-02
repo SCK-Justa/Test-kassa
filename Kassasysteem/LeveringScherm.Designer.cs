@@ -30,76 +30,13 @@
         {
             this.btClose = new System.Windows.Forms.Button();
             this.gbVoorraadToevoegen = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbCocaColaColli = new System.Windows.Forms.TextBox();
-            this.tbColaVoorraad = new System.Windows.Forms.TextBox();
-            this.tbColaZeroVoorraad = new System.Windows.Forms.TextBox();
-            this.tbColaZeroColli = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbFantaVoorraad = new System.Windows.Forms.TextBox();
-            this.tbFantaColli = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbCassisVoorraad = new System.Windows.Forms.TextBox();
-            this.tbCassisColli = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbIceTeaVoorraad = new System.Windows.Forms.TextBox();
-            this.tbIceTeaColli = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbChocomelVoorraad = new System.Windows.Forms.TextBox();
-            this.tbChocomelColli = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbBitterlemonVoorraad = new System.Windows.Forms.TextBox();
-            this.tbBitterlemonColli = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbSpaRoodVoorraad = new System.Windows.Forms.TextBox();
-            this.tbSpaRoodColli = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbAquariusVoorraad = new System.Windows.Forms.TextBox();
-            this.tbAquariusColli = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbAADrinkVoorraad = new System.Windows.Forms.TextBox();
-            this.tbAADrinkColli = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbHertogJanVoorraad = new System.Windows.Forms.TextBox();
-            this.tbHertogJanColli = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbLeffeVoorraad = new System.Windows.Forms.TextBox();
-            this.tbLeffeColli = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbJupilerVoorraad = new System.Windows.Forms.TextBox();
-            this.tbJupilerColli = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbSchrobbelerVoorraad = new System.Windows.Forms.TextBox();
-            this.tbSchrobbelerColli = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tbSchrobbelerAantal = new System.Windows.Forms.TextBox();
-            this.tbJupilerAantal = new System.Windows.Forms.TextBox();
-            this.tbLeffeAantal = new System.Windows.Forms.TextBox();
-            this.tbHertogJanAantal = new System.Windows.Forms.TextBox();
-            this.tbAADrinkAantal = new System.Windows.Forms.TextBox();
-            this.tbAquariusAantal = new System.Windows.Forms.TextBox();
-            this.tbSpaRoodAantal = new System.Windows.Forms.TextBox();
-            this.tbBitterlemonAantal = new System.Windows.Forms.TextBox();
-            this.tbChocomelAantal = new System.Windows.Forms.TextBox();
-            this.tbIceTeaAantal = new System.Windows.Forms.TextBox();
-            this.tbCassisAantal = new System.Windows.Forms.TextBox();
-            this.tbFantaAantal = new System.Windows.Forms.TextBox();
-            this.tbColaZeroAantal = new System.Windows.Forms.TextBox();
-            this.tbCocaColaAantal = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tbWitteWijnAantal = new System.Windows.Forms.TextBox();
-            this.tbWitteWijnVoorraad = new System.Windows.Forms.TextBox();
-            this.tbWitteWijnColli = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tbRodeWijnAantal = new System.Windows.Forms.TextBox();
-            this.tbRodeWijnVoorraad = new System.Windows.Forms.TextBox();
-            this.tbRodeWijnColli = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.btToevoegen = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.tbNaturelChipsAantal = new System.Windows.Forms.TextBox();
             this.tbNaturelChipsVoorraad = new System.Windows.Forms.TextBox();
             this.tbNaturelChipsColli = new System.Windows.Forms.TextBox();
@@ -116,13 +53,76 @@
             this.tbMarsVoorraad = new System.Windows.Forms.TextBox();
             this.tbMarsColli = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.btToevoegen = new System.Windows.Forms.Button();
+            this.tbRodeWijnAantal = new System.Windows.Forms.TextBox();
+            this.tbRodeWijnVoorraad = new System.Windows.Forms.TextBox();
+            this.tbRodeWijnColli = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbWitteWijnAantal = new System.Windows.Forms.TextBox();
+            this.tbWitteWijnVoorraad = new System.Windows.Forms.TextBox();
+            this.tbWitteWijnColli = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbSchrobbelerAantal = new System.Windows.Forms.TextBox();
+            this.tbJupilerAantal = new System.Windows.Forms.TextBox();
+            this.tbLeffeAantal = new System.Windows.Forms.TextBox();
+            this.tbHertogJanAantal = new System.Windows.Forms.TextBox();
+            this.tbAADrinkAantal = new System.Windows.Forms.TextBox();
+            this.tbAquariusAantal = new System.Windows.Forms.TextBox();
+            this.tbSpaRoodAantal = new System.Windows.Forms.TextBox();
+            this.tbBitterlemonAantal = new System.Windows.Forms.TextBox();
+            this.tbChocomelAantal = new System.Windows.Forms.TextBox();
+            this.tbIceTeaAantal = new System.Windows.Forms.TextBox();
+            this.tbCassisAantal = new System.Windows.Forms.TextBox();
+            this.tbFantaAantal = new System.Windows.Forms.TextBox();
+            this.tbColaZeroAantal = new System.Windows.Forms.TextBox();
+            this.tbCocaColaAantal = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbSchrobbelerVoorraad = new System.Windows.Forms.TextBox();
+            this.tbSchrobbelerColli = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbJupilerVoorraad = new System.Windows.Forms.TextBox();
+            this.tbJupilerColli = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbLeffeVoorraad = new System.Windows.Forms.TextBox();
+            this.tbLeffeColli = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbHertogJanVoorraad = new System.Windows.Forms.TextBox();
+            this.tbHertogJanColli = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbAADrinkVoorraad = new System.Windows.Forms.TextBox();
+            this.tbAADrinkColli = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbAquariusVoorraad = new System.Windows.Forms.TextBox();
+            this.tbAquariusColli = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbSpaRoodVoorraad = new System.Windows.Forms.TextBox();
+            this.tbSpaRoodColli = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbBitterlemonVoorraad = new System.Windows.Forms.TextBox();
+            this.tbBitterlemonColli = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbChocomelVoorraad = new System.Windows.Forms.TextBox();
+            this.tbChocomelColli = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbIceTeaVoorraad = new System.Windows.Forms.TextBox();
+            this.tbIceTeaColli = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbCassisVoorraad = new System.Windows.Forms.TextBox();
+            this.tbCassisColli = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbFantaVoorraad = new System.Windows.Forms.TextBox();
+            this.tbFantaColli = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbColaZeroVoorraad = new System.Windows.Forms.TextBox();
+            this.tbColaZeroColli = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbColaVoorraad = new System.Windows.Forms.TextBox();
+            this.tbCocaColaColli = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbVoorraadToevoegen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -239,377 +239,286 @@
             this.gbVoorraadToevoegen.TabStop = false;
             this.gbVoorraadToevoegen.Text = "Voorraad toevoegen";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Coca cola";
-            // 
-            // tbCocaColaColli
-            // 
-            this.tbCocaColaColli.Location = new System.Drawing.Point(276, 49);
-            this.tbCocaColaColli.Name = "tbCocaColaColli";
-            this.tbCocaColaColli.Size = new System.Drawing.Size(55, 20);
-            this.tbCocaColaColli.TabIndex = 1;
-            // 
-            // tbColaVoorraad
-            // 
-            this.tbColaVoorraad.Enabled = false;
-            this.tbColaVoorraad.Location = new System.Drawing.Point(14, 49);
-            this.tbColaVoorraad.Name = "tbColaVoorraad";
-            this.tbColaVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbColaVoorraad.TabIndex = 2;
-            // 
-            // tbColaZeroVoorraad
-            // 
-            this.tbColaZeroVoorraad.Enabled = false;
-            this.tbColaZeroVoorraad.Location = new System.Drawing.Point(14, 75);
-            this.tbColaZeroVoorraad.Name = "tbColaZeroVoorraad";
-            this.tbColaZeroVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbColaZeroVoorraad.TabIndex = 5;
-            // 
-            // tbColaZeroColli
-            // 
-            this.tbColaZeroColli.Location = new System.Drawing.Point(276, 75);
-            this.tbColaZeroColli.Name = "tbColaZeroColli";
-            this.tbColaZeroColli.Size = new System.Drawing.Size(55, 20);
-            this.tbColaZeroColli.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Coca Cola Zero";
-            // 
-            // tbFantaVoorraad
-            // 
-            this.tbFantaVoorraad.Enabled = false;
-            this.tbFantaVoorraad.Location = new System.Drawing.Point(14, 101);
-            this.tbFantaVoorraad.Name = "tbFantaVoorraad";
-            this.tbFantaVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbFantaVoorraad.TabIndex = 8;
-            // 
-            // tbFantaColli
-            // 
-            this.tbFantaColli.Location = new System.Drawing.Point(276, 101);
-            this.tbFantaColli.Name = "tbFantaColli";
-            this.tbFantaColli.Size = new System.Drawing.Size(55, 20);
-            this.tbFantaColli.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Fanta Sinas";
-            // 
-            // tbCassisVoorraad
-            // 
-            this.tbCassisVoorraad.Enabled = false;
-            this.tbCassisVoorraad.Location = new System.Drawing.Point(14, 127);
-            this.tbCassisVoorraad.Name = "tbCassisVoorraad";
-            this.tbCassisVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbCassisVoorraad.TabIndex = 11;
-            // 
-            // tbCassisColli
-            // 
-            this.tbCassisColli.Location = new System.Drawing.Point(276, 127);
-            this.tbCassisColli.Name = "tbCassisColli";
-            this.tbCassisColli.Size = new System.Drawing.Size(55, 20);
-            this.tbCassisColli.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(89, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Fanta Cassis";
-            // 
-            // tbIceTeaVoorraad
-            // 
-            this.tbIceTeaVoorraad.Enabled = false;
-            this.tbIceTeaVoorraad.Location = new System.Drawing.Point(14, 153);
-            this.tbIceTeaVoorraad.Name = "tbIceTeaVoorraad";
-            this.tbIceTeaVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbIceTeaVoorraad.TabIndex = 14;
-            // 
-            // tbIceTeaColli
-            // 
-            this.tbIceTeaColli.Location = new System.Drawing.Point(276, 153);
-            this.tbIceTeaColli.Name = "tbIceTeaColli";
-            this.tbIceTeaColli.Size = new System.Drawing.Size(55, 20);
-            this.tbIceTeaColli.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(89, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Ice Tea";
-            // 
-            // tbChocomelVoorraad
-            // 
-            this.tbChocomelVoorraad.Enabled = false;
-            this.tbChocomelVoorraad.Location = new System.Drawing.Point(14, 179);
-            this.tbChocomelVoorraad.Name = "tbChocomelVoorraad";
-            this.tbChocomelVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbChocomelVoorraad.TabIndex = 17;
-            // 
-            // tbChocomelColli
-            // 
-            this.tbChocomelColli.Location = new System.Drawing.Point(276, 179);
-            this.tbChocomelColli.Name = "tbChocomelColli";
-            this.tbChocomelColli.Size = new System.Drawing.Size(55, 20);
-            this.tbChocomelColli.TabIndex = 16;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(89, 182);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Chocomel";
-            // 
-            // tbBitterlemonVoorraad
-            // 
-            this.tbBitterlemonVoorraad.Enabled = false;
-            this.tbBitterlemonVoorraad.Location = new System.Drawing.Point(14, 205);
-            this.tbBitterlemonVoorraad.Name = "tbBitterlemonVoorraad";
-            this.tbBitterlemonVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbBitterlemonVoorraad.TabIndex = 20;
-            // 
-            // tbBitterlemonColli
-            // 
-            this.tbBitterlemonColli.Location = new System.Drawing.Point(276, 205);
-            this.tbBitterlemonColli.Name = "tbBitterlemonColli";
-            this.tbBitterlemonColli.Size = new System.Drawing.Size(55, 20);
-            this.tbBitterlemonColli.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(89, 208);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Bitterlemon";
-            // 
-            // tbSpaRoodVoorraad
-            // 
-            this.tbSpaRoodVoorraad.Enabled = false;
-            this.tbSpaRoodVoorraad.Location = new System.Drawing.Point(14, 231);
-            this.tbSpaRoodVoorraad.Name = "tbSpaRoodVoorraad";
-            this.tbSpaRoodVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbSpaRoodVoorraad.TabIndex = 23;
-            // 
-            // tbSpaRoodColli
-            // 
-            this.tbSpaRoodColli.Location = new System.Drawing.Point(276, 231);
-            this.tbSpaRoodColli.Name = "tbSpaRoodColli";
-            this.tbSpaRoodColli.Size = new System.Drawing.Size(55, 20);
-            this.tbSpaRoodColli.TabIndex = 22;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(89, 234);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Spa Rood";
-            // 
-            // tbAquariusVoorraad
-            // 
-            this.tbAquariusVoorraad.Enabled = false;
-            this.tbAquariusVoorraad.Location = new System.Drawing.Point(14, 257);
-            this.tbAquariusVoorraad.Name = "tbAquariusVoorraad";
-            this.tbAquariusVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbAquariusVoorraad.TabIndex = 26;
-            // 
-            // tbAquariusColli
-            // 
-            this.tbAquariusColli.Location = new System.Drawing.Point(276, 257);
-            this.tbAquariusColli.Name = "tbAquariusColli";
-            this.tbAquariusColli.Size = new System.Drawing.Size(55, 20);
-            this.tbAquariusColli.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(89, 260);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Aquarius";
-            // 
-            // tbAADrinkVoorraad
-            // 
-            this.tbAADrinkVoorraad.Enabled = false;
-            this.tbAADrinkVoorraad.Location = new System.Drawing.Point(14, 283);
-            this.tbAADrinkVoorraad.Name = "tbAADrinkVoorraad";
-            this.tbAADrinkVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbAADrinkVoorraad.TabIndex = 29;
-            // 
-            // tbAADrinkColli
-            // 
-            this.tbAADrinkColli.Location = new System.Drawing.Point(276, 283);
-            this.tbAADrinkColli.Name = "tbAADrinkColli";
-            this.tbAADrinkColli.Size = new System.Drawing.Size(55, 20);
-            this.tbAADrinkColli.TabIndex = 28;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(89, 286);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "AA Drink";
-            // 
-            // tbHertogJanVoorraad
-            // 
-            this.tbHertogJanVoorraad.Enabled = false;
-            this.tbHertogJanVoorraad.Location = new System.Drawing.Point(14, 309);
-            this.tbHertogJanVoorraad.Name = "tbHertogJanVoorraad";
-            this.tbHertogJanVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbHertogJanVoorraad.TabIndex = 32;
-            // 
-            // tbHertogJanColli
-            // 
-            this.tbHertogJanColli.Location = new System.Drawing.Point(276, 309);
-            this.tbHertogJanColli.Name = "tbHertogJanColli";
-            this.tbHertogJanColli.Size = new System.Drawing.Size(55, 20);
-            this.tbHertogJanColli.TabIndex = 31;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(89, 312);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Hertog-Jan pils";
-            // 
-            // tbLeffeVoorraad
-            // 
-            this.tbLeffeVoorraad.Enabled = false;
-            this.tbLeffeVoorraad.Location = new System.Drawing.Point(14, 335);
-            this.tbLeffeVoorraad.Name = "tbLeffeVoorraad";
-            this.tbLeffeVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbLeffeVoorraad.TabIndex = 35;
-            // 
-            // tbLeffeColli
-            // 
-            this.tbLeffeColli.Location = new System.Drawing.Point(276, 335);
-            this.tbLeffeColli.Name = "tbLeffeColli";
-            this.tbLeffeColli.Size = new System.Drawing.Size(55, 20);
-            this.tbLeffeColli.TabIndex = 34;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(89, 338);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 13);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Leffe Bruin";
-            // 
-            // tbJupilerVoorraad
-            // 
-            this.tbJupilerVoorraad.Enabled = false;
-            this.tbJupilerVoorraad.Location = new System.Drawing.Point(14, 361);
-            this.tbJupilerVoorraad.Name = "tbJupilerVoorraad";
-            this.tbJupilerVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbJupilerVoorraad.TabIndex = 38;
-            // 
-            // tbJupilerColli
-            // 
-            this.tbJupilerColli.Location = new System.Drawing.Point(276, 361);
-            this.tbJupilerColli.Name = "tbJupilerColli";
-            this.tbJupilerColli.Size = new System.Drawing.Size(55, 20);
-            this.tbJupilerColli.TabIndex = 37;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(89, 364);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Jupiler Alcoholvrij pils";
-            // 
-            // tbSchrobbelerVoorraad
-            // 
-            this.tbSchrobbelerVoorraad.Enabled = false;
-            this.tbSchrobbelerVoorraad.Location = new System.Drawing.Point(14, 387);
-            this.tbSchrobbelerVoorraad.Name = "tbSchrobbelerVoorraad";
-            this.tbSchrobbelerVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbSchrobbelerVoorraad.TabIndex = 41;
-            // 
-            // tbSchrobbelerColli
-            // 
-            this.tbSchrobbelerColli.Location = new System.Drawing.Point(276, 387);
-            this.tbSchrobbelerColli.Name = "tbSchrobbelerColli";
-            this.tbSchrobbelerColli.Size = new System.Drawing.Size(55, 20);
-            this.tbSchrobbelerColli.TabIndex = 40;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(89, 390);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 13);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Schrobbeler";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(273, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 13);
-            this.label15.TabIndex = 42;
-            this.label15.Text = "Aantal colli";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 20);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 13);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Aantal";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(273, 33);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 44;
-            this.label17.Text = "toevoegen";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 33);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 13);
-            this.label18.TabIndex = 45;
-            this.label18.Text = "aanwezig";
+            // btToevoegen
+            // 
+            this.btToevoegen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btToevoegen.Location = new System.Drawing.Point(834, 468);
+            this.btToevoegen.Name = "btToevoegen";
+            this.btToevoegen.Size = new System.Drawing.Size(102, 35);
+            this.btToevoegen.TabIndex = 2;
+            this.btToevoegen.Text = "Toevoegen";
+            this.btToevoegen.UseVisualStyleBackColor = true;
+            this.btToevoegen.Click += new System.EventHandler(this.btToevoegen_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(826, 33);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(43, 13);
+            this.label28.TabIndex = 95;
+            this.label28.Text = "per colli";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(824, 20);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(88, 13);
+            this.label29.TabIndex = 94;
+            this.label29.Text = "Aantal producten";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(480, 33);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(52, 13);
+            this.label30.TabIndex = 93;
+            this.label30.Text = "aanwezig";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(742, 33);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(58, 13);
+            this.label31.TabIndex = 92;
+            this.label31.Text = "toevoegen";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(480, 20);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 13);
+            this.label32.TabIndex = 91;
+            this.label32.Text = "Aantal";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(742, 20);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(58, 13);
+            this.label33.TabIndex = 90;
+            this.label33.Text = "Aantal colli";
+            // 
+            // tbNaturelChipsAantal
+            // 
+            this.tbNaturelChipsAantal.Location = new System.Drawing.Point(827, 127);
+            this.tbNaturelChipsAantal.Name = "tbNaturelChipsAantal";
+            this.tbNaturelChipsAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbNaturelChipsAantal.TabIndex = 89;
+            this.tbNaturelChipsAantal.Text = "12";
+            // 
+            // tbNaturelChipsVoorraad
+            // 
+            this.tbNaturelChipsVoorraad.Enabled = false;
+            this.tbNaturelChipsVoorraad.Location = new System.Drawing.Point(483, 127);
+            this.tbNaturelChipsVoorraad.Name = "tbNaturelChipsVoorraad";
+            this.tbNaturelChipsVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbNaturelChipsVoorraad.TabIndex = 88;
+            // 
+            // tbNaturelChipsColli
+            // 
+            this.tbNaturelChipsColli.Location = new System.Drawing.Point(745, 127);
+            this.tbNaturelChipsColli.Name = "tbNaturelChipsColli";
+            this.tbNaturelChipsColli.Size = new System.Drawing.Size(55, 20);
+            this.tbNaturelChipsColli.TabIndex = 87;
+            this.tbNaturelChipsColli.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(558, 130);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(69, 13);
+            this.label24.TabIndex = 86;
+            this.label24.Text = "Naturel chips";
+            // 
+            // tbPaprikaChipsAantal
+            // 
+            this.tbPaprikaChipsAantal.Location = new System.Drawing.Point(827, 101);
+            this.tbPaprikaChipsAantal.Name = "tbPaprikaChipsAantal";
+            this.tbPaprikaChipsAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbPaprikaChipsAantal.TabIndex = 85;
+            this.tbPaprikaChipsAantal.Text = "12";
+            // 
+            // tbPaprikaChipsVoorraad
+            // 
+            this.tbPaprikaChipsVoorraad.Enabled = false;
+            this.tbPaprikaChipsVoorraad.Location = new System.Drawing.Point(483, 101);
+            this.tbPaprikaChipsVoorraad.Name = "tbPaprikaChipsVoorraad";
+            this.tbPaprikaChipsVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbPaprikaChipsVoorraad.TabIndex = 84;
+            // 
+            // tbPaprikaChipsColli
+            // 
+            this.tbPaprikaChipsColli.Location = new System.Drawing.Point(745, 101);
+            this.tbPaprikaChipsColli.Name = "tbPaprikaChipsColli";
+            this.tbPaprikaChipsColli.Size = new System.Drawing.Size(55, 20);
+            this.tbPaprikaChipsColli.TabIndex = 83;
+            this.tbPaprikaChipsColli.Text = "0";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(558, 104);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(71, 13);
+            this.label25.TabIndex = 82;
+            this.label25.Text = "Paprika chips";
+            // 
+            // tbSnickersAantal
+            // 
+            this.tbSnickersAantal.Location = new System.Drawing.Point(827, 75);
+            this.tbSnickersAantal.Name = "tbSnickersAantal";
+            this.tbSnickersAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbSnickersAantal.TabIndex = 81;
+            this.tbSnickersAantal.Text = "24";
+            // 
+            // tbSnickersVoorraad
+            // 
+            this.tbSnickersVoorraad.Enabled = false;
+            this.tbSnickersVoorraad.Location = new System.Drawing.Point(483, 75);
+            this.tbSnickersVoorraad.Name = "tbSnickersVoorraad";
+            this.tbSnickersVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbSnickersVoorraad.TabIndex = 80;
+            // 
+            // tbSnickersColli
+            // 
+            this.tbSnickersColli.Location = new System.Drawing.Point(745, 75);
+            this.tbSnickersColli.Name = "tbSnickersColli";
+            this.tbSnickersColli.Size = new System.Drawing.Size(55, 20);
+            this.tbSnickersColli.TabIndex = 79;
+            this.tbSnickersColli.Text = "0";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(558, 78);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(48, 13);
+            this.label26.TabIndex = 78;
+            this.label26.Text = "Snickers";
+            // 
+            // tbMarsAantal
+            // 
+            this.tbMarsAantal.Location = new System.Drawing.Point(827, 49);
+            this.tbMarsAantal.Name = "tbMarsAantal";
+            this.tbMarsAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbMarsAantal.TabIndex = 77;
+            this.tbMarsAantal.Text = "24";
+            // 
+            // tbMarsVoorraad
+            // 
+            this.tbMarsVoorraad.Enabled = false;
+            this.tbMarsVoorraad.Location = new System.Drawing.Point(483, 49);
+            this.tbMarsVoorraad.Name = "tbMarsVoorraad";
+            this.tbMarsVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbMarsVoorraad.TabIndex = 76;
+            // 
+            // tbMarsColli
+            // 
+            this.tbMarsColli.Location = new System.Drawing.Point(745, 49);
+            this.tbMarsColli.Name = "tbMarsColli";
+            this.tbMarsColli.Size = new System.Drawing.Size(55, 20);
+            this.tbMarsColli.TabIndex = 75;
+            this.tbMarsColli.Text = "0";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(558, 52);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(30, 13);
+            this.label27.TabIndex = 74;
+            this.label27.Text = "Mars";
+            // 
+            // tbRodeWijnAantal
+            // 
+            this.tbRodeWijnAantal.Location = new System.Drawing.Point(358, 439);
+            this.tbRodeWijnAantal.Name = "tbRodeWijnAantal";
+            this.tbRodeWijnAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbRodeWijnAantal.TabIndex = 69;
+            this.tbRodeWijnAantal.Text = "12";
+            // 
+            // tbRodeWijnVoorraad
+            // 
+            this.tbRodeWijnVoorraad.Enabled = false;
+            this.tbRodeWijnVoorraad.Location = new System.Drawing.Point(14, 439);
+            this.tbRodeWijnVoorraad.Name = "tbRodeWijnVoorraad";
+            this.tbRodeWijnVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbRodeWijnVoorraad.TabIndex = 68;
+            // 
+            // tbRodeWijnColli
+            // 
+            this.tbRodeWijnColli.Location = new System.Drawing.Point(276, 439);
+            this.tbRodeWijnColli.Name = "tbRodeWijnColli";
+            this.tbRodeWijnColli.Size = new System.Drawing.Size(55, 20);
+            this.tbRodeWijnColli.TabIndex = 67;
+            this.tbRodeWijnColli.Text = "0";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(89, 442);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 13);
+            this.label22.TabIndex = 66;
+            this.label22.Text = "Rode wijn";
+            // 
+            // tbWitteWijnAantal
+            // 
+            this.tbWitteWijnAantal.Location = new System.Drawing.Point(358, 413);
+            this.tbWitteWijnAantal.Name = "tbWitteWijnAantal";
+            this.tbWitteWijnAantal.Size = new System.Drawing.Size(42, 20);
+            this.tbWitteWijnAantal.TabIndex = 65;
+            this.tbWitteWijnAantal.Text = "12";
+            // 
+            // tbWitteWijnVoorraad
+            // 
+            this.tbWitteWijnVoorraad.Enabled = false;
+            this.tbWitteWijnVoorraad.Location = new System.Drawing.Point(14, 413);
+            this.tbWitteWijnVoorraad.Name = "tbWitteWijnVoorraad";
+            this.tbWitteWijnVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbWitteWijnVoorraad.TabIndex = 64;
+            // 
+            // tbWitteWijnColli
+            // 
+            this.tbWitteWijnColli.Location = new System.Drawing.Point(276, 413);
+            this.tbWitteWijnColli.Name = "tbWitteWijnColli";
+            this.tbWitteWijnColli.Size = new System.Drawing.Size(55, 20);
+            this.tbWitteWijnColli.TabIndex = 63;
+            this.tbWitteWijnColli.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(89, 416);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 13);
+            this.label21.TabIndex = 62;
+            this.label21.Text = "Witte wijn";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(357, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(43, 13);
+            this.label19.TabIndex = 61;
+            this.label19.Text = "per colli";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(355, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(88, 13);
+            this.label20.TabIndex = 60;
+            this.label20.Text = "Aantal producten";
             // 
             // tbSchrobbelerAantal
             // 
@@ -723,280 +632,391 @@
             this.tbCocaColaAantal.TabIndex = 46;
             this.tbCocaColaAantal.Text = "24";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(357, 33);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 13);
-            this.label19.TabIndex = 61;
-            this.label19.Text = "per colli";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(355, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(88, 13);
-            this.label20.TabIndex = 60;
-            this.label20.Text = "Aantal producten";
-            // 
-            // tbWitteWijnAantal
-            // 
-            this.tbWitteWijnAantal.Location = new System.Drawing.Point(358, 413);
-            this.tbWitteWijnAantal.Name = "tbWitteWijnAantal";
-            this.tbWitteWijnAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbWitteWijnAantal.TabIndex = 65;
-            this.tbWitteWijnAantal.Text = "12";
-            // 
-            // tbWitteWijnVoorraad
-            // 
-            this.tbWitteWijnVoorraad.Enabled = false;
-            this.tbWitteWijnVoorraad.Location = new System.Drawing.Point(14, 413);
-            this.tbWitteWijnVoorraad.Name = "tbWitteWijnVoorraad";
-            this.tbWitteWijnVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbWitteWijnVoorraad.TabIndex = 64;
-            // 
-            // tbWitteWijnColli
-            // 
-            this.tbWitteWijnColli.Location = new System.Drawing.Point(276, 413);
-            this.tbWitteWijnColli.Name = "tbWitteWijnColli";
-            this.tbWitteWijnColli.Size = new System.Drawing.Size(55, 20);
-            this.tbWitteWijnColli.TabIndex = 63;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(89, 416);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(53, 13);
-            this.label21.TabIndex = 62;
-            this.label21.Text = "Witte wijn";
-            // 
-            // tbRodeWijnAantal
-            // 
-            this.tbRodeWijnAantal.Location = new System.Drawing.Point(358, 439);
-            this.tbRodeWijnAantal.Name = "tbRodeWijnAantal";
-            this.tbRodeWijnAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbRodeWijnAantal.TabIndex = 69;
-            this.tbRodeWijnAantal.Text = "12";
-            // 
-            // tbRodeWijnVoorraad
-            // 
-            this.tbRodeWijnVoorraad.Enabled = false;
-            this.tbRodeWijnVoorraad.Location = new System.Drawing.Point(14, 439);
-            this.tbRodeWijnVoorraad.Name = "tbRodeWijnVoorraad";
-            this.tbRodeWijnVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbRodeWijnVoorraad.TabIndex = 68;
-            // 
-            // tbRodeWijnColli
-            // 
-            this.tbRodeWijnColli.Location = new System.Drawing.Point(276, 439);
-            this.tbRodeWijnColli.Name = "tbRodeWijnColli";
-            this.tbRodeWijnColli.Size = new System.Drawing.Size(55, 20);
-            this.tbRodeWijnColli.TabIndex = 67;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(89, 442);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 13);
-            this.label22.TabIndex = 66;
-            this.label22.Text = "Rode wijn";
-            // 
-            // tbNaturelChipsAantal
-            // 
-            this.tbNaturelChipsAantal.Location = new System.Drawing.Point(827, 127);
-            this.tbNaturelChipsAantal.Name = "tbNaturelChipsAantal";
-            this.tbNaturelChipsAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbNaturelChipsAantal.TabIndex = 89;
-            this.tbNaturelChipsAantal.Text = "12";
-            // 
-            // tbNaturelChipsVoorraad
-            // 
-            this.tbNaturelChipsVoorraad.Enabled = false;
-            this.tbNaturelChipsVoorraad.Location = new System.Drawing.Point(483, 127);
-            this.tbNaturelChipsVoorraad.Name = "tbNaturelChipsVoorraad";
-            this.tbNaturelChipsVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbNaturelChipsVoorraad.TabIndex = 88;
-            // 
-            // tbNaturelChipsColli
-            // 
-            this.tbNaturelChipsColli.Location = new System.Drawing.Point(745, 127);
-            this.tbNaturelChipsColli.Name = "tbNaturelChipsColli";
-            this.tbNaturelChipsColli.Size = new System.Drawing.Size(55, 20);
-            this.tbNaturelChipsColli.TabIndex = 87;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(558, 130);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(69, 13);
-            this.label24.TabIndex = 86;
-            this.label24.Text = "Naturel chips";
-            // 
-            // tbPaprikaChipsAantal
-            // 
-            this.tbPaprikaChipsAantal.Location = new System.Drawing.Point(827, 101);
-            this.tbPaprikaChipsAantal.Name = "tbPaprikaChipsAantal";
-            this.tbPaprikaChipsAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbPaprikaChipsAantal.TabIndex = 85;
-            this.tbPaprikaChipsAantal.Text = "12";
-            // 
-            // tbPaprikaChipsVoorraad
-            // 
-            this.tbPaprikaChipsVoorraad.Enabled = false;
-            this.tbPaprikaChipsVoorraad.Location = new System.Drawing.Point(483, 101);
-            this.tbPaprikaChipsVoorraad.Name = "tbPaprikaChipsVoorraad";
-            this.tbPaprikaChipsVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbPaprikaChipsVoorraad.TabIndex = 84;
-            // 
-            // tbPaprikaChipsColli
-            // 
-            this.tbPaprikaChipsColli.Location = new System.Drawing.Point(745, 101);
-            this.tbPaprikaChipsColli.Name = "tbPaprikaChipsColli";
-            this.tbPaprikaChipsColli.Size = new System.Drawing.Size(55, 20);
-            this.tbPaprikaChipsColli.TabIndex = 83;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(558, 104);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(71, 13);
-            this.label25.TabIndex = 82;
-            this.label25.Text = "Paprika chips";
-            // 
-            // tbSnickersAantal
-            // 
-            this.tbSnickersAantal.Location = new System.Drawing.Point(827, 75);
-            this.tbSnickersAantal.Name = "tbSnickersAantal";
-            this.tbSnickersAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbSnickersAantal.TabIndex = 81;
-            this.tbSnickersAantal.Text = "24";
-            // 
-            // tbSnickersVoorraad
-            // 
-            this.tbSnickersVoorraad.Enabled = false;
-            this.tbSnickersVoorraad.Location = new System.Drawing.Point(483, 75);
-            this.tbSnickersVoorraad.Name = "tbSnickersVoorraad";
-            this.tbSnickersVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbSnickersVoorraad.TabIndex = 80;
-            // 
-            // tbSnickersColli
-            // 
-            this.tbSnickersColli.Location = new System.Drawing.Point(745, 75);
-            this.tbSnickersColli.Name = "tbSnickersColli";
-            this.tbSnickersColli.Size = new System.Drawing.Size(55, 20);
-            this.tbSnickersColli.TabIndex = 79;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(558, 78);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(48, 13);
-            this.label26.TabIndex = 78;
-            this.label26.Text = "Snickers";
-            // 
-            // tbMarsAantal
-            // 
-            this.tbMarsAantal.Location = new System.Drawing.Point(827, 49);
-            this.tbMarsAantal.Name = "tbMarsAantal";
-            this.tbMarsAantal.Size = new System.Drawing.Size(42, 20);
-            this.tbMarsAantal.TabIndex = 77;
-            this.tbMarsAantal.Text = "24";
-            // 
-            // tbMarsVoorraad
-            // 
-            this.tbMarsVoorraad.Enabled = false;
-            this.tbMarsVoorraad.Location = new System.Drawing.Point(483, 49);
-            this.tbMarsVoorraad.Name = "tbMarsVoorraad";
-            this.tbMarsVoorraad.Size = new System.Drawing.Size(42, 20);
-            this.tbMarsVoorraad.TabIndex = 76;
-            // 
-            // tbMarsColli
-            // 
-            this.tbMarsColli.Location = new System.Drawing.Point(745, 49);
-            this.tbMarsColli.Name = "tbMarsColli";
-            this.tbMarsColli.Size = new System.Drawing.Size(55, 20);
-            this.tbMarsColli.TabIndex = 75;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(558, 52);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(30, 13);
-            this.label27.TabIndex = 74;
-            this.label27.Text = "Mars";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(826, 33);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(43, 13);
-            this.label28.TabIndex = 95;
-            this.label28.Text = "per colli";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(824, 20);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(88, 13);
-            this.label29.TabIndex = 94;
-            this.label29.Text = "Aantal producten";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(480, 33);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(52, 13);
-            this.label30.TabIndex = 93;
-            this.label30.Text = "aanwezig";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(742, 33);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 13);
-            this.label31.TabIndex = 92;
-            this.label31.Text = "toevoegen";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(480, 20);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(37, 13);
-            this.label32.TabIndex = 91;
-            this.label32.Text = "Aantal";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(742, 20);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(58, 13);
-            this.label33.TabIndex = 90;
-            this.label33.Text = "Aantal colli";
-            // 
-            // btToevoegen
-            // 
-            this.btToevoegen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btToevoegen.Location = new System.Drawing.Point(834, 468);
-            this.btToevoegen.Name = "btToevoegen";
-            this.btToevoegen.Size = new System.Drawing.Size(102, 35);
-            this.btToevoegen.TabIndex = 2;
-            this.btToevoegen.Text = "Toevoegen";
-            this.btToevoegen.UseVisualStyleBackColor = true;
-            this.btToevoegen.Click += new System.EventHandler(this.btToevoegen_Click);
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 33);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "aanwezig";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(273, 33);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 44;
+            this.label17.Text = "toevoegen";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(11, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(37, 13);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Aantal";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(273, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 13);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Aantal colli";
+            // 
+            // tbSchrobbelerVoorraad
+            // 
+            this.tbSchrobbelerVoorraad.Enabled = false;
+            this.tbSchrobbelerVoorraad.Location = new System.Drawing.Point(14, 387);
+            this.tbSchrobbelerVoorraad.Name = "tbSchrobbelerVoorraad";
+            this.tbSchrobbelerVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbSchrobbelerVoorraad.TabIndex = 41;
+            // 
+            // tbSchrobbelerColli
+            // 
+            this.tbSchrobbelerColli.Location = new System.Drawing.Point(276, 387);
+            this.tbSchrobbelerColli.Name = "tbSchrobbelerColli";
+            this.tbSchrobbelerColli.Size = new System.Drawing.Size(55, 20);
+            this.tbSchrobbelerColli.TabIndex = 40;
+            this.tbSchrobbelerColli.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(89, 390);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 13);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Schrobbeler";
+            // 
+            // tbJupilerVoorraad
+            // 
+            this.tbJupilerVoorraad.Enabled = false;
+            this.tbJupilerVoorraad.Location = new System.Drawing.Point(14, 361);
+            this.tbJupilerVoorraad.Name = "tbJupilerVoorraad";
+            this.tbJupilerVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbJupilerVoorraad.TabIndex = 38;
+            // 
+            // tbJupilerColli
+            // 
+            this.tbJupilerColli.Location = new System.Drawing.Point(276, 361);
+            this.tbJupilerColli.Name = "tbJupilerColli";
+            this.tbJupilerColli.Size = new System.Drawing.Size(55, 20);
+            this.tbJupilerColli.TabIndex = 37;
+            this.tbJupilerColli.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(89, 364);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Jupiler Alcoholvrij pils";
+            // 
+            // tbLeffeVoorraad
+            // 
+            this.tbLeffeVoorraad.Enabled = false;
+            this.tbLeffeVoorraad.Location = new System.Drawing.Point(14, 335);
+            this.tbLeffeVoorraad.Name = "tbLeffeVoorraad";
+            this.tbLeffeVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbLeffeVoorraad.TabIndex = 35;
+            // 
+            // tbLeffeColli
+            // 
+            this.tbLeffeColli.Location = new System.Drawing.Point(276, 335);
+            this.tbLeffeColli.Name = "tbLeffeColli";
+            this.tbLeffeColli.Size = new System.Drawing.Size(55, 20);
+            this.tbLeffeColli.TabIndex = 34;
+            this.tbLeffeColli.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(89, 338);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 13);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Leffe Bruin";
+            // 
+            // tbHertogJanVoorraad
+            // 
+            this.tbHertogJanVoorraad.Enabled = false;
+            this.tbHertogJanVoorraad.Location = new System.Drawing.Point(14, 309);
+            this.tbHertogJanVoorraad.Name = "tbHertogJanVoorraad";
+            this.tbHertogJanVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbHertogJanVoorraad.TabIndex = 32;
+            // 
+            // tbHertogJanColli
+            // 
+            this.tbHertogJanColli.Location = new System.Drawing.Point(276, 309);
+            this.tbHertogJanColli.Name = "tbHertogJanColli";
+            this.tbHertogJanColli.Size = new System.Drawing.Size(55, 20);
+            this.tbHertogJanColli.TabIndex = 31;
+            this.tbHertogJanColli.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(89, 312);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Hertog-Jan pils";
+            // 
+            // tbAADrinkVoorraad
+            // 
+            this.tbAADrinkVoorraad.Enabled = false;
+            this.tbAADrinkVoorraad.Location = new System.Drawing.Point(14, 283);
+            this.tbAADrinkVoorraad.Name = "tbAADrinkVoorraad";
+            this.tbAADrinkVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbAADrinkVoorraad.TabIndex = 29;
+            // 
+            // tbAADrinkColli
+            // 
+            this.tbAADrinkColli.Location = new System.Drawing.Point(276, 283);
+            this.tbAADrinkColli.Name = "tbAADrinkColli";
+            this.tbAADrinkColli.Size = new System.Drawing.Size(55, 20);
+            this.tbAADrinkColli.TabIndex = 28;
+            this.tbAADrinkColli.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(89, 286);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "AA Drink";
+            // 
+            // tbAquariusVoorraad
+            // 
+            this.tbAquariusVoorraad.Enabled = false;
+            this.tbAquariusVoorraad.Location = new System.Drawing.Point(14, 257);
+            this.tbAquariusVoorraad.Name = "tbAquariusVoorraad";
+            this.tbAquariusVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbAquariusVoorraad.TabIndex = 26;
+            // 
+            // tbAquariusColli
+            // 
+            this.tbAquariusColli.Location = new System.Drawing.Point(276, 257);
+            this.tbAquariusColli.Name = "tbAquariusColli";
+            this.tbAquariusColli.Size = new System.Drawing.Size(55, 20);
+            this.tbAquariusColli.TabIndex = 25;
+            this.tbAquariusColli.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(89, 260);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Aquarius";
+            // 
+            // tbSpaRoodVoorraad
+            // 
+            this.tbSpaRoodVoorraad.Enabled = false;
+            this.tbSpaRoodVoorraad.Location = new System.Drawing.Point(14, 231);
+            this.tbSpaRoodVoorraad.Name = "tbSpaRoodVoorraad";
+            this.tbSpaRoodVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbSpaRoodVoorraad.TabIndex = 23;
+            // 
+            // tbSpaRoodColli
+            // 
+            this.tbSpaRoodColli.Location = new System.Drawing.Point(276, 231);
+            this.tbSpaRoodColli.Name = "tbSpaRoodColli";
+            this.tbSpaRoodColli.Size = new System.Drawing.Size(55, 20);
+            this.tbSpaRoodColli.TabIndex = 22;
+            this.tbSpaRoodColli.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(89, 234);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Spa Rood";
+            // 
+            // tbBitterlemonVoorraad
+            // 
+            this.tbBitterlemonVoorraad.Enabled = false;
+            this.tbBitterlemonVoorraad.Location = new System.Drawing.Point(14, 205);
+            this.tbBitterlemonVoorraad.Name = "tbBitterlemonVoorraad";
+            this.tbBitterlemonVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbBitterlemonVoorraad.TabIndex = 20;
+            // 
+            // tbBitterlemonColli
+            // 
+            this.tbBitterlemonColli.Location = new System.Drawing.Point(276, 205);
+            this.tbBitterlemonColli.Name = "tbBitterlemonColli";
+            this.tbBitterlemonColli.Size = new System.Drawing.Size(55, 20);
+            this.tbBitterlemonColli.TabIndex = 19;
+            this.tbBitterlemonColli.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(89, 208);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Bitterlemon";
+            // 
+            // tbChocomelVoorraad
+            // 
+            this.tbChocomelVoorraad.Enabled = false;
+            this.tbChocomelVoorraad.Location = new System.Drawing.Point(14, 179);
+            this.tbChocomelVoorraad.Name = "tbChocomelVoorraad";
+            this.tbChocomelVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbChocomelVoorraad.TabIndex = 17;
+            // 
+            // tbChocomelColli
+            // 
+            this.tbChocomelColli.Location = new System.Drawing.Point(276, 179);
+            this.tbChocomelColli.Name = "tbChocomelColli";
+            this.tbChocomelColli.Size = new System.Drawing.Size(55, 20);
+            this.tbChocomelColli.TabIndex = 16;
+            this.tbChocomelColli.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(89, 182);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Chocomel";
+            // 
+            // tbIceTeaVoorraad
+            // 
+            this.tbIceTeaVoorraad.Enabled = false;
+            this.tbIceTeaVoorraad.Location = new System.Drawing.Point(14, 153);
+            this.tbIceTeaVoorraad.Name = "tbIceTeaVoorraad";
+            this.tbIceTeaVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbIceTeaVoorraad.TabIndex = 14;
+            // 
+            // tbIceTeaColli
+            // 
+            this.tbIceTeaColli.Location = new System.Drawing.Point(276, 153);
+            this.tbIceTeaColli.Name = "tbIceTeaColli";
+            this.tbIceTeaColli.Size = new System.Drawing.Size(55, 20);
+            this.tbIceTeaColli.TabIndex = 13;
+            this.tbIceTeaColli.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(89, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Ice Tea";
+            // 
+            // tbCassisVoorraad
+            // 
+            this.tbCassisVoorraad.Enabled = false;
+            this.tbCassisVoorraad.Location = new System.Drawing.Point(14, 127);
+            this.tbCassisVoorraad.Name = "tbCassisVoorraad";
+            this.tbCassisVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbCassisVoorraad.TabIndex = 11;
+            // 
+            // tbCassisColli
+            // 
+            this.tbCassisColli.Location = new System.Drawing.Point(276, 127);
+            this.tbCassisColli.Name = "tbCassisColli";
+            this.tbCassisColli.Size = new System.Drawing.Size(55, 20);
+            this.tbCassisColli.TabIndex = 10;
+            this.tbCassisColli.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(89, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Fanta Cassis";
+            // 
+            // tbFantaVoorraad
+            // 
+            this.tbFantaVoorraad.Enabled = false;
+            this.tbFantaVoorraad.Location = new System.Drawing.Point(14, 101);
+            this.tbFantaVoorraad.Name = "tbFantaVoorraad";
+            this.tbFantaVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbFantaVoorraad.TabIndex = 8;
+            // 
+            // tbFantaColli
+            // 
+            this.tbFantaColli.Location = new System.Drawing.Point(276, 101);
+            this.tbFantaColli.Name = "tbFantaColli";
+            this.tbFantaColli.Size = new System.Drawing.Size(55, 20);
+            this.tbFantaColli.TabIndex = 7;
+            this.tbFantaColli.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(89, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Fanta Sinas";
+            // 
+            // tbColaZeroVoorraad
+            // 
+            this.tbColaZeroVoorraad.Enabled = false;
+            this.tbColaZeroVoorraad.Location = new System.Drawing.Point(14, 75);
+            this.tbColaZeroVoorraad.Name = "tbColaZeroVoorraad";
+            this.tbColaZeroVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbColaZeroVoorraad.TabIndex = 5;
+            // 
+            // tbColaZeroColli
+            // 
+            this.tbColaZeroColli.Location = new System.Drawing.Point(276, 75);
+            this.tbColaZeroColli.Name = "tbColaZeroColli";
+            this.tbColaZeroColli.Size = new System.Drawing.Size(55, 20);
+            this.tbColaZeroColli.TabIndex = 4;
+            this.tbColaZeroColli.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(89, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Coca Cola Zero";
+            // 
+            // tbColaVoorraad
+            // 
+            this.tbColaVoorraad.Enabled = false;
+            this.tbColaVoorraad.Location = new System.Drawing.Point(14, 49);
+            this.tbColaVoorraad.Name = "tbColaVoorraad";
+            this.tbColaVoorraad.Size = new System.Drawing.Size(42, 20);
+            this.tbColaVoorraad.TabIndex = 2;
+            // 
+            // tbCocaColaColli
+            // 
+            this.tbCocaColaColli.Location = new System.Drawing.Point(276, 49);
+            this.tbCocaColaColli.Name = "tbCocaColaColli";
+            this.tbCocaColaColli.Size = new System.Drawing.Size(55, 20);
+            this.tbCocaColaColli.TabIndex = 1;
+            this.tbCocaColaColli.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(89, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Coca cola";
             // 
             // LeveringScherm
             // 

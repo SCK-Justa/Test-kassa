@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
-using Microsoft.Win32;
 
 namespace Kassasysteem
 {
@@ -17,7 +14,7 @@ namespace Kassasysteem
         {
             InitializeComponent();
             App = app;
-            SetAble(App.Authentication.Lid.GetBestuursfunctie(), App.Authentication.Lid.GetBestuursfunctie());
+            SetAble(App.GetIsGemachtigd(), App.GetIsGemachtigd());
             RefreshGegevens();
         }
 
@@ -51,7 +48,7 @@ namespace Kassasysteem
                 if (product.Id == selected)
                 {
                     _product = product;
-                    SetAble(App.Authentication.Lid.GetBestuursfunctie(), App.Authentication.Lid.GetBestuursfunctie());
+                    SetAble(App.GetIsGemachtigd(), App.GetIsGemachtigd());
                     btOpslaan.Enabled = App.Authentication.Lid.GetBestuursfunctie();
                     tbNaam.Text = product.Naam;
                     tbSoort.Text = product.Soort;

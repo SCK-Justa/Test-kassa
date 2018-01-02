@@ -11,5 +11,6 @@ namespace Logic.Interfaces
         void AddProduct(Product product);
         void EditProduct(Product product);
         void RemoveProduct(Product product);
+        void VoegVoorraadToe(Product product, int hoeveelheid);
     }
 }
