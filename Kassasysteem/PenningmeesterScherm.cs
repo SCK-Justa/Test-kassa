@@ -111,7 +111,7 @@ namespace Kassasysteem
         private void btOpenJaarOmzet_Click(object sender, EventArgs e)
         {
             int selected = (int)cbJaarNr.SelectedItem;
-            if (selected != null || selected >= 0)
+            if (selected >= 0)
             {
                 ShowJaarOmzet(new DateTime(selected, 1, 1));
             }
