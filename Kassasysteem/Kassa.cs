@@ -709,5 +709,18 @@ namespace GUI
             SelectSellMethod(true, true);
             cbSoortVerkoop.Text = "Bestelling";
         }
+
+        private void voorraadToevoegenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LeveringScherm scherm = new LeveringScherm(App);
+                scherm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+            }
+        }
     }
 }

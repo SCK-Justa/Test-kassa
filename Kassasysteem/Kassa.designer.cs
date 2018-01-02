@@ -40,6 +40,7 @@
             this.lbKassaNaam = new System.Windows.Forms.Label();
             this.lbKassaNaamlb = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.cbSoortVerkoop = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lbKlantNaamlbl = new System.Windows.Forms.Label();
@@ -118,7 +119,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -254,6 +254,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bestelligen";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(407, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 49);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Toon losse verkopen";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // cbSoortVerkoop
             // 
@@ -860,8 +870,9 @@
             // voorraadToevoegenToolStripMenuItem
             // 
             this.voorraadToevoegenToolStripMenuItem.Name = "voorraadToevoegenToolStripMenuItem";
-            this.voorraadToevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.voorraadToevoegenToolStripMenuItem.Text = "Voorraad toevoegen";
+            this.voorraadToevoegenToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.voorraadToevoegenToolStripMenuItem.Text = "Levering toevoegen";
+            this.voorraadToevoegenToolStripMenuItem.Click += new System.EventHandler(this.voorraadToevoegenToolStripMenuItem_Click);
             // 
             // omzetToolStripMenuItem
             // 
@@ -1065,16 +1076,6 @@
             // 
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(407, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 49);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Toon losse verkopen";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Kassa
             // 
