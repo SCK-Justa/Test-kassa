@@ -27,6 +27,7 @@ namespace GUI
             {
                 InitializeComponent();
                 _contanteVerkoop = false;
+                _contanteVerkoopLid = false;
                 App = app;
                 timer.Start();
                 if (App.CheckDbConnection())
@@ -192,12 +193,14 @@ namespace GUI
                     lvi.Tag = p;
                     lvProductenInBestelling.Items.Add(lvi);
                 }
+                // Eerst de prijs uit de losse verkopen bepalen en displayen
                 decimal prijs = 0.00m;
                 foreach (Product p in App.GetLosseVerkopen())
                 {
                     prijs += p.Prijs;
                 }
                 lbTotaalPrijs.Text = @"€" + prijs.ToString(CultureInfo.InvariantCulture);
+                // Dan de ledenprijs uit de losse verkopen bepalen en displayen
                 prijs = 0.00m;
                 foreach (Product p in App.GetLosseVerkopen())
                 {
@@ -300,7 +303,7 @@ namespace GUI
                 MessageBox.Show(@"Er is geen bestelling geselecteerd.");
             }
         }
-        #region buttonclicks
+        #region buttonclicks_producten
         private void btKoffie_Click(object sender, EventArgs e)
         {
             AddProductToBestelling("Koffie");
@@ -497,7 +500,7 @@ namespace GUI
         {
             try
             {
-                //TODO Omzet zichbaar maken vanuit db
+                // TODO: Omzet zichbaar maken vanuit db
                 _omzetScherm = new PenningmeesterScherm(App);
                 _omzetScherm.ShowDialog();
             }

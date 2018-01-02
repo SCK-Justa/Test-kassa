@@ -123,9 +123,11 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbBedrag = new System.Windows.Forms.TextBox();
-            this.lbBedraguitKas = new System.Windows.Forms.Label();
             this.btOk = new System.Windows.Forms.Button();
+            this.lbBedraguitKas = new System.Windows.Forms.Label();
+            this.tbBedrag = new System.Windows.Forms.TextBox();
+            this.tbReden = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbDeclaratie.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDKm)).BeginInit();
@@ -1126,6 +1128,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tbReden);
             this.groupBox1.Controls.Add(this.btOk);
             this.groupBox1.Controls.Add(this.lbBedraguitKas);
             this.groupBox1.Controls.Add(this.tbBedrag);
@@ -1135,12 +1139,15 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // tbBedrag
+            // btOk
             // 
-            this.tbBedrag.Location = new System.Drawing.Point(91, 17);
-            this.tbBedrag.Name = "tbBedrag";
-            this.tbBedrag.Size = new System.Drawing.Size(79, 20);
-            this.tbBedrag.TabIndex = 0;
+            this.btOk.Location = new System.Drawing.Point(173, 70);
+            this.btOk.Name = "btOk";
+            this.btOk.Size = new System.Drawing.Size(75, 23);
+            this.btOk.TabIndex = 2;
+            this.btOk.Text = "OK";
+            this.btOk.UseVisualStyleBackColor = true;
+            this.btOk.Click += new System.EventHandler(this.btOk_Click);
             // 
             // lbBedraguitKas
             // 
@@ -1151,15 +1158,28 @@
             this.lbBedraguitKas.TabIndex = 1;
             this.lbBedraguitKas.Text = "Bedrag uit kas:";
             // 
-            // btOk
+            // tbBedrag
             // 
-            this.btOk.Location = new System.Drawing.Point(173, 15);
-            this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(75, 23);
-            this.btOk.TabIndex = 2;
-            this.btOk.Text = "OK";
-            this.btOk.UseVisualStyleBackColor = true;
-            this.btOk.Click += new System.EventHandler(this.btOk_Click);
+            this.tbBedrag.Location = new System.Drawing.Point(91, 17);
+            this.tbBedrag.Name = "tbBedrag";
+            this.tbBedrag.Size = new System.Drawing.Size(79, 20);
+            this.tbBedrag.TabIndex = 0;
+            // 
+            // tbReden
+            // 
+            this.tbReden.Location = new System.Drawing.Point(91, 44);
+            this.tbReden.Name = "tbReden";
+            this.tbReden.Size = new System.Drawing.Size(157, 20);
+            this.tbReden.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Reden:";
             // 
             // KasInUitScherm
             // 
@@ -1312,6 +1332,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btOk;
         private System.Windows.Forms.Label lbBedraguitKas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbReden;
         private System.Windows.Forms.TextBox tbBedrag;
     }
 }

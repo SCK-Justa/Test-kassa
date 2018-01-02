@@ -141,7 +141,7 @@ namespace Logic
             }
         }
 
-        public void NeemBedragUitKas(decimal value)
+        public void NeemBedragUitKas(decimal value, string reden)
         {
             try
             {
@@ -149,6 +149,7 @@ namespace Logic
                 {
                     BedragInKas -= value;
                     Database.OmzetRepo.SetBedragInKas(BedragInKas);
+                    // TODO: Log voor de reden van bedrag uit kas, plus het bedrag.
                 }
                 else
                 {
@@ -190,10 +191,6 @@ namespace Logic
 
         public List<Authentication> GetGebruikers()
         {
-            //if (_gebruikers != null)
-            //{
-            //    return _gebruikers;
-            //}
             return Database.AuthenticatieRepo.GetAuthentications();
         }
 
@@ -412,7 +409,7 @@ namespace Logic
                 {
                     Formulier formulier = new Formulier(0, soort, datum, naam, bankrekening, reden, contant, route, geredenKm, bedrag, getekendDoor);
                     _formulieren.Add(formulier);
-                    NeemBedragUitKas(bedrag);
+                    NeemBedragUitKas(bedrag, soort.ToString());
                 }
                 else
                 {
