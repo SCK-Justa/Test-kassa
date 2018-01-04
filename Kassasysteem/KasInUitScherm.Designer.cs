@@ -123,11 +123,12 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbReden = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btOk = new System.Windows.Forms.Button();
             this.lbBedraguitKas = new System.Windows.Forms.Label();
-            this.tbBedrag = new System.Windows.Forms.TextBox();
             this.tbReden = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.nudBedrag = new System.Windows.Forms.NumericUpDown();
             this.gbDeclaratie.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDKm)).BeginInit();
@@ -155,6 +156,7 @@
             this.groupBox11.SuspendLayout();
             this.gbOverzichtFormulieren.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBedrag)).BeginInit();
             this.SuspendLayout();
             // 
             // btCancel
@@ -1128,20 +1130,38 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.nudBedrag);
             this.groupBox1.Controls.Add(this.tbReden);
+            this.groupBox1.Controls.Add(this.cbReden);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btOk);
             this.groupBox1.Controls.Add(this.lbBedraguitKas);
-            this.groupBox1.Controls.Add(this.tbBedrag);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(255, 403);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // cbReden
+            // 
+            this.cbReden.FormattingEnabled = true;
+            this.cbReden.Location = new System.Drawing.Point(91, 43);
+            this.cbReden.Name = "cbReden";
+            this.cbReden.Size = new System.Drawing.Size(157, 21);
+            this.cbReden.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Reden:";
+            // 
             // btOk
             // 
-            this.btOk.Location = new System.Drawing.Point(173, 70);
+            this.btOk.Location = new System.Drawing.Point(174, 96);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(75, 23);
             this.btOk.TabIndex = 2;
@@ -1158,28 +1178,20 @@
             this.lbBedraguitKas.TabIndex = 1;
             this.lbBedraguitKas.Text = "Bedrag uit kas:";
             // 
-            // tbBedrag
-            // 
-            this.tbBedrag.Location = new System.Drawing.Point(91, 17);
-            this.tbBedrag.Name = "tbBedrag";
-            this.tbBedrag.Size = new System.Drawing.Size(79, 20);
-            this.tbBedrag.TabIndex = 0;
-            // 
             // tbReden
             // 
-            this.tbReden.Location = new System.Drawing.Point(91, 44);
+            this.tbReden.Location = new System.Drawing.Point(91, 70);
             this.tbReden.Name = "tbReden";
             this.tbReden.Size = new System.Drawing.Size(157, 20);
-            this.tbReden.TabIndex = 3;
+            this.tbReden.TabIndex = 6;
             // 
-            // label1
+            // nudBedrag
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Reden:";
+            this.nudBedrag.DecimalPlaces = 2;
+            this.nudBedrag.Location = new System.Drawing.Point(92, 17);
+            this.nudBedrag.Name = "nudBedrag";
+            this.nudBedrag.Size = new System.Drawing.Size(157, 20);
+            this.nudBedrag.TabIndex = 7;
             // 
             // KasInUitScherm
             // 
@@ -1230,6 +1242,7 @@
             this.gbOverzichtFormulieren.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBedrag)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1333,7 +1346,8 @@
         private System.Windows.Forms.Button btOk;
         private System.Windows.Forms.Label lbBedraguitKas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbReden;
         private System.Windows.Forms.TextBox tbReden;
-        private System.Windows.Forms.TextBox tbBedrag;
+        private System.Windows.Forms.NumericUpDown nudBedrag;
     }
 }

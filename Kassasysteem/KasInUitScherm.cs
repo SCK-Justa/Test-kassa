@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
+using Logic.Classes.Enums;
 
 namespace Kassasysteem
 {
@@ -29,6 +30,7 @@ namespace Kassasysteem
             {
                 InitializeComponent();
                 App = app;
+                FillCombobox();
                 Formulieren = new List<Formulier>();
                 SetFormulierVisable(false);
                 LaadFormulierenSoortInCb();
@@ -39,6 +41,11 @@ namespace Kassasysteem
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        private void FillCombobox()
+        {
+            cbReden.DataSource = Enum.GetValues(typeof(KassaSoortEnum));
         }
 
         private void GetFormulieren()
@@ -327,13 +334,25 @@ namespace Kassasysteem
         {
             try
             {
-                string reden = tbReden.Text;
-                decimal bedrag = Convert.ToDecimal(tbBedrag.Text);
-                App.NeemBedragUitKas(bedrag, reden);
+                if (tbReden.Text != "")
+                {
+                    decimal bedrag = nudBedrag.Value;
+                    KassaSoortEnum soort = (KassaSoortEnum) Enum.Parse(typeof(KassaSoortEnum), cbReden.Text);
+                    App.NeemBedragUitKas(bedrag, soort, tbReden.Text);
+
+                    nudBedrag.Value = 0.00m;
+                    cbReden.Text = KassaSoortEnum.VERKOOP.ToString();
+                    tbReden.Text = "";
+                }
+                else
+                {
+                    throw new Exception("Er moet een reden worden ingevuld");
+                }
             }
             catch (Exception exception)
             {
-                MessageBox.Show(@"Een error is opgetreden! Voer alleen een bedrag in (cijfers)." + Environment.NewLine + Environment.NewLine + exception.Message);
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine +
+                                Environment.NewLine + exception.Message);
             }
         }
     }

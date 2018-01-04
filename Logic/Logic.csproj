@@ -43,20 +43,22 @@
   <ItemGroup>
     <Compile Include="Classes\Adres.cs" />
     <Compile Include="Classes\Authentication.cs" />
-    <Compile Include="Classes\BankNaamEnum.cs" />
-    <Compile Include="Classes\BestellingSoortEnum.cs" />
+    <Compile Include="Classes\Enums\BankNaamEnum.cs" />
+    <Compile Include="Classes\Enums\BestellingSoortEnum.cs" />
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\Enums\KassaSoortEnum.cs" />
     <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />
     <Compile Include="Classes\Formulier.cs" />
-    <Compile Include="Classes\FormulierSoort.cs" />
+    <Compile Include="Classes\Enums\FormulierSoort.cs" />
     <Compile Include="Classes\Klasse.cs" />
     <Compile Include="Classes\Oudercontact.cs" />
     <Compile Include="Interfaces\IBankServices.cs" />
     <Compile Include="Interfaces\IAdresServices.cs" />
     <Compile Include="Interfaces\IAuthenticationServices.cs" />
     <Compile Include="Interfaces\IBestellingServices.cs" />
+    <Compile Include="Interfaces\IKassaLogServices.cs" />
     <Compile Include="Interfaces\IKassaServices.cs" />
     <Compile Include="Interfaces\ILedenLogServices.cs" />
     <Compile Include="Interfaces\ILidServices.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Repositories\AuthenticatieRepository.cs" />
     <Compile Include="Repositories\BankRepository.cs" />
     <Compile Include="Repositories\BestellingRepository.cs" />
+    <Compile Include="Repositories\KassaLogRepository.cs" />
     <Compile Include="Repositories\KassaRepository.cs" />
     <Compile Include="Repositories\KlasseRepository.cs" />
     <Compile Include="Repositories\LedenLogRepository.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Sql\SqlAuthentication.cs" />
     <Compile Include="Sql\SqlBank.cs" />
     <Compile Include="Sql\SqlKassa.cs" />
+    <Compile Include="Sql\SqlKassaLog.cs" />
     <Compile Include="Sql\SqlKlasse.cs" />
     <Compile Include="Sql\SqlAdres.cs" />
     <Compile Include="Sql\SqlBestelling.cs" />

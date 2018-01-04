@@ -58,6 +58,9 @@
             this.tbJuni = new System.Windows.Forms.TextBox();
             this.btCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btOpenJaarOmzet = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cbJaarNr = new System.Windows.Forms.ComboBox();
             this.lbOmzetToday = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -84,11 +87,13 @@
             this.tbApril = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbSeptember = new System.Windows.Forms.TextBox();
-            this.btOpenJaarOmzet = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.cbJaarNr = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lvLogs = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -419,6 +424,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jaaroverzicht";
             // 
+            // btOpenJaarOmzet
+            // 
+            this.btOpenJaarOmzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btOpenJaarOmzet.Location = new System.Drawing.Point(6, 66);
+            this.btOpenJaarOmzet.Name = "btOpenJaarOmzet";
+            this.btOpenJaarOmzet.Size = new System.Drawing.Size(121, 27);
+            this.btOpenJaarOmzet.TabIndex = 57;
+            this.btOpenJaarOmzet.Text = "Open";
+            this.btOpenJaarOmzet.UseVisualStyleBackColor = true;
+            this.btOpenJaarOmzet.Click += new System.EventHandler(this.btOpenJaarOmzet_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label23.Location = new System.Drawing.Point(6, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(111, 20);
+            this.label23.TabIndex = 56;
+            this.label23.Text = "Selecteer jaar:";
+            // 
+            // cbJaarNr
+            // 
+            this.cbJaarNr.FormattingEnabled = true;
+            this.cbJaarNr.Location = new System.Drawing.Point(6, 39);
+            this.cbJaarNr.Name = "cbJaarNr";
+            this.cbJaarNr.Size = new System.Drawing.Size(121, 21);
+            this.cbJaarNr.TabIndex = 55;
+            // 
             // lbOmzetToday
             // 
             this.lbOmzetToday.AutoSize = true;
@@ -644,40 +678,44 @@
             this.tbSeptember.Size = new System.Drawing.Size(87, 20);
             this.tbSeptember.TabIndex = 47;
             // 
-            // btOpenJaarOmzet
+            // groupBox3
             // 
-            this.btOpenJaarOmzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btOpenJaarOmzet.Location = new System.Drawing.Point(6, 66);
-            this.btOpenJaarOmzet.Name = "btOpenJaarOmzet";
-            this.btOpenJaarOmzet.Size = new System.Drawing.Size(121, 27);
-            this.btOpenJaarOmzet.TabIndex = 57;
-            this.btOpenJaarOmzet.Text = "Open";
-            this.btOpenJaarOmzet.UseVisualStyleBackColor = true;
-            this.btOpenJaarOmzet.Click += new System.EventHandler(this.btOpenJaarOmzet_Click);
+            this.groupBox3.Controls.Add(this.lvLogs);
+            this.groupBox3.Location = new System.Drawing.Point(13, 370);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(967, 308);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Kassalog";
             // 
-            // label23
+            // lvLogs
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label23.Location = new System.Drawing.Point(6, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(111, 20);
-            this.label23.TabIndex = 56;
-            this.label23.Text = "Selecteer jaar:";
+            this.lvLogs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader1});
+            this.lvLogs.Location = new System.Drawing.Point(7, 20);
+            this.lvLogs.Name = "lvLogs";
+            this.lvLogs.Size = new System.Drawing.Size(566, 282);
+            this.lvLogs.TabIndex = 0;
+            this.lvLogs.UseCompatibleStateImageBehavior = false;
+            this.lvLogs.View = System.Windows.Forms.View.Details;
             // 
-            // cbJaarNr
+            // columnHeader1
             // 
-            this.cbJaarNr.FormattingEnabled = true;
-            this.cbJaarNr.Location = new System.Drawing.Point(6, 39);
-            this.cbJaarNr.Name = "cbJaarNr";
-            this.cbJaarNr.Size = new System.Drawing.Size(121, 21);
-            this.cbJaarNr.TabIndex = 55;
+            this.columnHeader1.Text = "Logomschrijving";
+            this.columnHeader1.Width = 468;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Logsoort";
+            this.columnHeader2.Width = 94;
             // 
             // PenningmeesterScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 690);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -687,6 +725,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -752,5 +791,9 @@
         private System.Windows.Forms.Button btOpenJaarOmzet;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cbJaarNr;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView lvLogs;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

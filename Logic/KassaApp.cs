@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Logic.Classes;
+using Logic.Classes.Enums;
+using Microsoft.SqlServer.Server;
 
 namespace Logic
 {
@@ -141,7 +143,7 @@ namespace Logic
             }
         }
 
-        public void NeemBedragUitKas(decimal value, string reden)
+        public void NeemBedragUitKas(decimal value, KassaSoortEnum reden, string redenstring)
         {
             try
             {
@@ -149,7 +151,8 @@ namespace Logic
                 {
                     BedragInKas -= value;
                     Database.OmzetRepo.SetBedragInKas(BedragInKas);
-                    // TODO: Log voor de reden van bedrag uit kas, plus het bedrag.
+                    Database.KassaLogRepo.AddLogString(
+                        Id, value + " " + redenstring, reden);
                 }
                 else
                 {
@@ -358,6 +361,11 @@ namespace Logic
             if (Database.GetIsConnected())
             {
                 Database.BestellingRepo.BetaalBestelling(bestelling);
+                if (bedrag > 0)
+                {
+                    Database.KassaLogRepo.AddLogString(
+                        Id, bedrag + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
+                }
             }
             return true;
         }
@@ -409,7 +417,15 @@ namespace Logic
                 {
                     Formulier formulier = new Formulier(0, soort, datum, naam, bankrekening, reden, contant, route, geredenKm, bedrag, getekendDoor);
                     _formulieren.Add(formulier);
-                    NeemBedragUitKas(bedrag, soort.ToString());
+                    switch (soort)
+                    {
+                        case FormulierSoort.Declaratieformulier:
+                            NeemBedragUitKas(bedrag, KassaSoortEnum.DECLARATIE, " euro verwijderd uit de kas");
+                            break;
+                        case FormulierSoort.Voorschotformulier:
+                            NeemBedragUitKas(bedrag, KassaSoortEnum.VOORSCHOT, " euro verwijderd uit de kas");
+                            break;
+                    }
                 }
                 else
                 {
@@ -466,6 +482,16 @@ namespace Logic
             if (Database.GetIsConnected())
             {
                 Database.ProductbestellingRepo.AddLosseVerkoop(product, isLid);
+                if (isLid)
+                {
+                    Database.KassaLogRepo.AddLogString(
+                        Id, product.Ledenprijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
+                }
+                else
+                {
+                    Database.KassaLogRepo.AddLogString(
+                        Id, product.Prijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
+                }
             }
             _losseVerkopen.Add(product);
         }
@@ -574,11 +600,7 @@ namespace Logic
 
         public bool GetIsGemachtigd()
         {
-            bool value = false;
-            if(Authentication.Lid.GetBestuursfunctie())
-            {
-                value = true;
-            }
+            bool value = Authentication.Lid.GetBestuursfunctie();
             return value;
         }
 
@@ -589,6 +611,18 @@ namespace Logic
                 int totaleHoeveelheid = product.Voorraad + hoeveelheid;
                 Database.ProductRepo.VoegVoorraadToe(product, totaleHoeveelheid);
                 Voorraad.VoegVoorraadToe(product, totaleHoeveelheid);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public List<string> GetKassaLog()
+        {
+            try
+            {
+                return Database.KassaLogRepo.GetKassaLog();
             }
             catch (Exception exception)
             {

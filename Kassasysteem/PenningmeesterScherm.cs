@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
 using System.Globalization;
@@ -21,6 +22,7 @@ namespace Kassasysteem
             lbOmzetToday.Text = "Datum vandaag: " + DateTime.Today.DayOfWeek + ", " + DateTime.Today.ToShortDateString();
             FillComboBox();
             ShowJaarOmzet(DateTime.Now);
+            LoadLogView();
         }
 
         private void FillComboBox()
@@ -143,6 +145,26 @@ namespace Kassasysteem
             catch (Exception exception)
             {
                 MessageBox.Show("Een error is opgetreden! Het is niet mogelijk de jaaromzet op te halen" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
+        }
+
+        private void LoadLogView()
+        {
+            try
+            {
+                List<string> logs = App.GetKassaLog();
+                foreach (string log in logs)
+                {
+                    string[] split = log.Split(',');
+                    ListViewItem item = new ListViewItem(split[0]);
+                    item.SubItems.Add(split[1].Trim());
+                    lvLogs.Items.Add(item);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
         }

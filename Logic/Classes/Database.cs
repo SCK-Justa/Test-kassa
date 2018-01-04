@@ -23,6 +23,7 @@ namespace Logic.Classes
         public OmzetRepository OmzetRepo { get; private set; }
         public LedenLogRepository LedenlogRepo { get; private set; }
         public KlasseRepository KlasseRepo { get; private set; }
+        public KassaLogRepository KassaLogRepo { get; private set; }
 
         public Database(string connectieString)
         {
@@ -86,6 +87,7 @@ namespace Logic.Classes
             KassaRepo = new KassaRepository(new SqlKassa(_connectieString));
             OmzetRepo = new OmzetRepository(new SqlOmzet(_connectieString));
             KlasseRepo = new KlasseRepository(new SqlKlasse(_connectieString));
+            KassaLogRepo = new KassaLogRepository(new SqlKassaLog(_connectieString));
         }
     }
 }

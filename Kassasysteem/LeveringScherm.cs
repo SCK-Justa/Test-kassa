@@ -3,6 +3,7 @@ using Logic.Classes;
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using Logic.Classes.Enums;
 
 namespace Kassasysteem
 {
@@ -82,7 +83,8 @@ namespace Kassasysteem
                 if (tbCassisAantal.Text != "" && tbCassisColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Fanta Cassis");
-                    hoeveelheid = Convert.ToInt32(tbCassisAantal.Text) * Convert.ToInt32(tbCassisColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbCassisAantal.Text) * Convert.ToInt32(tbCassisColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -90,7 +92,8 @@ namespace Kassasysteem
                 if (tbChocomelAantal.Text != "" && tbChocomelColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Chocomel");
-                    hoeveelheid = Convert.ToInt32(tbChocomelAantal.Text) * Convert.ToInt32(tbChocomelColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbChocomelAantal.Text) * Convert.ToInt32(tbChocomelColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -98,7 +101,8 @@ namespace Kassasysteem
                 if (tbCocaColaAantal.Text != "" && tbCocaColaColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Coca Cola");
-                    hoeveelheid = Convert.ToInt32(tbCocaColaAantal.Text) * Convert.ToInt32(tbCocaColaColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbCocaColaAantal.Text) * Convert.ToInt32(tbCocaColaColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -106,7 +110,8 @@ namespace Kassasysteem
                 if (tbColaZeroAantal.Text != "" && tbColaZeroColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Coca Cola Zero");
-                    hoeveelheid = Convert.ToInt32(tbColaZeroAantal.Text) * Convert.ToInt32(tbColaZeroColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbColaZeroAantal.Text) * Convert.ToInt32(tbColaZeroColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -114,7 +119,8 @@ namespace Kassasysteem
                 if (tbFantaAantal.Text != "" && tbFantaColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Fanta");
-                    hoeveelheid = Convert.ToInt32(tbFantaAantal.Text) * Convert.ToInt32(tbFantaColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbFantaAantal.Text) * Convert.ToInt32(tbFantaColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -122,7 +128,8 @@ namespace Kassasysteem
                 if (tbHertogJanAantal.Text != "" && tbHertogJanColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Hertog-Jan");
-                    hoeveelheid = Convert.ToInt32(tbHertogJanAantal.Text) * Convert.ToInt32(tbHertogJanColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbHertogJanAantal.Text) * Convert.ToInt32(tbHertogJanColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -130,7 +137,8 @@ namespace Kassasysteem
                 if (tbIceTeaAantal.Text != "" && tbIceTeaColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Ice Tea");
-                    hoeveelheid = Convert.ToInt32(tbIceTeaAantal.Text) * Convert.ToInt32(tbIceTeaColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbIceTeaAantal.Text) * Convert.ToInt32(tbIceTeaColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -138,7 +146,8 @@ namespace Kassasysteem
                 if (tbJupilerAantal.Text != "" && tbJupilerColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Jupiler Alcoholvrij");
-                    hoeveelheid = Convert.ToInt32(tbJupilerAantal.Text) * Convert.ToInt32(tbJupilerColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbJupilerAantal.Text) * Convert.ToInt32(tbJupilerColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -146,7 +155,8 @@ namespace Kassasysteem
                 if (tbLeffeAantal.Text != "" && tbLeffeColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Leffe Bruin");
-                    hoeveelheid = Convert.ToInt32(tbLeffeAantal.Text) * Convert.ToInt32(tbLeffeColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbLeffeAantal.Text) * Convert.ToInt32(tbLeffeColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -154,7 +164,8 @@ namespace Kassasysteem
                 if (tbMarsAantal.Text != "" && tbMarsColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Mars");
-                    hoeveelheid = Convert.ToInt32(tbMarsAantal.Text) * Convert.ToInt32(tbMarsColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbMarsAantal.Text) * Convert.ToInt32(tbMarsColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -162,7 +173,8 @@ namespace Kassasysteem
                 if (tbNaturelChipsAantal.Text != "" && tbNaturelChipsColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Naturel Chips");
-                    hoeveelheid = Convert.ToInt32(tbNaturelChipsAantal.Text) * Convert.ToInt32(tbNaturelChipsColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbNaturelChipsAantal.Text) * Convert.ToInt32(tbNaturelChipsColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -170,7 +182,8 @@ namespace Kassasysteem
                 if (tbPaprikaChipsAantal.Text != "" && tbPaprikaChipsColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Paprika Chips");
-                    hoeveelheid = Convert.ToInt32(tbPaprikaChipsAantal.Text) * Convert.ToInt32(tbPaprikaChipsColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbPaprikaChipsAantal.Text) * Convert.ToInt32(tbPaprikaChipsColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -187,7 +200,8 @@ namespace Kassasysteem
                 if (tbSchrobbelerAantal.Text != "" && tbSchrobbelerColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Schrobbeler");
-                    hoeveelheid = Convert.ToInt32(tbSchrobbelerAantal.Text) * Convert.ToInt32(tbSchrobbelerColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbSchrobbelerAantal.Text) * Convert.ToInt32(tbSchrobbelerColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -195,7 +209,8 @@ namespace Kassasysteem
                 if (tbSnickersAantal.Text != "" && tbSnickersColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Snickers");
-                    hoeveelheid = Convert.ToInt32(tbSnickersAantal.Text) * Convert.ToInt32(tbSnickersColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbSnickersAantal.Text) * Convert.ToInt32(tbSnickersColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -203,7 +218,8 @@ namespace Kassasysteem
                 if (tbSpaRoodAantal.Text != "" && tbSpaRoodColli.Text != "")
                 {
                     product = App.Voorraad.VindProductOpNaam("Spa Rood");
-                    hoeveelheid = Convert.ToInt32(tbSpaRoodAantal.Text) * Convert.ToInt32(tbSpaRoodColli.Text); if (hoeveelheid > 0)
+                    hoeveelheid = Convert.ToInt32(tbSpaRoodAantal.Text) * Convert.ToInt32(tbSpaRoodColli.Text);
+                    if (hoeveelheid > 0)
                     {
                         AddSupplies(product, hoeveelheid);
                     }
@@ -230,6 +246,8 @@ namespace Kassasysteem
         private void AddSupplies(Product product, int hoeveelheid)
         {
             App.VoegVoorraadToe(product, hoeveelheid);
+            decimal inkoopprijs = 0.70m * hoeveelheid;
+            App.Database.KassaLogRepo.AddLogString(App.Id, inkoopprijs + " euro uit kas voor inkoop", KassaSoortEnum.INKOOP);
         }
 
         private void SetAllToZero()
