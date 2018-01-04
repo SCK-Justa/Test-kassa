@@ -9,13 +9,15 @@ namespace Kassasysteem
 {
     public partial class LeveringScherm : Form
     {
-        public KassaApp App { get; private set; }
+        private bool _prijsValue = false;
+        private bool _colliValue = false;
 
+        public KassaApp App { get; }
         public LeveringScherm(KassaApp app)
         {
             InitializeComponent();
             App = app;
-            InitialLoad();
+            LoadVoorraad();
         }
 
         private void btClose_Click(object sender, System.EventArgs e)
@@ -23,7 +25,7 @@ namespace Kassasysteem
             Close();
         }
 
-        private void InitialLoad()
+        private void LoadVoorraad()
         {
             tbColaVoorraad.Text = App.Voorraad.VindProductOpNaam("Coca Cola").Voorraad.ToString();
             tbColaZeroVoorraad.Text = App.Voorraad.VindProductOpNaam("Coca Cola Zero").Voorraad.ToString();
@@ -234,6 +236,7 @@ namespace Kassasysteem
                 //    }
                 //}
                 SetAllToZero();
+                LoadVoorraad();
             }
             catch (Exception exception)
             {
@@ -272,6 +275,66 @@ namespace Kassasysteem
             tbMarsAantal.Text = "0";
             tbNaturelChipsAantal.Text = "0";
             tbPaprikaChipsAantal.Text = "0";
+        }
+
+        private void btInkoopPrijsWijzigen_Click(object sender, EventArgs e)
+        {
+            InkoopPrijsWijzigen(!_prijsValue);
+            _prijsValue = !_prijsValue;
+        }
+
+        private void InkoopPrijsWijzigen(bool value)
+        {
+            tbAADrinkPrijs.Enabled = value;
+            tbAquariusPrijs.Enabled = value;
+            tbBitterLemonPrijs.Enabled = value;
+            tbCassisPrijs.Enabled = value;
+            tbChocomelPrijs.Enabled = value;
+            tbColaPrijs.Enabled = value;
+            tbColaZeroPrijs.Enabled = value;
+            tbFantaPrijs.Enabled = value;
+            tbHertogJanPrijs.Enabled = value;
+            tbIceTeaPrijs.Enabled = value;
+            tbJupilerPrijs.Enabled = value;
+            tbLeffePrijs.Enabled = value;
+            tbMarsPrijs.Enabled = value;
+            tbNaturelPrijs.Enabled = value;
+            tbPaprikaPrijs.Enabled = value;
+            tbRodeWijnPrijs.Enabled = value;
+            tbSchrobbelerPrijs.Enabled = value;
+            tbSnickersPrijs.Enabled = value;
+            tbSpaRoodPrijs.Enabled = value;
+            tbWitteWijnPrijs.Enabled = value;
+        }
+
+        private void AantalPerColliWijzigen(bool value)
+        {
+            tbAADrinkAantal.Enabled = value;
+            tbAquariusAantal.Enabled = value;
+            tbBitterlemonAantal.Enabled = value;
+            tbCassisAantal.Enabled = value;
+            tbChocomelAantal.Enabled = value;
+            tbCocaColaAantal.Enabled = value;
+            tbColaZeroAantal.Enabled = value;
+            tbFantaAantal.Enabled = value;
+            tbHertogJanAantal.Enabled = value;
+            tbIceTeaAantal.Enabled = value;
+            tbJupilerAantal.Enabled = value;
+            tbLeffeAantal.Enabled = value;
+            tbMarsAantal.Enabled = value;
+            tbNaturelChipsAantal.Enabled = value;
+            tbPaprikaChipsAantal.Enabled = value;
+            tbRodeWijnAantal.Enabled = value;
+            tbSchrobbelerAantal.Enabled = value;
+            tbSnickersAantal.Enabled = value;
+            tbSpaRoodAantal.Enabled = value;
+            tbWitteWijnAantal.Enabled = value;
+        }
+
+        private void btAantalPerColliWijzigen_Click(object sender, EventArgs e)
+        {
+            AantalPerColliWijzigen(!_colliValue);
+            _colliValue = !_colliValue;
         }
     }
 }

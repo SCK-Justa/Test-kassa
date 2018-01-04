@@ -123,6 +123,30 @@
             this.tbColaVoorraad = new System.Windows.Forms.TextBox();
             this.tbCocaColaColli = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tbColaPrijs = new System.Windows.Forms.TextBox();
+            this.tbCassisPrijs = new System.Windows.Forms.TextBox();
+            this.tbFantaPrijs = new System.Windows.Forms.TextBox();
+            this.tbIceTeaPrijs = new System.Windows.Forms.TextBox();
+            this.tbChocomelPrijs = new System.Windows.Forms.TextBox();
+            this.tbHertogJanPrijs = new System.Windows.Forms.TextBox();
+            this.tbBitterLemonPrijs = new System.Windows.Forms.TextBox();
+            this.tbSpaRoodPrijs = new System.Windows.Forms.TextBox();
+            this.tbAquariusPrijs = new System.Windows.Forms.TextBox();
+            this.tbAADrinkPrijs = new System.Windows.Forms.TextBox();
+            this.tbRodeWijnPrijs = new System.Windows.Forms.TextBox();
+            this.tbLeffePrijs = new System.Windows.Forms.TextBox();
+            this.tbJupilerPrijs = new System.Windows.Forms.TextBox();
+            this.tbSchrobbelerPrijs = new System.Windows.Forms.TextBox();
+            this.tbWitteWijnPrijs = new System.Windows.Forms.TextBox();
+            this.tbMarsPrijs = new System.Windows.Forms.TextBox();
+            this.tbNaturelPrijs = new System.Windows.Forms.TextBox();
+            this.tbPaprikaPrijs = new System.Windows.Forms.TextBox();
+            this.tbSnickersPrijs = new System.Windows.Forms.TextBox();
+            this.tbColaZeroPrijs = new System.Windows.Forms.TextBox();
+            this.btInkoopPrijsWijzigen = new System.Windows.Forms.Button();
+            this.btAantalPerColliWijzigen = new System.Windows.Forms.Button();
             this.gbVoorraadToevoegen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,7 +163,28 @@
             // 
             // gbVoorraadToevoegen
             // 
-            this.gbVoorraadToevoegen.Controls.Add(this.btToevoegen);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbSnickersPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbPaprikaPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbNaturelPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbMarsPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbWitteWijnPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbJupilerPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbLeffePrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbSchrobbelerPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbRodeWijnPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbAADrinkPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbSpaRoodPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbBitterLemonPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbAquariusPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbHertogJanPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbChocomelPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbIceTeaPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbFantaPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbColaZeroPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbCassisPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.tbColaPrijs);
+            this.gbVoorraadToevoegen.Controls.Add(this.label34);
+            this.gbVoorraadToevoegen.Controls.Add(this.label23);
             this.gbVoorraadToevoegen.Controls.Add(this.label28);
             this.gbVoorraadToevoegen.Controls.Add(this.label29);
             this.gbVoorraadToevoegen.Controls.Add(this.label30);
@@ -242,9 +287,9 @@
             // btToevoegen
             // 
             this.btToevoegen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btToevoegen.Location = new System.Drawing.Point(834, 468);
+            this.btToevoegen.Location = new System.Drawing.Point(960, 494);
             this.btToevoegen.Name = "btToevoegen";
-            this.btToevoegen.Size = new System.Drawing.Size(102, 35);
+            this.btToevoegen.Size = new System.Drawing.Size(90, 27);
             this.btToevoegen.TabIndex = 2;
             this.btToevoegen.Text = "Toevoegen";
             this.btToevoegen.UseVisualStyleBackColor = true;
@@ -253,7 +298,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(826, 33);
+            this.label28.Location = new System.Drawing.Point(780, 33);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(43, 13);
             this.label28.TabIndex = 95;
@@ -262,7 +307,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(824, 20);
+            this.label29.Location = new System.Drawing.Point(778, 20);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(88, 13);
             this.label29.TabIndex = 94;
@@ -280,7 +325,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(742, 33);
+            this.label31.Location = new System.Drawing.Point(696, 33);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(58, 13);
             this.label31.TabIndex = 92;
@@ -298,7 +343,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(742, 20);
+            this.label33.Location = new System.Drawing.Point(696, 20);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(58, 13);
             this.label33.TabIndex = 90;
@@ -306,7 +351,8 @@
             // 
             // tbNaturelChipsAantal
             // 
-            this.tbNaturelChipsAantal.Location = new System.Drawing.Point(827, 127);
+            this.tbNaturelChipsAantal.Enabled = false;
+            this.tbNaturelChipsAantal.Location = new System.Drawing.Point(781, 127);
             this.tbNaturelChipsAantal.Name = "tbNaturelChipsAantal";
             this.tbNaturelChipsAantal.Size = new System.Drawing.Size(42, 20);
             this.tbNaturelChipsAantal.TabIndex = 89;
@@ -322,7 +368,7 @@
             // 
             // tbNaturelChipsColli
             // 
-            this.tbNaturelChipsColli.Location = new System.Drawing.Point(745, 127);
+            this.tbNaturelChipsColli.Location = new System.Drawing.Point(699, 127);
             this.tbNaturelChipsColli.Name = "tbNaturelChipsColli";
             this.tbNaturelChipsColli.Size = new System.Drawing.Size(55, 20);
             this.tbNaturelChipsColli.TabIndex = 87;
@@ -339,7 +385,8 @@
             // 
             // tbPaprikaChipsAantal
             // 
-            this.tbPaprikaChipsAantal.Location = new System.Drawing.Point(827, 101);
+            this.tbPaprikaChipsAantal.Enabled = false;
+            this.tbPaprikaChipsAantal.Location = new System.Drawing.Point(781, 101);
             this.tbPaprikaChipsAantal.Name = "tbPaprikaChipsAantal";
             this.tbPaprikaChipsAantal.Size = new System.Drawing.Size(42, 20);
             this.tbPaprikaChipsAantal.TabIndex = 85;
@@ -355,7 +402,7 @@
             // 
             // tbPaprikaChipsColli
             // 
-            this.tbPaprikaChipsColli.Location = new System.Drawing.Point(745, 101);
+            this.tbPaprikaChipsColli.Location = new System.Drawing.Point(699, 101);
             this.tbPaprikaChipsColli.Name = "tbPaprikaChipsColli";
             this.tbPaprikaChipsColli.Size = new System.Drawing.Size(55, 20);
             this.tbPaprikaChipsColli.TabIndex = 83;
@@ -372,7 +419,8 @@
             // 
             // tbSnickersAantal
             // 
-            this.tbSnickersAantal.Location = new System.Drawing.Point(827, 75);
+            this.tbSnickersAantal.Enabled = false;
+            this.tbSnickersAantal.Location = new System.Drawing.Point(781, 75);
             this.tbSnickersAantal.Name = "tbSnickersAantal";
             this.tbSnickersAantal.Size = new System.Drawing.Size(42, 20);
             this.tbSnickersAantal.TabIndex = 81;
@@ -388,7 +436,7 @@
             // 
             // tbSnickersColli
             // 
-            this.tbSnickersColli.Location = new System.Drawing.Point(745, 75);
+            this.tbSnickersColli.Location = new System.Drawing.Point(699, 75);
             this.tbSnickersColli.Name = "tbSnickersColli";
             this.tbSnickersColli.Size = new System.Drawing.Size(55, 20);
             this.tbSnickersColli.TabIndex = 79;
@@ -405,7 +453,8 @@
             // 
             // tbMarsAantal
             // 
-            this.tbMarsAantal.Location = new System.Drawing.Point(827, 49);
+            this.tbMarsAantal.Enabled = false;
+            this.tbMarsAantal.Location = new System.Drawing.Point(781, 49);
             this.tbMarsAantal.Name = "tbMarsAantal";
             this.tbMarsAantal.Size = new System.Drawing.Size(42, 20);
             this.tbMarsAantal.TabIndex = 77;
@@ -421,7 +470,7 @@
             // 
             // tbMarsColli
             // 
-            this.tbMarsColli.Location = new System.Drawing.Point(745, 49);
+            this.tbMarsColli.Location = new System.Drawing.Point(699, 49);
             this.tbMarsColli.Name = "tbMarsColli";
             this.tbMarsColli.Size = new System.Drawing.Size(55, 20);
             this.tbMarsColli.TabIndex = 75;
@@ -438,7 +487,8 @@
             // 
             // tbRodeWijnAantal
             // 
-            this.tbRodeWijnAantal.Location = new System.Drawing.Point(358, 439);
+            this.tbRodeWijnAantal.Enabled = false;
+            this.tbRodeWijnAantal.Location = new System.Drawing.Point(317, 439);
             this.tbRodeWijnAantal.Name = "tbRodeWijnAantal";
             this.tbRodeWijnAantal.Size = new System.Drawing.Size(42, 20);
             this.tbRodeWijnAantal.TabIndex = 69;
@@ -454,7 +504,7 @@
             // 
             // tbRodeWijnColli
             // 
-            this.tbRodeWijnColli.Location = new System.Drawing.Point(276, 439);
+            this.tbRodeWijnColli.Location = new System.Drawing.Point(235, 439);
             this.tbRodeWijnColli.Name = "tbRodeWijnColli";
             this.tbRodeWijnColli.Size = new System.Drawing.Size(55, 20);
             this.tbRodeWijnColli.TabIndex = 67;
@@ -471,7 +521,8 @@
             // 
             // tbWitteWijnAantal
             // 
-            this.tbWitteWijnAantal.Location = new System.Drawing.Point(358, 413);
+            this.tbWitteWijnAantal.Enabled = false;
+            this.tbWitteWijnAantal.Location = new System.Drawing.Point(317, 413);
             this.tbWitteWijnAantal.Name = "tbWitteWijnAantal";
             this.tbWitteWijnAantal.Size = new System.Drawing.Size(42, 20);
             this.tbWitteWijnAantal.TabIndex = 65;
@@ -487,7 +538,7 @@
             // 
             // tbWitteWijnColli
             // 
-            this.tbWitteWijnColli.Location = new System.Drawing.Point(276, 413);
+            this.tbWitteWijnColli.Location = new System.Drawing.Point(235, 413);
             this.tbWitteWijnColli.Name = "tbWitteWijnColli";
             this.tbWitteWijnColli.Size = new System.Drawing.Size(55, 20);
             this.tbWitteWijnColli.TabIndex = 63;
@@ -505,7 +556,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(357, 33);
+            this.label19.Location = new System.Drawing.Point(316, 33);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(43, 13);
             this.label19.TabIndex = 61;
@@ -514,7 +565,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(355, 20);
+            this.label20.Location = new System.Drawing.Point(314, 20);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(88, 13);
             this.label20.TabIndex = 60;
@@ -522,7 +573,8 @@
             // 
             // tbSchrobbelerAantal
             // 
-            this.tbSchrobbelerAantal.Location = new System.Drawing.Point(358, 387);
+            this.tbSchrobbelerAantal.Enabled = false;
+            this.tbSchrobbelerAantal.Location = new System.Drawing.Point(317, 387);
             this.tbSchrobbelerAantal.Name = "tbSchrobbelerAantal";
             this.tbSchrobbelerAantal.Size = new System.Drawing.Size(42, 20);
             this.tbSchrobbelerAantal.TabIndex = 59;
@@ -530,7 +582,8 @@
             // 
             // tbJupilerAantal
             // 
-            this.tbJupilerAantal.Location = new System.Drawing.Point(358, 361);
+            this.tbJupilerAantal.Enabled = false;
+            this.tbJupilerAantal.Location = new System.Drawing.Point(317, 361);
             this.tbJupilerAantal.Name = "tbJupilerAantal";
             this.tbJupilerAantal.Size = new System.Drawing.Size(42, 20);
             this.tbJupilerAantal.TabIndex = 58;
@@ -538,7 +591,8 @@
             // 
             // tbLeffeAantal
             // 
-            this.tbLeffeAantal.Location = new System.Drawing.Point(358, 335);
+            this.tbLeffeAantal.Enabled = false;
+            this.tbLeffeAantal.Location = new System.Drawing.Point(317, 335);
             this.tbLeffeAantal.Name = "tbLeffeAantal";
             this.tbLeffeAantal.Size = new System.Drawing.Size(42, 20);
             this.tbLeffeAantal.TabIndex = 57;
@@ -546,7 +600,8 @@
             // 
             // tbHertogJanAantal
             // 
-            this.tbHertogJanAantal.Location = new System.Drawing.Point(358, 309);
+            this.tbHertogJanAantal.Enabled = false;
+            this.tbHertogJanAantal.Location = new System.Drawing.Point(317, 309);
             this.tbHertogJanAantal.Name = "tbHertogJanAantal";
             this.tbHertogJanAantal.Size = new System.Drawing.Size(42, 20);
             this.tbHertogJanAantal.TabIndex = 56;
@@ -554,7 +609,8 @@
             // 
             // tbAADrinkAantal
             // 
-            this.tbAADrinkAantal.Location = new System.Drawing.Point(358, 283);
+            this.tbAADrinkAantal.Enabled = false;
+            this.tbAADrinkAantal.Location = new System.Drawing.Point(317, 283);
             this.tbAADrinkAantal.Name = "tbAADrinkAantal";
             this.tbAADrinkAantal.Size = new System.Drawing.Size(42, 20);
             this.tbAADrinkAantal.TabIndex = 55;
@@ -562,7 +618,8 @@
             // 
             // tbAquariusAantal
             // 
-            this.tbAquariusAantal.Location = new System.Drawing.Point(358, 257);
+            this.tbAquariusAantal.Enabled = false;
+            this.tbAquariusAantal.Location = new System.Drawing.Point(317, 257);
             this.tbAquariusAantal.Name = "tbAquariusAantal";
             this.tbAquariusAantal.Size = new System.Drawing.Size(42, 20);
             this.tbAquariusAantal.TabIndex = 54;
@@ -570,7 +627,8 @@
             // 
             // tbSpaRoodAantal
             // 
-            this.tbSpaRoodAantal.Location = new System.Drawing.Point(358, 231);
+            this.tbSpaRoodAantal.Enabled = false;
+            this.tbSpaRoodAantal.Location = new System.Drawing.Point(317, 231);
             this.tbSpaRoodAantal.Name = "tbSpaRoodAantal";
             this.tbSpaRoodAantal.Size = new System.Drawing.Size(42, 20);
             this.tbSpaRoodAantal.TabIndex = 53;
@@ -578,7 +636,8 @@
             // 
             // tbBitterlemonAantal
             // 
-            this.tbBitterlemonAantal.Location = new System.Drawing.Point(358, 205);
+            this.tbBitterlemonAantal.Enabled = false;
+            this.tbBitterlemonAantal.Location = new System.Drawing.Point(317, 205);
             this.tbBitterlemonAantal.Name = "tbBitterlemonAantal";
             this.tbBitterlemonAantal.Size = new System.Drawing.Size(42, 20);
             this.tbBitterlemonAantal.TabIndex = 52;
@@ -586,7 +645,8 @@
             // 
             // tbChocomelAantal
             // 
-            this.tbChocomelAantal.Location = new System.Drawing.Point(358, 179);
+            this.tbChocomelAantal.Enabled = false;
+            this.tbChocomelAantal.Location = new System.Drawing.Point(317, 179);
             this.tbChocomelAantal.Name = "tbChocomelAantal";
             this.tbChocomelAantal.Size = new System.Drawing.Size(42, 20);
             this.tbChocomelAantal.TabIndex = 51;
@@ -594,7 +654,8 @@
             // 
             // tbIceTeaAantal
             // 
-            this.tbIceTeaAantal.Location = new System.Drawing.Point(358, 153);
+            this.tbIceTeaAantal.Enabled = false;
+            this.tbIceTeaAantal.Location = new System.Drawing.Point(317, 153);
             this.tbIceTeaAantal.Name = "tbIceTeaAantal";
             this.tbIceTeaAantal.Size = new System.Drawing.Size(42, 20);
             this.tbIceTeaAantal.TabIndex = 50;
@@ -602,7 +663,8 @@
             // 
             // tbCassisAantal
             // 
-            this.tbCassisAantal.Location = new System.Drawing.Point(358, 127);
+            this.tbCassisAantal.Enabled = false;
+            this.tbCassisAantal.Location = new System.Drawing.Point(317, 127);
             this.tbCassisAantal.Name = "tbCassisAantal";
             this.tbCassisAantal.Size = new System.Drawing.Size(42, 20);
             this.tbCassisAantal.TabIndex = 49;
@@ -610,7 +672,8 @@
             // 
             // tbFantaAantal
             // 
-            this.tbFantaAantal.Location = new System.Drawing.Point(358, 101);
+            this.tbFantaAantal.Enabled = false;
+            this.tbFantaAantal.Location = new System.Drawing.Point(317, 101);
             this.tbFantaAantal.Name = "tbFantaAantal";
             this.tbFantaAantal.Size = new System.Drawing.Size(42, 20);
             this.tbFantaAantal.TabIndex = 48;
@@ -618,7 +681,8 @@
             // 
             // tbColaZeroAantal
             // 
-            this.tbColaZeroAantal.Location = new System.Drawing.Point(358, 75);
+            this.tbColaZeroAantal.Enabled = false;
+            this.tbColaZeroAantal.Location = new System.Drawing.Point(317, 75);
             this.tbColaZeroAantal.Name = "tbColaZeroAantal";
             this.tbColaZeroAantal.Size = new System.Drawing.Size(42, 20);
             this.tbColaZeroAantal.TabIndex = 47;
@@ -626,7 +690,8 @@
             // 
             // tbCocaColaAantal
             // 
-            this.tbCocaColaAantal.Location = new System.Drawing.Point(358, 49);
+            this.tbCocaColaAantal.Enabled = false;
+            this.tbCocaColaAantal.Location = new System.Drawing.Point(317, 49);
             this.tbCocaColaAantal.Name = "tbCocaColaAantal";
             this.tbCocaColaAantal.Size = new System.Drawing.Size(42, 20);
             this.tbCocaColaAantal.TabIndex = 46;
@@ -644,7 +709,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(273, 33);
+            this.label17.Location = new System.Drawing.Point(232, 33);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 13);
             this.label17.TabIndex = 44;
@@ -662,7 +727,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(273, 20);
+            this.label15.Location = new System.Drawing.Point(232, 20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 13);
             this.label15.TabIndex = 42;
@@ -678,7 +743,7 @@
             // 
             // tbSchrobbelerColli
             // 
-            this.tbSchrobbelerColli.Location = new System.Drawing.Point(276, 387);
+            this.tbSchrobbelerColli.Location = new System.Drawing.Point(235, 387);
             this.tbSchrobbelerColli.Name = "tbSchrobbelerColli";
             this.tbSchrobbelerColli.Size = new System.Drawing.Size(55, 20);
             this.tbSchrobbelerColli.TabIndex = 40;
@@ -703,7 +768,7 @@
             // 
             // tbJupilerColli
             // 
-            this.tbJupilerColli.Location = new System.Drawing.Point(276, 361);
+            this.tbJupilerColli.Location = new System.Drawing.Point(235, 361);
             this.tbJupilerColli.Name = "tbJupilerColli";
             this.tbJupilerColli.Size = new System.Drawing.Size(55, 20);
             this.tbJupilerColli.TabIndex = 37;
@@ -728,7 +793,7 @@
             // 
             // tbLeffeColli
             // 
-            this.tbLeffeColli.Location = new System.Drawing.Point(276, 335);
+            this.tbLeffeColli.Location = new System.Drawing.Point(235, 335);
             this.tbLeffeColli.Name = "tbLeffeColli";
             this.tbLeffeColli.Size = new System.Drawing.Size(55, 20);
             this.tbLeffeColli.TabIndex = 34;
@@ -753,7 +818,7 @@
             // 
             // tbHertogJanColli
             // 
-            this.tbHertogJanColli.Location = new System.Drawing.Point(276, 309);
+            this.tbHertogJanColli.Location = new System.Drawing.Point(235, 309);
             this.tbHertogJanColli.Name = "tbHertogJanColli";
             this.tbHertogJanColli.Size = new System.Drawing.Size(55, 20);
             this.tbHertogJanColli.TabIndex = 31;
@@ -778,7 +843,7 @@
             // 
             // tbAADrinkColli
             // 
-            this.tbAADrinkColli.Location = new System.Drawing.Point(276, 283);
+            this.tbAADrinkColli.Location = new System.Drawing.Point(235, 283);
             this.tbAADrinkColli.Name = "tbAADrinkColli";
             this.tbAADrinkColli.Size = new System.Drawing.Size(55, 20);
             this.tbAADrinkColli.TabIndex = 28;
@@ -803,7 +868,7 @@
             // 
             // tbAquariusColli
             // 
-            this.tbAquariusColli.Location = new System.Drawing.Point(276, 257);
+            this.tbAquariusColli.Location = new System.Drawing.Point(235, 257);
             this.tbAquariusColli.Name = "tbAquariusColli";
             this.tbAquariusColli.Size = new System.Drawing.Size(55, 20);
             this.tbAquariusColli.TabIndex = 25;
@@ -828,7 +893,7 @@
             // 
             // tbSpaRoodColli
             // 
-            this.tbSpaRoodColli.Location = new System.Drawing.Point(276, 231);
+            this.tbSpaRoodColli.Location = new System.Drawing.Point(235, 231);
             this.tbSpaRoodColli.Name = "tbSpaRoodColli";
             this.tbSpaRoodColli.Size = new System.Drawing.Size(55, 20);
             this.tbSpaRoodColli.TabIndex = 22;
@@ -853,7 +918,7 @@
             // 
             // tbBitterlemonColli
             // 
-            this.tbBitterlemonColli.Location = new System.Drawing.Point(276, 205);
+            this.tbBitterlemonColli.Location = new System.Drawing.Point(235, 205);
             this.tbBitterlemonColli.Name = "tbBitterlemonColli";
             this.tbBitterlemonColli.Size = new System.Drawing.Size(55, 20);
             this.tbBitterlemonColli.TabIndex = 19;
@@ -878,7 +943,7 @@
             // 
             // tbChocomelColli
             // 
-            this.tbChocomelColli.Location = new System.Drawing.Point(276, 179);
+            this.tbChocomelColli.Location = new System.Drawing.Point(235, 179);
             this.tbChocomelColli.Name = "tbChocomelColli";
             this.tbChocomelColli.Size = new System.Drawing.Size(55, 20);
             this.tbChocomelColli.TabIndex = 16;
@@ -903,7 +968,7 @@
             // 
             // tbIceTeaColli
             // 
-            this.tbIceTeaColli.Location = new System.Drawing.Point(276, 153);
+            this.tbIceTeaColli.Location = new System.Drawing.Point(235, 153);
             this.tbIceTeaColli.Name = "tbIceTeaColli";
             this.tbIceTeaColli.Size = new System.Drawing.Size(55, 20);
             this.tbIceTeaColli.TabIndex = 13;
@@ -928,7 +993,7 @@
             // 
             // tbCassisColli
             // 
-            this.tbCassisColli.Location = new System.Drawing.Point(276, 127);
+            this.tbCassisColli.Location = new System.Drawing.Point(235, 127);
             this.tbCassisColli.Name = "tbCassisColli";
             this.tbCassisColli.Size = new System.Drawing.Size(55, 20);
             this.tbCassisColli.TabIndex = 10;
@@ -953,7 +1018,7 @@
             // 
             // tbFantaColli
             // 
-            this.tbFantaColli.Location = new System.Drawing.Point(276, 101);
+            this.tbFantaColli.Location = new System.Drawing.Point(235, 101);
             this.tbFantaColli.Name = "tbFantaColli";
             this.tbFantaColli.Size = new System.Drawing.Size(55, 20);
             this.tbFantaColli.TabIndex = 7;
@@ -978,7 +1043,7 @@
             // 
             // tbColaZeroColli
             // 
-            this.tbColaZeroColli.Location = new System.Drawing.Point(276, 75);
+            this.tbColaZeroColli.Location = new System.Drawing.Point(235, 75);
             this.tbColaZeroColli.Name = "tbColaZeroColli";
             this.tbColaZeroColli.Size = new System.Drawing.Size(55, 20);
             this.tbColaZeroColli.TabIndex = 4;
@@ -1003,7 +1068,7 @@
             // 
             // tbCocaColaColli
             // 
-            this.tbCocaColaColli.Location = new System.Drawing.Point(276, 49);
+            this.tbCocaColaColli.Location = new System.Drawing.Point(235, 49);
             this.tbCocaColaColli.Name = "tbCocaColaColli";
             this.tbCocaColaColli.Size = new System.Drawing.Size(55, 20);
             this.tbCocaColaColli.TabIndex = 1;
@@ -1018,13 +1083,236 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Coca cola";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(408, 20);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(58, 13);
+            this.label23.TabIndex = 96;
+            this.label23.Text = "Inkoopprijs";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(872, 20);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(58, 13);
+            this.label34.TabIndex = 97;
+            this.label34.Text = "Inkoopprijs";
+            // 
+            // tbColaPrijs
+            // 
+            this.tbColaPrijs.Enabled = false;
+            this.tbColaPrijs.Location = new System.Drawing.Point(411, 49);
+            this.tbColaPrijs.Name = "tbColaPrijs";
+            this.tbColaPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbColaPrijs.TabIndex = 98;
+            this.tbColaPrijs.Text = "0";
+            // 
+            // tbCassisPrijs
+            // 
+            this.tbCassisPrijs.Enabled = false;
+            this.tbCassisPrijs.Location = new System.Drawing.Point(411, 127);
+            this.tbCassisPrijs.Name = "tbCassisPrijs";
+            this.tbCassisPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbCassisPrijs.TabIndex = 99;
+            this.tbCassisPrijs.Text = "0";
+            // 
+            // tbFantaPrijs
+            // 
+            this.tbFantaPrijs.Enabled = false;
+            this.tbFantaPrijs.Location = new System.Drawing.Point(411, 101);
+            this.tbFantaPrijs.Name = "tbFantaPrijs";
+            this.tbFantaPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbFantaPrijs.TabIndex = 100;
+            this.tbFantaPrijs.Text = "0";
+            // 
+            // tbIceTeaPrijs
+            // 
+            this.tbIceTeaPrijs.Enabled = false;
+            this.tbIceTeaPrijs.Location = new System.Drawing.Point(411, 153);
+            this.tbIceTeaPrijs.Name = "tbIceTeaPrijs";
+            this.tbIceTeaPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbIceTeaPrijs.TabIndex = 101;
+            this.tbIceTeaPrijs.Text = "0";
+            // 
+            // tbChocomelPrijs
+            // 
+            this.tbChocomelPrijs.Enabled = false;
+            this.tbChocomelPrijs.Location = new System.Drawing.Point(411, 179);
+            this.tbChocomelPrijs.Name = "tbChocomelPrijs";
+            this.tbChocomelPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbChocomelPrijs.TabIndex = 102;
+            this.tbChocomelPrijs.Text = "0";
+            // 
+            // tbHertogJanPrijs
+            // 
+            this.tbHertogJanPrijs.Enabled = false;
+            this.tbHertogJanPrijs.Location = new System.Drawing.Point(411, 309);
+            this.tbHertogJanPrijs.Name = "tbHertogJanPrijs";
+            this.tbHertogJanPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbHertogJanPrijs.TabIndex = 103;
+            this.tbHertogJanPrijs.Text = "0";
+            // 
+            // tbBitterLemonPrijs
+            // 
+            this.tbBitterLemonPrijs.Enabled = false;
+            this.tbBitterLemonPrijs.Location = new System.Drawing.Point(411, 205);
+            this.tbBitterLemonPrijs.Name = "tbBitterLemonPrijs";
+            this.tbBitterLemonPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbBitterLemonPrijs.TabIndex = 103;
+            this.tbBitterLemonPrijs.Text = "0";
+            // 
+            // tbSpaRoodPrijs
+            // 
+            this.tbSpaRoodPrijs.Enabled = false;
+            this.tbSpaRoodPrijs.Location = new System.Drawing.Point(411, 231);
+            this.tbSpaRoodPrijs.Name = "tbSpaRoodPrijs";
+            this.tbSpaRoodPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbSpaRoodPrijs.TabIndex = 104;
+            this.tbSpaRoodPrijs.Text = "0";
+            // 
+            // tbAquariusPrijs
+            // 
+            this.tbAquariusPrijs.Enabled = false;
+            this.tbAquariusPrijs.Location = new System.Drawing.Point(411, 257);
+            this.tbAquariusPrijs.Name = "tbAquariusPrijs";
+            this.tbAquariusPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbAquariusPrijs.TabIndex = 103;
+            this.tbAquariusPrijs.Text = "0";
+            // 
+            // tbAADrinkPrijs
+            // 
+            this.tbAADrinkPrijs.Enabled = false;
+            this.tbAADrinkPrijs.Location = new System.Drawing.Point(411, 283);
+            this.tbAADrinkPrijs.Name = "tbAADrinkPrijs";
+            this.tbAADrinkPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbAADrinkPrijs.TabIndex = 105;
+            this.tbAADrinkPrijs.Text = "0";
+            // 
+            // tbRodeWijnPrijs
+            // 
+            this.tbRodeWijnPrijs.Enabled = false;
+            this.tbRodeWijnPrijs.Location = new System.Drawing.Point(411, 439);
+            this.tbRodeWijnPrijs.Name = "tbRodeWijnPrijs";
+            this.tbRodeWijnPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbRodeWijnPrijs.TabIndex = 106;
+            this.tbRodeWijnPrijs.Text = "0";
+            // 
+            // tbLeffePrijs
+            // 
+            this.tbLeffePrijs.Enabled = false;
+            this.tbLeffePrijs.Location = new System.Drawing.Point(411, 335);
+            this.tbLeffePrijs.Name = "tbLeffePrijs";
+            this.tbLeffePrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbLeffePrijs.TabIndex = 106;
+            this.tbLeffePrijs.Text = "0";
+            // 
+            // tbJupilerPrijs
+            // 
+            this.tbJupilerPrijs.Enabled = false;
+            this.tbJupilerPrijs.Location = new System.Drawing.Point(411, 361);
+            this.tbJupilerPrijs.Name = "tbJupilerPrijs";
+            this.tbJupilerPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbJupilerPrijs.TabIndex = 107;
+            this.tbJupilerPrijs.Text = "0";
+            // 
+            // tbSchrobbelerPrijs
+            // 
+            this.tbSchrobbelerPrijs.Enabled = false;
+            this.tbSchrobbelerPrijs.Location = new System.Drawing.Point(411, 387);
+            this.tbSchrobbelerPrijs.Name = "tbSchrobbelerPrijs";
+            this.tbSchrobbelerPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbSchrobbelerPrijs.TabIndex = 106;
+            this.tbSchrobbelerPrijs.Text = "0";
+            // 
+            // tbWitteWijnPrijs
+            // 
+            this.tbWitteWijnPrijs.Enabled = false;
+            this.tbWitteWijnPrijs.Location = new System.Drawing.Point(411, 413);
+            this.tbWitteWijnPrijs.Name = "tbWitteWijnPrijs";
+            this.tbWitteWijnPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbWitteWijnPrijs.TabIndex = 108;
+            this.tbWitteWijnPrijs.Text = "0";
+            // 
+            // tbMarsPrijs
+            // 
+            this.tbMarsPrijs.Enabled = false;
+            this.tbMarsPrijs.Location = new System.Drawing.Point(875, 49);
+            this.tbMarsPrijs.Name = "tbMarsPrijs";
+            this.tbMarsPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbMarsPrijs.TabIndex = 109;
+            this.tbMarsPrijs.Text = "0";
+            // 
+            // tbNaturelPrijs
+            // 
+            this.tbNaturelPrijs.Enabled = false;
+            this.tbNaturelPrijs.Location = new System.Drawing.Point(875, 127);
+            this.tbNaturelPrijs.Name = "tbNaturelPrijs";
+            this.tbNaturelPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbNaturelPrijs.TabIndex = 110;
+            this.tbNaturelPrijs.Text = "0";
+            // 
+            // tbPaprikaPrijs
+            // 
+            this.tbPaprikaPrijs.Enabled = false;
+            this.tbPaprikaPrijs.Location = new System.Drawing.Point(875, 101);
+            this.tbPaprikaPrijs.Name = "tbPaprikaPrijs";
+            this.tbPaprikaPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbPaprikaPrijs.TabIndex = 111;
+            this.tbPaprikaPrijs.Text = "0";
+            // 
+            // tbSnickersPrijs
+            // 
+            this.tbSnickersPrijs.Enabled = false;
+            this.tbSnickersPrijs.Location = new System.Drawing.Point(875, 75);
+            this.tbSnickersPrijs.Name = "tbSnickersPrijs";
+            this.tbSnickersPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbSnickersPrijs.TabIndex = 112;
+            this.tbSnickersPrijs.Text = "0";
+            // 
+            // tbColaZeroPrijs
+            // 
+            this.tbColaZeroPrijs.Enabled = false;
+            this.tbColaZeroPrijs.Location = new System.Drawing.Point(411, 75);
+            this.tbColaZeroPrijs.Name = "tbColaZeroPrijs";
+            this.tbColaZeroPrijs.Size = new System.Drawing.Size(42, 20);
+            this.tbColaZeroPrijs.TabIndex = 99;
+            this.tbColaZeroPrijs.Text = "0";
+            // 
+            // btInkoopPrijsWijzigen
+            // 
+            this.btInkoopPrijsWijzigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInkoopPrijsWijzigen.Location = new System.Drawing.Point(960, 45);
+            this.btInkoopPrijsWijzigen.Name = "btInkoopPrijsWijzigen";
+            this.btInkoopPrijsWijzigen.Size = new System.Drawing.Size(90, 36);
+            this.btInkoopPrijsWijzigen.TabIndex = 3;
+            this.btInkoopPrijsWijzigen.Text = "Inkoopprijs wijzigen";
+            this.btInkoopPrijsWijzigen.UseVisualStyleBackColor = true;
+            this.btInkoopPrijsWijzigen.Click += new System.EventHandler(this.btInkoopPrijsWijzigen_Click);
+            // 
+            // btAantalPerColliWijzigen
+            // 
+            this.btAantalPerColliWijzigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAantalPerColliWijzigen.Location = new System.Drawing.Point(960, 87);
+            this.btAantalPerColliWijzigen.Name = "btAantalPerColliWijzigen";
+            this.btAantalPerColliWijzigen.Size = new System.Drawing.Size(90, 36);
+            this.btAantalPerColliWijzigen.TabIndex = 4;
+            this.btAantalPerColliWijzigen.Text = "Aantal per colli wijzigen";
+            this.btAantalPerColliWijzigen.UseVisualStyleBackColor = true;
+            this.btAantalPerColliWijzigen.Click += new System.EventHandler(this.btAantalPerColliWijzigen_Click);
+            // 
             // LeveringScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 533);
+            this.Controls.Add(this.btAantalPerColliWijzigen);
+            this.Controls.Add(this.btInkoopPrijsWijzigen);
             this.Controls.Add(this.gbVoorraadToevoegen);
             this.Controls.Add(this.btClose);
+            this.Controls.Add(this.btToevoegen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "LeveringScherm";
             this.gbVoorraadToevoegen.ResumeLayout(false);
@@ -1130,5 +1418,29 @@
         private System.Windows.Forms.TextBox tbMarsVoorraad;
         private System.Windows.Forms.TextBox tbMarsColli;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox tbSnickersPrijs;
+        private System.Windows.Forms.TextBox tbPaprikaPrijs;
+        private System.Windows.Forms.TextBox tbNaturelPrijs;
+        private System.Windows.Forms.TextBox tbMarsPrijs;
+        private System.Windows.Forms.TextBox tbWitteWijnPrijs;
+        private System.Windows.Forms.TextBox tbJupilerPrijs;
+        private System.Windows.Forms.TextBox tbLeffePrijs;
+        private System.Windows.Forms.TextBox tbSchrobbelerPrijs;
+        private System.Windows.Forms.TextBox tbRodeWijnPrijs;
+        private System.Windows.Forms.TextBox tbAADrinkPrijs;
+        private System.Windows.Forms.TextBox tbSpaRoodPrijs;
+        private System.Windows.Forms.TextBox tbBitterLemonPrijs;
+        private System.Windows.Forms.TextBox tbAquariusPrijs;
+        private System.Windows.Forms.TextBox tbHertogJanPrijs;
+        private System.Windows.Forms.TextBox tbChocomelPrijs;
+        private System.Windows.Forms.TextBox tbIceTeaPrijs;
+        private System.Windows.Forms.TextBox tbFantaPrijs;
+        private System.Windows.Forms.TextBox tbColaZeroPrijs;
+        private System.Windows.Forms.TextBox tbCassisPrijs;
+        private System.Windows.Forms.TextBox tbColaPrijs;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button btInkoopPrijsWijzigen;
+        private System.Windows.Forms.Button btAantalPerColliWijzigen;
     }
 }
