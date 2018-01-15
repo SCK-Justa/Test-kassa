@@ -48,9 +48,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
+            this.label1.Text = "Gebruiksernaam:";
             // 
             // label2
             // 
@@ -58,9 +58,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(11, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Wachtwoord:";
             // 
             // tbUsername
             // 
@@ -85,7 +85,7 @@
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(116, 33);
             this.btLogin.TabIndex = 5;
-            this.btLogin.Text = "Login";
+            this.btLogin.Text = "Aanmelden";
             this.btLogin.UseVisualStyleBackColor = true;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
@@ -96,7 +96,7 @@
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(116, 33);
             this.btCancel.TabIndex = 6;
-            this.btCancel.Text = "Cancel";
+            this.btCancel.Text = "Annuleren";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.button1_Click);
             // 

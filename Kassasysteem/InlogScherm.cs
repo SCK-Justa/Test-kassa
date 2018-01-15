@@ -111,15 +111,17 @@ namespace Kassasysteem
 
         private string SetKassaName()
         {
-            string name = Environment.MachineName;
-            if(name == "SSGPC")
-            {
-                name = "Barkassa";
-            }
-            else
-            {
-                name = "Testkassa van Jelle";
-            }
+            string name = "Barkassa";
+            // TODO: Hier moet nog iets leuks op gevonden worden
+            //string name = Environment.MachineName;
+            //if(name == "SSGPC")
+            //{
+            //    name = "Barkassa";
+            //}
+            //else
+            //{
+            //    name = "Testkassa van Jelle";
+            //}
             return name;
         }
     }

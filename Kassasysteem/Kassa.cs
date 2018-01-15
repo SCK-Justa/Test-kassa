@@ -496,21 +496,6 @@ namespace GUI
             _voorraadScherm.ShowDialog();
         }
 
-        private void omzetInzienToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // TODO: Omzet zichbaar maken vanuit db
-                _omzetScherm = new PenningmeesterScherm(App);
-                _omzetScherm.ShowDialog();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
-                                exception.Message);
-            }
-        }
-
         private void bestelgeschiedenisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -720,6 +705,20 @@ namespace GUI
             catch (Exception exception)
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+            }
+        }
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _omzetScherm = new PenningmeesterScherm(App);
+                _omzetScherm.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
             }
         }
     }
