@@ -8,6 +8,7 @@
         VOORSCHOT,
         DECLARATIE,
         VERGOEDING,
+        FOOI,
         OVERIG
     }
 }

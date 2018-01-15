@@ -99,8 +99,6 @@
             this.voorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voorraadToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.omzetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.omzetInzienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formulierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,6 +116,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.omzetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -802,7 +802,6 @@
             this.fileToolStripMenuItem,
             this.accountToolStripMenuItem,
             this.voorraadToolStripMenuItem,
-            this.omzetToolStripMenuItem,
             this.formulierenToolStripMenuItem,
             this.bestellingenToolStripMenuItem,
             this.ledenToolStripMenuItem});
@@ -873,25 +872,11 @@
             this.voorraadToevoegenToolStripMenuItem.Text = "Levering toevoegen";
             this.voorraadToevoegenToolStripMenuItem.Click += new System.EventHandler(this.voorraadToevoegenToolStripMenuItem_Click);
             // 
-            // omzetToolStripMenuItem
-            // 
-            this.omzetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.omzetInzienToolStripMenuItem});
-            this.omzetToolStripMenuItem.Name = "omzetToolStripMenuItem";
-            this.omzetToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.omzetToolStripMenuItem.Text = "Omzet";
-            // 
-            // omzetInzienToolStripMenuItem
-            // 
-            this.omzetInzienToolStripMenuItem.Name = "omzetInzienToolStripMenuItem";
-            this.omzetInzienToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.omzetInzienToolStripMenuItem.Text = "Open...";
-            this.omzetInzienToolStripMenuItem.Click += new System.EventHandler(this.omzetInzienToolStripMenuItem_Click);
-            // 
             // formulierenToolStripMenuItem
             // 
             this.formulierenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sUKToolStripMenuItem});
+            this.sUKToolStripMenuItem,
+            this.omzetToolStripMenuItem1});
             this.formulierenToolStripMenuItem.Name = "formulierenToolStripMenuItem";
             this.formulierenToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.formulierenToolStripMenuItem.Text = "Bestuur";
@@ -1069,6 +1054,21 @@
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // omzetToolStripMenuItem1
+            // 
+            this.omzetToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem1});
+            this.omzetToolStripMenuItem1.Name = "omzetToolStripMenuItem1";
+            this.omzetToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.omzetToolStripMenuItem1.Text = "Omzet";
+            // 
+            // openToolStripMenuItem1
+            // 
+            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem1.Text = "Open...";
+            this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1166,8 +1166,6 @@
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem omzetInzienToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formulierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bestellingenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bestelgeschiedenisToolStripMenuItem;
@@ -1198,5 +1196,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripMenuItem voorraadToevoegenToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
     }
 }
