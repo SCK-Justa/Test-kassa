@@ -126,7 +126,7 @@ namespace Logic
             {
                 List<Klasse> klasses = Database.KlasseRepo.GetKlasses();
                 lid.SetAdres(Database.AdresRepo.AddAdres(lid.Adres));
-                lid.SetBank(Database.BankRepo.AddBank(lid.Bank));
+                //lid.SetBank(Database.BankRepo.AddBank(lid.Bank));
                 if (lid.Oudercontact != null)
                 {
                     lid.SetOuderContact(Database.OudercontactRepo.AddOudercontact(lid.Oudercontact));
@@ -303,7 +303,7 @@ namespace Logic
                 if (Database.GetIsConnected())
                 {
                     List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetBestellingenBetweenDates(DateTime.Now.AddDays(-7), DateTime.Now);
-                    tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
+                    //tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)

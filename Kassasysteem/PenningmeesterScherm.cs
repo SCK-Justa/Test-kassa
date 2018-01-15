@@ -21,7 +21,7 @@ namespace Kassasysteem
         {
             lbOmzetToday.Text = "Datum vandaag: " + DateTime.Today.DayOfWeek + ", " + DateTime.Today.ToShortDateString();
             FillComboBox();
-            ShowJaarOmzet(DateTime.Now);
+            ShowJaarOmzet(new DateTime(Convert.ToInt32(cbJaarNr.Text), 1, 1));
             LoadLogView();
         }
 
@@ -38,6 +38,8 @@ namespace Kassasysteem
             {
                 cbJaarNr.Items.Add(i);
             }
+            // Selecteer het eerste jaar.
+            cbJaarNr.Text = DateTime.Now.Year.ToString();
         }
 
         private void btOpenWeekOmzet_Click(object sender, System.EventArgs e)
@@ -48,7 +50,7 @@ namespace Kassasysteem
                 string s = (string)cbWeekNrs.SelectedItem;
                 string[] week = s.Split(' ');
                 decimal[] _weekOmzet = new decimal[7];
-                DateTime eerstedagvandeweek = FirstDateOfWeekISO8601(DateTime.Now.Year, Convert.ToInt32(week[1]));
+                DateTime eerstedagvandeweek = FirstDateOfWeekISO8601(Convert.ToInt32(cbJaarNr.Text), Convert.ToInt32(week[1]));
                 for (int i = 0; i < 7; i++)
                 {
                     _weekOmzet[i] = App.GetOmzetPerDag(eerstedagvandeweek);
@@ -65,14 +67,14 @@ namespace Kassasysteem
                 tbZaterdag.Text = "€ " + _weekOmzet[5];
                 tbZondag.Text = "€ " + _weekOmzet[6];
 
-                DateTime dag = FirstDateOfWeekISO8601(DateTime.Now.Year, Convert.ToInt32(week[1]));
-                lbDatumDag1.Text = dag.Date.ToShortDateString();
-                lbDatumDag2.Text = dag.AddDays(1).Date.ToShortDateString();
-                lbDatumDag3.Text = dag.AddDays(2).Date.ToShortDateString();
-                lbDatumDag4.Text = dag.AddDays(3).Date.ToShortDateString();
-                lbDatumDag5.Text = dag.AddDays(4).Date.ToShortDateString();
-                lbDatumDag6.Text = dag.AddDays(5).Date.ToShortDateString();
-                lbDatumDag7.Text = dag.AddDays(6).Date.ToShortDateString();
+                //DateTime dag = FirstDateOfWeekISO8601(Convert.ToInt32(cbJaarNr.Text), Convert.ToInt32(week[1]));
+                lbDatumDag1.Text = eerstedagvandeweek.Date.ToShortDateString();
+                lbDatumDag2.Text = eerstedagvandeweek.AddDays(1).Date.ToShortDateString();
+                lbDatumDag3.Text = eerstedagvandeweek.AddDays(2).Date.ToShortDateString();
+                lbDatumDag4.Text = eerstedagvandeweek.AddDays(3).Date.ToShortDateString();
+                lbDatumDag5.Text = eerstedagvandeweek.AddDays(4).Date.ToShortDateString();
+                lbDatumDag6.Text = eerstedagvandeweek.AddDays(5).Date.ToShortDateString();
+                lbDatumDag7.Text = eerstedagvandeweek.AddDays(6).Date.ToShortDateString();
 
                 decimal omzetWeek = 0;
                 for (int i = 0; i < 7; i++)

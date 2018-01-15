@@ -9,7 +9,6 @@ namespace Logic.Sql
     public class SqlOmzet : IOmzetServices
     {
         private string connectie;
-        List<decimal> omzet;
         public SqlOmzet(string dbConnectie)
         {
             connectie = dbConnectie;
@@ -19,6 +18,7 @@ namespace Logic.Sql
             try
             {
                 decimal totaalBedrag = 0;
+                DateTime einddatum = datum.AddDays(1);
                 using (SqlConnection conn = new SqlConnection(connectie))
                 {
                     if (conn.State != ConnectionState.Open)
@@ -27,11 +27,10 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @beginDag AND BDatumBetaald <= @eindDag;";
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @beginDag AND BDatumBetaald < @eindDag;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@beginDag", datum);
-                            DateTime einddatum = datum.AddDays(1);
                             cmd.Parameters.AddWithValue("@eindDag", einddatum);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -77,7 +76,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald < @lastDate;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@firstDate", begindag);
@@ -112,10 +111,9 @@ namespace Logic.Sql
         {
             try
             {
-                omzet = new List<decimal>();
-
-                string firstDay = jaar.Year + "-1-1";
-                string lastDay = (jaar.Year + 1) + "-1-1";
+                decimal totaalBedrag = 0;
+                DateTime begindag = new DateTime(jaar.Year, 1, 1);
+                DateTime einddag = begindag.AddYears(1);
 
                 using (SqlConnection conn = new SqlConnection(connectie))
                 {
@@ -125,17 +123,26 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald <= @lastDate;";
+                            cmd.CommandText = "SELECT SUM(BBetaaldBedrag) FROM Bestelling WHERE BBetalld = 1 AND BDatumBetaald >= @firstDate AND BDatumBetaald < @lastDate;";
                             cmd.Connection = conn;
 
-                            cmd.Parameters.AddWithValue("@firstDate", firstDay);
-                            cmd.Parameters.AddWithValue("@lastDate", lastDay);
+                            cmd.Parameters.AddWithValue("@firstDate", begindag);
+                            cmd.Parameters.AddWithValue("@lastDate", einddag);
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                reader.Read();
-                                return reader.GetDecimal(0);
+                                while (reader.Read())
+                                {
+                                    decimal totaal = 0;
+                                    if (!reader.IsDBNull(0))
+                                    {
+                                        totaal = reader.GetDecimal(0);
+                                    }
+                                    totaalBedrag = totaal;
+                                }
                             }
+                            totaalBedrag += GetLosseBetalingen(begindag, einddag);
+                            return totaalBedrag;
                         }
                     }
                 }

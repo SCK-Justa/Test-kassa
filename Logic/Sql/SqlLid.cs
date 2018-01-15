@@ -376,8 +376,22 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@sterren", lid.GetSpelden());
                             cmd.Parameters.AddWithValue("@nhbklasse", lid.NhbKlasse.Id);
                             cmd.Parameters.AddWithValue("@klasse", lid.Klasse.Id);
-                            cmd.Parameters.AddWithValue("@oudercontactid", lid.Oudercontact.Id);
-                            cmd.Parameters.AddWithValue("@bankId", lid.Bank.Id);
+                            if (lid.Oudercontact != null)
+                            {
+                                cmd.Parameters.AddWithValue("@oudercontactid", lid.Oudercontact.Id);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@oudercontactid", DBNull.Value);
+                            }
+                            if (lid.Bank != null)
+                            {
+                                cmd.Parameters.AddWithValue("@bankId", lid.Bank.Id);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@bankId", DBNull.Value);
+                            }
 
                             cmd.ExecuteNonQuery();
                         }
@@ -535,13 +549,34 @@ namespace Logic.Sql
 
                             // parameters moeten nog komen
                             cmd.Parameters.AddWithValue("@Voornaam", lid.Voornaam);
-                            cmd.Parameters.AddWithValue("@Tussenvoegsel", lid.GetTussenvoegsel());
+                            if(lid.GetTussenvoegsel() != null)
+                            {
+                                cmd.Parameters.AddWithValue("@Tussenvoegsel", lid.GetTussenvoegsel());
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@Tussenvoegsel", DBNull.Value);
+                            }
                             cmd.Parameters.AddWithValue("@Achternaam", lid.Achternaam);
                             cmd.Parameters.AddWithValue("@Emailadres", lid.GetEmailadres());
                             cmd.Parameters.AddWithValue("@Geslacht", lid.GetGeslacht());
                             cmd.Parameters.AddWithValue("@AdresId", lid.Adres.Id);
-                            cmd.Parameters.AddWithValue("@Telefoonnummer", lid.GetTelefoonnummer());
-                            cmd.Parameters.AddWithValue("@Mobielnummer", lid.GetMobielnummer());
+                            if (lid.GetTelefoonnummer() != null)
+                            {
+                                cmd.Parameters.AddWithValue("@Telefoonnummer", lid.GetTelefoonnummer());
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@Telefoonnummer", DBNull.Value);
+                            }
+                            if (lid.GetMobielnummer() != null)
+                            {
+                                cmd.Parameters.AddWithValue("@Mobielnummer", lid.GetMobielnummer());
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@Mobielnummer", DBNull.Value);
+                            }
                             cmd.Parameters.AddWithValue("@Geboortedatum", lid.Geboortedatum);
                             cmd.ExecuteNonQuery();
 

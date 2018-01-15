@@ -53,10 +53,10 @@ namespace Kassasysteem
                     {
                         Adres adres = new Adres(straatnaam, huisnummer, postcode, woonplaats);
                         adres.SetEmail("Geen Email");
-                        string str = bankrekening.Substring(4, 4);
-                        BankNaamEnum bankNaam = (BankNaamEnum)Enum.Parse(typeof(BankNaamEnum), str);
-                        Bank bank = new Bank(CheckBankCode(bankNaam), tbBankrekening.Text);
-                        tbBankrekening.Text = CheckBankCode(bankNaam);
+                        //string str = bankrekening.Substring(4, 4);
+                        //BankNaamEnum bankNaam = (BankNaamEnum)Enum.Parse(typeof(BankNaamEnum), str);
+                        //Bank bank = new Bank(CheckBankCode(bankNaam), tbBankrekening.Text);
+                        //tbBankrekening.Text = CheckBankCode(bankNaam);
                         Oudercontact oc;
                         if (tbOVoornaam.Text == "" && tbOAchternaam.Text == "")
                         {
@@ -70,7 +70,7 @@ namespace Kassasysteem
                         }
                         Lid lid = new Lid(lidvanaf, bondsnummer, voornaam, tussenvoegsel, achternaam, emailadres, geslacht,
                             geboortedatum, adres, telefoonnummer, mobielnummer);
-                        lid.SetBank(bank);
+                        //lid.SetBank(bank);
                         lid.SetOuderContact(oc);
                         App.AddLid(lid);
                     }
