@@ -47,6 +47,7 @@
     <Compile Include="Classes\Enums\BestellingSoortEnum.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Enums\KassaSoortEnum.cs" />
+    <Compile Include="Classes\Enums\MessageType.cs" />
     <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />

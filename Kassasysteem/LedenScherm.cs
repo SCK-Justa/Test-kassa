@@ -87,7 +87,7 @@ namespace Kassasysteem
                     throw new Exception("U moet een lid selecteren. Selecteer het bondsnummer van dit lid.");
                 }
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);

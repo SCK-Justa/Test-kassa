@@ -17,7 +17,7 @@ namespace Kassasysteem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InlogScherm());
+            Application.Run(new Kassa());
         }
     }
 }

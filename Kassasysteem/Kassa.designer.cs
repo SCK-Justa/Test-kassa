@@ -101,6 +101,8 @@
             this.voorraadToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formulierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.omzetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bestellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestelgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verkoopgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +118,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.omzetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aanmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -829,8 +831,9 @@
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gegevensWijzigenToolStripMenuItem,
-            this.afmeldenToolStripMenuItem1});
+            this.aanmeldenToolStripMenuItem,
+            this.afmeldenToolStripMenuItem1,
+            this.gegevensWijzigenToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
@@ -838,14 +841,14 @@
             // gegevensWijzigenToolStripMenuItem
             // 
             this.gegevensWijzigenToolStripMenuItem.Name = "gegevensWijzigenToolStripMenuItem";
-            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gegevensWijzigenToolStripMenuItem.Text = "Gegevens...";
             this.gegevensWijzigenToolStripMenuItem.Click += new System.EventHandler(this.gegevensWijzigenToolStripMenuItem_Click);
             // 
             // afmeldenToolStripMenuItem1
             // 
             this.afmeldenToolStripMenuItem1.Name = "afmeldenToolStripMenuItem1";
-            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.afmeldenToolStripMenuItem1.Text = "Afmelden";
             this.afmeldenToolStripMenuItem1.Click += new System.EventHandler(this.afmeldenToolStripMenuItem1_Click);
             // 
@@ -884,9 +887,24 @@
             // sUKToolStripMenuItem
             // 
             this.sUKToolStripMenuItem.Name = "sUKToolStripMenuItem";
-            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.sUKToolStripMenuItem.Text = "SUK";
             this.sUKToolStripMenuItem.Click += new System.EventHandler(this.sUKToolStripMenuItem_Click);
+            // 
+            // omzetToolStripMenuItem1
+            // 
+            this.omzetToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem1});
+            this.omzetToolStripMenuItem1.Name = "omzetToolStripMenuItem1";
+            this.omzetToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.omzetToolStripMenuItem1.Text = "Omzet";
+            // 
+            // openToolStripMenuItem1
+            // 
+            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem1.Text = "Open...";
+            this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
             // 
             // bestellingenToolStripMenuItem
             // 
@@ -921,10 +939,11 @@
             // 
             // ledenlijstToolStripMenuItem
             // 
+            this.ledenlijstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem2});
             this.ledenlijstToolStripMenuItem.Name = "ledenlijstToolStripMenuItem";
-            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.ledenlijstToolStripMenuItem.Text = "Ledenlijst openen";
-            this.ledenlijstToolStripMenuItem.Click += new System.EventHandler(this.ledenlijstToolStripMenuItem_Click);
+            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ledenlijstToolStripMenuItem.Text = "Ledenlijst";
             // 
             // gpMenu
             // 
@@ -1054,20 +1073,19 @@
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // omzetToolStripMenuItem1
+            // aanmeldenToolStripMenuItem
             // 
-            this.omzetToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem1});
-            this.omzetToolStripMenuItem1.Name = "omzetToolStripMenuItem1";
-            this.omzetToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.omzetToolStripMenuItem1.Text = "Omzet";
+            this.aanmeldenToolStripMenuItem.Name = "aanmeldenToolStripMenuItem";
+            this.aanmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aanmeldenToolStripMenuItem.Text = "Aanmelden";
+            this.aanmeldenToolStripMenuItem.Click += new System.EventHandler(this.aanmeldenToolStripMenuItem_Click);
             // 
-            // openToolStripMenuItem1
+            // openToolStripMenuItem2
             // 
-            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.openToolStripMenuItem1.Text = "Open...";
-            this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
+            this.openToolStripMenuItem2.Name = "openToolStripMenuItem2";
+            this.openToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem2.Text = "Open...";
+            this.openToolStripMenuItem2.Click += new System.EventHandler(this.openToolStripMenuItem2_Click);
             // 
             // Kassa
             // 
@@ -1087,7 +1105,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Kassa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kassa - V1.5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1198,5 +1215,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
     }
 }

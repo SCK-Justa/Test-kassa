@@ -3,11 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using GUI;
 using Logic;
+using Logic.Classes.Enums;
 
 namespace Kassasysteem
 {
     public partial class InlogScherm : Form
     {
+        private MessageType type;
         public KassaApp App { get; private set; }
         public Kassa Kassa { get; private set; }
 
@@ -25,9 +27,10 @@ namespace Kassasysteem
             }
         }
 
-        public InlogScherm(Kassa kassa, KassaApp app)
+        public InlogScherm(Kassa kassa, KassaApp app, MessageType type)
         {
             InitializeComponent();
+            this.type = type;
             App = app;
             Kassa = kassa;
         }
@@ -70,19 +73,19 @@ namespace Kassasysteem
                         tbWachtwoord.Text = "";
                         if (Kassa != null)
                         {
-                            GebruikerScherm scherm = new GebruikerScherm(App);
-                            Close();
-                            Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
-                            Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
-                            scherm.ShowDialog();
-                        }
-                        else
-                        {
-                            Kassa = new Kassa(App);
-                            Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
-                            Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
-                            Kassa.ShowDialog();
-                            Kassa = null;
+                            switch(type)
+                            {
+                                case MessageType.LOGIN:
+                                    Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
+                                    Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
+                                    EndLogin();
+                                    break;
+                                case MessageType.EDIT_ACCOUNT:
+                                    Console.WriteLine("Ingelogd als: " + App.Authentication.GetFullName());
+                                    Console.WriteLine("Bestuursfunctie = " + App.Authentication.Lid.GetBestuursfunctie());
+                                    OpenEditUser();
+                                    break;
+                            }
                         }
                     }
                     else
@@ -123,6 +126,19 @@ namespace Kassasysteem
             //    name = "Testkassa van Jelle";
             //}
             return name;
+        }
+
+        private void OpenEditUser()
+        {
+            GebruikerScherm scherm = new GebruikerScherm(App);
+            Close();
+            scherm.ShowDialog();
+        }
+
+        private void EndLogin()
+        {
+            Kassa.UpdateKassaGegevensEvent(this, new EventArgs());
+            Close();
         }
     }
 }

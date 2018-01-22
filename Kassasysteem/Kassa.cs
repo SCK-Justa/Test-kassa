@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Kassasysteem;
 using Logic;
 using Logic.Classes;
+using Logic.Classes.Enums;
 
 namespace GUI
 {
@@ -21,17 +22,19 @@ namespace GUI
         private bool _contanteVerkoop;
         private bool _contanteVerkoopLid;
 
-        public Kassa(KassaApp app)
+        public Kassa()
         {
             try
             {
                 InitializeComponent();
+                App = new KassaApp("Barkassa");
                 _contanteVerkoop = false;
                 _contanteVerkoopLid = false;
-                App = app;
                 timer.Start();
                 if (App.CheckDbConnection())
                 {
+                    aanmeldenToolStripMenuItem.Visible = true;
+                    afmeldenToolStripMenuItem1.Visible = false;
                     UpdateKassaGegevens();
                     UpdateBestellingen();
                 }
@@ -143,7 +146,17 @@ namespace GUI
                 lbKassaNaam.Text = App.Lokatie;
                 lbOpenstaandeRekeningen.Text = App.GetBestellingen().Count.ToString();
                 lbDagDatum.Text = DateTime.Now.DayOfWeek + " " + DateTime.Now.ToShortDateString();
-                lbLoginnaam.Text = App.Authentication.GetFullName();
+                if (App.Authentication != null)
+                {
+                    label4.Visible = true;
+                    lbLoginnaam.Visible = true;
+                    lbLoginnaam.Text = App.Authentication.GetFullName();
+                }
+                else
+                {
+                    label4.Visible = false;
+                    lbLoginnaam.Visible = false;
+                }
                 lbKlantnaam.Text = "";
                 lbDatumklant.Text = "";
                 lbTotaalPrijs.Text = "";
@@ -471,13 +484,14 @@ namespace GUI
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Afmelden();
+            Close();
         }
 
         private void gegevensWijzigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                InlogScherm login = new InlogScherm(this, App);
+                InlogScherm login = new InlogScherm(this, App, MessageType.EDIT_ACCOUNT);
                 login.ShowDialog();
                 UpdateBestellingen();
                 UpdateKassaGegevens();
@@ -502,21 +516,6 @@ namespace GUI
             {
                 BestelgeschiedenisScherm geschiedenis = new BestelgeschiedenisScherm(App);
                 geschiedenis.ShowDialog();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
-                                exception.Message);
-            }
-        }
-
-        private void ledenlijstToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LedenScherm leden = new LedenScherm(App);
-                leden.ShowDialog();
-                UpdateLeden();
             }
             catch (Exception exception)
             {
@@ -551,7 +550,10 @@ namespace GUI
 
         private void afmeldenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Afmelden();
+            if (App.Authentication != null)
+            {
+                Afmelden();
+            }
         }
 
         private void Afmelden()
@@ -562,7 +564,10 @@ namespace GUI
                     MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Close();
+                    App.SetAuthentication(null);
+                    UpdateKassaGegevens();
+                    aanmeldenToolStripMenuItem.Visible = true;
+                    afmeldenToolStripMenuItem1.Visible = false;
                 }
             }
             catch (Exception exception)
@@ -714,6 +719,50 @@ namespace GUI
             {
                 _omzetScherm = new PenningmeesterScherm(App);
                 _omzetScherm.ShowDialog();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
+        }
+
+        private void aanmeldenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                InlogScherm scherm = new InlogScherm(this, App, MessageType.LOGIN);
+                aanmeldenToolStripMenuItem.Visible = false;
+                afmeldenToolStripMenuItem1.Visible = true;
+                scherm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void UpdateKassaGegevensEvent(object sender, EventArgs e)
+        {
+            UpdateKassaGegevens();
+        }
+
+        private void openToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (App.Authentication != null)
+                {
+                    LedenScherm leden = new LedenScherm(App);
+                    leden.ShowDialog();
+                    UpdateLeden();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina." + Environment.NewLine +
+                        "Log in voor toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {

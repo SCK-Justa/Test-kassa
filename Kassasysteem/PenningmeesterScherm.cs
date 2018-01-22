@@ -67,14 +67,14 @@ namespace Kassasysteem
                 tbZaterdag.Text = "€ " + _weekOmzet[5];
                 tbZondag.Text = "€ " + _weekOmzet[6];
 
-                //DateTime dag = FirstDateOfWeekISO8601(Convert.ToInt32(cbJaarNr.Text), Convert.ToInt32(week[1]));
-                lbDatumDag1.Text = eerstedagvandeweek.Date.ToShortDateString();
-                lbDatumDag2.Text = eerstedagvandeweek.AddDays(1).Date.ToShortDateString();
-                lbDatumDag3.Text = eerstedagvandeweek.AddDays(2).Date.ToShortDateString();
-                lbDatumDag4.Text = eerstedagvandeweek.AddDays(3).Date.ToShortDateString();
-                lbDatumDag5.Text = eerstedagvandeweek.AddDays(4).Date.ToShortDateString();
-                lbDatumDag6.Text = eerstedagvandeweek.AddDays(5).Date.ToShortDateString();
-                lbDatumDag7.Text = eerstedagvandeweek.AddDays(6).Date.ToShortDateString();
+                DateTime dag = FirstDateOfWeekISO8601(Convert.ToInt32(cbJaarNr.Text), Convert.ToInt32(week[1]));
+                lbDatumDag1.Text = dag.Date.ToShortDateString();
+                lbDatumDag2.Text = dag.AddDays(1).Date.ToShortDateString();
+                lbDatumDag3.Text = dag.AddDays(2).Date.ToShortDateString();
+                lbDatumDag4.Text = dag.AddDays(3).Date.ToShortDateString();
+                lbDatumDag5.Text = dag.AddDays(4).Date.ToShortDateString();
+                lbDatumDag6.Text = dag.AddDays(5).Date.ToShortDateString();
+                lbDatumDag7.Text = dag.AddDays(6).Date.ToShortDateString();
 
                 decimal omzetWeek = 0;
                 for (int i = 0; i < 7; i++)

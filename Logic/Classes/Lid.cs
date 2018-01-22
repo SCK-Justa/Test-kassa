@@ -124,9 +124,16 @@ namespace Logic.Classes
 
         public bool GetBestuursfunctie()
         {
+            if(LidTypes == null)
+            {
+                return false;
+            }
             foreach (LidType type in LidTypes)
             {
-                return type.Bestuur;
+                if (type.Bestuur)
+                {
+                    return type.Bestuur;
+                }
             }
             return false;
         }

@@ -95,12 +95,17 @@ namespace Logic
                 {
                     if (auth.Password == password)
                     {
-                        Authentication = auth;
+                        SetAuthentication(auth);
                         return true;
                     }
                 }
             }
             return false;
+        }
+
+        public void SetAuthentication(Authentication auth)
+        {
+            Authentication = auth;
         }
 
         public List<Formulier> GetFormulieren()
@@ -600,8 +605,15 @@ namespace Logic
 
         public bool GetIsGemachtigd()
         {
-            bool value = Authentication.Lid.GetBestuursfunctie();
-            return value;
+            if (Authentication != null)
+            {
+                bool value = Authentication.Lid.GetBestuursfunctie();
+                return value;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void VoegVoorraadToe(Product product, int hoeveelheid)
@@ -628,6 +640,15 @@ namespace Logic
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public string GetAuthenticationName()
+        {
+            if(Authentication != null)
+            {
+                return Authentication.Lid.GetLidNaam();
+            }
+            return "";
         }
     }
 }
