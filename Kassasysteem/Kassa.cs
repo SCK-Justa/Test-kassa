@@ -40,7 +40,6 @@ namespace GUI
                     lbKassaNaam.Text = App.Lokatie;
                     lbDagDatum.Text = DateTime.Now.ToShortDateString();
                     lbOpenstaandeRekeningen.Text = @"0";
-                    lbLoginnaam.Text = @"Admin";
                     lbKlantnaam.Text = "";
                     lbDatumklant.Text = "";
                     lbTotaalPrijs.Text = "";
@@ -143,7 +142,6 @@ namespace GUI
                 lbKassaNaam.Text = App.Lokatie;
                 lbOpenstaandeRekeningen.Text = App.GetBestellingen().Count.ToString();
                 lbDagDatum.Text = DateTime.Now.DayOfWeek + " " + DateTime.Now.ToShortDateString();
-                lbLoginnaam.Text = App.Authentication.GetFullName();
                 lbKlantnaam.Text = "";
                 lbDatumklant.Text = "";
                 lbTotaalPrijs.Text = "";
@@ -720,6 +718,11 @@ namespace GUI
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
+        }
+
+        private void ToonLosseVerkopen_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Oeps, deze knop werkt nog niet!");
         }
     }
 }

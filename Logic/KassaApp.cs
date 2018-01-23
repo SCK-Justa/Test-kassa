@@ -600,7 +600,7 @@ namespace Logic
 
         public bool GetIsGemachtigd()
         {
-            bool value = Authentication.Lid.GetBestuursfunctie();
+            bool value = false;
             return value;
         }
 
