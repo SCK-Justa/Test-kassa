@@ -89,8 +89,8 @@
             this.tbSeptember = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lvLogs = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -213,6 +213,8 @@
             // 
             // tbWeekomzet
             // 
+            this.tbWeekomzet.BackColor = System.Drawing.Color.White;
+            this.tbWeekomzet.Enabled = false;
             this.tbWeekomzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbWeekomzet.Location = new System.Drawing.Point(6, 141);
             this.tbWeekomzet.Name = "tbWeekomzet";
@@ -280,6 +282,8 @@
             // 
             // tbMaandag
             // 
+            this.tbMaandag.BackColor = System.Drawing.Color.White;
+            this.tbMaandag.Enabled = false;
             this.tbMaandag.Location = new System.Drawing.Point(302, 16);
             this.tbMaandag.Name = "tbMaandag";
             this.tbMaandag.Size = new System.Drawing.Size(87, 20);
@@ -297,6 +301,8 @@
             // 
             // tbZondag
             // 
+            this.tbZondag.BackColor = System.Drawing.Color.White;
+            this.tbZondag.Enabled = false;
             this.tbZondag.Location = new System.Drawing.Point(302, 172);
             this.tbZondag.Name = "tbZondag";
             this.tbZondag.Size = new System.Drawing.Size(87, 20);
@@ -314,6 +320,8 @@
             // 
             // tbZaterdag
             // 
+            this.tbZaterdag.BackColor = System.Drawing.Color.White;
+            this.tbZaterdag.Enabled = false;
             this.tbZaterdag.Location = new System.Drawing.Point(302, 146);
             this.tbZaterdag.Name = "tbZaterdag";
             this.tbZaterdag.Size = new System.Drawing.Size(87, 20);
@@ -331,6 +339,8 @@
             // 
             // tbVrijdag
             // 
+            this.tbVrijdag.BackColor = System.Drawing.Color.White;
+            this.tbVrijdag.Enabled = false;
             this.tbVrijdag.Location = new System.Drawing.Point(302, 120);
             this.tbVrijdag.Name = "tbVrijdag";
             this.tbVrijdag.Size = new System.Drawing.Size(87, 20);
@@ -348,6 +358,8 @@
             // 
             // tbDonderdag
             // 
+            this.tbDonderdag.BackColor = System.Drawing.Color.White;
+            this.tbDonderdag.Enabled = false;
             this.tbDonderdag.Location = new System.Drawing.Point(302, 94);
             this.tbDonderdag.Name = "tbDonderdag";
             this.tbDonderdag.Size = new System.Drawing.Size(87, 20);
@@ -355,6 +367,8 @@
             // 
             // tbWoensdag
             // 
+            this.tbWoensdag.BackColor = System.Drawing.Color.White;
+            this.tbWoensdag.Enabled = false;
             this.tbWoensdag.Location = new System.Drawing.Point(302, 68);
             this.tbWoensdag.Name = "tbWoensdag";
             this.tbWoensdag.Size = new System.Drawing.Size(87, 20);
@@ -362,6 +376,8 @@
             // 
             // tbDinsdag
             // 
+            this.tbDinsdag.BackColor = System.Drawing.Color.White;
+            this.tbDinsdag.Enabled = false;
             this.tbDinsdag.Location = new System.Drawing.Point(302, 42);
             this.tbDinsdag.Name = "tbDinsdag";
             this.tbDinsdag.Size = new System.Drawing.Size(87, 20);
@@ -369,6 +385,8 @@
             // 
             // tbJuni
             // 
+            this.tbJuni.BackColor = System.Drawing.Color.White;
+            this.tbJuni.Enabled = false;
             this.tbJuni.Location = new System.Drawing.Point(389, 99);
             this.tbJuni.Name = "tbJuni";
             this.tbJuni.Size = new System.Drawing.Size(87, 20);
@@ -485,6 +503,8 @@
             // 
             // tbDecember
             // 
+            this.tbDecember.BackColor = System.Drawing.Color.White;
+            this.tbDecember.Enabled = false;
             this.tbDecember.Location = new System.Drawing.Point(766, 99);
             this.tbDecember.Name = "tbDecember";
             this.tbDecember.Size = new System.Drawing.Size(87, 20);
@@ -492,6 +512,8 @@
             // 
             // tbJaaromzet
             // 
+            this.tbJaaromzet.BackColor = System.Drawing.Color.White;
+            this.tbJaaromzet.Enabled = false;
             this.tbJaaromzet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbJaaromzet.Location = new System.Drawing.Point(248, 21);
             this.tbJaaromzet.Name = "tbJaaromzet";
@@ -530,6 +552,8 @@
             // 
             // tbJanuari
             // 
+            this.tbJanuari.BackColor = System.Drawing.Color.White;
+            this.tbJanuari.Enabled = false;
             this.tbJanuari.Location = new System.Drawing.Point(248, 47);
             this.tbJanuari.Name = "tbJanuari";
             this.tbJanuari.Size = new System.Drawing.Size(87, 20);
@@ -537,6 +561,8 @@
             // 
             // tbJuli
             // 
+            this.tbJuli.BackColor = System.Drawing.Color.White;
+            this.tbJuli.Enabled = false;
             this.tbJuli.Location = new System.Drawing.Point(580, 47);
             this.tbJuli.Name = "tbJuli";
             this.tbJuli.Size = new System.Drawing.Size(87, 20);
@@ -544,6 +570,8 @@
             // 
             // tbNovember
             // 
+            this.tbNovember.BackColor = System.Drawing.Color.White;
+            this.tbNovember.Enabled = false;
             this.tbNovember.Location = new System.Drawing.Point(766, 73);
             this.tbNovember.Name = "tbNovember";
             this.tbNovember.Size = new System.Drawing.Size(87, 20);
@@ -561,6 +589,8 @@
             // 
             // tbFebruari
             // 
+            this.tbFebruari.BackColor = System.Drawing.Color.White;
+            this.tbFebruari.Enabled = false;
             this.tbFebruari.Location = new System.Drawing.Point(248, 73);
             this.tbFebruari.Name = "tbFebruari";
             this.tbFebruari.Size = new System.Drawing.Size(87, 20);
@@ -588,6 +618,8 @@
             // 
             // tbMei
             // 
+            this.tbMei.BackColor = System.Drawing.Color.White;
+            this.tbMei.Enabled = false;
             this.tbMei.Location = new System.Drawing.Point(389, 73);
             this.tbMei.Name = "tbMei";
             this.tbMei.Size = new System.Drawing.Size(87, 20);
@@ -605,6 +637,8 @@
             // 
             // tbAugustus
             // 
+            this.tbAugustus.BackColor = System.Drawing.Color.White;
+            this.tbAugustus.Enabled = false;
             this.tbAugustus.Location = new System.Drawing.Point(580, 73);
             this.tbAugustus.Name = "tbAugustus";
             this.tbAugustus.Size = new System.Drawing.Size(87, 20);
@@ -612,6 +646,8 @@
             // 
             // tbOktober
             // 
+            this.tbOktober.BackColor = System.Drawing.Color.White;
+            this.tbOktober.Enabled = false;
             this.tbOktober.Location = new System.Drawing.Point(766, 47);
             this.tbOktober.Name = "tbOktober";
             this.tbOktober.Size = new System.Drawing.Size(87, 20);
@@ -629,6 +665,8 @@
             // 
             // tbMaart
             // 
+            this.tbMaart.BackColor = System.Drawing.Color.White;
+            this.tbMaart.Enabled = false;
             this.tbMaart.Location = new System.Drawing.Point(248, 99);
             this.tbMaart.Name = "tbMaart";
             this.tbMaart.Size = new System.Drawing.Size(87, 20);
@@ -656,6 +694,8 @@
             // 
             // tbApril
             // 
+            this.tbApril.BackColor = System.Drawing.Color.White;
+            this.tbApril.Enabled = false;
             this.tbApril.Location = new System.Drawing.Point(389, 47);
             this.tbApril.Name = "tbApril";
             this.tbApril.Size = new System.Drawing.Size(87, 20);
@@ -673,6 +713,8 @@
             // 
             // tbSeptember
             // 
+            this.tbSeptember.BackColor = System.Drawing.Color.White;
+            this.tbSeptember.Enabled = false;
             this.tbSeptember.Location = new System.Drawing.Point(580, 99);
             this.tbSeptember.Name = "tbSeptember";
             this.tbSeptember.Size = new System.Drawing.Size(87, 20);
@@ -700,15 +742,15 @@
             this.lvLogs.UseCompatibleStateImageBehavior = false;
             this.lvLogs.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Logomschrijving";
-            this.columnHeader1.Width = 468;
-            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Logsoort";
             this.columnHeader2.Width = 94;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Logomschrijving";
+            this.columnHeader1.Width = 468;
             // 
             // PenningmeesterScherm
             // 

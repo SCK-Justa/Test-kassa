@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Logic.Classes;
@@ -103,6 +104,42 @@ namespace Logic.Sql
                         }
                     }
                 }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public List<Product> GetLosseVerkopen(DateTime beginDate, DateTime endDate)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT ";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@beginDate", beginDate);
+                            cmd.Parameters.AddWithValue("@endDate", endDate);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                return null;
             }
             catch (Exception exception)
             {

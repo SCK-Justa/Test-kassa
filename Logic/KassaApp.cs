@@ -308,7 +308,6 @@ namespace Logic
                 if (Database.GetIsConnected())
                 {
                     List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetBestellingenBetweenDates(DateTime.Now.AddDays(-7), DateTime.Now);
-                    //tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)
@@ -477,7 +476,7 @@ namespace Logic
         {
             if (_losseVerkopen == null)
             {
-                _losseVerkopen = new List<Product>();
+                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(DateTime.Today.AddDays(-7), DateTime.Today);
             }
             return _losseVerkopen;
         }

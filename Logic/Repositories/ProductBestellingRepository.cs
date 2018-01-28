@@ -1,4 +1,6 @@
-﻿using Logic.Classes;
+﻿using System;
+using System.Collections.Generic;
+using Logic.Classes;
 using Logic.Interfaces;
 
 namespace Logic.Repositories
@@ -28,6 +30,11 @@ namespace Logic.Repositories
         public void RemoveProductFromBestelling(Bestelling bestelling, Product product)
         {
             _productenBestellingServices.RemoveProductFromBestelling(bestelling, product);
+        }
+
+        public List<Product> GetLosseVerkopen(DateTime beginDate, DateTime endDate)
+        {
+            return _productenBestellingServices.GetLosseVerkopen(beginDate, endDate);
         }
     }
 }

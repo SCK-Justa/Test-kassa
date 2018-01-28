@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using Kassasysteem;
 using Logic;
 using Logic.Classes;
@@ -31,6 +32,7 @@ namespace GUI
                 _contanteVerkoop = false;
                 _contanteVerkoopLid = false;
                 timer.Start();
+                CheckDay();
                 if (App.CheckDbConnection())
                 {
                     aanmeldenToolStripMenuItem.Visible = true;
@@ -59,6 +61,40 @@ namespace GUI
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
+        }
+
+        private void CheckDay()
+        {
+            DateTime today = DateTime.Now;
+            switch (today.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    ChangeLbDagReden("");
+                    break;
+                case DayOfWeek.Tuesday:
+                    ChangeLbDagReden("Clubtraining");
+                    break;
+                case DayOfWeek.Wednesday:
+                    ChangeLbDagReden("");
+                    break;
+                case DayOfWeek.Thursday:
+                    ChangeLbDagReden("Training");
+                    break;
+                case DayOfWeek.Friday:
+                    ChangeLbDagReden("Jeugdtraining");
+                    break;
+                case DayOfWeek.Saturday:
+                    ChangeLbDagReden("");
+                    break;
+                case DayOfWeek.Sunday:
+                    ChangeLbDagReden("Training");
+                    break;
+            }
+        }
+
+        private void ChangeLbDagReden(string text)
+        {
+            lbDagReden.Text = text;
         }
 
         private void btMaakBestelling_Click(object sender, EventArgs e)
@@ -768,6 +804,24 @@ namespace GUI
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
+            }
+        }
+
+        private void btLosseVerkopen_Click(object sender, EventArgs e)
+        {
+            List<Product> losseVerkopen = App.GetLosseVerkopen();
+            if (losseVerkopen != null && losseVerkopen.Count > 1)
+            {
+                lbKlantnaam.Text = "Losse verkopen";
+
+                foreach (Product p in losseVerkopen)
+                {
+                    ListViewItem lvi = new ListViewItem(p.Naam);
+                    lvi.SubItems.Add("€" + p.Prijs);
+                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
+                    lvi.Tag = p;
+                    lvProductenInBestelling.Items.Add(lvi);
+                }
             }
         }
     }

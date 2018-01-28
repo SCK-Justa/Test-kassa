@@ -1,4 +1,6 @@
-﻿using Logic.Classes;
+﻿using System;
+using System.Collections.Generic;
+using Logic.Classes;
 
 namespace Logic.Interfaces
 {
@@ -8,5 +10,6 @@ namespace Logic.Interfaces
         void AddLosseVerkoop(Product product, bool isLid);
         void EditProductInBestelling(Bestelling bestelling, Product product);
         void RemoveProductFromBestelling(Bestelling bestelling, Product product);
+        List<Product> GetLosseVerkopen(DateTime beginDate, DateTime endDate);
     }
 }

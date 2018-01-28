@@ -205,6 +205,30 @@
     <None Include="Resources\LOGO Jelle_zwart.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\witte wijn1.jpg" />
+    <None Include="Resources\thee1.png" />
+    <None Include="Resources\spa rood1.jpg" />
+    <None Include="Resources\snickers small1.jpg" />
+    <None Include="Resources\schweppes small21.jpg" />
+    <None Include="Resources\schrobbeler small1.jpg" />
+    <None Include="Resources\rode wijn1.jpg" />
+    <None Include="Resources\mars small1.jpg" />
+    <None Include="Resources\aadrink1.jpg" />
+    <None Include="Resources\amstel radler1.jpg" />
+    <None Include="Resources\aquarius1.jpg" />
+    <None Include="Resources\bifi small1.jpg" />
+    <None Include="Resources\chocomel1.jpg" />
+    <None Include="Resources\cocacola small1.jpg" />
+    <None Include="Resources\cocacolazero small1.jpg" />
+    <None Include="Resources\coffee1.jpg" />
+    <None Include="Resources\croky paprika small 21.jpg" />
+    <None Include="Resources\croky paprika small1.jpg" />
+    <None Include="Resources\fanta cassis small1.jpg" />
+    <None Include="Resources\fanta small1.jpg" />
+    <None Include="Resources\hertogjan small1.jpg" />
+    <None Include="Resources\IceTea1.jpg" />
+    <None Include="Resources\jupiler small1.jpg" />
+    <None Include="Resources\leffe bruin small1.jpg" />
     <Content Include="Resources\Logo SINTSEBASTIAAN_png.png" />
   </ItemGroup>
   <ItemGroup>
