@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUI;
-using Logic;
 
 namespace Kassasysteem
 {
@@ -18,7 +17,7 @@ namespace Kassasysteem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Kassa(new KassaApp("Barkassa")));
+            Application.Run(new Kassa());
         }
     }
 }

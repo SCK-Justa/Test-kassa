@@ -49,7 +49,7 @@ namespace Kassasysteem
                 {
                     _product = product;
                     SetAble(App.GetIsGemachtigd(), App.GetIsGemachtigd());
-                    btOpslaan.Enabled = App.Authentication.Lid.GetBestuursfunctie();
+                    btOpslaan.Enabled = App.GetIsGemachtigd();
                     tbNaam.Text = product.Naam;
                     tbSoort.Text = product.Soort;
                     nudVoorraad.Value = product.Voorraad;

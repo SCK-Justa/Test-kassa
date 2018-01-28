@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbLoginnaam = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbDagDatum = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,7 +40,7 @@
             this.lbKassaNaam = new System.Windows.Forms.Label();
             this.lbKassaNaamlb = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ToonLosseVerkopen = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.cbSoortVerkoop = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lbKlantNaamlbl = new System.Windows.Forms.Label();
@@ -93,6 +95,7 @@
             this.afmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gegevensWijzigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afmeldenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.voorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voorraadToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,6 +118,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.aanmeldenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -130,6 +135,8 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lbLoginnaam);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lbDagDatum);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -143,6 +150,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kassa informatie";
+            // 
+            // lbLoginnaam
+            // 
+            this.lbLoginnaam.AutoSize = true;
+            this.lbLoginnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLoginnaam.Location = new System.Drawing.Point(112, 80);
+            this.lbLoginnaam.Name = "lbLoginnaam";
+            this.lbLoginnaam.Size = new System.Drawing.Size(51, 20);
+            this.lbLoginnaam.TabIndex = 8;
+            this.lbLoginnaam.Text = "label1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Ingelogd als:";
             // 
             // lbDagDatum
             // 
@@ -218,7 +245,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.ToonLosseVerkopen);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.cbSoortVerkoop);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.lvBestellingen);
@@ -229,16 +256,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bestelligen";
             // 
-            // ToonLosseVerkopen
+            // button1
             // 
-            this.ToonLosseVerkopen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToonLosseVerkopen.Location = new System.Drawing.Point(407, 303);
-            this.ToonLosseVerkopen.Name = "ToonLosseVerkopen";
-            this.ToonLosseVerkopen.Size = new System.Drawing.Size(146, 49);
-            this.ToonLosseVerkopen.TabIndex = 11;
-            this.ToonLosseVerkopen.Text = "Toon losse verkopen";
-            this.ToonLosseVerkopen.UseVisualStyleBackColor = true;
-            this.ToonLosseVerkopen.Click += new System.EventHandler(this.ToonLosseVerkopen_Click);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(407, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 49);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Toon losse verkopen";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // cbSoortVerkoop
             // 
@@ -798,13 +824,15 @@
             // afmeldenToolStripMenuItem
             // 
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.afmeldenToolStripMenuItem.Text = "Afsluiten";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aanmeldenToolStripMenuItem,
+            this.afmeldenToolStripMenuItem1,
             this.gegevensWijzigenToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
@@ -816,6 +844,13 @@
             this.gegevensWijzigenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gegevensWijzigenToolStripMenuItem.Text = "Gegevens...";
             this.gegevensWijzigenToolStripMenuItem.Click += new System.EventHandler(this.gegevensWijzigenToolStripMenuItem_Click);
+            // 
+            // afmeldenToolStripMenuItem1
+            // 
+            this.afmeldenToolStripMenuItem1.Name = "afmeldenToolStripMenuItem1";
+            this.afmeldenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.afmeldenToolStripMenuItem1.Text = "Afmelden";
+            this.afmeldenToolStripMenuItem1.Click += new System.EventHandler(this.afmeldenToolStripMenuItem1_Click);
             // 
             // voorraadToolStripMenuItem
             // 
@@ -904,10 +939,11 @@
             // 
             // ledenlijstToolStripMenuItem
             // 
+            this.ledenlijstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem2});
             this.ledenlijstToolStripMenuItem.Name = "ledenlijstToolStripMenuItem";
-            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.ledenlijstToolStripMenuItem.Text = "Ledenlijst openen";
-            this.ledenlijstToolStripMenuItem.Click += new System.EventHandler(this.ledenlijstToolStripMenuItem_Click);
+            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ledenlijstToolStripMenuItem.Text = "Ledenlijst";
             // 
             // gpMenu
             // 
@@ -1037,6 +1073,20 @@
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // aanmeldenToolStripMenuItem
+            // 
+            this.aanmeldenToolStripMenuItem.Name = "aanmeldenToolStripMenuItem";
+            this.aanmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aanmeldenToolStripMenuItem.Text = "Aanmelden";
+            this.aanmeldenToolStripMenuItem.Click += new System.EventHandler(this.aanmeldenToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem2
+            // 
+            this.openToolStripMenuItem2.Name = "openToolStripMenuItem2";
+            this.openToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem2.Text = "Open...";
+            this.openToolStripMenuItem2.Click += new System.EventHandler(this.openToolStripMenuItem2_Click);
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1055,7 +1105,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Kassa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kassa - V1.5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1120,6 +1169,8 @@
         private System.Windows.Forms.Label lbDagDatum;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label lbLoginnaam;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btSchrobbeler;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbLidNaam;
@@ -1129,6 +1180,7 @@
         private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gegevensWijzigenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formulierenToolStripMenuItem;
@@ -1160,8 +1212,10 @@
         private System.Windows.Forms.ComboBox cbSoortVerkoop;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripMenuItem voorraadToevoegenToolStripMenuItem;
-        private System.Windows.Forms.Button ToonLosseVerkopen;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
     }
 }
