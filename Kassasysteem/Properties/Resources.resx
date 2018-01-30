@@ -118,85 +118,94 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="snickers small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snickers small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foods" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foods.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LOGO Jelle_zwart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO Jelle_zwart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IceTea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IceTea.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bifi small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bifi small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="witte wijn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\witte wijn.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rode wijn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rode wijn.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cocacola small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cocacola small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schrobbeler small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schrobbeler small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spa rood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spa rood.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="drinks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drinks.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mars small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mars small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fanta small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fanta small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schweppes small2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schweppes small2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo SINTSEBASTIAAN_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo SINTSEBASTIAAN_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo SINTSEBASTIAAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo SINTSEBASTIAAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="aadrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aadrink1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="amstel radler" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\amstel radler1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="aquarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aquarius1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bifi small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bifi small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chocomel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chocomel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cocacola small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cocacola small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cocacolazero small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cocacolazero small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coffee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\coffee1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="croky paprika small 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\croky paprika small 21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="croky paprika small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\croky paprika small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fanta cassis small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fanta cassis small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fanta small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fanta small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hertogjan small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hertogjan small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IceTea" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IceTea1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="jupiler small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jupiler small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="leffe bruin small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\leffe bruin small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mars small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mars small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rode wijn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rode wijn1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="schrobbeler small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schrobbeler small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="schweppes small2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schweppes small21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snickers small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snickers small1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spa rood" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spa rood1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\amstel radler.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="thee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thee1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\thee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="witte wijn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\witte wijn1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="aquarius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aquarius.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chocomel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chocomel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffee.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="croky paprika small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\croky paprika small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="croky paprika small 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\croky paprika small 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fanta cassis small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fanta cassis small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jupiler small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jupiler small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cocacolazero small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cocacolazero small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hertogjan small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hertogjan small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leffe bruin small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leffe bruin small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aadrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aadrink.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coinbag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coinbag.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foods1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foods1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

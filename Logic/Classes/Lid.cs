@@ -5,7 +5,6 @@ namespace Logic.Classes
 {
     public class Lid : Persoon
     {
-        public string Functie {  get; private set; }
         public DateTime LidVanaf {  get; private set; }
         public List<string> Spelden {  get; }
         public Klasse NhbKlasse {  get; private set; }
@@ -25,11 +24,6 @@ namespace Logic.Classes
             NhbKlasse = nhbKlasse;
             LidVanaf = lidvanaf;
             Spelden = new List<string>();
-        }
-
-        public void SetFunctie(string functie)
-        {
-            Functie = functie;
         }
 
         public void SetKlasse(Klasse klasse)

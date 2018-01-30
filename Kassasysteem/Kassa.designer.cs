@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbDagReden = new System.Windows.Forms.Label();
             this.lbLoginnaam = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbDagDatum = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbOpenstaandeRekeningen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbKassaNaam = new System.Windows.Forms.Label();
@@ -52,6 +54,7 @@
             this.btWisselendSpeciaalBier = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lbLedenprijs = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbDatumklant = new System.Windows.Forms.Label();
             this.btVerwijderProduct = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,23 +87,20 @@
             this.ledenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ledenlijstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rekenmachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpMenu = new System.Windows.Forms.GroupBox();
             this.btDrinken = new System.Windows.Forms.Button();
             this.btEten = new System.Windows.Forms.Button();
             this.gpEten = new System.Windows.Forms.GroupBox();
             this.btTerug2 = new System.Windows.Forms.Button();
-            this.gpDrinken = new System.Windows.Forms.GroupBox();
-            this.btTerug1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbConnectie = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.lbDagReden = new System.Windows.Forms.Label();
             this.btMars = new System.Windows.Forms.Button();
             this.btSnickers = new System.Windows.Forms.Button();
             this.btBiFi = new System.Windows.Forms.Button();
             this.btCrokyNaturel = new System.Windows.Forms.Button();
             this.btCrokyPaprika = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.gpDrinken = new System.Windows.Forms.GroupBox();
+            this.btTerug1 = new System.Windows.Forms.Button();
             this.btSchrobbeler = new System.Windows.Forms.Button();
             this.btKoffie = new System.Windows.Forms.Button();
             this.btThee = new System.Windows.Forms.Button();
@@ -120,17 +120,19 @@
             this.btChocomel = new System.Windows.Forms.Button();
             this.btAquarius = new System.Windows.Forms.Button();
             this.btAaDrink = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbConnectie = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.MenuStrip.SuspendLayout();
             this.gpMenu.SuspendLayout();
             this.gpEten.SuspendLayout();
             this.gpDrinken.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -152,6 +154,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kassa informatie";
+            // 
+            // lbDagReden
+            // 
+            this.lbDagReden.AutoSize = true;
+            this.lbDagReden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDagReden.Location = new System.Drawing.Point(113, 80);
+            this.lbDagReden.Name = "lbDagReden";
+            this.lbDagReden.Size = new System.Drawing.Size(51, 20);
+            this.lbDagReden.TabIndex = 10;
+            this.lbDagReden.Text = "label1";
             // 
             // lbLoginnaam
             // 
@@ -192,6 +204,16 @@
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Datum:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Kassasysteem.Properties.Resources.Logo_SINTSEBASTIAAN_png;
+            this.pictureBox1.Location = new System.Drawing.Point(312, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // lbOpenstaandeRekeningen
             // 
@@ -354,11 +376,11 @@
             // btBonnenkaart
             // 
             this.btBonnenkaart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBonnenkaart.Location = new System.Drawing.Point(354, 101);
+            this.btBonnenkaart.Image = global::Kassasysteem.Properties.Resources.coinbag;
+            this.btBonnenkaart.Location = new System.Drawing.Point(359, 99);
             this.btBonnenkaart.Name = "btBonnenkaart";
-            this.btBonnenkaart.Size = new System.Drawing.Size(128, 142);
+            this.btBonnenkaart.Size = new System.Drawing.Size(144, 142);
             this.btBonnenkaart.TabIndex = 28;
-            this.btBonnenkaart.Text = "Zakje munten \r\n(10 munten)";
             this.btBonnenkaart.UseVisualStyleBackColor = true;
             this.btBonnenkaart.Click += new System.EventHandler(this.btBonnenkaart_Click);
             // 
@@ -404,6 +426,16 @@
             this.lbLedenprijs.Size = new System.Drawing.Size(42, 20);
             this.lbLedenprijs.TabIndex = 45;
             this.lbLedenprijs.Text = "prijs";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Kassasysteem.Properties.Resources.LOGO_Jelle_zwart;
+            this.pictureBox2.Location = new System.Drawing.Point(312, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
             // 
             // lbDatumklant
             // 
@@ -525,7 +557,8 @@
             this.voorraadToolStripMenuItem,
             this.formulierenToolStripMenuItem,
             this.bestellingenToolStripMenuItem,
-            this.ledenToolStripMenuItem});
+            this.ledenToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.Size = new System.Drawing.Size(1008, 24);
@@ -678,14 +711,28 @@
             this.openToolStripMenuItem2.Text = "Open...";
             this.openToolStripMenuItem2.Click += new System.EventHandler(this.openToolStripMenuItem2_Click);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rekenmachineToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // rekenmachineToolStripMenuItem
+            // 
+            this.rekenmachineToolStripMenuItem.Name = "rekenmachineToolStripMenuItem";
+            this.rekenmachineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rekenmachineToolStripMenuItem.Text = "Rekenmachine";
+            // 
             // gpMenu
             // 
             this.gpMenu.Controls.Add(this.btBonnenkaart);
             this.gpMenu.Controls.Add(this.btDrinken);
             this.gpMenu.Controls.Add(this.btEten);
-            this.gpMenu.Location = new System.Drawing.Point(12, 391);
+            this.gpMenu.Location = new System.Drawing.Point(12, 390);
             this.gpMenu.Name = "gpMenu";
-            this.gpMenu.Size = new System.Drawing.Size(565, 327);
+            this.gpMenu.Size = new System.Drawing.Size(566, 327);
             this.gpMenu.TabIndex = 5;
             this.gpMenu.TabStop = false;
             this.gpMenu.Text = "Selecteer uw keuze";
@@ -693,22 +740,22 @@
             // btDrinken
             // 
             this.btDrinken.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btDrinken.Location = new System.Drawing.Point(220, 101);
+            this.btDrinken.Image = global::Kassasysteem.Properties.Resources.drinks;
+            this.btDrinken.Location = new System.Drawing.Point(212, 99);
             this.btDrinken.Name = "btDrinken";
-            this.btDrinken.Size = new System.Drawing.Size(128, 142);
+            this.btDrinken.Size = new System.Drawing.Size(141, 142);
             this.btDrinken.TabIndex = 1;
-            this.btDrinken.Text = "Drinken";
             this.btDrinken.UseVisualStyleBackColor = true;
             this.btDrinken.Click += new System.EventHandler(this.btDrinken_Click);
             // 
             // btEten
             // 
             this.btEten.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btEten.Location = new System.Drawing.Point(73, 101);
+            this.btEten.Image = global::Kassasysteem.Properties.Resources.foods1;
+            this.btEten.Location = new System.Drawing.Point(65, 99);
             this.btEten.Name = "btEten";
             this.btEten.Size = new System.Drawing.Size(141, 142);
             this.btEten.TabIndex = 0;
-            this.btEten.Text = "Eten";
             this.btEten.UseVisualStyleBackColor = true;
             this.btEten.Click += new System.EventHandler(this.btEten_Click);
             // 
@@ -730,91 +777,13 @@
             // btTerug2
             // 
             this.btTerug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug2.Location = new System.Drawing.Point(466, 270);
+            this.btTerug2.Location = new System.Drawing.Point(466, 269);
             this.btTerug2.Name = "btTerug2";
             this.btTerug2.Size = new System.Drawing.Size(100, 50);
             this.btTerug2.TabIndex = 33;
             this.btTerug2.Text = "Terug";
             this.btTerug2.UseVisualStyleBackColor = true;
             this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
-            // 
-            // gpDrinken
-            // 
-            this.gpDrinken.Controls.Add(this.btTerug1);
-            this.gpDrinken.Controls.Add(this.btSchrobbeler);
-            this.gpDrinken.Controls.Add(this.btKoffie);
-            this.gpDrinken.Controls.Add(this.btThee);
-            this.gpDrinken.Controls.Add(this.btWitteWijn);
-            this.gpDrinken.Controls.Add(this.btCocaCola);
-            this.gpDrinken.Controls.Add(this.btRodeWijn);
-            this.gpDrinken.Controls.Add(this.btCocaColaZero);
-            this.gpDrinken.Controls.Add(this.btWisselendSpeciaalBier);
-            this.gpDrinken.Controls.Add(this.btFantaSinas);
-            this.gpDrinken.Controls.Add(this.btFantaCassis);
-            this.gpDrinken.Controls.Add(this.btLeffeBruin);
-            this.gpDrinken.Controls.Add(this.btAmstelRadler);
-            this.gpDrinken.Controls.Add(this.btSpaRood);
-            this.gpDrinken.Controls.Add(this.btJupiler);
-            this.gpDrinken.Controls.Add(this.btBitterLemon);
-            this.gpDrinken.Controls.Add(this.btIceTea);
-            this.gpDrinken.Controls.Add(this.btHertogJan);
-            this.gpDrinken.Controls.Add(this.btChocomel);
-            this.gpDrinken.Controls.Add(this.btAquarius);
-            this.gpDrinken.Controls.Add(this.btAaDrink);
-            this.gpDrinken.Location = new System.Drawing.Point(12, 391);
-            this.gpDrinken.Name = "gpDrinken";
-            this.gpDrinken.Size = new System.Drawing.Size(566, 326);
-            this.gpDrinken.TabIndex = 46;
-            this.gpDrinken.TabStop = false;
-            this.gpDrinken.Text = "Drinken";
-            // 
-            // btTerug1
-            // 
-            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug1.Location = new System.Drawing.Point(466, 274);
-            this.btTerug1.Name = "btTerug1";
-            this.btTerug1.Size = new System.Drawing.Size(100, 50);
-            this.btTerug1.TabIndex = 32;
-            this.btTerug1.Text = "Terug";
-            this.btTerug1.UseVisualStyleBackColor = true;
-            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(887, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Connectie:";
-            // 
-            // lbConnectie
-            // 
-            this.lbConnectie.AutoSize = true;
-            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbConnectie.Location = new System.Drawing.Point(951, 9);
-            this.lbConnectie.Name = "lbConnectie";
-            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
-            this.lbConnectie.TabIndex = 47;
-            this.lbConnectie.Text = ".";
-            // 
-            // timer
-            // 
-            this.timer.Interval = 20000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // lbDagReden
-            // 
-            this.lbDagReden.AutoSize = true;
-            this.lbDagReden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDagReden.Location = new System.Drawing.Point(113, 80);
-            this.lbDagReden.Name = "lbDagReden";
-            this.lbDagReden.Size = new System.Drawing.Size(51, 20);
-            this.lbDagReden.TabIndex = 10;
-            this.lbDagReden.Text = "label1";
             // 
             // btMars
             // 
@@ -871,15 +840,46 @@
             this.btCrokyPaprika.UseVisualStyleBackColor = true;
             this.btCrokyPaprika.Click += new System.EventHandler(this.btCrokyPaprika_Click);
             // 
-            // pictureBox2
+            // gpDrinken
             // 
-            this.pictureBox2.Image = global::Kassasysteem.Properties.Resources.LOGO_Jelle_zwart;
-            this.pictureBox2.Location = new System.Drawing.Point(306, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
+            this.gpDrinken.Controls.Add(this.btSchrobbeler);
+            this.gpDrinken.Controls.Add(this.btKoffie);
+            this.gpDrinken.Controls.Add(this.btTerug1);
+            this.gpDrinken.Controls.Add(this.btThee);
+            this.gpDrinken.Controls.Add(this.btWitteWijn);
+            this.gpDrinken.Controls.Add(this.btCocaCola);
+            this.gpDrinken.Controls.Add(this.btRodeWijn);
+            this.gpDrinken.Controls.Add(this.btCocaColaZero);
+            this.gpDrinken.Controls.Add(this.btWisselendSpeciaalBier);
+            this.gpDrinken.Controls.Add(this.btFantaSinas);
+            this.gpDrinken.Controls.Add(this.btFantaCassis);
+            this.gpDrinken.Controls.Add(this.btLeffeBruin);
+            this.gpDrinken.Controls.Add(this.btAmstelRadler);
+            this.gpDrinken.Controls.Add(this.btSpaRood);
+            this.gpDrinken.Controls.Add(this.btJupiler);
+            this.gpDrinken.Controls.Add(this.btBitterLemon);
+            this.gpDrinken.Controls.Add(this.btIceTea);
+            this.gpDrinken.Controls.Add(this.btHertogJan);
+            this.gpDrinken.Controls.Add(this.btChocomel);
+            this.gpDrinken.Controls.Add(this.btAquarius);
+            this.gpDrinken.Controls.Add(this.btAaDrink);
+            this.gpDrinken.Location = new System.Drawing.Point(12, 391);
+            this.gpDrinken.Name = "gpDrinken";
+            this.gpDrinken.Size = new System.Drawing.Size(566, 326);
+            this.gpDrinken.TabIndex = 46;
+            this.gpDrinken.TabStop = false;
+            this.gpDrinken.Text = "Drinken";
+            // 
+            // btTerug1
+            // 
+            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug1.Location = new System.Drawing.Point(466, 276);
+            this.btTerug1.Name = "btTerug1";
+            this.btTerug1.Size = new System.Drawing.Size(100, 50);
+            this.btTerug1.TabIndex = 32;
+            this.btTerug1.Text = "Terug";
+            this.btTerug1.UseVisualStyleBackColor = true;
+            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
             // btSchrobbeler
             // 
@@ -1090,15 +1090,32 @@
             this.btAaDrink.UseVisualStyleBackColor = true;
             this.btAaDrink.Click += new System.EventHandler(this.btAaDrink_Click);
             // 
-            // pictureBox1
+            // label7
             // 
-            this.pictureBox1.Image = global::Kassasysteem.Properties.Resources.Logo_SINTSEBASTIAAN_png;
-            this.pictureBox1.Location = new System.Drawing.Point(306, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(887, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Connectie:";
+            // 
+            // lbConnectie
+            // 
+            this.lbConnectie.AutoSize = true;
+            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbConnectie.Location = new System.Drawing.Point(951, 9);
+            this.lbConnectie.Name = "lbConnectie";
+            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
+            this.lbConnectie.TabIndex = 47;
+            this.lbConnectie.Text = ".";
+            // 
+            // timer
+            // 
+            this.timer.Interval = 20000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Kassa
             // 
@@ -1106,10 +1123,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.lbConnectie);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.gpMenu);
             this.Controls.Add(this.gpDrinken);
+            this.Controls.Add(this.lbConnectie);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.gpEten);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
@@ -1120,18 +1137,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.gpMenu.ResumeLayout(false);
             this.gpEten.ResumeLayout(false);
             this.gpDrinken.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1231,5 +1248,7 @@
         private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
         private System.Windows.Forms.Label lbDagReden;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rekenmachineToolStripMenuItem;
     }
 }

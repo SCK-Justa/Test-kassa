@@ -221,42 +221,26 @@ namespace GUI
             {
                 foreach (Product p in bestelling.GetProducten())
                 {
-                    ListViewItem lvi = new ListViewItem(p.Naam);
-                    lvi.SubItems.Add("€" + p.Prijs);
-                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
-                    lvi.Tag = p;
-                    lvProductenInBestelling.Items.Add(lvi);
+                    UpdateListViewKlantBestelling(p, "€" + p.Prijs, "€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
                 }
                 lbTotaalPrijs.Text = @"€" + bestelling.TotaalPrijs.ToString(CultureInfo.InvariantCulture);
                 lbLedenprijs.Text = @"€" + bestelling.TotaalLedenPrijs.ToString(CultureInfo.InvariantCulture);
-                lbDatumklant.Text =
-                    bestelling.Datum.ToShortDateString() + @" - " + bestelling.Datum.ToShortTimeString();
+                lbDatumklant.Text = bestelling.Datum.ToShortDateString() + @" - " + bestelling.Datum.ToShortTimeString();
             }
             else
             {
-                foreach (Product p in App.GetLosseVerkopen())
+                foreach (LosseVerkoop p in App.GetLosseVerkopen())
                 {
-                    ListViewItem lvi = new ListViewItem(p.Naam);
-                    lvi.SubItems.Add("€" + p.Prijs);
-                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
-                    lvi.Tag = p;
-                    lvProductenInBestelling.Items.Add(lvi);
+                    if (p.IsLid)
+                    {
+                        UpdateListViewKlantBestelling(p, "€ 0,-", "€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
+                    }
+                    else
+                    {
+                        UpdateListViewKlantBestelling(p, "€ " + p.Prijs, "€ 0,-", lvProductenInBestelling);
+                    }
                 }
-                // Eerst de prijs uit de losse verkopen bepalen en displayen
-                decimal prijs = 0.00m;
-                foreach (Product p in App.GetLosseVerkopen())
-                {
-                    prijs += p.Prijs;
-                }
-                lbTotaalPrijs.Text = @"€" + prijs.ToString(CultureInfo.InvariantCulture);
-                // Dan de ledenprijs uit de losse verkopen bepalen en displayen
-                prijs = 0.00m;
-                foreach (Product p in App.GetLosseVerkopen())
-                {
-                    prijs += p.Ledenprijs;
-                }
-                lbLedenprijs.Text = @"€" + prijs.ToString(CultureInfo.InvariantCulture);
-                lbDatumklant.Text = DateTime.Today.ToShortDateString();
+                BerekenPrijsLosseVerkopen();
             }
         }
 
@@ -264,18 +248,21 @@ namespace GUI
         {
             // Als er een product meteen verkocht wordt, zonder bestelling, wordt de if uitgevoerd.
             // Bij het toevogen van en product aan een bestelling, wordt de else uitgevoerd.
+            LosseVerkoop verkoop = null;
             if (_contanteVerkoop || _contanteVerkoopLid)
             {
                 if (_contanteVerkoop) // Losse verkoop als niet lid
                 {
                     Product product = App.VindProduct(productnaam);
-                    App.AddLosseVerkoop(product, false);
+                    verkoop = new LosseVerkoop(DateTime.Now, false, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
+                    App.AddLosseVerkoop(verkoop);
                     UpdateKlantBestelling(null);
                 }
                 else // Losse verkoop als lid
                 {
                     Product product = App.VindProduct(productnaam);
-                    App.AddLosseVerkoop(product, true);
+                    verkoop = new LosseVerkoop(DateTime.Now, true, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
+                    App.AddLosseVerkoop(verkoop);
                     UpdateKlantBestelling(null);
                 }
             }
@@ -488,15 +475,18 @@ namespace GUI
         {
             try
             {
-                var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
+                Bestelling bestelling = null;
+                try{
+                     bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
+                } catch(Exception) { }
 
                 if (bestelling != null)
                 {
                     var product = lvProductenInBestelling.SelectedItems[0].Tag as Product;
                     if (product != null)
                     {
+                        App.RemoveProductVanBestelling(bestelling, product, null);
                         MessageBox.Show($@"{product.Naam} wordt uit de bestelling van {bestelling.GetBesteller()} verwijderd.");
-                        App.RemoveProductVanBestelling(bestelling, product);
                         UpdateKlantBestelling(bestelling);
                     }
                     else
@@ -506,7 +496,17 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show(@"Een error is opgetreden!");
+                    var verkoop = lvProductenInBestelling.SelectedItems[0].Tag as LosseVerkoop;
+                    if (verkoop != null)
+                    {
+                        App.RemoveProductVanBestelling(null, null, verkoop);
+                        MessageBox.Show($@"{verkoop.Naam} wordt als losse verkoop.");
+                        UpdateKlantBestelling(null);
+                    }
+                    else
+                    {
+                        throw new Exception("Selecteer eerst een bestelling of losse verkoop.");
+                    }
                 }
                 UpdateBestellingen();
             }
@@ -514,6 +514,7 @@ namespace GUI
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
+                UpdateBestellingen();
             }
         }
 
@@ -563,24 +564,28 @@ namespace GUI
         private void btEten_Click(object sender, EventArgs e)
         {
             gpEten.Visible = true;
+            gpDrinken.Visible = false;
             gpMenu.Visible = false;
         }
 
         private void btDrinken_Click(object sender, EventArgs e)
         {
             gpDrinken.Visible = true;
+            gpEten.Visible = false;
             gpMenu.Visible = false;
         }
 
         private void btTerug1_Click(object sender, EventArgs e)
         {
             gpMenu.Visible = true;
+            gpEten.Visible = false;
             gpDrinken.Visible = false;
         }
 
         private void btTerug2_Click(object sender, EventArgs e)
         {
             gpMenu.Visible = true;
+            gpDrinken.Visible = false;
             gpEten.Visible = false;
         }
 
@@ -700,18 +705,11 @@ namespace GUI
             else
             {
                 lvProductenInBestelling.Items.Clear();
-                foreach (Product p in App.GetLosseVerkopen())
-                {
-                    ListViewItem lvi = new ListViewItem(p.Naam);
-                    lvi.SubItems.Add("€" + p.Prijs);
-                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
-                    lvi.Tag = p;
-                    lvProductenInBestelling.Items.Add(lvi);
-                }
+                UpdateKlantBestelling(null);
                 if (isLid)
                 {
                     groupBox6.Visible = false;
-                    _contanteVerkoop = true;
+                    _contanteVerkoop = false;
                     _contanteVerkoopLid = true;
                 }
                 else
@@ -809,20 +807,56 @@ namespace GUI
 
         private void btLosseVerkopen_Click(object sender, EventArgs e)
         {
-            List<Product> losseVerkopen = App.GetLosseVerkopen();
+            lvProductenInBestelling.Items.Clear();
+            List<LosseVerkoop> losseVerkopen = App.GetLosseVerkopen();
             if (losseVerkopen != null && losseVerkopen.Count > 1)
             {
                 lbKlantnaam.Text = "Losse verkopen";
-
-                foreach (Product p in losseVerkopen)
+                lbTotaalPrijs.Text = "";
+                lbLedenprijs.Text = "";
+                lbDatumklant.Text = "Van " + DateTime.Now.AddDays(-8).ToShortDateString() + " tot " + DateTime.Now.ToShortDateString();
+                foreach (LosseVerkoop p in losseVerkopen)
                 {
-                    ListViewItem lvi = new ListViewItem(p.Naam);
-                    lvi.SubItems.Add("€" + p.Prijs);
-                    lvi.SubItems.Add("€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture));
-                    lvi.Tag = p;
-                    lvProductenInBestelling.Items.Add(lvi);
+                    if (p.IsLid)
+                    {
+                        UpdateListViewKlantBestelling(p, "€ 0,-", "€ "+ p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
+                    }
+                    else
+                    {
+                        UpdateListViewKlantBestelling(p, "€ "+p.Prijs, "€ 0,-", lvProductenInBestelling);
+                    }
+                }
+                BerekenPrijsLosseVerkopen();
+            }
+        }
+
+        private void UpdateListViewKlantBestelling(Product p, string prijs, string ledenprijs, ListView listView)
+        {
+            ListViewItem lvi = new ListViewItem(p.Naam);
+            lvi.SubItems.Add(prijs);
+            lvi.SubItems.Add(ledenprijs);
+            lvi.Tag = p;
+            listView.Items.Add(lvi);
+        }
+
+        private void BerekenPrijsLosseVerkopen()
+        {
+            decimal prijs = 0.00m;
+            decimal ledenprijs = 0.00m;
+            foreach (LosseVerkoop lv in App.GetLosseVerkopen())
+            {
+                if(lv.IsLid)
+                {
+                    ledenprijs += lv.Ledenprijs;
+                }
+                else
+                {
+                    prijs += lv.Prijs;
                 }
             }
+            lbTotaalPrijs.Text = @"€ " + prijs;
+            lbLedenprijs.Text = @"€ " + ledenprijs;
+            lbDatumklant.Text = DateTime.Today.ToShortDateString();
         }
     }
 }

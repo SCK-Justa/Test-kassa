@@ -201,41 +201,101 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo SINTSEBASTIAAN.jpg" />
-    <None Include="Resources\LOGO Jelle_zwart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\witte wijn1.jpg" />
-    <None Include="Resources\thee1.png" />
-    <None Include="Resources\spa rood1.jpg" />
-    <None Include="Resources\snickers small1.jpg" />
-    <None Include="Resources\schweppes small21.jpg" />
-    <None Include="Resources\schrobbeler small1.jpg" />
-    <None Include="Resources\rode wijn1.jpg" />
-    <None Include="Resources\mars small1.jpg" />
-    <None Include="Resources\aadrink1.jpg" />
-    <None Include="Resources\amstel radler1.jpg" />
-    <None Include="Resources\aquarius1.jpg" />
-    <None Include="Resources\bifi small1.jpg" />
-    <None Include="Resources\chocomel1.jpg" />
-    <None Include="Resources\cocacola small1.jpg" />
-    <None Include="Resources\cocacolazero small1.jpg" />
-    <None Include="Resources\coffee1.jpg" />
-    <None Include="Resources\croky paprika small 21.jpg" />
-    <None Include="Resources\croky paprika small1.jpg" />
-    <None Include="Resources\fanta cassis small1.jpg" />
-    <None Include="Resources\fanta small1.jpg" />
-    <None Include="Resources\hertogjan small1.jpg" />
-    <None Include="Resources\IceTea1.jpg" />
-    <None Include="Resources\jupiler small1.jpg" />
-    <None Include="Resources\leffe bruin small1.jpg" />
-    <Content Include="Resources\Logo SINTSEBASTIAAN_png.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Logic\Logic.csproj">
       <Project>{384be82b-82b5-408c-859b-b29a18ff70bc}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\aadrink.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amstel radler.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aquarius.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bifi small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chocomel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocacola small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocacolazero small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coinbag.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\croky paprika small 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\croky paprika small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drinks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fanta cassis small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fanta small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foods.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hertogjan small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IceTea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jupiler small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leffe bruin small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mars small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rode wijn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schrobbeler small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schweppes small2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snickers small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spa rood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\witte wijn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo SINTSEBASTIAAN_png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO Jelle_zwart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foods1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
