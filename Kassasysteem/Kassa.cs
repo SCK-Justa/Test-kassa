@@ -869,5 +869,12 @@ namespace GUI
             lbLedenprijs.Text = @"€ " + ledenprijs;
             lbDatumklant.Text = DateTime.Today.ToShortDateString();
         }
+
+        private void rekenmachineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
+            p.WaitForInputIdle();
+            //NativeMethods.SetParent(p.MainWindowHandle, this.Handle);
+        }
     }
 }

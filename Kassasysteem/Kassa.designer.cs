@@ -766,7 +766,7 @@
             this.ledenlijstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem2});
             this.ledenlijstToolStripMenuItem.Name = "ledenlijstToolStripMenuItem";
-            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ledenlijstToolStripMenuItem.Text = "Ledenlijst";
             // 
             // openToolStripMenuItem2
@@ -789,6 +789,7 @@
             this.rekenmachineToolStripMenuItem.Name = "rekenmachineToolStripMenuItem";
             this.rekenmachineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rekenmachineToolStripMenuItem.Text = "Rekenmachine";
+            this.rekenmachineToolStripMenuItem.Click += new System.EventHandler(this.rekenmachineToolStripMenuItem_Click);
             // 
             // gpMenu
             // 

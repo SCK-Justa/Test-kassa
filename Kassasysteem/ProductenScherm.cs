@@ -13,13 +13,16 @@ namespace Kassasysteem
         {
             InitializeComponent();
             App = app;
-            if (bestelling == null)
+            if (App.GetIsGemachtigd())
             {
-                btRemove.Enabled = true;
-            }
-            else
-            {
-                btRemove.Enabled = false;
+                if (bestelling == null)
+                {
+                    btRemove.Enabled = true;
+                }
+                else
+                {
+                    btRemove.Enabled = false;
+                }
             }
             UpdateProducten(bestelling);
         }
@@ -59,7 +62,23 @@ namespace Kassasysteem
 
         private void btRemove_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var verkoop = lvProducten.SelectedItems[0].Tag as LosseVerkoop;
+                if (verkoop != null)
+                {
+                    App.RemoveProductVanBestelling(null, null, verkoop);
+                }
+                else
+                {
+                    throw new Exception("Selecteer eerst een verkoop.");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
     }
 }
