@@ -22,6 +22,101 @@
 
         #region Windows Form Designer generated code
 
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView lvBestellingen;
+        private System.Windows.Forms.Button btBiFi;
+        private System.Windows.Forms.Button btCrokyPaprika;
+        private System.Windows.Forms.Button btCrokyNaturel;
+        private System.Windows.Forms.Button btSnickers;
+        private System.Windows.Forms.Button btMars;
+        private System.Windows.Forms.Button btWitteWijn;
+        private System.Windows.Forms.Button btWisselendSpeciaalBier;
+        private System.Windows.Forms.Button btRodeWijn;
+        private System.Windows.Forms.Button btAmstelRadler;
+        private System.Windows.Forms.Button btJupiler;
+        private System.Windows.Forms.Button btLeffeBruin;
+        private System.Windows.Forms.Button btHertogJan;
+        private System.Windows.Forms.Button btAquarius;
+        private System.Windows.Forms.Button btAaDrink;
+        private System.Windows.Forms.Button btChocomel;
+        private System.Windows.Forms.Button btIceTea;
+        private System.Windows.Forms.Button btBitterLemon;
+        private System.Windows.Forms.Button btSpaRood;
+        private System.Windows.Forms.Button btFantaCassis;
+        private System.Windows.Forms.Button btFantaSinas;
+        private System.Windows.Forms.Button btCocaColaZero;
+        private System.Windows.Forms.Button btCocaCola;
+        private System.Windows.Forms.Button btThee;
+        private System.Windows.Forms.Button btKoffie;
+        private System.Windows.Forms.Label lbKlantNaamlbl;
+        private System.Windows.Forms.Button btMaakBestelling;
+        private System.Windows.Forms.TextBox tbKlantnaam;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label lbKassaNaamlb;
+        private System.Windows.Forms.Label lbKassaNaam;
+        private System.Windows.Forms.Label lbOpenstaandeRekeningen;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ListView lvProductenInBestelling;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Label lbDagDatum;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label lbLoginnaam;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btSchrobbeler;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbLidNaam;
+        private System.Windows.Forms.Button btBonnenkaart;
+        private System.Windows.Forms.MenuStrip MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gegevensWijzigenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formulierenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bestellingenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bestelgeschiedenisToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label lbLedenprijs;
+        private System.Windows.Forms.Label lbDatumklant;
+        private System.Windows.Forms.Button btVerwijderProduct;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbTotaalPrijs;
+        private System.Windows.Forms.Label lbPrijslb;
+        private System.Windows.Forms.Label lbKlantnaam;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btAfrekenen;
+        private System.Windows.Forms.ToolStripMenuItem ledenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ledenlijstToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gpMenu;
+        private System.Windows.Forms.Button btDrinken;
+        private System.Windows.Forms.Button btEten;
+        private System.Windows.Forms.GroupBox gpEten;
+        private System.Windows.Forms.GroupBox gpDrinken;
+        private System.Windows.Forms.Button btTerug1;
+        private System.Windows.Forms.Button btTerug2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbConnectie;
+        private System.Windows.Forms.ToolStripMenuItem verkoopgeschiedenisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sUKToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbSoortVerkoop;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolStripMenuItem voorraadToevoegenToolStripMenuItem;
+        private System.Windows.Forms.Button btLosseVerkopen;
+        private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
+        private System.Windows.Forms.Label lbDagReden;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rekenmachineToolStripMenuItem;
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -29,13 +124,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kassa));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbDagReden = new System.Windows.Forms.Label();
             this.lbLoginnaam = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbDagDatum = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbOpenstaandeRekeningen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbKassaNaam = new System.Windows.Forms.Label();
@@ -50,11 +145,9 @@
             this.cbLidNaam = new System.Windows.Forms.ComboBox();
             this.btMaakBestelling = new System.Windows.Forms.Button();
             this.lvBestellingen = new System.Windows.Forms.ListView();
-            this.btBonnenkaart = new System.Windows.Forms.Button();
             this.btWisselendSpeciaalBier = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lbLedenprijs = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbDatumklant = new System.Windows.Forms.Label();
             this.btVerwijderProduct = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,17 +183,16 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rekenmachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpMenu = new System.Windows.Forms.GroupBox();
-            this.btDrinken = new System.Windows.Forms.Button();
-            this.btEten = new System.Windows.Forms.Button();
             this.gpEten = new System.Windows.Forms.GroupBox();
             this.btTerug2 = new System.Windows.Forms.Button();
-            this.btMars = new System.Windows.Forms.Button();
-            this.btSnickers = new System.Windows.Forms.Button();
-            this.btBiFi = new System.Windows.Forms.Button();
-            this.btCrokyNaturel = new System.Windows.Forms.Button();
-            this.btCrokyPaprika = new System.Windows.Forms.Button();
             this.gpDrinken = new System.Windows.Forms.GroupBox();
             this.btTerug1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbConnectie = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btBonnenkaart = new System.Windows.Forms.Button();
+            this.btDrinken = new System.Windows.Forms.Button();
+            this.btEten = new System.Windows.Forms.Button();
             this.btSchrobbeler = new System.Windows.Forms.Button();
             this.btKoffie = new System.Windows.Forms.Button();
             this.btThee = new System.Windows.Forms.Button();
@@ -120,19 +212,23 @@
             this.btChocomel = new System.Windows.Forms.Button();
             this.btAquarius = new System.Windows.Forms.Button();
             this.btAaDrink = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbConnectie = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btMars = new System.Windows.Forms.Button();
+            this.btSnickers = new System.Windows.Forms.Button();
+            this.btBiFi = new System.Windows.Forms.Button();
+            this.btCrokyNaturel = new System.Windows.Forms.Button();
+            this.btCrokyPaprika = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.MenuStrip.SuspendLayout();
             this.gpMenu.SuspendLayout();
             this.gpEten.SuspendLayout();
             this.gpDrinken.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -204,16 +300,6 @@
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Datum:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Kassasysteem.Properties.Resources.Logo_SINTSEBASTIAAN_png;
-            this.pictureBox1.Location = new System.Drawing.Point(312, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // lbOpenstaandeRekeningen
             // 
@@ -373,17 +459,6 @@
             this.lvBestellingen.View = System.Windows.Forms.View.Tile;
             this.lvBestellingen.Click += new System.EventHandler(this.lvBestellingen_Click);
             // 
-            // btBonnenkaart
-            // 
-            this.btBonnenkaart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBonnenkaart.Image = global::Kassasysteem.Properties.Resources.coinbag;
-            this.btBonnenkaart.Location = new System.Drawing.Point(359, 99);
-            this.btBonnenkaart.Name = "btBonnenkaart";
-            this.btBonnenkaart.Size = new System.Drawing.Size(144, 142);
-            this.btBonnenkaart.TabIndex = 28;
-            this.btBonnenkaart.UseVisualStyleBackColor = true;
-            this.btBonnenkaart.Click += new System.EventHandler(this.btBonnenkaart_Click);
-            // 
             // btWisselendSpeciaalBier
             // 
             this.btWisselendSpeciaalBier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -426,16 +501,6 @@
             this.lbLedenprijs.Size = new System.Drawing.Size(42, 20);
             this.lbLedenprijs.TabIndex = 45;
             this.lbLedenprijs.Text = "prijs";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Kassasysteem.Properties.Resources.LOGO_Jelle_zwart;
-            this.pictureBox2.Location = new System.Drawing.Point(312, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
             // 
             // lbDatumklant
             // 
@@ -737,28 +802,6 @@
             this.gpMenu.TabStop = false;
             this.gpMenu.Text = "Selecteer uw keuze";
             // 
-            // btDrinken
-            // 
-            this.btDrinken.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btDrinken.Image = global::Kassasysteem.Properties.Resources.drinks;
-            this.btDrinken.Location = new System.Drawing.Point(212, 99);
-            this.btDrinken.Name = "btDrinken";
-            this.btDrinken.Size = new System.Drawing.Size(141, 142);
-            this.btDrinken.TabIndex = 1;
-            this.btDrinken.UseVisualStyleBackColor = true;
-            this.btDrinken.Click += new System.EventHandler(this.btDrinken_Click);
-            // 
-            // btEten
-            // 
-            this.btEten.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.btEten.Image = global::Kassasysteem.Properties.Resources.foods1;
-            this.btEten.Location = new System.Drawing.Point(65, 99);
-            this.btEten.Name = "btEten";
-            this.btEten.Size = new System.Drawing.Size(141, 142);
-            this.btEten.TabIndex = 0;
-            this.btEten.UseVisualStyleBackColor = true;
-            this.btEten.Click += new System.EventHandler(this.btEten_Click);
-            // 
             // gpEten
             // 
             this.gpEten.Controls.Add(this.btTerug2);
@@ -784,61 +827,6 @@
             this.btTerug2.Text = "Terug";
             this.btTerug2.UseVisualStyleBackColor = true;
             this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
-            // 
-            // btMars
-            // 
-            this.btMars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMars.Image = global::Kassasysteem.Properties.Resources.mars_small;
-            this.btMars.Location = new System.Drawing.Point(11, 20);
-            this.btMars.Name = "btMars";
-            this.btMars.Size = new System.Drawing.Size(105, 50);
-            this.btMars.TabIndex = 22;
-            this.btMars.UseVisualStyleBackColor = true;
-            this.btMars.Click += new System.EventHandler(this.btMars_Click);
-            // 
-            // btSnickers
-            // 
-            this.btSnickers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSnickers.Image = global::Kassasysteem.Properties.Resources.snickers_small;
-            this.btSnickers.Location = new System.Drawing.Point(11, 85);
-            this.btSnickers.Name = "btSnickers";
-            this.btSnickers.Size = new System.Drawing.Size(105, 50);
-            this.btSnickers.TabIndex = 23;
-            this.btSnickers.UseVisualStyleBackColor = true;
-            this.btSnickers.Click += new System.EventHandler(this.btSnickers_Click);
-            // 
-            // btBiFi
-            // 
-            this.btBiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBiFi.Image = global::Kassasysteem.Properties.Resources.bifi_small;
-            this.btBiFi.Location = new System.Drawing.Point(261, 20);
-            this.btBiFi.Name = "btBiFi";
-            this.btBiFi.Size = new System.Drawing.Size(109, 50);
-            this.btBiFi.TabIndex = 26;
-            this.btBiFi.UseVisualStyleBackColor = true;
-            this.btBiFi.Click += new System.EventHandler(this.btBiFi_Click);
-            // 
-            // btCrokyNaturel
-            // 
-            this.btCrokyNaturel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCrokyNaturel.Image = global::Kassasysteem.Properties.Resources.croky_paprika_small;
-            this.btCrokyNaturel.Location = new System.Drawing.Point(138, 20);
-            this.btCrokyNaturel.Name = "btCrokyNaturel";
-            this.btCrokyNaturel.Size = new System.Drawing.Size(105, 50);
-            this.btCrokyNaturel.TabIndex = 24;
-            this.btCrokyNaturel.UseVisualStyleBackColor = true;
-            this.btCrokyNaturel.Click += new System.EventHandler(this.btCrokyNaturel_Click);
-            // 
-            // btCrokyPaprika
-            // 
-            this.btCrokyPaprika.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCrokyPaprika.Image = global::Kassasysteem.Properties.Resources.croky_paprika_small_2;
-            this.btCrokyPaprika.Location = new System.Drawing.Point(138, 85);
-            this.btCrokyPaprika.Name = "btCrokyPaprika";
-            this.btCrokyPaprika.Size = new System.Drawing.Size(105, 50);
-            this.btCrokyPaprika.TabIndex = 25;
-            this.btCrokyPaprika.UseVisualStyleBackColor = true;
-            this.btCrokyPaprika.Click += new System.EventHandler(this.btCrokyPaprika_Click);
             // 
             // gpDrinken
             // 
@@ -881,215 +869,6 @@
             this.btTerug1.UseVisualStyleBackColor = true;
             this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
-            // btSchrobbeler
-            // 
-            this.btSchrobbeler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSchrobbeler.Image = global::Kassasysteem.Properties.Resources.schrobbeler_small;
-            this.btSchrobbeler.Location = new System.Drawing.Point(11, 275);
-            this.btSchrobbeler.Name = "btSchrobbeler";
-            this.btSchrobbeler.Size = new System.Drawing.Size(96, 50);
-            this.btSchrobbeler.TabIndex = 31;
-            this.btSchrobbeler.UseVisualStyleBackColor = true;
-            this.btSchrobbeler.Click += new System.EventHandler(this.btSchrobbeler_Click);
-            // 
-            // btKoffie
-            // 
-            this.btKoffie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btKoffie.Image = global::Kassasysteem.Properties.Resources.coffee;
-            this.btKoffie.Location = new System.Drawing.Point(7, 20);
-            this.btKoffie.Name = "btKoffie";
-            this.btKoffie.Size = new System.Drawing.Size(100, 50);
-            this.btKoffie.TabIndex = 0;
-            this.btKoffie.UseVisualStyleBackColor = true;
-            this.btKoffie.Click += new System.EventHandler(this.btKoffie_Click);
-            // 
-            // btThee
-            // 
-            this.btThee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThee.Image = global::Kassasysteem.Properties.Resources.thee;
-            this.btThee.Location = new System.Drawing.Point(7, 85);
-            this.btThee.Name = "btThee";
-            this.btThee.Size = new System.Drawing.Size(100, 50);
-            this.btThee.TabIndex = 1;
-            this.btThee.UseVisualStyleBackColor = true;
-            this.btThee.Click += new System.EventHandler(this.btThee_Click);
-            // 
-            // btWitteWijn
-            // 
-            this.btWitteWijn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btWitteWijn.Image = global::Kassasysteem.Properties.Resources.witte_wijn;
-            this.btWitteWijn.Location = new System.Drawing.Point(122, 276);
-            this.btWitteWijn.Name = "btWitteWijn";
-            this.btWitteWijn.Size = new System.Drawing.Size(100, 50);
-            this.btWitteWijn.TabIndex = 17;
-            this.btWitteWijn.UseVisualStyleBackColor = true;
-            this.btWitteWijn.Click += new System.EventHandler(this.btWitteWijn_Click);
-            // 
-            // btCocaCola
-            // 
-            this.btCocaCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCocaCola.Image = global::Kassasysteem.Properties.Resources.cocacola_small;
-            this.btCocaCola.Location = new System.Drawing.Point(7, 148);
-            this.btCocaCola.Name = "btCocaCola";
-            this.btCocaCola.Size = new System.Drawing.Size(100, 50);
-            this.btCocaCola.TabIndex = 2;
-            this.btCocaCola.UseVisualStyleBackColor = true;
-            this.btCocaCola.Click += new System.EventHandler(this.btCocaCola_Click);
-            // 
-            // btRodeWijn
-            // 
-            this.btRodeWijn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRodeWijn.Image = global::Kassasysteem.Properties.Resources.rode_wijn;
-            this.btRodeWijn.Location = new System.Drawing.Point(239, 275);
-            this.btRodeWijn.Name = "btRodeWijn";
-            this.btRodeWijn.Size = new System.Drawing.Size(100, 50);
-            this.btRodeWijn.TabIndex = 15;
-            this.btRodeWijn.UseVisualStyleBackColor = true;
-            this.btRodeWijn.Click += new System.EventHandler(this.btRodeWijn_Click);
-            // 
-            // btCocaColaZero
-            // 
-            this.btCocaColaZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCocaColaZero.Image = global::Kassasysteem.Properties.Resources.cocacolazero_small;
-            this.btCocaColaZero.Location = new System.Drawing.Point(7, 213);
-            this.btCocaColaZero.Name = "btCocaColaZero";
-            this.btCocaColaZero.Size = new System.Drawing.Size(100, 50);
-            this.btCocaColaZero.TabIndex = 3;
-            this.btCocaColaZero.UseVisualStyleBackColor = true;
-            this.btCocaColaZero.Click += new System.EventHandler(this.btCocaColaZero_Click);
-            // 
-            // btFantaSinas
-            // 
-            this.btFantaSinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFantaSinas.Image = global::Kassasysteem.Properties.Resources.fanta_small;
-            this.btFantaSinas.Location = new System.Drawing.Point(122, 20);
-            this.btFantaSinas.Name = "btFantaSinas";
-            this.btFantaSinas.Size = new System.Drawing.Size(100, 50);
-            this.btFantaSinas.TabIndex = 4;
-            this.btFantaSinas.UseVisualStyleBackColor = true;
-            this.btFantaSinas.Click += new System.EventHandler(this.btFantaSinas_Click);
-            // 
-            // btFantaCassis
-            // 
-            this.btFantaCassis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFantaCassis.Image = global::Kassasysteem.Properties.Resources.fanta_cassis_small;
-            this.btFantaCassis.Location = new System.Drawing.Point(122, 84);
-            this.btFantaCassis.Name = "btFantaCassis";
-            this.btFantaCassis.Size = new System.Drawing.Size(100, 50);
-            this.btFantaCassis.TabIndex = 5;
-            this.btFantaCassis.UseVisualStyleBackColor = true;
-            this.btFantaCassis.Click += new System.EventHandler(this.btFantaCassis_Click);
-            // 
-            // btLeffeBruin
-            // 
-            this.btLeffeBruin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLeffeBruin.Image = global::Kassasysteem.Properties.Resources.leffe_bruin_small;
-            this.btLeffeBruin.Location = new System.Drawing.Point(359, 213);
-            this.btLeffeBruin.Name = "btLeffeBruin";
-            this.btLeffeBruin.Size = new System.Drawing.Size(100, 50);
-            this.btLeffeBruin.TabIndex = 13;
-            this.btLeffeBruin.UseVisualStyleBackColor = true;
-            this.btLeffeBruin.Click += new System.EventHandler(this.btLeffeBruin_Click);
-            // 
-            // btAmstelRadler
-            // 
-            this.btAmstelRadler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAmstelRadler.Image = global::Kassasysteem.Properties.Resources.amstel_radler;
-            this.btAmstelRadler.Location = new System.Drawing.Point(359, 148);
-            this.btAmstelRadler.Name = "btAmstelRadler";
-            this.btAmstelRadler.Size = new System.Drawing.Size(100, 50);
-            this.btAmstelRadler.TabIndex = 14;
-            this.btAmstelRadler.UseVisualStyleBackColor = true;
-            this.btAmstelRadler.Click += new System.EventHandler(this.btAmstelRadler_Click);
-            // 
-            // btSpaRood
-            // 
-            this.btSpaRood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSpaRood.Image = global::Kassasysteem.Properties.Resources.spa_rood;
-            this.btSpaRood.Location = new System.Drawing.Point(122, 148);
-            this.btSpaRood.Name = "btSpaRood";
-            this.btSpaRood.Size = new System.Drawing.Size(100, 50);
-            this.btSpaRood.TabIndex = 6;
-            this.btSpaRood.UseVisualStyleBackColor = true;
-            this.btSpaRood.Click += new System.EventHandler(this.btSpaRood_Click);
-            // 
-            // btJupiler
-            // 
-            this.btJupiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btJupiler.Image = global::Kassasysteem.Properties.Resources.jupiler_small;
-            this.btJupiler.Location = new System.Drawing.Point(359, 85);
-            this.btJupiler.Name = "btJupiler";
-            this.btJupiler.Size = new System.Drawing.Size(100, 50);
-            this.btJupiler.TabIndex = 13;
-            this.btJupiler.UseVisualStyleBackColor = true;
-            this.btJupiler.Click += new System.EventHandler(this.btJupiler_Click);
-            // 
-            // btBitterLemon
-            // 
-            this.btBitterLemon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBitterLemon.Image = global::Kassasysteem.Properties.Resources.schweppes_small2;
-            this.btBitterLemon.Location = new System.Drawing.Point(122, 213);
-            this.btBitterLemon.Name = "btBitterLemon";
-            this.btBitterLemon.Size = new System.Drawing.Size(100, 50);
-            this.btBitterLemon.TabIndex = 7;
-            this.btBitterLemon.UseVisualStyleBackColor = true;
-            this.btBitterLemon.Click += new System.EventHandler(this.btBitterLemon_Click);
-            // 
-            // btIceTea
-            // 
-            this.btIceTea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btIceTea.Image = global::Kassasysteem.Properties.Resources.IceTea;
-            this.btIceTea.Location = new System.Drawing.Point(239, 20);
-            this.btIceTea.Name = "btIceTea";
-            this.btIceTea.Size = new System.Drawing.Size(100, 50);
-            this.btIceTea.TabIndex = 8;
-            this.btIceTea.UseVisualStyleBackColor = true;
-            this.btIceTea.Click += new System.EventHandler(this.btIceTea_Click);
-            // 
-            // btHertogJan
-            // 
-            this.btHertogJan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btHertogJan.Image = global::Kassasysteem.Properties.Resources.hertogjan_small;
-            this.btHertogJan.Location = new System.Drawing.Point(359, 20);
-            this.btHertogJan.Name = "btHertogJan";
-            this.btHertogJan.Size = new System.Drawing.Size(100, 50);
-            this.btHertogJan.TabIndex = 12;
-            this.btHertogJan.UseVisualStyleBackColor = true;
-            this.btHertogJan.Click += new System.EventHandler(this.btHertogJan_Click);
-            // 
-            // btChocomel
-            // 
-            this.btChocomel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btChocomel.Image = global::Kassasysteem.Properties.Resources.chocomel;
-            this.btChocomel.Location = new System.Drawing.Point(239, 85);
-            this.btChocomel.Name = "btChocomel";
-            this.btChocomel.Size = new System.Drawing.Size(100, 50);
-            this.btChocomel.TabIndex = 9;
-            this.btChocomel.UseVisualStyleBackColor = true;
-            this.btChocomel.Click += new System.EventHandler(this.btChocomel_Click);
-            // 
-            // btAquarius
-            // 
-            this.btAquarius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAquarius.Image = global::Kassasysteem.Properties.Resources.aquarius;
-            this.btAquarius.Location = new System.Drawing.Point(239, 213);
-            this.btAquarius.Name = "btAquarius";
-            this.btAquarius.Size = new System.Drawing.Size(100, 50);
-            this.btAquarius.TabIndex = 11;
-            this.btAquarius.UseVisualStyleBackColor = true;
-            this.btAquarius.Click += new System.EventHandler(this.btAquarius_Click);
-            // 
-            // btAaDrink
-            // 
-            this.btAaDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAaDrink.Image = global::Kassasysteem.Properties.Resources.aadrink;
-            this.btAaDrink.Location = new System.Drawing.Point(239, 148);
-            this.btAaDrink.Name = "btAaDrink";
-            this.btAaDrink.Size = new System.Drawing.Size(100, 50);
-            this.btAaDrink.TabIndex = 10;
-            this.btAaDrink.UseVisualStyleBackColor = true;
-            this.btAaDrink.Click += new System.EventHandler(this.btAaDrink_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -1117,6 +896,323 @@
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btBonnenkaart
+            // 
+            this.btBonnenkaart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBonnenkaart.Image = global::Kassasysteem.Properties.Resources.Munten;
+            this.btBonnenkaart.Location = new System.Drawing.Point(212, 99);
+            this.btBonnenkaart.Name = "btBonnenkaart";
+            this.btBonnenkaart.Size = new System.Drawing.Size(144, 142);
+            this.btBonnenkaart.TabIndex = 28;
+            this.btBonnenkaart.UseVisualStyleBackColor = true;
+            this.btBonnenkaart.Click += new System.EventHandler(this.btBonnenkaart_Click);
+            // 
+            // btDrinken
+            // 
+            this.btDrinken.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btDrinken.Image = ((System.Drawing.Image)(resources.GetObject("btDrinken.Image")));
+            this.btDrinken.Location = new System.Drawing.Point(362, 99);
+            this.btDrinken.Name = "btDrinken";
+            this.btDrinken.Size = new System.Drawing.Size(141, 142);
+            this.btDrinken.TabIndex = 1;
+            this.btDrinken.UseVisualStyleBackColor = true;
+            this.btDrinken.Click += new System.EventHandler(this.btDrinken_Click);
+            // 
+            // btEten
+            // 
+            this.btEten.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btEten.Image = ((System.Drawing.Image)(resources.GetObject("btEten.Image")));
+            this.btEten.Location = new System.Drawing.Point(65, 99);
+            this.btEten.Name = "btEten";
+            this.btEten.Size = new System.Drawing.Size(141, 142);
+            this.btEten.TabIndex = 0;
+            this.btEten.UseVisualStyleBackColor = true;
+            this.btEten.Click += new System.EventHandler(this.btEten_Click);
+            // 
+            // btSchrobbeler
+            // 
+            this.btSchrobbeler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSchrobbeler.Image = ((System.Drawing.Image)(resources.GetObject("btSchrobbeler.Image")));
+            this.btSchrobbeler.Location = new System.Drawing.Point(11, 275);
+            this.btSchrobbeler.Name = "btSchrobbeler";
+            this.btSchrobbeler.Size = new System.Drawing.Size(96, 50);
+            this.btSchrobbeler.TabIndex = 31;
+            this.btSchrobbeler.UseVisualStyleBackColor = true;
+            this.btSchrobbeler.Click += new System.EventHandler(this.btSchrobbeler_Click);
+            // 
+            // btKoffie
+            // 
+            this.btKoffie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btKoffie.Image = ((System.Drawing.Image)(resources.GetObject("btKoffie.Image")));
+            this.btKoffie.Location = new System.Drawing.Point(7, 20);
+            this.btKoffie.Name = "btKoffie";
+            this.btKoffie.Size = new System.Drawing.Size(100, 50);
+            this.btKoffie.TabIndex = 0;
+            this.btKoffie.UseVisualStyleBackColor = true;
+            this.btKoffie.Click += new System.EventHandler(this.btKoffie_Click);
+            // 
+            // btThee
+            // 
+            this.btThee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThee.Image = ((System.Drawing.Image)(resources.GetObject("btThee.Image")));
+            this.btThee.Location = new System.Drawing.Point(7, 85);
+            this.btThee.Name = "btThee";
+            this.btThee.Size = new System.Drawing.Size(100, 50);
+            this.btThee.TabIndex = 1;
+            this.btThee.UseVisualStyleBackColor = true;
+            this.btThee.Click += new System.EventHandler(this.btThee_Click);
+            // 
+            // btWitteWijn
+            // 
+            this.btWitteWijn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btWitteWijn.Image = ((System.Drawing.Image)(resources.GetObject("btWitteWijn.Image")));
+            this.btWitteWijn.Location = new System.Drawing.Point(122, 276);
+            this.btWitteWijn.Name = "btWitteWijn";
+            this.btWitteWijn.Size = new System.Drawing.Size(100, 50);
+            this.btWitteWijn.TabIndex = 17;
+            this.btWitteWijn.UseVisualStyleBackColor = true;
+            this.btWitteWijn.Click += new System.EventHandler(this.btWitteWijn_Click);
+            // 
+            // btCocaCola
+            // 
+            this.btCocaCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCocaCola.Image = ((System.Drawing.Image)(resources.GetObject("btCocaCola.Image")));
+            this.btCocaCola.Location = new System.Drawing.Point(7, 148);
+            this.btCocaCola.Name = "btCocaCola";
+            this.btCocaCola.Size = new System.Drawing.Size(100, 50);
+            this.btCocaCola.TabIndex = 2;
+            this.btCocaCola.UseVisualStyleBackColor = true;
+            this.btCocaCola.Click += new System.EventHandler(this.btCocaCola_Click);
+            // 
+            // btRodeWijn
+            // 
+            this.btRodeWijn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRodeWijn.Image = ((System.Drawing.Image)(resources.GetObject("btRodeWijn.Image")));
+            this.btRodeWijn.Location = new System.Drawing.Point(239, 275);
+            this.btRodeWijn.Name = "btRodeWijn";
+            this.btRodeWijn.Size = new System.Drawing.Size(100, 50);
+            this.btRodeWijn.TabIndex = 15;
+            this.btRodeWijn.UseVisualStyleBackColor = true;
+            this.btRodeWijn.Click += new System.EventHandler(this.btRodeWijn_Click);
+            // 
+            // btCocaColaZero
+            // 
+            this.btCocaColaZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCocaColaZero.Image = ((System.Drawing.Image)(resources.GetObject("btCocaColaZero.Image")));
+            this.btCocaColaZero.Location = new System.Drawing.Point(7, 213);
+            this.btCocaColaZero.Name = "btCocaColaZero";
+            this.btCocaColaZero.Size = new System.Drawing.Size(100, 50);
+            this.btCocaColaZero.TabIndex = 3;
+            this.btCocaColaZero.UseVisualStyleBackColor = true;
+            this.btCocaColaZero.Click += new System.EventHandler(this.btCocaColaZero_Click);
+            // 
+            // btFantaSinas
+            // 
+            this.btFantaSinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFantaSinas.Image = ((System.Drawing.Image)(resources.GetObject("btFantaSinas.Image")));
+            this.btFantaSinas.Location = new System.Drawing.Point(122, 20);
+            this.btFantaSinas.Name = "btFantaSinas";
+            this.btFantaSinas.Size = new System.Drawing.Size(100, 50);
+            this.btFantaSinas.TabIndex = 4;
+            this.btFantaSinas.UseVisualStyleBackColor = true;
+            this.btFantaSinas.Click += new System.EventHandler(this.btFantaSinas_Click);
+            // 
+            // btFantaCassis
+            // 
+            this.btFantaCassis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFantaCassis.Image = ((System.Drawing.Image)(resources.GetObject("btFantaCassis.Image")));
+            this.btFantaCassis.Location = new System.Drawing.Point(122, 84);
+            this.btFantaCassis.Name = "btFantaCassis";
+            this.btFantaCassis.Size = new System.Drawing.Size(100, 50);
+            this.btFantaCassis.TabIndex = 5;
+            this.btFantaCassis.UseVisualStyleBackColor = true;
+            this.btFantaCassis.Click += new System.EventHandler(this.btFantaCassis_Click);
+            // 
+            // btLeffeBruin
+            // 
+            this.btLeffeBruin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLeffeBruin.Image = ((System.Drawing.Image)(resources.GetObject("btLeffeBruin.Image")));
+            this.btLeffeBruin.Location = new System.Drawing.Point(359, 213);
+            this.btLeffeBruin.Name = "btLeffeBruin";
+            this.btLeffeBruin.Size = new System.Drawing.Size(100, 50);
+            this.btLeffeBruin.TabIndex = 13;
+            this.btLeffeBruin.UseVisualStyleBackColor = true;
+            this.btLeffeBruin.Click += new System.EventHandler(this.btLeffeBruin_Click);
+            // 
+            // btAmstelRadler
+            // 
+            this.btAmstelRadler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAmstelRadler.Image = ((System.Drawing.Image)(resources.GetObject("btAmstelRadler.Image")));
+            this.btAmstelRadler.Location = new System.Drawing.Point(359, 148);
+            this.btAmstelRadler.Name = "btAmstelRadler";
+            this.btAmstelRadler.Size = new System.Drawing.Size(100, 50);
+            this.btAmstelRadler.TabIndex = 14;
+            this.btAmstelRadler.UseVisualStyleBackColor = true;
+            this.btAmstelRadler.Click += new System.EventHandler(this.btAmstelRadler_Click);
+            // 
+            // btSpaRood
+            // 
+            this.btSpaRood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSpaRood.Image = ((System.Drawing.Image)(resources.GetObject("btSpaRood.Image")));
+            this.btSpaRood.Location = new System.Drawing.Point(122, 148);
+            this.btSpaRood.Name = "btSpaRood";
+            this.btSpaRood.Size = new System.Drawing.Size(100, 50);
+            this.btSpaRood.TabIndex = 6;
+            this.btSpaRood.UseVisualStyleBackColor = true;
+            this.btSpaRood.Click += new System.EventHandler(this.btSpaRood_Click);
+            // 
+            // btJupiler
+            // 
+            this.btJupiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btJupiler.Image = ((System.Drawing.Image)(resources.GetObject("btJupiler.Image")));
+            this.btJupiler.Location = new System.Drawing.Point(359, 85);
+            this.btJupiler.Name = "btJupiler";
+            this.btJupiler.Size = new System.Drawing.Size(100, 50);
+            this.btJupiler.TabIndex = 13;
+            this.btJupiler.UseVisualStyleBackColor = true;
+            this.btJupiler.Click += new System.EventHandler(this.btJupiler_Click);
+            // 
+            // btBitterLemon
+            // 
+            this.btBitterLemon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBitterLemon.Image = ((System.Drawing.Image)(resources.GetObject("btBitterLemon.Image")));
+            this.btBitterLemon.Location = new System.Drawing.Point(122, 213);
+            this.btBitterLemon.Name = "btBitterLemon";
+            this.btBitterLemon.Size = new System.Drawing.Size(100, 50);
+            this.btBitterLemon.TabIndex = 7;
+            this.btBitterLemon.UseVisualStyleBackColor = true;
+            this.btBitterLemon.Click += new System.EventHandler(this.btBitterLemon_Click);
+            // 
+            // btIceTea
+            // 
+            this.btIceTea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btIceTea.Image = ((System.Drawing.Image)(resources.GetObject("btIceTea.Image")));
+            this.btIceTea.Location = new System.Drawing.Point(239, 20);
+            this.btIceTea.Name = "btIceTea";
+            this.btIceTea.Size = new System.Drawing.Size(100, 50);
+            this.btIceTea.TabIndex = 8;
+            this.btIceTea.UseVisualStyleBackColor = true;
+            this.btIceTea.Click += new System.EventHandler(this.btIceTea_Click);
+            // 
+            // btHertogJan
+            // 
+            this.btHertogJan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btHertogJan.Image = ((System.Drawing.Image)(resources.GetObject("btHertogJan.Image")));
+            this.btHertogJan.Location = new System.Drawing.Point(359, 20);
+            this.btHertogJan.Name = "btHertogJan";
+            this.btHertogJan.Size = new System.Drawing.Size(100, 50);
+            this.btHertogJan.TabIndex = 12;
+            this.btHertogJan.UseVisualStyleBackColor = true;
+            this.btHertogJan.Click += new System.EventHandler(this.btHertogJan_Click);
+            // 
+            // btChocomel
+            // 
+            this.btChocomel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btChocomel.Image = ((System.Drawing.Image)(resources.GetObject("btChocomel.Image")));
+            this.btChocomel.Location = new System.Drawing.Point(239, 85);
+            this.btChocomel.Name = "btChocomel";
+            this.btChocomel.Size = new System.Drawing.Size(100, 50);
+            this.btChocomel.TabIndex = 9;
+            this.btChocomel.UseVisualStyleBackColor = true;
+            this.btChocomel.Click += new System.EventHandler(this.btChocomel_Click);
+            // 
+            // btAquarius
+            // 
+            this.btAquarius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAquarius.Image = ((System.Drawing.Image)(resources.GetObject("btAquarius.Image")));
+            this.btAquarius.Location = new System.Drawing.Point(239, 213);
+            this.btAquarius.Name = "btAquarius";
+            this.btAquarius.Size = new System.Drawing.Size(100, 50);
+            this.btAquarius.TabIndex = 11;
+            this.btAquarius.UseVisualStyleBackColor = true;
+            this.btAquarius.Click += new System.EventHandler(this.btAquarius_Click);
+            // 
+            // btAaDrink
+            // 
+            this.btAaDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAaDrink.Image = ((System.Drawing.Image)(resources.GetObject("btAaDrink.Image")));
+            this.btAaDrink.Location = new System.Drawing.Point(239, 148);
+            this.btAaDrink.Name = "btAaDrink";
+            this.btAaDrink.Size = new System.Drawing.Size(100, 50);
+            this.btAaDrink.TabIndex = 10;
+            this.btAaDrink.UseVisualStyleBackColor = true;
+            this.btAaDrink.Click += new System.EventHandler(this.btAaDrink_Click);
+            // 
+            // btMars
+            // 
+            this.btMars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMars.Image = ((System.Drawing.Image)(resources.GetObject("btMars.Image")));
+            this.btMars.Location = new System.Drawing.Point(11, 20);
+            this.btMars.Name = "btMars";
+            this.btMars.Size = new System.Drawing.Size(105, 50);
+            this.btMars.TabIndex = 22;
+            this.btMars.UseVisualStyleBackColor = true;
+            this.btMars.Click += new System.EventHandler(this.btMars_Click);
+            // 
+            // btSnickers
+            // 
+            this.btSnickers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSnickers.Image = ((System.Drawing.Image)(resources.GetObject("btSnickers.Image")));
+            this.btSnickers.Location = new System.Drawing.Point(11, 85);
+            this.btSnickers.Name = "btSnickers";
+            this.btSnickers.Size = new System.Drawing.Size(105, 50);
+            this.btSnickers.TabIndex = 23;
+            this.btSnickers.UseVisualStyleBackColor = true;
+            this.btSnickers.Click += new System.EventHandler(this.btSnickers_Click);
+            // 
+            // btBiFi
+            // 
+            this.btBiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBiFi.Image = ((System.Drawing.Image)(resources.GetObject("btBiFi.Image")));
+            this.btBiFi.Location = new System.Drawing.Point(261, 20);
+            this.btBiFi.Name = "btBiFi";
+            this.btBiFi.Size = new System.Drawing.Size(109, 50);
+            this.btBiFi.TabIndex = 26;
+            this.btBiFi.UseVisualStyleBackColor = true;
+            this.btBiFi.Click += new System.EventHandler(this.btBiFi_Click);
+            // 
+            // btCrokyNaturel
+            // 
+            this.btCrokyNaturel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrokyNaturel.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyNaturel.Image")));
+            this.btCrokyNaturel.Location = new System.Drawing.Point(138, 20);
+            this.btCrokyNaturel.Name = "btCrokyNaturel";
+            this.btCrokyNaturel.Size = new System.Drawing.Size(105, 50);
+            this.btCrokyNaturel.TabIndex = 24;
+            this.btCrokyNaturel.UseVisualStyleBackColor = true;
+            this.btCrokyNaturel.Click += new System.EventHandler(this.btCrokyNaturel_Click);
+            // 
+            // btCrokyPaprika
+            // 
+            this.btCrokyPaprika.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrokyPaprika.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyPaprika.Image")));
+            this.btCrokyPaprika.Location = new System.Drawing.Point(138, 85);
+            this.btCrokyPaprika.Name = "btCrokyPaprika";
+            this.btCrokyPaprika.Size = new System.Drawing.Size(105, 50);
+            this.btCrokyPaprika.TabIndex = 25;
+            this.btCrokyPaprika.UseVisualStyleBackColor = true;
+            this.btCrokyPaprika.Click += new System.EventHandler(this.btCrokyPaprika_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(312, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(312, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1137,18 +1233,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.gpMenu.ResumeLayout(false);
             this.gpEten.ResumeLayout(false);
             this.gpDrinken.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1156,99 +1252,5 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListView lvBestellingen;
-        private System.Windows.Forms.Button btBiFi;
-        private System.Windows.Forms.Button btCrokyPaprika;
-        private System.Windows.Forms.Button btCrokyNaturel;
-        private System.Windows.Forms.Button btSnickers;
-        private System.Windows.Forms.Button btMars;
-        private System.Windows.Forms.Button btWitteWijn;
-        private System.Windows.Forms.Button btWisselendSpeciaalBier;
-        private System.Windows.Forms.Button btRodeWijn;
-        private System.Windows.Forms.Button btAmstelRadler;
-        private System.Windows.Forms.Button btJupiler;
-        private System.Windows.Forms.Button btLeffeBruin;
-        private System.Windows.Forms.Button btHertogJan;
-        private System.Windows.Forms.Button btAquarius;
-        private System.Windows.Forms.Button btAaDrink;
-        private System.Windows.Forms.Button btChocomel;
-        private System.Windows.Forms.Button btIceTea;
-        private System.Windows.Forms.Button btBitterLemon;
-        private System.Windows.Forms.Button btSpaRood;
-        private System.Windows.Forms.Button btFantaCassis;
-        private System.Windows.Forms.Button btFantaSinas;
-        private System.Windows.Forms.Button btCocaColaZero;
-        private System.Windows.Forms.Button btCocaCola;
-        private System.Windows.Forms.Button btThee;
-        private System.Windows.Forms.Button btKoffie;
-        private System.Windows.Forms.Label lbKlantNaamlbl;
-        private System.Windows.Forms.Button btMaakBestelling;
-        private System.Windows.Forms.TextBox tbKlantnaam;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lbKassaNaamlb;
-        private System.Windows.Forms.Label lbKassaNaam;
-        private System.Windows.Forms.Label lbOpenstaandeRekeningen;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ListView lvProductenInBestelling;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Label lbDagDatum;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.Label lbLoginnaam;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btSchrobbeler;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbLidNaam;
-        private System.Windows.Forms.Button btBonnenkaart;
-        private System.Windows.Forms.MenuStrip MenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gegevensWijzigenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem afmeldenToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem voorraadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formulierenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bestellingenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bestelgeschiedenisToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label lbLedenprijs;
-        private System.Windows.Forms.Label lbDatumklant;
-        private System.Windows.Forms.Button btVerwijderProduct;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbTotaalPrijs;
-        private System.Windows.Forms.Label lbPrijslb;
-        private System.Windows.Forms.Label lbKlantnaam;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btAfrekenen;
-        private System.Windows.Forms.ToolStripMenuItem ledenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ledenlijstToolStripMenuItem;
-        private System.Windows.Forms.GroupBox gpMenu;
-        private System.Windows.Forms.Button btDrinken;
-        private System.Windows.Forms.Button btEten;
-        private System.Windows.Forms.GroupBox gpEten;
-        private System.Windows.Forms.GroupBox gpDrinken;
-        private System.Windows.Forms.Button btTerug1;
-        private System.Windows.Forms.Button btTerug2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbConnectie;
-        private System.Windows.Forms.ToolStripMenuItem verkoopgeschiedenisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sUKToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbSoortVerkoop;
-        private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.ToolStripMenuItem voorraadToevoegenToolStripMenuItem;
-        private System.Windows.Forms.Button btLosseVerkopen;
-        private System.Windows.Forms.ToolStripMenuItem omzetToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
-        private System.Windows.Forms.Label lbDagReden;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rekenmachineToolStripMenuItem;
     }
 }

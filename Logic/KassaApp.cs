@@ -480,11 +480,15 @@ namespace Logic
             }
         }
 
-        public List<LosseVerkoop> GetLosseVerkopen()
+        public List<LosseVerkoop> GetLosseVerkopen(DateTime beginTime, DateTime endTime)
         {
             if (_losseVerkopen == null || _losseVerkopen.Count <= 0)
             {
-                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today);
+                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(beginTime, endTime);
+                if (_losseVerkopen.Count > 0)
+                {
+                    _losseVerkopen.Sort((x, y) => -x.BestelDatum.CompareTo(y.BestelDatum));
+                }
             }
             return _losseVerkopen;
         }

@@ -206,7 +206,6 @@
       <Name>Logic</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\aadrink.jpg" />
   </ItemGroup>
@@ -230,9 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coffee.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coinbag.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\croky paprika small 2.jpg" />
@@ -296,6 +292,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\foods1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Button Kassasysteem-01-01.jpg" />
+    <None Include="Resources\Munten.jpg" />
+    <None Include="Resources\Logo SINTSEBASTIAAN_png1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

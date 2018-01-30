@@ -229,7 +229,7 @@ namespace GUI
             }
             else
             {
-                foreach (LosseVerkoop p in App.GetLosseVerkopen())
+                foreach (LosseVerkoop p in App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today))
                 {
                     if (p.IsLid)
                     {
@@ -476,9 +476,11 @@ namespace GUI
             try
             {
                 Bestelling bestelling = null;
-                try{
-                     bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-                } catch(Exception) { }
+                try
+                {
+                    bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
+                }
+                catch (Exception) { }
 
                 if (bestelling != null)
                 {
@@ -620,7 +622,16 @@ namespace GUI
 
         private void verkoopgeschiedenisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: losse verkopen weergave 
+            try
+            {
+                ProductenScherm scherm = new ProductenScherm(App, null);
+                scherm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
 
         private void sUKToolStripMenuItem_Click(object sender, EventArgs e)
@@ -808,7 +819,7 @@ namespace GUI
         private void btLosseVerkopen_Click(object sender, EventArgs e)
         {
             lvProductenInBestelling.Items.Clear();
-            List<LosseVerkoop> losseVerkopen = App.GetLosseVerkopen();
+            List<LosseVerkoop> losseVerkopen = App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today);
             if (losseVerkopen != null && losseVerkopen.Count > 1)
             {
                 lbKlantnaam.Text = "Losse verkopen";
@@ -819,11 +830,11 @@ namespace GUI
                 {
                     if (p.IsLid)
                     {
-                        UpdateListViewKlantBestelling(p, "€ 0,-", "€ "+ p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
+                        UpdateListViewKlantBestelling(p, "€ 0,-", "€ " + p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
                     }
                     else
                     {
-                        UpdateListViewKlantBestelling(p, "€ "+p.Prijs, "€ 0,-", lvProductenInBestelling);
+                        UpdateListViewKlantBestelling(p, "€ " + p.Prijs, "€ 0,-", lvProductenInBestelling);
                     }
                 }
                 BerekenPrijsLosseVerkopen();
@@ -843,9 +854,9 @@ namespace GUI
         {
             decimal prijs = 0.00m;
             decimal ledenprijs = 0.00m;
-            foreach (LosseVerkoop lv in App.GetLosseVerkopen())
+            foreach (LosseVerkoop lv in App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today))
             {
-                if(lv.IsLid)
+                if (lv.IsLid)
                 {
                     ledenprijs += lv.Ledenprijs;
                 }
