@@ -194,7 +194,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT PbIsLid, ProdPrijs, ProdLedenPrijs AS TotaalOmzet FROM Productbestelling LEFT JOIN Product ON ProdId = PbProductId " +
+                            cmd.CommandText = "SELECT PbIsLid, ProdPrijs, ProdLedenPrijs, PbBonnenBetaald FROM Productbestelling LEFT JOIN Product ON ProdId = PbProductId " +
                                 "WHERE PbBestellingId IS NULL AND PbDatum BETWEEN @beginDag AND @eindDag;";
                             cmd.Connection = conn;
 
@@ -206,11 +206,18 @@ namespace Logic.Sql
                                 decimal totaal = 0;
                                 while (reader.Read())
                                 {
-                                    if(!reader.IsDBNull(0))
+                                    if (!reader.IsDBNull(0))
                                     {
-                                        if(reader.GetBoolean(0))
+                                        if (reader.GetBoolean(0))
                                         {
-                                            totaal += reader.GetDecimal(2);
+                                            if (reader.GetBoolean(3))
+                                            {
+                                                totaal += 0.00m;
+                                            }
+                                            else
+                                            {
+                                                totaal += reader.GetDecimal(2);
+                                            }
                                         }
                                         else
                                         {

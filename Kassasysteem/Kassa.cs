@@ -254,14 +254,15 @@ namespace GUI
                 if (_contanteVerkoop) // Losse verkoop als niet lid
                 {
                     Product product = App.VindProduct(productnaam);
-                    verkoop = new LosseVerkoop(DateTime.Now, false, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
+                    verkoop = new LosseVerkoop(DateTime.Now, false, false, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
                     App.AddLosseVerkoop(verkoop);
                     UpdateKlantBestelling(null);
                 }
                 else // Losse verkoop als lid
                 {
+                    bool betalingBonnen = ShowBonnenScreen();
                     Product product = App.VindProduct(productnaam);
-                    verkoop = new LosseVerkoop(DateTime.Now, true, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
+                    verkoop = new LosseVerkoop(DateTime.Now, true, betalingBonnen, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
                     App.AddLosseVerkoop(verkoop);
                     UpdateKlantBestelling(null);
                 }
@@ -462,7 +463,14 @@ namespace GUI
 
         private void btBonnenkaart_Click(object sender, EventArgs e)
         {
-            AddProductToBestelling("Munten");
+            if (_contanteVerkoop == false || _contanteVerkoopLid == true)
+            {
+                AddProductToBestelling("Munten");
+            }
+            else
+            {
+                MessageBox.Show("Alleen leden kunnen bonnen bestellen, zowel voor losse verkoop, als voor bestellingen.");
+            }
         }
 
         private void btSchrobbeler_Click(object sender, EventArgs e)
@@ -553,8 +561,16 @@ namespace GUI
         {
             try
             {
-                BestelgeschiedenisScherm geschiedenis = new BestelgeschiedenisScherm(App);
-                geschiedenis.ShowDialog();
+                if (App.Authentication != null)
+                {
+                    BestelgeschiedenisScherm geschiedenis = new BestelgeschiedenisScherm(App);
+                    geschiedenis.ShowDialog();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina." + Environment.NewLine +
+    "Log in voor toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {
@@ -624,8 +640,16 @@ namespace GUI
         {
             try
             {
-                ProductenScherm scherm = new ProductenScherm(App, null);
-                scherm.Show();
+                if (App.Authentication != null)
+                {
+                    ProductenScherm scherm = new ProductenScherm(App, null);
+                    scherm.Show();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina." + Environment.NewLine +
+    "Log in voor toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {
@@ -765,7 +789,7 @@ namespace GUI
         {
             try
             {
-                if (App.GetIsGemachtigd())
+                if (App.Authentication != null)
                 {
                     _omzetScherm = new PenningmeesterScherm(App);
                     _omzetScherm.ShowDialog();
@@ -884,7 +908,25 @@ namespace GUI
         {
             System.Diagnostics.Process p = System.Diagnostics.Process.Start("calc.exe");
             p.WaitForInputIdle();
-            //NativeMethods.SetParent(p.MainWindowHandle, this.Handle);
+        }
+
+        private bool ShowBonnenScreen()
+        {
+            DialogResult dialogResult = MessageBox.Show(@"Wordt er met bonnen betaald?", @"", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+            else // DialogResult.No
+            {
+                return false;
+            }
+        }
+
+        private void updatesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UpdatesScreen scherm = new UpdatesScreen(App);
+            scherm.Show();
         }
     }
 }

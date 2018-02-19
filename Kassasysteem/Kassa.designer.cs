@@ -131,6 +131,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbDagDatum = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbOpenstaandeRekeningen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbKassaNaam = new System.Windows.Forms.Label();
@@ -148,6 +149,7 @@
             this.btWisselendSpeciaalBier = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lbLedenprijs = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbDatumklant = new System.Windows.Forms.Label();
             this.btVerwijderProduct = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -183,18 +185,20 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rekenmachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpMenu = new System.Windows.Forms.GroupBox();
-            this.gpEten = new System.Windows.Forms.GroupBox();
-            this.btTerug2 = new System.Windows.Forms.Button();
-            this.gpDrinken = new System.Windows.Forms.GroupBox();
-            this.btTerug1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbConnectie = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.btBonnenkaart = new System.Windows.Forms.Button();
             this.btDrinken = new System.Windows.Forms.Button();
             this.btEten = new System.Windows.Forms.Button();
+            this.gpEten = new System.Windows.Forms.GroupBox();
+            this.btTerug2 = new System.Windows.Forms.Button();
+            this.btMars = new System.Windows.Forms.Button();
+            this.btSnickers = new System.Windows.Forms.Button();
+            this.btBiFi = new System.Windows.Forms.Button();
+            this.btCrokyNaturel = new System.Windows.Forms.Button();
+            this.btCrokyPaprika = new System.Windows.Forms.Button();
+            this.gpDrinken = new System.Windows.Forms.GroupBox();
             this.btSchrobbeler = new System.Windows.Forms.Button();
             this.btKoffie = new System.Windows.Forms.Button();
+            this.btTerug1 = new System.Windows.Forms.Button();
             this.btThee = new System.Windows.Forms.Button();
             this.btWitteWijn = new System.Windows.Forms.Button();
             this.btCocaCola = new System.Windows.Forms.Button();
@@ -212,23 +216,20 @@
             this.btChocomel = new System.Windows.Forms.Button();
             this.btAquarius = new System.Windows.Forms.Button();
             this.btAaDrink = new System.Windows.Forms.Button();
-            this.btMars = new System.Windows.Forms.Button();
-            this.btSnickers = new System.Windows.Forms.Button();
-            this.btBiFi = new System.Windows.Forms.Button();
-            this.btCrokyNaturel = new System.Windows.Forms.Button();
-            this.btCrokyPaprika = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbConnectie = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.updatesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.MenuStrip.SuspendLayout();
             this.gpMenu.SuspendLayout();
             this.gpEten.SuspendLayout();
             this.gpDrinken.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -300,6 +301,16 @@
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Datum:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(312, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // lbOpenstaandeRekeningen
             // 
@@ -502,6 +513,16 @@
             this.lbLedenprijs.TabIndex = 45;
             this.lbLedenprijs.Text = "prijs";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(312, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
             // lbDatumklant
             // 
             this.lbDatumklant.AutoSize = true;
@@ -633,6 +654,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updatesToolStripMenuItem1,
             this.afmeldenToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -641,7 +663,7 @@
             // afmeldenToolStripMenuItem
             // 
             this.afmeldenToolStripMenuItem.Name = "afmeldenToolStripMenuItem";
-            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.afmeldenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.afmeldenToolStripMenuItem.Text = "Afsluiten";
             this.afmeldenToolStripMenuItem.Click += new System.EventHandler(this.afmeldenToolStripMenuItem_Click);
             // 
@@ -766,7 +788,7 @@
             this.ledenlijstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem2});
             this.ledenlijstToolStripMenuItem.Name = "ledenlijstToolStripMenuItem";
-            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ledenlijstToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.ledenlijstToolStripMenuItem.Text = "Ledenlijst";
             // 
             // openToolStripMenuItem2
@@ -803,100 +825,6 @@
             this.gpMenu.TabStop = false;
             this.gpMenu.Text = "Selecteer uw keuze";
             // 
-            // gpEten
-            // 
-            this.gpEten.Controls.Add(this.btTerug2);
-            this.gpEten.Controls.Add(this.btMars);
-            this.gpEten.Controls.Add(this.btSnickers);
-            this.gpEten.Controls.Add(this.btBiFi);
-            this.gpEten.Controls.Add(this.btCrokyNaturel);
-            this.gpEten.Controls.Add(this.btCrokyPaprika);
-            this.gpEten.Location = new System.Drawing.Point(12, 391);
-            this.gpEten.Name = "gpEten";
-            this.gpEten.Size = new System.Drawing.Size(566, 325);
-            this.gpEten.TabIndex = 46;
-            this.gpEten.TabStop = false;
-            this.gpEten.Text = "Eten";
-            // 
-            // btTerug2
-            // 
-            this.btTerug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug2.Location = new System.Drawing.Point(466, 269);
-            this.btTerug2.Name = "btTerug2";
-            this.btTerug2.Size = new System.Drawing.Size(100, 50);
-            this.btTerug2.TabIndex = 33;
-            this.btTerug2.Text = "Terug";
-            this.btTerug2.UseVisualStyleBackColor = true;
-            this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
-            // 
-            // gpDrinken
-            // 
-            this.gpDrinken.Controls.Add(this.btSchrobbeler);
-            this.gpDrinken.Controls.Add(this.btKoffie);
-            this.gpDrinken.Controls.Add(this.btTerug1);
-            this.gpDrinken.Controls.Add(this.btThee);
-            this.gpDrinken.Controls.Add(this.btWitteWijn);
-            this.gpDrinken.Controls.Add(this.btCocaCola);
-            this.gpDrinken.Controls.Add(this.btRodeWijn);
-            this.gpDrinken.Controls.Add(this.btCocaColaZero);
-            this.gpDrinken.Controls.Add(this.btWisselendSpeciaalBier);
-            this.gpDrinken.Controls.Add(this.btFantaSinas);
-            this.gpDrinken.Controls.Add(this.btFantaCassis);
-            this.gpDrinken.Controls.Add(this.btLeffeBruin);
-            this.gpDrinken.Controls.Add(this.btAmstelRadler);
-            this.gpDrinken.Controls.Add(this.btSpaRood);
-            this.gpDrinken.Controls.Add(this.btJupiler);
-            this.gpDrinken.Controls.Add(this.btBitterLemon);
-            this.gpDrinken.Controls.Add(this.btIceTea);
-            this.gpDrinken.Controls.Add(this.btHertogJan);
-            this.gpDrinken.Controls.Add(this.btChocomel);
-            this.gpDrinken.Controls.Add(this.btAquarius);
-            this.gpDrinken.Controls.Add(this.btAaDrink);
-            this.gpDrinken.Location = new System.Drawing.Point(12, 391);
-            this.gpDrinken.Name = "gpDrinken";
-            this.gpDrinken.Size = new System.Drawing.Size(566, 326);
-            this.gpDrinken.TabIndex = 46;
-            this.gpDrinken.TabStop = false;
-            this.gpDrinken.Text = "Drinken";
-            // 
-            // btTerug1
-            // 
-            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug1.Location = new System.Drawing.Point(466, 276);
-            this.btTerug1.Name = "btTerug1";
-            this.btTerug1.Size = new System.Drawing.Size(100, 50);
-            this.btTerug1.TabIndex = 32;
-            this.btTerug1.Text = "Terug";
-            this.btTerug1.UseVisualStyleBackColor = true;
-            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(887, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Connectie:";
-            // 
-            // lbConnectie
-            // 
-            this.lbConnectie.AutoSize = true;
-            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbConnectie.Location = new System.Drawing.Point(951, 9);
-            this.lbConnectie.Name = "lbConnectie";
-            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
-            this.lbConnectie.TabIndex = 47;
-            this.lbConnectie.Text = ".";
-            // 
-            // timer
-            // 
-            this.timer.Interval = 20000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // btBonnenkaart
             // 
             this.btBonnenkaart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -930,6 +858,117 @@
             this.btEten.UseVisualStyleBackColor = true;
             this.btEten.Click += new System.EventHandler(this.btEten_Click);
             // 
+            // gpEten
+            // 
+            this.gpEten.Controls.Add(this.btTerug2);
+            this.gpEten.Controls.Add(this.btMars);
+            this.gpEten.Controls.Add(this.btSnickers);
+            this.gpEten.Controls.Add(this.btBiFi);
+            this.gpEten.Controls.Add(this.btCrokyNaturel);
+            this.gpEten.Controls.Add(this.btCrokyPaprika);
+            this.gpEten.Location = new System.Drawing.Point(12, 391);
+            this.gpEten.Name = "gpEten";
+            this.gpEten.Size = new System.Drawing.Size(566, 325);
+            this.gpEten.TabIndex = 46;
+            this.gpEten.TabStop = false;
+            this.gpEten.Text = "Eten";
+            // 
+            // btTerug2
+            // 
+            this.btTerug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug2.Location = new System.Drawing.Point(466, 269);
+            this.btTerug2.Name = "btTerug2";
+            this.btTerug2.Size = new System.Drawing.Size(100, 50);
+            this.btTerug2.TabIndex = 33;
+            this.btTerug2.Text = "Terug";
+            this.btTerug2.UseVisualStyleBackColor = true;
+            this.btTerug2.Click += new System.EventHandler(this.btTerug2_Click);
+            // 
+            // btMars
+            // 
+            this.btMars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMars.Image = ((System.Drawing.Image)(resources.GetObject("btMars.Image")));
+            this.btMars.Location = new System.Drawing.Point(11, 20);
+            this.btMars.Name = "btMars";
+            this.btMars.Size = new System.Drawing.Size(105, 50);
+            this.btMars.TabIndex = 22;
+            this.btMars.UseVisualStyleBackColor = true;
+            this.btMars.Click += new System.EventHandler(this.btMars_Click);
+            // 
+            // btSnickers
+            // 
+            this.btSnickers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSnickers.Image = ((System.Drawing.Image)(resources.GetObject("btSnickers.Image")));
+            this.btSnickers.Location = new System.Drawing.Point(11, 85);
+            this.btSnickers.Name = "btSnickers";
+            this.btSnickers.Size = new System.Drawing.Size(105, 50);
+            this.btSnickers.TabIndex = 23;
+            this.btSnickers.UseVisualStyleBackColor = true;
+            this.btSnickers.Click += new System.EventHandler(this.btSnickers_Click);
+            // 
+            // btBiFi
+            // 
+            this.btBiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBiFi.Image = ((System.Drawing.Image)(resources.GetObject("btBiFi.Image")));
+            this.btBiFi.Location = new System.Drawing.Point(261, 20);
+            this.btBiFi.Name = "btBiFi";
+            this.btBiFi.Size = new System.Drawing.Size(109, 50);
+            this.btBiFi.TabIndex = 26;
+            this.btBiFi.UseVisualStyleBackColor = true;
+            this.btBiFi.Click += new System.EventHandler(this.btBiFi_Click);
+            // 
+            // btCrokyNaturel
+            // 
+            this.btCrokyNaturel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrokyNaturel.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyNaturel.Image")));
+            this.btCrokyNaturel.Location = new System.Drawing.Point(138, 20);
+            this.btCrokyNaturel.Name = "btCrokyNaturel";
+            this.btCrokyNaturel.Size = new System.Drawing.Size(105, 50);
+            this.btCrokyNaturel.TabIndex = 24;
+            this.btCrokyNaturel.UseVisualStyleBackColor = true;
+            this.btCrokyNaturel.Click += new System.EventHandler(this.btCrokyNaturel_Click);
+            // 
+            // btCrokyPaprika
+            // 
+            this.btCrokyPaprika.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrokyPaprika.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyPaprika.Image")));
+            this.btCrokyPaprika.Location = new System.Drawing.Point(138, 85);
+            this.btCrokyPaprika.Name = "btCrokyPaprika";
+            this.btCrokyPaprika.Size = new System.Drawing.Size(105, 50);
+            this.btCrokyPaprika.TabIndex = 25;
+            this.btCrokyPaprika.UseVisualStyleBackColor = true;
+            this.btCrokyPaprika.Click += new System.EventHandler(this.btCrokyPaprika_Click);
+            // 
+            // gpDrinken
+            // 
+            this.gpDrinken.Controls.Add(this.btSchrobbeler);
+            this.gpDrinken.Controls.Add(this.btKoffie);
+            this.gpDrinken.Controls.Add(this.btTerug1);
+            this.gpDrinken.Controls.Add(this.btThee);
+            this.gpDrinken.Controls.Add(this.btWitteWijn);
+            this.gpDrinken.Controls.Add(this.btCocaCola);
+            this.gpDrinken.Controls.Add(this.btRodeWijn);
+            this.gpDrinken.Controls.Add(this.btCocaColaZero);
+            this.gpDrinken.Controls.Add(this.btWisselendSpeciaalBier);
+            this.gpDrinken.Controls.Add(this.btFantaSinas);
+            this.gpDrinken.Controls.Add(this.btFantaCassis);
+            this.gpDrinken.Controls.Add(this.btLeffeBruin);
+            this.gpDrinken.Controls.Add(this.btAmstelRadler);
+            this.gpDrinken.Controls.Add(this.btSpaRood);
+            this.gpDrinken.Controls.Add(this.btJupiler);
+            this.gpDrinken.Controls.Add(this.btBitterLemon);
+            this.gpDrinken.Controls.Add(this.btIceTea);
+            this.gpDrinken.Controls.Add(this.btHertogJan);
+            this.gpDrinken.Controls.Add(this.btChocomel);
+            this.gpDrinken.Controls.Add(this.btAquarius);
+            this.gpDrinken.Controls.Add(this.btAaDrink);
+            this.gpDrinken.Location = new System.Drawing.Point(12, 391);
+            this.gpDrinken.Name = "gpDrinken";
+            this.gpDrinken.Size = new System.Drawing.Size(566, 326);
+            this.gpDrinken.TabIndex = 46;
+            this.gpDrinken.TabStop = false;
+            this.gpDrinken.Text = "Drinken";
+            // 
             // btSchrobbeler
             // 
             this.btSchrobbeler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -951,6 +990,17 @@
             this.btKoffie.TabIndex = 0;
             this.btKoffie.UseVisualStyleBackColor = true;
             this.btKoffie.Click += new System.EventHandler(this.btKoffie_Click);
+            // 
+            // btTerug1
+            // 
+            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug1.Location = new System.Drawing.Point(466, 276);
+            this.btTerug1.Name = "btTerug1";
+            this.btTerug1.Size = new System.Drawing.Size(100, 50);
+            this.btTerug1.TabIndex = 32;
+            this.btTerug1.Text = "Terug";
+            this.btTerug1.UseVisualStyleBackColor = true;
+            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
             // btThee
             // 
@@ -1139,80 +1189,39 @@
             this.btAaDrink.UseVisualStyleBackColor = true;
             this.btAaDrink.Click += new System.EventHandler(this.btAaDrink_Click);
             // 
-            // btMars
+            // label7
             // 
-            this.btMars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMars.Image = ((System.Drawing.Image)(resources.GetObject("btMars.Image")));
-            this.btMars.Location = new System.Drawing.Point(11, 20);
-            this.btMars.Name = "btMars";
-            this.btMars.Size = new System.Drawing.Size(105, 50);
-            this.btMars.TabIndex = 22;
-            this.btMars.UseVisualStyleBackColor = true;
-            this.btMars.Click += new System.EventHandler(this.btMars_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(887, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Connectie:";
             // 
-            // btSnickers
+            // lbConnectie
             // 
-            this.btSnickers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSnickers.Image = ((System.Drawing.Image)(resources.GetObject("btSnickers.Image")));
-            this.btSnickers.Location = new System.Drawing.Point(11, 85);
-            this.btSnickers.Name = "btSnickers";
-            this.btSnickers.Size = new System.Drawing.Size(105, 50);
-            this.btSnickers.TabIndex = 23;
-            this.btSnickers.UseVisualStyleBackColor = true;
-            this.btSnickers.Click += new System.EventHandler(this.btSnickers_Click);
+            this.lbConnectie.AutoSize = true;
+            this.lbConnectie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbConnectie.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbConnectie.Location = new System.Drawing.Point(951, 9);
+            this.lbConnectie.Name = "lbConnectie";
+            this.lbConnectie.Size = new System.Drawing.Size(10, 13);
+            this.lbConnectie.TabIndex = 47;
+            this.lbConnectie.Text = ".";
             // 
-            // btBiFi
+            // timer
             // 
-            this.btBiFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBiFi.Image = ((System.Drawing.Image)(resources.GetObject("btBiFi.Image")));
-            this.btBiFi.Location = new System.Drawing.Point(261, 20);
-            this.btBiFi.Name = "btBiFi";
-            this.btBiFi.Size = new System.Drawing.Size(109, 50);
-            this.btBiFi.TabIndex = 26;
-            this.btBiFi.UseVisualStyleBackColor = true;
-            this.btBiFi.Click += new System.EventHandler(this.btBiFi_Click);
+            this.timer.Interval = 20000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // btCrokyNaturel
+            // updatesToolStripMenuItem1
             // 
-            this.btCrokyNaturel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCrokyNaturel.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyNaturel.Image")));
-            this.btCrokyNaturel.Location = new System.Drawing.Point(138, 20);
-            this.btCrokyNaturel.Name = "btCrokyNaturel";
-            this.btCrokyNaturel.Size = new System.Drawing.Size(105, 50);
-            this.btCrokyNaturel.TabIndex = 24;
-            this.btCrokyNaturel.UseVisualStyleBackColor = true;
-            this.btCrokyNaturel.Click += new System.EventHandler(this.btCrokyNaturel_Click);
-            // 
-            // btCrokyPaprika
-            // 
-            this.btCrokyPaprika.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCrokyPaprika.Image = ((System.Drawing.Image)(resources.GetObject("btCrokyPaprika.Image")));
-            this.btCrokyPaprika.Location = new System.Drawing.Point(138, 85);
-            this.btCrokyPaprika.Name = "btCrokyPaprika";
-            this.btCrokyPaprika.Size = new System.Drawing.Size(105, 50);
-            this.btCrokyPaprika.TabIndex = 25;
-            this.btCrokyPaprika.UseVisualStyleBackColor = true;
-            this.btCrokyPaprika.Click += new System.EventHandler(this.btCrokyPaprika_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(312, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 96);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(312, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.updatesToolStripMenuItem1.Name = "updatesToolStripMenuItem1";
+            this.updatesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.updatesToolStripMenuItem1.Text = "Updates";
+            this.updatesToolStripMenuItem1.Click += new System.EventHandler(this.updatesToolStripMenuItem1_Click);
             // 
             // Kassa
             // 
@@ -1234,18 +1243,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.gpMenu.ResumeLayout(false);
             this.gpEten.ResumeLayout(false);
             this.gpDrinken.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1253,5 +1262,6 @@
 
         #endregion
 
+        private System.Windows.Forms.ToolStripMenuItem updatesToolStripMenuItem1;
     }
 }

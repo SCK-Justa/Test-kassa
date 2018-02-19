@@ -497,13 +497,14 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "UPDATE Bestelling SET BBetalld = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum WHERE BId = @bestellingId;";
+                            cmd.CommandText = "UPDATE Bestelling SET BBetalld = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum, BOpmerking = @opmerking WHERE BId = @bestellingId;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
                             cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
                             cmd.Parameters.AddWithValue("@betaaldBedrag", bestelling.BetaaldBedrag);
                             cmd.Parameters.AddWithValue("@betaaldatum", bestelling.DatumBetaald);
+                            cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
 
                             cmd.ExecuteNonQuery();
                         }

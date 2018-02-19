@@ -51,12 +51,24 @@ namespace Kassasysteem
 
         private void SuppUpdate(ListViewItem lvi, Bestelling b)
         {
-            lvi.SubItems.Add("€" + b.BetaaldBedrag.ToString(CultureInfo.CurrentCulture));
-            lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
-                             b.DatumBetaald.ToShortTimeString());
-            lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
-            lvi.Tag = b;
-            lvAfgerekendeBestellingen.Items.Add(lvi);
+            if (b.BetaaldMetBonnen)
+            {
+                lvi.SubItems.Add("€,-");
+                lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
+                                 b.DatumBetaald.ToShortTimeString());
+                lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
+                lvi.Tag = b;
+                lvAfgerekendeBestellingen.Items.Add(lvi);
+            }
+            else
+            {
+                lvi.SubItems.Add("€ " + b.BetaaldBedrag.ToString(CultureInfo.CurrentCulture));
+                lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
+                                 b.DatumBetaald.ToShortTimeString());
+                lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
+                lvi.Tag = b;
+                lvAfgerekendeBestellingen.Items.Add(lvi);
+            }
         }
 
         private void btCancel_Click(object sender, EventArgs e)

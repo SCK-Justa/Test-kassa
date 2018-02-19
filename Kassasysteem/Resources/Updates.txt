@@ -1,0 +1,7 @@
+Updates 19 februari 2018
+
+ - Mogelijk voor bestuur om betalingen te doen, op naam van bestuur (gratis koffie bij vergaderingen etc)
+ - Beveiliging verbeterd
+ - Updatescherm gecreeerd
+ - Losse betalingen kunnen nu ook met bonnen worden gedaan
+ - Kleine vizuele aspecten geupdated

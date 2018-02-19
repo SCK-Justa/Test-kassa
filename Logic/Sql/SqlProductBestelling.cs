@@ -27,13 +27,14 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum);";
+                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum, @bonnen);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
                             cmd.Parameters.AddWithValue("@productId", product.Id);
                             cmd.Parameters.AddWithValue("@isLid", true);
                             cmd.Parameters.AddWithValue("@datum", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@bonnen", DBNull.Value);
 
                             cmd.ExecuteNonQuery();
                         }
@@ -58,13 +59,14 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum);";
+                            cmd.CommandText = "INSERT INTO Productbestelling VALUES (@productId, @bestellingId, @isLid, @datum, @bonnen);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@productId", verkoop.Id);
                             cmd.Parameters.AddWithValue("@bestellingId", DBNull.Value);
                             cmd.Parameters.AddWithValue("@isLid", verkoop.IsLid);
                             cmd.Parameters.AddWithValue("@datum", verkoop.BestelDatum);
+                            cmd.Parameters.AddWithValue("@bonnen", verkoop.BonnenBetaling);
 
                             cmd.ExecuteNonQuery();
 
@@ -138,7 +140,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT ProdId, ProdNaam, SoortNaam, ProdVoorraad, ProdLedenPrijs, ProdPrijs, PbId, PbIsLid, PbDatum " +
+                            cmd.CommandText = "SELECT ProdId, ProdNaam, SoortNaam, ProdVoorraad, ProdLedenPrijs, ProdPrijs, PbId, PbIsLid, PbDatum, PbBonnenBetaald  " +
                                 "FROM Productbestelling LEFT JOIN Product ON ProdId = PbProductId JOIN Soort ON SoortId = ProdSoortId " +
                                 "WHERE PbBestellingId IS NULL AND PbDatum >= @beginDate AND PbDatum <= @endDate;";
                             cmd.Connection = conn;
@@ -175,7 +177,13 @@ namespace Logic.Sql
                                     {
                                         datumBetaald = DateTime.Now;
                                     }
-                                    LosseVerkoop product = new LosseVerkoop(pbId, datumBetaald, isLid, prodId, prodName, prodSoort, prodVoorraad, prodLedenPrijs, prodPrijs);
+                                    bool bonnenBetaling = reader.GetBoolean(9);
+                                    LosseVerkoop product = new LosseVerkoop(pbId, datumBetaald, isLid, bonnenBetaling, prodId, prodName, prodSoort, prodVoorraad, prodLedenPrijs, prodPrijs);
+                                    if (bonnenBetaling)
+                                    {
+                                        product.SetLedenprijs(0.00m);
+                                        product.SetPrijs(0.00m);
+                                    }
                                     productenLosseVerkoop.Add(product);
                                 }
                                 return productenLosseVerkoop;

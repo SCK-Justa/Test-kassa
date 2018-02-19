@@ -102,29 +102,27 @@ namespace Kassasysteem
             try
             {
                 decimal betaaldBedrag;
-                if (!speciaalAfrekenen)
+                if (!speciaalAfrekenen) // Normaal afrekenen
                 {
                     if (cbIsLid.Checked)
                     {
-                        if (bonnen)
+                        if(bonnen)
                         {
-                            Bestelling.SetBetaaldMetBonnen(true);
-                            betaaldBedrag = 0;
+                            betaaldBedrag = 0.00m;
                         }
                         else
                         {
-                            Bestelling.SetBetaaldMetBonnen(false);
                             betaaldBedrag = Bestelling.TotaalLedenPrijs;
                         }
                     }
                     else
                     {
-                        Bestelling.SetBetaaldMetBonnen(false);
                         betaaldBedrag = Bestelling.TotaalPrijs;
                     }
+                    Bestelling.SetBetaaldMetBonnen(bonnen);
                     SetOpmerking(tbOpmerking.Text);
                 }
-                else
+                else // Als bestuur het bedrag vergoedt
                 {
                     betaaldBedrag = Bestelling.TotaalLedenPrijs;
                     Bestelling.SetBetaaldMetBonnen(true);
@@ -150,12 +148,12 @@ namespace Kassasysteem
                 }
                 else
                 {
-                    Bestelling.SetOpmerking(text);
+                    Bestelling.SetOpmerking("");
                 }
             }
             else
             {
-                Bestelling.SetOpmerking(null);
+                Bestelling.SetOpmerking("");
             }
         }
 

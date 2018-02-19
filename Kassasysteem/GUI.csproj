@@ -132,6 +132,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UpdatesScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatesScreen.Designer.cs">
+      <DependentUpon>UpdatesScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="VoorraadScherm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductenScherm.resx">
       <DependentUpon>ProductenScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatesScreen.resx">
+      <DependentUpon>UpdatesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoorraadScherm.resx">
       <DependentUpon>VoorraadScherm.cs</DependentUpon>
@@ -295,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Button Kassasysteem-01-01.jpg" />
+    <Content Include="Resources\Updates.txt" />
     <None Include="Resources\Munten.jpg" />
     <None Include="Resources\Logo SINTSEBASTIAAN_png1.png" />
   </ItemGroup>
