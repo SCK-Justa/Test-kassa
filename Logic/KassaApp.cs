@@ -481,10 +481,11 @@ namespace Logic
             return _losseVerkopen;
         }
 
-        public void AddLosseVerkoop(Product product, bool isLid)
+        public void AddLosseVerkoop(Product product, bool isLid, bool bonnen)
         {
             if (Database.GetIsConnected())
             {
+                // Nog een toevoeging dat bonnen kunnen worden toegevoegd en er dus geen geld de kas inkomt, door deze verkop
                 Database.ProductbestellingRepo.AddLosseVerkoop(product, isLid);
                 if (isLid)
                 {

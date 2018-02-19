@@ -269,14 +269,25 @@ namespace GUI
                 if (_contanteVerkoop) // Losse verkoop als niet lid
                 {
                     Product product = App.VindProduct(productnaam);
-                    App.AddLosseVerkoop(product, false);
+                    App.AddLosseVerkoop(product, false, false);
                     UpdateKlantBestelling(null);
                 }
                 else // Losse verkoop als lid
                 {
-                    Product product = App.VindProduct(productnaam);
-                    App.AddLosseVerkoop(product, true);
-                    UpdateKlantBestelling(null);
+                    DialogResult dialogResult = MessageBox.Show(@"Met bonnen afrekenen?", @"",
+                        MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Product product = App.VindProduct(productnaam);
+                        App.AddLosseVerkoop(product, true, true);
+                        UpdateKlantBestelling(null);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Product product = App.VindProduct(productnaam);
+                        App.AddLosseVerkoop(product, true, false);
+                        UpdateKlantBestelling(null);
+                    }
                 }
             }
             else
@@ -711,7 +722,7 @@ namespace GUI
                 if (isLid)
                 {
                     groupBox6.Visible = false;
-                    _contanteVerkoop = true;
+                    _contanteVerkoop = false;
                     _contanteVerkoopLid = true;
                 }
                 else
