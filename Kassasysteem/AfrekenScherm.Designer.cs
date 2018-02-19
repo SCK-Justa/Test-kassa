@@ -44,6 +44,9 @@
             this.lbBonnen = new System.Windows.Forms.Label();
             this.cbIsLid = new System.Windows.Forms.CheckBox();
             this.btAfrekenenBonnen = new System.Windows.Forms.Button();
+            this.btBestuurAfrekenen = new System.Windows.Forms.Button();
+            this.tbOpmerking = new System.Windows.Forms.TextBox();
+            this.lbOpmerking = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -201,11 +204,41 @@
             this.btAfrekenenBonnen.UseVisualStyleBackColor = true;
             this.btAfrekenenBonnen.Click += new System.EventHandler(this.btAfrekenenBonnen_Click);
             // 
+            // btBestuurAfrekenen
+            // 
+            this.btBestuurAfrekenen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBestuurAfrekenen.Location = new System.Drawing.Point(598, 430);
+            this.btBestuurAfrekenen.Name = "btBestuurAfrekenen";
+            this.btBestuurAfrekenen.Size = new System.Drawing.Size(268, 74);
+            this.btBestuurAfrekenen.TabIndex = 14;
+            this.btBestuurAfrekenen.Text = "Afrekenen bestuur";
+            this.btBestuurAfrekenen.UseVisualStyleBackColor = true;
+            this.btBestuurAfrekenen.Click += new System.EventHandler(this.btBestuurAfrekenen_Click);
+            // 
+            // tbOpmerking
+            // 
+            this.tbOpmerking.Location = new System.Drawing.Point(334, 464);
+            this.tbOpmerking.Name = "tbOpmerking";
+            this.tbOpmerking.Size = new System.Drawing.Size(258, 20);
+            this.tbOpmerking.TabIndex = 15;
+            // 
+            // lbOpmerking
+            // 
+            this.lbOpmerking.AutoSize = true;
+            this.lbOpmerking.Location = new System.Drawing.Point(334, 446);
+            this.lbOpmerking.Name = "lbOpmerking";
+            this.lbOpmerking.Size = new System.Drawing.Size(61, 13);
+            this.lbOpmerking.TabIndex = 16;
+            this.lbOpmerking.Text = "Opmerking:";
+            // 
             // AfrekenScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 436);
+            this.ClientSize = new System.Drawing.Size(924, 510);
+            this.Controls.Add(this.lbOpmerking);
+            this.Controls.Add(this.tbOpmerking);
+            this.Controls.Add(this.btBestuurAfrekenen);
             this.Controls.Add(this.btAfrekenenBonnen);
             this.Controls.Add(this.cbIsLid);
             this.Controls.Add(this.lbBonnen);
@@ -248,5 +281,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.CheckBox cbIsLid;
         private System.Windows.Forms.Button btAfrekenenBonnen;
+        private System.Windows.Forms.Button btBestuurAfrekenen;
+        private System.Windows.Forms.TextBox tbOpmerking;
+        private System.Windows.Forms.Label lbOpmerking;
     }
 }

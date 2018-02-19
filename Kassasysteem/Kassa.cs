@@ -695,12 +695,15 @@ namespace GUI
             {
                 case BestellingSoortEnum.Bestelling:
                     SelectSellMethod(true, true);
+                    timer.Stop();
                     break;
                 case BestellingSoortEnum.Losse_verkoop_niet_lid:
                     SelectSellMethod(false, false);
+                    timer.Start();
                     break;
                 case BestellingSoortEnum.Losse_verkoop_wel_lid:
                     SelectSellMethod(false, true);
+                    timer.Start();
                     break;
             }
         }
@@ -762,8 +765,15 @@ namespace GUI
         {
             try
             {
-                _omzetScherm = new PenningmeesterScherm(App);
-                _omzetScherm.ShowDialog();
+                if (App.GetIsGemachtigd())
+                {
+                    _omzetScherm = new PenningmeesterScherm(App);
+                    _omzetScherm.ShowDialog();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina.");
+                }
             }
             catch (Exception exception)
             {

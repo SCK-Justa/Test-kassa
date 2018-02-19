@@ -17,6 +17,7 @@ namespace Logic.Classes
         public decimal TotaalLedenPrijs { get; private set; }
         public bool BetaaldMetBonnen { get; private set; }
         public decimal BetaaldBedrag { get; private set; }
+        public string Opmerking { get; private set; }
 
         public Bestelling(DateTime datum)
         {
@@ -115,6 +116,11 @@ namespace Logic.Classes
         public void SetBetaaldMetBonnen(bool value)
         {
             BetaaldMetBonnen = value;
+        }
+
+        public void SetOpmerking(string value)
+        {
+            Opmerking = value;
         }
 
         public void AddProductenToList(List<Product> producten)
