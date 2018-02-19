@@ -106,7 +106,7 @@ namespace Kassasysteem
                 {
                     if (cbIsLid.Checked)
                     {
-                        if(bonnen)
+                        if (bonnen)
                         {
                             betaaldBedrag = 0.00m;
                         }
@@ -159,8 +159,15 @@ namespace Kassasysteem
 
         private void btBestuurAfrekenen_Click(object sender, EventArgs e)
         {
-            speciaalAfrekenen = true;
-            Afrekenen(true);
+            if (tbOpmerking.Text != "")
+            {
+                speciaalAfrekenen = true;
+                Afrekenen(true);
+            }
+            else
+            {
+                MessageBox.Show("Vul een reden van bestuursvergoeding in.");
+            }
         }
     }
 }
