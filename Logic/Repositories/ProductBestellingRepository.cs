@@ -17,9 +17,9 @@ namespace Logic.Repositories
             _productenBestellingServices.AddProductToBestelling(bestelling, product);
         }
 
-        public void AddLosseVerkoop(Product product, bool isLid)
+        public LosseVerkoop AddLosseVerkoop(LosseVerkoop verkoop)
         {
-            _productenBestellingServices.AddLosseVerkoop(product, isLid);
+            return _productenBestellingServices.AddLosseVerkoop(verkoop);
         }
 
         public void EditProductInBestelling(Bestelling bestelling, Product product)
@@ -32,9 +32,14 @@ namespace Logic.Repositories
             _productenBestellingServices.RemoveProductFromBestelling(bestelling, product);
         }
 
-        public List<Product> GetLosseVerkopen(DateTime beginDate, DateTime endDate)
+        public List<LosseVerkoop> GetLosseVerkopen(DateTime beginDate, DateTime endDate)
         {
             return _productenBestellingServices.GetLosseVerkopen(beginDate, endDate);
+        }
+
+        public void RemoveProductFromLosseVerkoop(LosseVerkoop verkoop)
+        {
+            _productenBestellingServices.RemoveProductFromLosseVerkoop(verkoop);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Logic
     {
         private List<Authentication> _gebruikers;
         private List<Lid> _leden;
-        private List<Product> _losseVerkopen;
+        private List<LosseVerkoop> _losseVerkopen;
         private List<Bestelling> _bestellingen;
         private List<Bestelling> _afgerekendeBestellingen;
         private List<Formulier> _formulieren;
@@ -55,7 +55,7 @@ namespace Logic
                 BedragInKas = 0;
                 _formulieren = new List<Formulier>();
                 _gebruikers = new List<Authentication>();
-                _losseVerkopen = new List<Product>();
+                _losseVerkopen = new List<LosseVerkoop>();
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
@@ -252,13 +252,21 @@ namespace Logic
             }
         }
 
-        public bool RemoveProductVanBestelling(Bestelling bestelling, Product product)
+        public bool RemoveProductVanBestelling(Bestelling bestelling, Product product, LosseVerkoop verkoop)
         {
             if (Database.GetIsConnected())
             {
-                Database.ProductbestellingRepo.RemoveProductFromBestelling(bestelling, product);
+                if (bestelling != null)
+                {
+                    Database.ProductbestellingRepo.RemoveProductFromBestelling(bestelling, product);
+                    bestelling.RemoveProductFromList(product);
+                }
+                else
+                {
+                    Database.ProductbestellingRepo.RemoveProductFromLosseVerkoop(verkoop);
+                    _losseVerkopen.Remove(verkoop);
+                }
             }
-            bestelling.RemoveProductFromList(product);
             return true;
         }
 
@@ -472,33 +480,36 @@ namespace Logic
             }
         }
 
-        public List<Product> GetLosseVerkopen()
+        public List<LosseVerkoop> GetLosseVerkopen(DateTime beginTime, DateTime endTime)
         {
-            if (_losseVerkopen == null)
+            if (_losseVerkopen == null || _losseVerkopen.Count <= 0)
             {
-                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(DateTime.Today.AddDays(-7), DateTime.Today);
+                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(beginTime, endTime);
+                if (_losseVerkopen.Count > 0)
+                {
+                    _losseVerkopen.Sort((x, y) => -x.BestelDatum.CompareTo(y.BestelDatum));
+                }
             }
             return _losseVerkopen;
         }
 
-        public void AddLosseVerkoop(Product product, bool isLid, bool bonnen)
+        public void AddLosseVerkoop(LosseVerkoop verkoop)
         {
             if (Database.GetIsConnected())
             {
-                // Nog een toevoeging dat bonnen kunnen worden toegevoegd en er dus geen geld de kas inkomt, door deze verkop
-                Database.ProductbestellingRepo.AddLosseVerkoop(product, isLid);
-                if (isLid)
+                verkoop = Database.ProductbestellingRepo.AddLosseVerkoop(verkoop);
+                if (verkoop.IsLid)
                 {
                     Database.KassaLogRepo.AddLogString(
-                        Id, product.Ledenprijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
+                        Id, verkoop.Ledenprijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
                 }
                 else
                 {
                     Database.KassaLogRepo.AddLogString(
-                        Id, product.Prijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
+                        Id, verkoop.Prijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
                 }
             }
-            _losseVerkopen.Add(product);
+            _losseVerkopen.Add(verkoop);
         }
 
         public decimal GetOmzetPerDag(DateTime dag)

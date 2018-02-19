@@ -7,9 +7,10 @@ namespace Logic.Interfaces
     public interface IProductenBestellingServices
     {
         void AddProductToBestelling(Bestelling bestelling, Product product);
-        void AddLosseVerkoop(Product product, bool isLid);
+        LosseVerkoop AddLosseVerkoop(LosseVerkoop verkoop);
         void EditProductInBestelling(Bestelling bestelling, Product product);
         void RemoveProductFromBestelling(Bestelling bestelling, Product product);
-        List<Product> GetLosseVerkopen(DateTime beginDate, DateTime endDate);
+        List<LosseVerkoop> GetLosseVerkopen(DateTime beginDate, DateTime endDate);
+        void RemoveProductFromLosseVerkoop(LosseVerkoop verkoop);
     }
 }

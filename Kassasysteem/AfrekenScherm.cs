@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
+using Logic.Classes.Enums;
 
 namespace Kassasysteem
 {
     public partial class AfrekenScherm : Form
     {
+        private bool speciaalAfrekenen = false;
         private KassaApp _app;
         public bool Betaald { get; private set; }
         public Bestelling Bestelling { get; private set; }
@@ -18,6 +20,7 @@ namespace Kassasysteem
             Betaald = bestelling.Betaald;
             _app = app;
             Bestelling = bestelling;
+            CheckBestuur();
             CheckGegevens();
         }
 
@@ -31,6 +34,29 @@ namespace Kassasysteem
             else
             {
                 SetGegevens(false, false, false);
+            }
+        }
+
+        private void CheckBestuur()
+        {
+            bool gemachtigd = false;
+            if (_app.Authentication != null)
+            {
+                gemachtigd = _app.GetIsGemachtigd();
+            }
+            if (gemachtigd)
+            {
+                Height = 550;
+                btBestuurAfrekenen.Visible = gemachtigd;
+                tbOpmerking.Visible = gemachtigd;
+                lbOpmerking.Visible = gemachtigd;
+            }
+            else
+            {
+                Height = 465;
+                btBestuurAfrekenen.Visible = gemachtigd;
+                tbOpmerking.Visible = gemachtigd;
+                lbOpmerking.Visible = gemachtigd;
             }
         }
 
@@ -50,8 +76,8 @@ namespace Kassasysteem
             foreach (Product p in Bestelling.GetProducten())
             {
                 ListViewItem lvi = new ListViewItem(p.Naam);
-                lvi.SubItems.Add("€" + p.Prijs);
-                lvi.SubItems.Add("€" + p.Ledenprijs);
+                lvi.SubItems.Add("€ " + p.Prijs);
+                lvi.SubItems.Add("€ " + p.Ledenprijs);
                 lvProducten.Items.Add(lvi);
             }
         }
@@ -76,23 +102,33 @@ namespace Kassasysteem
             try
             {
                 decimal betaaldBedrag;
-                if (cbIsLid.Checked)
+                if (!speciaalAfrekenen)
                 {
-                    if (bonnen)
+                    if (cbIsLid.Checked)
                     {
-                        Bestelling.SetBetaaldMetBonnen(true);
-                        betaaldBedrag = 0;
+                        if (bonnen)
+                        {
+                            Bestelling.SetBetaaldMetBonnen(true);
+                            betaaldBedrag = 0;
+                        }
+                        else
+                        {
+                            Bestelling.SetBetaaldMetBonnen(false);
+                            betaaldBedrag = Bestelling.TotaalLedenPrijs;
+                        }
                     }
                     else
                     {
                         Bestelling.SetBetaaldMetBonnen(false);
-                        betaaldBedrag = Bestelling.TotaalLedenPrijs;
+                        betaaldBedrag = Bestelling.TotaalPrijs;
                     }
+                    SetOpmerking(tbOpmerking.Text);
                 }
                 else
                 {
-                    Bestelling.SetBetaaldMetBonnen(false);
-                    betaaldBedrag = Bestelling.TotaalPrijs;
+                    betaaldBedrag = Bestelling.TotaalLedenPrijs;
+                    Bestelling.SetBetaaldMetBonnen(true);
+                    SetOpmerking(tbOpmerking.Text);
                 }
                 _app.BestellingAfrekenen(Bestelling, betaaldBedrag);
                 Close();
@@ -102,6 +138,31 @@ namespace Kassasysteem
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
+        }
+
+        private void SetOpmerking(string text)
+        {
+            if (text != "")
+            {
+                if (speciaalAfrekenen)
+                {
+                    Bestelling.SetOpmerking("Betaling door bestuur: " + text);
+                }
+                else
+                {
+                    Bestelling.SetOpmerking(text);
+                }
+            }
+            else
+            {
+                Bestelling.SetOpmerking(null);
+            }
+        }
+
+        private void btBestuurAfrekenen_Click(object sender, EventArgs e)
+        {
+            speciaalAfrekenen = true;
+            Afrekenen(true);
         }
     }
 }

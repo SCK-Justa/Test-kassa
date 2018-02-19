@@ -78,7 +78,6 @@ namespace Logic.Sql
                                     }
                                     decimal betaaldBedrag = reader.GetDecimal(8);
                                     Bestelling _bestelling;
-
                                     if (persoon != null)
                                     {
                                         _bestelling = new Bestelling(id, persoon, datum);
@@ -87,8 +86,14 @@ namespace Logic.Sql
                                     {
                                         _bestelling = new Bestelling(id, persoonNaam, datum);
                                     }
+                                    string opmerking = "";
+                                    if(!reader.IsDBNull(9))
+                                    {
+                                        opmerking = reader.GetString(9);
+                                    }
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));
                                     _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetOpmerking(opmerking);
                                     bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
                                 }
                             }
@@ -234,7 +239,11 @@ namespace Logic.Sql
                                     }
                                     decimal betaaldBedrag = reader.GetDecimal(8);
                                     Bestelling _bestelling;
-
+                                    string opmerking = "";
+                                    if (!reader.IsDBNull(9))
+                                    {
+                                        opmerking = reader.GetString(9);
+                                    }
                                     if (persoon != null)
                                     {
                                         _bestelling = new Bestelling(id, persoon, datum);
@@ -245,6 +254,7 @@ namespace Logic.Sql
                                     }
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));
                                     _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetOpmerking(opmerking);
                                     bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
                                 }
                             }
@@ -331,7 +341,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Bestelling (BPersoonid, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag) VALUES (@persoonId, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag);";
+                            cmd.CommandText = "INSERT INTO Bestelling (BPersoonid, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking) VALUES (@persoonId, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@persoonId", bestelling.Lid.Id);
@@ -341,6 +351,14 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
                             cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
+                            if(bestelling.Opmerking == null)
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", DBNull.Value);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
+                            }
 
                             cmd.ExecuteNonQuery();
 
@@ -376,7 +394,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Bestelling (BNaam, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag) VALUES (@naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag);";
+                            cmd.CommandText = "INSERT INTO Bestelling (BNaam, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking) VALUES (@naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@naam", bestelling.Naam);
@@ -386,6 +404,14 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
                             cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
+                            if (bestelling.Opmerking == null)
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", DBNull.Value);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
+                            }
 
                             cmd.ExecuteNonQuery();
 
@@ -422,7 +448,7 @@ namespace Logic.Sql
                         using (SqlCommand cmd = new SqlCommand())
                         {
                             cmd.CommandText = "UPDATE Bestelling SET BPersoonId = @persoonId, BNaam = @naam, BDatum = @datum, " +
-                                              "BBetaald = @betaald, BKassaId = @kassaId, BDatumBetaald = @datumbetaald, BBetaaldMetBonnen = @bonnen " +
+                                              "BBetaald = @betaald, BKassaId = @kassaId, BDatumBetaald = @datumbetaald, BBetaaldMetBonnen = @bonnen, BOpmerking = @opmerking " +
                                               "WHERE BId = @bestellingId;";
                             cmd.Connection = conn;
 
@@ -434,6 +460,14 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
                             cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
+                            if (bestelling.Opmerking == null)
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", DBNull.Value);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
+                            }
 
                             cmd.ExecuteNonQuery();
                         }
