@@ -31,7 +31,7 @@ namespace Kassasysteem
             }
             catch (IOException iox)
             {
-
+                MessageBox.Show("Filelokatie kan niet worden gevonden.");
             }
         }
     }

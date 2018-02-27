@@ -39,7 +39,7 @@ namespace Logic
 
         public bool CheckDbConnection()
         {
-            Database = new Database(@"Server=77.162.105.50,1433;Database=Clubmanagement;User ID=admin;Password=SintSebastiaan1819;");
+            Database = new Database();
             if (Database.GetIsConnected())
             {
                 return true;

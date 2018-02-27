@@ -3,6 +3,8 @@ using Logic.Sql;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Logic.Classes
 {
@@ -25,10 +27,11 @@ namespace Logic.Classes
         public KlasseRepository KlasseRepo { get; private set; }
         public KassaLogRepository KassaLogRepo { get; private set; }
 
-        public Database(string connectieString)
+        public Database()
         {
+            //WriteFile();
             IsConnected = false;
-            _connectieString = connectieString;
+            _connectieString = GetConnectionString("Authentication.txt");
             TryDatabaseConnection();
             if (IsConnected)
             {
@@ -72,6 +75,32 @@ namespace Logic.Classes
         {
             return IsConnected;
         }
+
+        private string GetConnectionString(string file)
+        {
+            try
+            {
+                string ip;
+                string database;
+                string username;
+                string password;
+                using (StreamReader reader = new StreamReader(file))
+                {
+                    ip = reader.ReadLine();
+                    database = reader.ReadLine();
+                    username = reader.ReadLine();
+                    password = reader.ReadLine();
+                }
+                string connstring =
+                    $@"Server={ip};Database={database};User ID={username};Password={password};";
+                return connstring;
+            }
+            catch (IOException iox)
+            {
+                throw new Exception(iox.Message);
+            }
+        }
+
 
         private void GetDatabaseStuff()
         {
