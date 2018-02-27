@@ -29,7 +29,7 @@ namespace Kassasysteem
                 }
                 tbUpdates.Text = text;
             }
-            catch (IOException iox)
+            catch (IOException)
             {
                 MessageBox.Show("Filelokatie kan niet worden gevonden.");
             }

@@ -15,6 +15,7 @@ namespace Logic
         private List<Bestelling> _afgerekendeBestellingen;
         private List<Formulier> _formulieren;
         private int volgendBestellingNr;
+        private Dictionary<DateTime, String> specialDates;
 
         public int Id { get; private set; }
         public string Lokatie { get; private set; }
@@ -62,6 +63,7 @@ namespace Logic
                     AddProductenFromDbToVoorraad();
                     _leden = GetLeden();
                     _gebruikers = GetGebruikers();
+                    FillSpecialDatesDict();
                     GetBestellingenFromDb();
                     BedragInKas = Database.KassaRepo.GetKasInhoud(0);
                     if (_afgerekendeBestellingen.Count > 1)
@@ -658,6 +660,27 @@ namespace Logic
             if(Authentication != null)
             {
                 return Authentication.Lid.GetLidNaam();
+            }
+            return "";
+        }
+
+        private void FillSpecialDatesDict()
+        {
+            specialDates = new Dictionary<DateTime, string>();
+            specialDates.Add(new DateTime(2018, 05, 06), "WA 1440 Ronde");
+            specialDates.Add(new DateTime(2018, 05, 19), "JeugdFITA Dag 1");
+            specialDates.Add(new DateTime(2018, 05, 20), "JeugdFITA Dag 2");
+            specialDates.Add(new DateTime(2018, 06, 09), "Zomercompetitie");
+            specialDates.Add(new DateTime(2018, 06, 10), "Selectie EJK");
+
+        }
+
+        public String GetSpecialDate(DateTime date)
+        {
+            DateTime goodValuedDate = new DateTime(date.Year, date.Month, date.Day);
+            if (specialDates.ContainsKey(goodValuedDate))
+            {
+                return specialDates[goodValuedDate];
             }
             return "";
         }

@@ -37,6 +37,7 @@ namespace GUI
                 {
                     aanmeldenToolStripMenuItem.Visible = true;
                     afmeldenToolStripMenuItem1.Visible = false;
+                    gegevensWijzigenToolStripMenuItem.Visible = false;
                     UpdateKassaGegevens();
                     UpdateBestellingen();
                 }
@@ -73,6 +74,10 @@ namespace GUI
                     break;
                 case DayOfWeek.Tuesday:
                     ChangeLbDagReden("Clubtraining");
+                    if(today.Day < 10)
+                    {
+                        ChangeLbDagReden("Schutter van de maand");
+                    }
                     break;
                 case DayOfWeek.Wednesday:
                     ChangeLbDagReden("");
@@ -90,6 +95,32 @@ namespace GUI
                     ChangeLbDagReden("Training");
                     break;
             }
+            string specialDate = GetSpecialDate();
+            if(specialDate != "") 
+            {
+                lbBirthdaylb.Visible = true;
+                ChangeLbDagReden(specialDate);
+            }
+        }
+
+        private string GetSpecialDate()
+        {
+            return App.GetSpecialDate(DateTime.Now);
+        }
+
+        private string CheckForBirthdays()
+        {
+            string jarigen = "";
+            DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            foreach(Lid l in App.GetLeden())
+            {
+                DateTime birthday = new DateTime(DateTime.Now.Year, l.Geboortedatum.Month, l.Geboortedatum.Day);
+                if (today == birthday)
+                {
+                    jarigen += l.GetLidNaam() + " ";
+                }
+            }
+            return jarigen;
         }
 
         private void ChangeLbDagReden(string text)
@@ -207,6 +238,13 @@ namespace GUI
                 gpDrinken.Visible = false;
                 gpEten.Visible = false;
                 gpMenu.Visible = true;
+                lbSpecialDate.Visible = false;
+                string birthdays = CheckForBirthdays();
+                if (birthdays != "")
+                {
+                    lbSpecialDate.Text = birthdays;
+                    lbSpecialDate.Visible = true;
+                }
             }
             catch (Exception exception)
             {
@@ -473,6 +511,41 @@ namespace GUI
             }
         }
 
+        private void btBoordjeFrikandel_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Broodje Frikandel");
+        }
+
+        private void btBroodjeKaas_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Broodje Kaas");
+        }
+
+        private void btBroodjeHam_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Broodje Ham");
+        }
+
+        private void btBroodjeKroket_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Broodje Kroket");
+        }
+
+        private void btMiniSnacks_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Mini Snacks");
+        }
+
+        private void btFrikandel_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Frikandel");
+        }
+
+        private void btKroket_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Kroket");
+        }
+
         private void btSchrobbeler_Click(object sender, EventArgs e)
         {
             AddProductToBestelling("Schrobbeler");
@@ -627,6 +700,7 @@ namespace GUI
                     UpdateKassaGegevens();
                     aanmeldenToolStripMenuItem.Visible = true;
                     afmeldenToolStripMenuItem1.Visible = false;
+                    gegevensWijzigenToolStripMenuItem.Visible = false;
                 }
             }
             catch (Exception exception)
@@ -813,6 +887,7 @@ namespace GUI
                 InlogScherm scherm = new InlogScherm(this, App, MessageType.LOGIN);
                 aanmeldenToolStripMenuItem.Visible = false;
                 afmeldenToolStripMenuItem1.Visible = true;
+                gegevensWijzigenToolStripMenuItem.Visible = true;
                 scherm.Show();
 
             }
