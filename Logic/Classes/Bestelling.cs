@@ -17,6 +17,7 @@ namespace Logic.Classes
         public decimal TotaalLedenPrijs { get; private set; }
         public bool BetaaldMetBonnen { get; private set; }
         public decimal BetaaldBedrag { get; private set; }
+        public bool BetaaldBestuur { get; private set; }
         public string Opmerking { get; private set; }
 
         public Bestelling(DateTime datum)
@@ -123,6 +124,11 @@ namespace Logic.Classes
             Opmerking = value;
         }
 
+        public void SetBetaaldBestuur(bool value)
+        {
+            BetaaldBestuur = value;
+        }
+
         public void AddProductenToList(List<Product> producten)
         {
             _producten = producten;
@@ -143,7 +149,7 @@ namespace Logic.Classes
 
         public bool AddProductToList(Product product)
         {
-            if (product.Voorraad > 1)
+            if (product.Voorraad > 0)
             {
                 _producten.Add(product);
                 product.SetVoorraad(product.Voorraad - 1);
@@ -161,6 +167,7 @@ namespace Logic.Classes
                 if (product.Id == p.Id)
                 {
                     _producten.Remove(product);
+                    product.SetVoorraad(product.Voorraad + 1);
                     TotaalPrijs -= product.Prijs;
                     TotaalLedenPrijs -= product.Ledenprijs;
                     break;
@@ -168,11 +175,12 @@ namespace Logic.Classes
             }
         }
 
-        public void Afrekenen(decimal bedrag, DateTime datumBetaald)
+        public void Afrekenen(decimal bedrag, DateTime datumBetaald, bool bestuur)
         {
             BetaaldBedrag = bedrag;
             Betaald = true;
             DatumBetaald = datumBetaald;
+            BetaaldBestuur = bestuur;
         }
 
         public string GetBesteller()

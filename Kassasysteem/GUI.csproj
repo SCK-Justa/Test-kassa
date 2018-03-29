@@ -138,6 +138,12 @@
     <Compile Include="UpdatesScreen.Designer.cs">
       <DependentUpon>UpdatesScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="VoorraadControleScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoorraadControleScherm.Designer.cs">
+      <DependentUpon>VoorraadControleScherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VoorraadScherm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatesScreen.resx">
       <DependentUpon>UpdatesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoorraadControleScherm.resx">
+      <DependentUpon>VoorraadControleScherm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoorraadScherm.resx">
       <DependentUpon>VoorraadScherm.cs</DependentUpon>

@@ -34,11 +34,13 @@
             // tbUpdates
             // 
             this.tbUpdates.BackColor = System.Drawing.Color.White;
-            this.tbUpdates.Enabled = false;
             this.tbUpdates.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.tbUpdates.ForeColor = System.Drawing.Color.Black;
             this.tbUpdates.Location = new System.Drawing.Point(12, 12);
             this.tbUpdates.Multiline = true;
             this.tbUpdates.Name = "tbUpdates";
+            this.tbUpdates.ReadOnly = true;
+            this.tbUpdates.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbUpdates.Size = new System.Drawing.Size(968, 666);
             this.tbUpdates.TabIndex = 0;
             // 

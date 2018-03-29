@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Logic.Classes;
 using Logic.Classes.Enums;
-using Microsoft.SqlServer.Server;
 
 namespace Logic
 {
@@ -61,6 +61,7 @@ namespace Logic
                 {
                     Console.WriteLine("Connectie geslaagd.");
                     AddProductenFromDbToVoorraad();
+                    GetLoadAllControlesFromProducts();
                     _leden = GetLeden();
                     _gebruikers = GetGebruikers();
                     FillSpecialDatesDict();
@@ -258,15 +259,36 @@ namespace Logic
         {
             if (Database.GetIsConnected())
             {
+                VoorraadControle controle = null;
                 if (bestelling != null)
                 {
                     Database.ProductbestellingRepo.RemoveProductFromBestelling(bestelling, product);
                     bestelling.RemoveProductFromList(product);
+                    foreach (VoorraadControle c in product.GetVoorraadOpbouw())
+                    {
+                        if (c.DatumControle >= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) &&
+                            c.DatumControle < DateTime.Now.AddDays(1))
+                        {
+                            controle = c;
+                        }
+                    }
                 }
                 else
                 {
                     Database.ProductbestellingRepo.RemoveProductFromLosseVerkoop(verkoop);
                     _losseVerkopen.Remove(verkoop);
+                    foreach (VoorraadControle c in verkoop.GetVoorraadOpbouw())
+                    {
+                        if (c.DatumControle >= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) &&
+                            c.DatumControle < DateTime.Now.AddDays(1))
+                        {
+                            controle = c;
+                        }
+                    }
+                }
+                if (controle != null)
+                {
+                    Database.VoorraadControleRepo.ChangeVoorraadControle(controle, product.Voorraad, product.Voorraad - 1);
                 }
             }
             return true;
@@ -355,7 +377,7 @@ namespace Logic
                 {
                     _leden = new List<Lid>();
                     _leden = Database.LedenRepo.GetAllLeden();
-                    _leden.Sort((x, y) => x.Voornaam.CompareTo(y.Voornaam));
+                    _leden.Sort((x, y) => String.Compare(x.Voornaam, y.Voornaam, StringComparison.Ordinal));
                 }
                 return _leden;
             }
@@ -367,14 +389,21 @@ namespace Logic
 
         public bool BestellingAfrekenen(Bestelling bestelling, decimal bedrag)
         {
-            bestelling.Afrekenen(bedrag, DateTime.Now);
+            bestelling.Afrekenen(bedrag, DateTime.Now, bestelling.BetaaldBestuur);
             _afgerekendeBestellingen.Add(bestelling);
             BedragInKas += bestelling.BetaaldBedrag;
             _afgerekendeBestellingen.Sort((x, y) => -x.DatumBetaald.CompareTo(y.DatumBetaald));
             _bestellingen.Remove(bestelling);
             if (Database.GetIsConnected())
             {
-                Database.BestellingRepo.BetaalBestelling(bestelling);
+                if (bestelling.GetProducten().Count > 0)
+                {
+                    Database.BestellingRepo.BetaalBestelling(bestelling);
+                }
+                else
+                {
+                    Database.BestellingRepo.DeleteBestelling(bestelling);
+                }
                 if (bedrag > 0)
                 {
                     Database.KassaLogRepo.AddLogString(
@@ -397,6 +426,14 @@ namespace Logic
                         {
                             Database.ProductbestellingRepo.AddProductToBestelling(bestelling, product);
                             Database.ProductRepo.EditProduct(product);
+                            if (Authentication != null)
+                            {
+                                AddVoorraadControleToProduct(product, Authentication.Lid);
+                            }
+                            else
+                            {
+                                AddVoorraadControleToProduct(product, null);
+                            }
                         }
                     }
                 }
@@ -500,6 +537,7 @@ namespace Logic
             if (Database.GetIsConnected())
             {
                 verkoop = Database.ProductbestellingRepo.AddLosseVerkoop(verkoop);
+                AddVoorraadControleToProduct(verkoop, null);
                 if (verkoop.IsLid)
                 {
                     Database.KassaLogRepo.AddLogString(
@@ -541,9 +579,9 @@ namespace Logic
                 DateTime einddag = maand.AddMonths(1);
                 return Database.OmzetRepo.GetOmzetPerMaand(begindag, einddag);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                throw exception;
+                throw;
             }
         }
 
@@ -553,9 +591,9 @@ namespace Logic
             {
                 return Database.OmzetRepo.GetOmzetPerJaar(year);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                throw exception;
+                throw;
             }
         }
 
@@ -603,12 +641,16 @@ namespace Logic
             }
         }
 
-        public void EditProduct(Product product)
+        public void EditProduct(Product product, int oudeVoorraad, int nieuweVoorraad)
         {
             try
             {
-                Voorraad.ChangeProduct(product);
-                Database.ProductRepo.EditProduct(product);
+                VoorraadControle controle = Voorraad.ChangeProduct(product, Authentication.Lid, oudeVoorraad, nieuweVoorraad);
+                if (controle != null)
+                {
+                    Database.ProductRepo.EditProduct(product);
+                    Database.VoorraadControleRepo.AddVoorraadControle(controle);
+                }
             }
             catch (Exception exception)
             {
@@ -635,7 +677,9 @@ namespace Logic
             {
                 int totaleHoeveelheid = product.Voorraad + hoeveelheid;
                 Database.ProductRepo.VoegVoorraadToe(product, totaleHoeveelheid);
-                Voorraad.VoegVoorraadToe(product, totaleHoeveelheid);
+                VoorraadControle controle = Voorraad.VoegVoorraadToe(product, totaleHoeveelheid, Authentication.Lid);
+                Database.VoorraadControleRepo.AddVoorraadControle(controle);
+
             }
             catch (Exception exception)
             {
@@ -670,9 +714,9 @@ namespace Logic
             specialDates.Add(new DateTime(2018, 05, 06), "WA 1440 Ronde");
             specialDates.Add(new DateTime(2018, 05, 19), "JeugdFITA Dag 1");
             specialDates.Add(new DateTime(2018, 05, 20), "JeugdFITA Dag 2");
+            specialDates.Add(new DateTime(2018, 05, 26), "Selectie EJK");
             specialDates.Add(new DateTime(2018, 06, 09), "Zomercompetitie");
-            specialDates.Add(new DateTime(2018, 06, 10), "Selectie EJK");
-
+            specialDates.Add(new DateTime(2018, 06, 10), "900 Ronde SSG");
         }
 
         public String GetSpecialDate(DateTime date)
@@ -683,6 +727,39 @@ namespace Logic
                 return specialDates[goodValuedDate];
             }
             return "";
+        }
+
+        public void AddVoorraadControleToProduct(Product product, Lid lid)
+        {
+            VoorraadControle controle = new VoorraadControle(product, lid, DateTime.Now, product.Voorraad + 1, product.Voorraad, VoorraadEnum.Verkoop);
+            int id = Database.VoorraadControleRepo.AddVoorraadControle(controle);
+            controle.SetId(id);
+            product.AddVoorraadControle(controle);
+        }
+
+        public void GetLoadAllControlesFromProducts()
+        {
+            foreach (Product product in Voorraad.GetProducten())
+            {
+                product.AddVoorraadOpbouw(GetVoorraadControlesFromProduct(product));
+            }
+        }
+
+        public List<VoorraadControle> GetVoorraadControles()
+        {
+            return Database.VoorraadControleRepo.GetVoorraadControles();
+        }
+
+        public List<VoorraadControle> GetVoorraadControlesFromProduct(Product product)
+        {
+            List<VoorraadControle> controles = new List<VoorraadControle>();
+            if (product != null)
+            {
+                controles.AddRange(Database.VoorraadControleRepo.GetVoorraadControlesFromProduct(product));
+                controles.Sort((x, y) => -x.DatumControle.CompareTo(y.DatumControle));
+                return controles;
+            }
+            return null;
         }
     }
 }

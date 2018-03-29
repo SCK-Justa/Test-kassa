@@ -65,6 +65,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.gpVoorraadOpbouw = new System.Windows.Forms.GroupBox();
+            this.lvVoorraadOpbouw = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLedenprijs)).BeginInit();
@@ -74,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNLedenprijs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNPrijs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNVoorraad)).BeginInit();
+            this.gpVoorraadOpbouw.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -453,11 +459,51 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Productnaam";
             // 
+            // gpVoorraadOpbouw
+            // 
+            this.gpVoorraadOpbouw.Controls.Add(this.lvVoorraadOpbouw);
+            this.gpVoorraadOpbouw.Location = new System.Drawing.Point(705, 13);
+            this.gpVoorraadOpbouw.Name = "gpVoorraadOpbouw";
+            this.gpVoorraadOpbouw.Size = new System.Drawing.Size(275, 542);
+            this.gpVoorraadOpbouw.TabIndex = 15;
+            this.gpVoorraadOpbouw.TabStop = false;
+            this.gpVoorraadOpbouw.Text = "Voorraadopbouw";
+            // 
+            // lvVoorraadOpbouw
+            // 
+            this.lvVoorraadOpbouw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader9});
+            this.lvVoorraadOpbouw.GridLines = true;
+            this.lvVoorraadOpbouw.Location = new System.Drawing.Point(6, 19);
+            this.lvVoorraadOpbouw.Name = "lvVoorraadOpbouw";
+            this.lvVoorraadOpbouw.Size = new System.Drawing.Size(263, 506);
+            this.lvVoorraadOpbouw.TabIndex = 0;
+            this.lvVoorraadOpbouw.UseCompatibleStateImageBehavior = false;
+            this.lvVoorraadOpbouw.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Soort";
+            this.columnHeader5.Width = 108;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Datum";
+            this.columnHeader6.Width = 98;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Verschil";
+            this.columnHeader9.Width = 53;
+            // 
             // VoorraadScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 563);
+            this.ClientSize = new System.Drawing.Size(992, 563);
+            this.Controls.Add(this.gpVoorraadOpbouw);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -476,6 +522,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNLedenprijs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNPrijs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNVoorraad)).EndInit();
+            this.gpVoorraadOpbouw.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,5 +566,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox gpVoorraadOpbouw;
+        private System.Windows.Forms.ListView lvVoorraadOpbouw;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

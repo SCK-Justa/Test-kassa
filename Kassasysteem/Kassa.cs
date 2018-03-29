@@ -74,7 +74,7 @@ namespace GUI
                     break;
                 case DayOfWeek.Tuesday:
                     ChangeLbDagReden("Clubtraining");
-                    if(today.Day < 10)
+                    if (today.Day < 10)
                     {
                         ChangeLbDagReden("Schutter van de maand");
                     }
@@ -96,7 +96,7 @@ namespace GUI
                     break;
             }
             string specialDate = GetSpecialDate();
-            if(specialDate != "") 
+            if (specialDate != "")
             {
                 lbBirthdaylb.Visible = true;
                 ChangeLbDagReden(specialDate);
@@ -112,7 +112,7 @@ namespace GUI
         {
             string jarigen = "";
             DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            foreach(Lid l in App.GetLeden())
+            foreach (Lid l in App.GetLeden())
             {
                 DateTime birthday = new DateTime(DateTime.Now.Year, l.Geboortedatum.Month, l.Geboortedatum.Day);
                 if (today == birthday)
@@ -286,61 +286,95 @@ namespace GUI
         {
             // Als er een product meteen verkocht wordt, zonder bestelling, wordt de if uitgevoerd.
             // Bij het toevogen van en product aan een bestelling, wordt de else uitgevoerd.
-            LosseVerkoop verkoop = null;
-            if (_contanteVerkoop || _contanteVerkoopLid)
+            if (!CheckIfBestelling())
             {
                 if (_contanteVerkoop) // Losse verkoop als niet lid
                 {
-                    Product product = App.VindProduct(productnaam);
-                    verkoop = new LosseVerkoop(DateTime.Now, false, false, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
-                    App.AddLosseVerkoop(verkoop);
-                    UpdateKlantBestelling(null);
+                    if (!CheckIfProductIsMunten(productnaam))
+                    {
+                        AddProductToSales(productnaam, false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alleen leden kunnen munten bestellen.");
+                    }
                 }
                 else // Losse verkoop als lid
                 {
-                    bool betalingBonnen = ShowBonnenScreen();
-                    Product product = App.VindProduct(productnaam);
-                    verkoop = new LosseVerkoop(DateTime.Now, true, betalingBonnen, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
-                    App.AddLosseVerkoop(verkoop);
-                    UpdateKlantBestelling(null);
+                    AddProductToSales(productnaam, true);
                 }
             }
             else
             {
-                try
+                if (CheckIfProductIsMunten(productnaam))
                 {
-                    var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-                    if (bestelling != null)
+                    AddOrder(productnaam);
+                }
+                else
+                {
+                    MessageBox.Show("Munten kunnen niet worden toegevoegd aan een bestelling.");
+                }
+            }
+        }
+
+        private bool CheckIfProductIsMunten(string productnaam)
+        {
+            if (productnaam.Equals("Munen"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void AddProductToSales(string productnaam, bool isNotAMember)
+        {
+            LosseVerkoop verkoop = null;
+            Product product = App.VindProduct(productnaam);
+            bool betalingBonnen = false;
+            if (!isNotAMember)
+            {
+                betalingBonnen = ShowBonnenScreen();
+            }
+            verkoop = new LosseVerkoop(DateTime.Now, false, betalingBonnen, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
+            App.AddLosseVerkoop(verkoop);
+            UpdateKlantBestelling(null);
+        }
+
+        private void AddOrder(string productnaam)
+        {
+            try
+            {
+                var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
+                if (bestelling != null)
+                {
+                    foreach (Bestelling b in App.GetBestellingen())
                     {
-                        foreach (Bestelling b in App.GetBestellingen())
+                        if (b.Id == bestelling.Id)
                         {
-                            if (b.Id == bestelling.Id)
+                            lvProductenInBestelling.Items.Clear();
+                            Product product = App.VindProduct(productnaam);
+                            if (product != null)
                             {
-                                lvProductenInBestelling.Items.Clear();
-                                Product product = App.VindProduct(productnaam);
-                                if (product != null)
-                                {
-                                    App.AddProductToBestelling(b, product);
-                                    UpdateKlantBestelling(b);
-                                }
-                                else
-                                {
-                                    MessageBox.Show(
-                                        @"Het systeem kent dit product niet, raadpleeg uw nerd voor verdere hulp.");
-                                }
+                                App.AddProductToBestelling(b, product);
+                                UpdateKlantBestelling(b);
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    @"Het systeem kent dit product niet, raadpleeg uw nerd voor verdere hulp.");
                             }
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show(@"U doet een losse verkoop");
-                    }
                 }
-                catch (Exception exception)
+                else
                 {
-                    MessageBox.Show(@"Een error is opgetreden! Mogelijke oplossing: selecteer een bestelling. "
-                                    + Environment.NewLine + Environment.NewLine + exception.Message);
+                    MessageBox.Show(@"U doet een losse verkoop");
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden! Mogelijke oplossing: selecteer een bestelling. "
+                                + Environment.NewLine + Environment.NewLine + exception.Message);
             }
         }
 
@@ -501,9 +535,16 @@ namespace GUI
 
         private void btBonnenkaart_Click(object sender, EventArgs e)
         {
-            if (_contanteVerkoop == false || _contanteVerkoopLid == true)
+            if (!_contanteVerkoop || _contanteVerkoopLid)
             {
-                AddProductToBestelling("Munten");
+                if (!CheckIfBestelling())
+                {
+                    AddProductToBestelling("Munten");
+                }
+                else
+                {
+                    MessageBox.Show("Munten kunnen alleen als losse verkoop worden verkocht.");
+                }
             }
             else
             {
@@ -603,8 +644,7 @@ namespace GUI
 
         private void afmeldenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Afmelden();
-            Close();
+            Afmelden(true);
         }
 
         private void gegevensWijzigenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -684,11 +724,11 @@ namespace GUI
         {
             if (App.Authentication != null)
             {
-                Afmelden();
+                Afmelden(false);
             }
         }
 
-        private void Afmelden()
+        private void Afmelden(bool afsluiten)
         {
             try
             {
@@ -701,6 +741,10 @@ namespace GUI
                     aanmeldenToolStripMenuItem.Visible = true;
                     afmeldenToolStripMenuItem1.Visible = false;
                     gegevensWijzigenToolStripMenuItem.Visible = false;
+                    if (afsluiten)
+                    {
+                        Close();
+                    }
                 }
             }
             catch (Exception exception)
@@ -1002,6 +1046,41 @@ namespace GUI
         {
             UpdatesScreen scherm = new UpdatesScreen(App);
             scherm.Show();
+        }
+
+        private void vCRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (App.GetIsGemachtigd())
+                {
+                    VoorraadControleScherm scherm = new VoorraadControleScherm(App);
+                    scherm.Show();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina.");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nieuwe updates zijn geïnstalleerd! Bij 'File' zit een tabje 'Updates'. Daar staat precies omschreven wat er is veranderd.");
+        }
+
+        private bool CheckIfBestelling()
+        {
+            if (_contanteVerkoop == false && _contanteVerkoopLid == false)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

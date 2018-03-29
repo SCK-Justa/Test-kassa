@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Media;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
-using Logic.Classes.Enums;
 
 namespace Kassasysteem
 {
     public partial class AfrekenScherm : Form
     {
-        private bool speciaalAfrekenen = false;
+        private SoundPlayer player;
+        private bool _speciaalAfrekenen = false;
         private KassaApp _app;
         public bool Betaald { get; private set; }
         public Bestelling Bestelling { get; private set; }
@@ -22,6 +22,7 @@ namespace Kassasysteem
             Bestelling = bestelling;
             CheckBestuur();
             CheckGegevens();
+            player = new SoundPlayer(@"Afrekenen.wav");
         }
 
         private void CheckGegevens()
@@ -102,7 +103,7 @@ namespace Kassasysteem
             try
             {
                 decimal betaaldBedrag;
-                if (!speciaalAfrekenen) // Normaal afrekenen
+                if (!_speciaalAfrekenen) // Normaal afrekenen
                 {
                     if (cbIsLid.Checked)
                     {
@@ -120,15 +121,19 @@ namespace Kassasysteem
                         betaaldBedrag = Bestelling.TotaalPrijs;
                     }
                     Bestelling.SetBetaaldMetBonnen(bonnen);
+                    Bestelling.SetBetaaldBestuur(false);
                     SetOpmerking(tbOpmerking.Text);
                 }
                 else // Als bestuur het bedrag vergoedt
                 {
                     betaaldBedrag = Bestelling.TotaalLedenPrijs;
-                    Bestelling.SetBetaaldMetBonnen(true);
+                    Bestelling.SetBetaaldMetBonnen(false);
+                    Bestelling.SetBetaaldBestuur(true);
                     SetOpmerking(tbOpmerking.Text);
                 }
                 _app.BestellingAfrekenen(Bestelling, betaaldBedrag);
+                player.Play();
+
                 Close();
             }
             catch (Exception exception)
@@ -142,7 +147,7 @@ namespace Kassasysteem
         {
             if (text != "")
             {
-                if (speciaalAfrekenen)
+                if (_speciaalAfrekenen)
                 {
                     Bestelling.SetOpmerking("Betaling door bestuur: " + text);
                 }
@@ -161,7 +166,7 @@ namespace Kassasysteem
         {
             if (tbOpmerking.Text != "")
             {
-                speciaalAfrekenen = true;
+                _speciaalAfrekenen = true;
                 Afrekenen(true);
             }
             else

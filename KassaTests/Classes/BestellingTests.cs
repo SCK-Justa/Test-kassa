@@ -234,7 +234,7 @@ namespace UTestsKassa.Classes
         [TestMethod()]
         public void AfrekenenTest()
         {
-            testBestelling.Afrekenen(3.50m, DateTime.Now);
+            testBestelling.Afrekenen(3.50m, DateTime.Now, true);
 
             Assert.AreEqual(testBestelling.Betaald, true);
         }

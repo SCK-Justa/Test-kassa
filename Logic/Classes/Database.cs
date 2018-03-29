@@ -11,7 +11,7 @@ namespace Logic.Classes
     public class Database
     {
         private string _connectieString;
-        private bool IsConnected;
+        private bool _isConnected;
 
         public BestellingRepository BestellingRepo { get; private set; }
         public LidRepository LedenRepo { get; private set; }
@@ -26,14 +26,15 @@ namespace Logic.Classes
         public LedenLogRepository LedenlogRepo { get; private set; }
         public KlasseRepository KlasseRepo { get; private set; }
         public KassaLogRepository KassaLogRepo { get; private set; }
+        public VoorraadControleRepository VoorraadControleRepo { get; private set; }
 
         public Database()
         {
             //WriteFile();
-            IsConnected = false;
+            _isConnected = false;
             _connectieString = GetConnectionString("Authentication.txt");
             TryDatabaseConnection();
-            if (IsConnected)
+            if (_isConnected)
             {
                 GetDatabaseStuff();
             }
@@ -52,12 +53,12 @@ namespace Logic.Classes
                     if (conn.State != ConnectionState.Open)
                     {
                         conn.Open();
-                        IsConnected = true;
-                        return IsConnected;
+                        _isConnected = true;
+                        return _isConnected;
                     }
                 }
-                IsConnected = false;
-                return IsConnected;
+                _isConnected = false;
+                return _isConnected;
             }
             catch (Exception exception)
             {
@@ -73,7 +74,7 @@ namespace Logic.Classes
 
         public bool GetIsConnected()
         {
-            return IsConnected;
+            return _isConnected;
         }
 
         private string GetConnectionString(string file)
@@ -117,6 +118,7 @@ namespace Logic.Classes
             OmzetRepo = new OmzetRepository(new SqlOmzet(_connectieString));
             KlasseRepo = new KlasseRepository(new SqlKlasse(_connectieString));
             KassaLogRepo = new KassaLogRepository(new SqlKassaLog(_connectieString));
+            VoorraadControleRepo = new VoorraadControleRepository(new SqlVoorraadControle(_connectieString));
         }
     }
 }

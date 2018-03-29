@@ -48,6 +48,7 @@
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Enums\KassaSoortEnum.cs" />
     <Compile Include="Classes\Enums\MessageType.cs" />
+    <Compile Include="Classes\Enums\VoorraadEnum.cs" />
     <Compile Include="Classes\LidType.cs" />
     <Compile Include="Classes\Bank.cs" />
     <Compile Include="Classes\Bestelling.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Classes\Klasse.cs" />
     <Compile Include="Classes\LosseVerkoop.cs" />
     <Compile Include="Classes\Oudercontact.cs" />
+    <Compile Include="Classes\VoorraadControle.cs" />
     <Compile Include="Interfaces\IBankServices.cs" />
     <Compile Include="Interfaces\IAdresServices.cs" />
     <Compile Include="Interfaces\IAuthenticationServices.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Interfaces\IProductenBestellingServices.cs" />
     <Compile Include="Interfaces\IKlasseServices.cs" />
     <Compile Include="Interfaces\IProductServices.cs" />
+    <Compile Include="Interfaces\IVoorraadControleServices.cs" />
     <Compile Include="KassaApp.cs" />
     <Compile Include="Classes\Lid.cs" />
     <Compile Include="Classes\Persoon.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Repositories\OudercontactRepository.cs" />
     <Compile Include="Repositories\ProductBestellingRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\VoorraadControleRepository.cs" />
     <Compile Include="Sql\SqlAuthentication.cs" />
     <Compile Include="Sql\SqlBank.cs" />
     <Compile Include="Sql\SqlKassa.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Sql\SqlOudercontact.cs" />
     <Compile Include="Sql\SqlProduct.cs" />
     <Compile Include="Sql\SqlProductBestelling.cs" />
+    <Compile Include="Sql\SqlVoorraadControle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

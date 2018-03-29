@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Logic.Classes;
 
 namespace Logic.Interfaces
 {
@@ -10,5 +11,7 @@ namespace Logic.Interfaces
         decimal GetOmzetPerMaand(DateTime begindag, DateTime einddag);
         decimal GetOmzetPerJaar(DateTime jaar);
         void SetBedragInKas(decimal bedrag);
+        //List<Bestelling> GetAllUitgavenBestuur(DateTime firstDay, DateTime lastDay);
+        //decimal GetUitgavenBestuur(DateTime firstDay, DateTime lastDay);
     }
 }

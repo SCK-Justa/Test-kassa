@@ -91,8 +91,10 @@ namespace Logic.Sql
                                     {
                                         opmerking = reader.GetString(9);
                                     }
+                                    bool bestuur = reader.GetBoolean(10);
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));
                                     _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetBetaaldBestuur(bestuur);
                                     _bestelling.SetOpmerking(opmerking);
                                     bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
                                 }
@@ -252,8 +254,10 @@ namespace Logic.Sql
                                     {
                                         _bestelling = new Bestelling(id, persoonNaam, datum);
                                     }
+                                    bool bestuur = reader.GetBoolean(10);
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));
                                     _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetBetaaldBestuur(bestuur);
                                     _bestelling.SetOpmerking(opmerking);
                                     bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
                                 }
@@ -341,7 +345,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Bestelling (BPersoonid, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking) VALUES (@persoonId, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking);";
+                            cmd.CommandText = "INSERT INTO Bestelling (BPersoonid, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking, BBetaaldBestuur) VALUES (@persoonId, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking, @bestuur);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@persoonId", bestelling.Lid.Id);
@@ -359,6 +363,7 @@ namespace Logic.Sql
                             {
                                 cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
                             }
+                            cmd.Parameters.AddWithValue("@bestuur", bestelling.BetaaldBestuur);
 
                             cmd.ExecuteNonQuery();
 
@@ -394,7 +399,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "INSERT INTO Bestelling (BNaam, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking) VALUES (@naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking);";
+                            cmd.CommandText = "INSERT INTO Bestelling (BNaam, BDatum, BBetalld, BKassaId, BDatumBetaald, BBetaaldMetBonnen, BBetaaldBedrag, BOpmerking, BBetaaldBestuur) VALUES (@naam, @datum, @betaald, @kassaId, @datumbetaald, @bonnen, @betaaldbedrag, @opmerking, @bestuur);";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@naam", bestelling.Naam);
@@ -412,6 +417,7 @@ namespace Logic.Sql
                             {
                                 cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
                             }
+                            cmd.Parameters.AddWithValue("@bestuur", bestelling.BetaaldBestuur);
 
                             cmd.ExecuteNonQuery();
 
@@ -482,7 +488,30 @@ namespace Logic.Sql
 
         public void DeleteBestelling(Bestelling bestelling)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "DELETE FROM Bestelling WHERE BId = @bestellingId;";
+                            cmd.Connection = conn;
+
+                            cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public void BetaalBestelling(Bestelling bestelling)
@@ -497,7 +526,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "UPDATE Bestelling SET BBetalld = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum, BOpmerking = @opmerking WHERE BId = @bestellingId;";
+                            cmd.CommandText = "UPDATE Bestelling SET BBetalld = 1, BBetaaldMetBonnen = @bonnen, BBetaaldBedrag = @betaaldBedrag, BDatumBetaald = @betaaldatum, BOpmerking = @opmerking, BBetaaldBestuur = @betaaldBestuur WHERE BId = @bestellingId;";
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
@@ -505,6 +534,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaaldBedrag", bestelling.BetaaldBedrag);
                             cmd.Parameters.AddWithValue("@betaaldatum", bestelling.DatumBetaald);
                             cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);
+                            cmd.Parameters.AddWithValue("@betaaldBestuur", bestelling.BetaaldBestuur);
 
                             cmd.ExecuteNonQuery();
                         }
