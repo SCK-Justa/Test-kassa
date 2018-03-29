@@ -51,12 +51,12 @@ namespace Kassasysteem
 
         private void SuppUpdate(ListViewItem lvi, Bestelling b)
         {
-            if (b.BetaaldMetBonnen)
+            if (b.BetaaldMetMunten)
             {
                 lvi.SubItems.Add("€,-");
                 lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
                                  b.DatumBetaald.ToShortTimeString());
-                lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
+                lvi.SubItems.Add(b.BetaaldMetMunten.ToString());
                 lvi.Tag = b;
                 lvAfgerekendeBestellingen.Items.Add(lvi);
             }
@@ -65,7 +65,7 @@ namespace Kassasysteem
                 lvi.SubItems.Add("€ " + b.BetaaldBedrag.ToString(CultureInfo.CurrentCulture));
                 lvi.SubItems.Add(b.DatumBetaald.ToShortDateString() + " - " +
                                  b.DatumBetaald.ToShortTimeString());
-                lvi.SubItems.Add(b.BetaaldMetBonnen.ToString());
+                lvi.SubItems.Add(b.BetaaldMetMunten.ToString());
                 lvi.Tag = b;
                 lvAfgerekendeBestellingen.Items.Add(lvi);
             }
@@ -74,27 +74,6 @@ namespace Kassasysteem
         private void btCancel_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void cbSBNaam_CheckedChanged(object sender, EventArgs e)
-        {
-            cbSBDatum.Checked = false;
-            cbSBTotaalprijs.Checked = false;
-            SortBy("Naam");
-        }
-
-        private void cbSBDatum_CheckedChanged(object sender, EventArgs e)
-        {
-            cbSBNaam.Checked = false;
-            cbSBTotaalprijs.Checked = false;
-            SortBy("Datum");
-        }
-
-        private void cbSBTotaalprijs_CheckedChanged(object sender, EventArgs e)
-        {
-            cbSBNaam.Checked = false;
-            cbSBDatum.Checked = false;
-            SortBy("Totaalprijs");
         }
 
         private void SortBy(string sort)
@@ -112,6 +91,9 @@ namespace Kassasysteem
                         break;
                     case "Totaalprijs":
                         _afgerekendeBestellingen.Sort((x, y) => -x.BetaaldBedrag.CompareTo(y.BetaaldBedrag));
+                        break;
+                    case "Munten":
+                        _afgerekendeBestellingen.Sort((x, y) => x.BetaaldMetMunten.CompareTo(y.BetaaldMetMunten));
                         break;
                 }
                 UpdateAfgerekendeBestellingen();
@@ -136,6 +118,26 @@ namespace Kassasysteem
             catch (Exception exception)
             {
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine + exception.Message);
+            }
+        }
+
+        private void lvAfgerekendeBestellingen_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            string clicked = lvAfgerekendeBestellingen.Columns[e.Column].Text;
+            switch (clicked)
+            {
+                case "Klantnaam":
+                    SortBy("Naam");
+                    break;
+                case "Totaalprijs":
+                    SortBy("Totaalprijs");
+                    break;
+                case "Datum/tijd":
+                    SortBy("Datum");
+                    break;
+                case "Betaald met munten":
+                    SortBy("Munten");
+                    break;
             }
         }
     }

@@ -169,9 +169,9 @@ namespace UTestsKassa.Classes
         public void SetBetaaldMetBonnenTest()
         {
             bool betaald = true;
-            testBestelling.SetBetaaldMetBonnen(betaald);
+            testBestelling.SetBetaaldMetMunten(betaald);
 
-            Assert.AreEqual(testBestelling.BetaaldMetBonnen, betaald);
+            Assert.AreEqual(testBestelling.BetaaldMetMunten, betaald);
         }
 
         [TestMethod()]

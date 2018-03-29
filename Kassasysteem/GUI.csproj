@@ -312,7 +312,15 @@
     <None Include="Resources\foods1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\broodjeFrikandel.jpg" />
+    <None Include="Resources\broodjeKroket.bmp" />
+    <None Include="Resources\broodjeKroket.jpg" />
     <Content Include="Resources\Button Kassasysteem-01-01.jpg" />
+    <None Include="Resources\fuze iced tea.jpg" />
+    <None Include="Resources\thee.jpg" />
+    <None Include="Resources\frikandel.jpg" />
+    <None Include="Resources\kroket.jpg" />
+    <None Include="Resources\minisnacks.jpg" />
     <Content Include="Resources\Updates.txt" />
     <None Include="Resources\Munten.jpg" />
     <None Include="Resources\Logo SINTSEBASTIAAN_png1.png" />

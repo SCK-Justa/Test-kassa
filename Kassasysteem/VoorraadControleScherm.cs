@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
@@ -14,7 +7,7 @@ namespace Kassasysteem
 {
     public partial class VoorraadControleScherm : Form
     {
-        public KassaApp App { get; private set; }
+        public KassaApp App { get; }
         public VoorraadControleScherm(KassaApp app)
         {
             InitializeComponent();

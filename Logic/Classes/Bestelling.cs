@@ -15,7 +15,7 @@ namespace Logic.Classes
         public int KassaId { get; private set; }
         public decimal TotaalPrijs { get; private set; }
         public decimal TotaalLedenPrijs { get; private set; }
-        public bool BetaaldMetBonnen { get; private set; }
+        public bool BetaaldMetMunten { get; private set; }
         public decimal BetaaldBedrag { get; private set; }
         public bool BetaaldBestuur { get; private set; }
         public string Opmerking { get; private set; }
@@ -114,9 +114,9 @@ namespace Logic.Classes
             TotaalLedenPrijs = prijs;
         }
 
-        public void SetBetaaldMetBonnen(bool value)
+        public void SetBetaaldMetMunten(bool value)
         {
-            BetaaldMetBonnen = value;
+            BetaaldMetMunten = value;
         }
 
         public void SetOpmerking(string value)

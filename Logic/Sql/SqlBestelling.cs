@@ -280,7 +280,7 @@ namespace Logic.Sql
             bestelling.SetBetaald(betaald);
             bestelling.SetKassaId(kassaid);
             bestelling.SetDatumBetaald(datumbetaald);
-            bestelling.SetBetaaldMetBonnen(bonnen);
+            bestelling.SetBetaaldMetMunten(bonnen);
             return bestelling;
         }
 
@@ -353,7 +353,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
                             cmd.Parameters.AddWithValue("@kassaId", bestelling.KassaId);
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
-                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
+                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetMunten);
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
                             if(bestelling.Opmerking == null)
                             {
@@ -407,7 +407,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
                             cmd.Parameters.AddWithValue("@kassaId", bestelling.KassaId);
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
-                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
+                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetMunten);
                             cmd.Parameters.AddWithValue("@betaaldbedrag", 0.00);
                             if (bestelling.Opmerking == null)
                             {
@@ -464,7 +464,7 @@ namespace Logic.Sql
                             cmd.Parameters.AddWithValue("@betaald", bestelling.Betaald);
                             cmd.Parameters.AddWithValue("@kassaId", bestelling.KassaId);
                             cmd.Parameters.AddWithValue("@datumbetaald", bestelling.DatumBetaald);
-                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
+                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetMunten);
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
                             if (bestelling.Opmerking == null)
                             {
@@ -530,7 +530,7 @@ namespace Logic.Sql
                             cmd.Connection = conn;
 
                             cmd.Parameters.AddWithValue("@bestellingId", bestelling.Id);
-                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetBonnen);
+                            cmd.Parameters.AddWithValue("@bonnen", bestelling.BetaaldMetMunten);
                             cmd.Parameters.AddWithValue("@betaaldBedrag", bestelling.BetaaldBedrag);
                             cmd.Parameters.AddWithValue("@betaaldatum", bestelling.DatumBetaald);
                             cmd.Parameters.AddWithValue("@opmerking", bestelling.Opmerking);

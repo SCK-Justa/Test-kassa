@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using Logic.Classes;
 using Logic.Classes.Enums;
+using System.Media;
 
 namespace Logic
 {
@@ -16,6 +16,8 @@ namespace Logic
         private List<Formulier> _formulieren;
         private int volgendBestellingNr;
         private Dictionary<DateTime, String> specialDates;
+
+        private SoundPlayer player;
 
         public int Id { get; private set; }
         public string Lokatie { get; private set; }
@@ -57,6 +59,7 @@ namespace Logic
                 _formulieren = new List<Formulier>();
                 _gebruikers = new List<Authentication>();
                 _losseVerkopen = new List<LosseVerkoop>();
+                player = new SoundPlayer(@"Afrekenen.wav");
                 if (connectie)
                 {
                     Console.WriteLine("Connectie geslaagd.");
@@ -409,6 +412,7 @@ namespace Logic
                     Database.KassaLogRepo.AddLogString(
                         Id, bedrag + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
                 }
+                player.Play();
             }
             return true;
         }
@@ -548,6 +552,7 @@ namespace Logic
                     Database.KassaLogRepo.AddLogString(
                         Id, verkoop.Prijs + " euro toegevoegd aan kas", KassaSoortEnum.BETALING);
                 }
+                player.Play();
             }
             _losseVerkopen.Add(verkoop);
         }
@@ -760,6 +765,21 @@ namespace Logic
                 return controles;
             }
             return null;
+        }
+
+        public string CheckForBirthdays()
+        {
+            string jarigen = "";
+            DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            foreach (Lid l in GetLeden())
+            {
+                DateTime birthday = new DateTime(DateTime.Now.Year, l.Geboortedatum.Month, l.Geboortedatum.Day);
+                if (today == birthday)
+                {
+                    jarigen += l.GetLidNaam() + " ";
+                }
+            }
+            return jarigen;
         }
     }
 }

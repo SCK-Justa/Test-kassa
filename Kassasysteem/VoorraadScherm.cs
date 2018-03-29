@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Logic;
 using Logic.Classes;
@@ -173,7 +174,9 @@ namespace Kassasysteem
         private void UpdateVoorraadOpbouw(Product product)
         {
             lvVoorraadOpbouw.Items.Clear();
-            foreach (VoorraadControle controle in product.GetVoorraadOpbouw())
+            List<VoorraadControle> voorraadOpbouw = product.GetVoorraadOpbouw();
+            voorraadOpbouw.Sort((x, y) => -x.DatumControle.CompareTo(y.DatumControle));
+            foreach (VoorraadControle controle in voorraadOpbouw)
             {
                 int voorraad = controle.NieuweVoorraad - controle.OudeVoorraad;
                 ListViewItem lvi = new ListViewItem(controle.Opmerking.ToString());

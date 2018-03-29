@@ -120,14 +120,14 @@ namespace Kassasysteem
                     {
                         betaaldBedrag = Bestelling.TotaalPrijs;
                     }
-                    Bestelling.SetBetaaldMetBonnen(bonnen);
+                    Bestelling.SetBetaaldMetMunten(bonnen);
                     Bestelling.SetBetaaldBestuur(false);
                     SetOpmerking(tbOpmerking.Text);
                 }
                 else // Als bestuur het bedrag vergoedt
                 {
                     betaaldBedrag = Bestelling.TotaalLedenPrijs;
-                    Bestelling.SetBetaaldMetBonnen(false);
+                    Bestelling.SetBetaaldMetMunten(false);
                     Bestelling.SetBetaaldBestuur(true);
                     SetOpmerking(tbOpmerking.Text);
                 }

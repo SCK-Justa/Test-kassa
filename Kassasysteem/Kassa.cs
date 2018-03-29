@@ -110,17 +110,12 @@ namespace GUI
 
         private string CheckForBirthdays()
         {
-            string jarigen = "";
-            DateTime today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            foreach (Lid l in App.GetLeden())
+            string bdays = App.CheckForBirthdays();
+            if (bdays == "")
             {
-                DateTime birthday = new DateTime(DateTime.Now.Year, l.Geboortedatum.Month, l.Geboortedatum.Day);
-                if (today == birthday)
-                {
-                    jarigen += l.GetLidNaam() + " ";
-                }
+                lbBirthdaylb.Visible = false;
             }
-            return jarigen;
+            return App.CheckForBirthdays();
         }
 
         private void ChangeLbDagReden(string text)
@@ -333,7 +328,10 @@ namespace GUI
             bool betalingBonnen = false;
             if (!isNotAMember)
             {
-                betalingBonnen = ShowBonnenScreen();
+                if (productnaam != "Munten")
+                {
+                    betalingBonnen = ShowBonnenScreen();
+                }
             }
             verkoop = new LosseVerkoop(DateTime.Now, false, betalingBonnen, product.Id, product.Naam, product.Soort, product.Voorraad, product.Ledenprijs, product.Prijs);
             App.AddLosseVerkoop(verkoop);
@@ -802,10 +800,6 @@ namespace GUI
             try
             {
                 string selected = cbSoortVerkoop.SelectedItem.ToString();
-                if (selected == null)
-                {
-                    throw new Exception("Er is niets geselecteerd.");
-                }
                 if (selected == "Losse verkoop wel lid")
                 {
                     BestellingSoortEnum soort = BestellingSoortEnum.Losse_verkoop_wel_lid;
@@ -857,6 +851,7 @@ namespace GUI
                 groupBox6.Visible = true;
                 _contanteVerkoop = false;
                 _contanteVerkoopLid = false;
+                btAfrekenen.Enabled = true;
             }
             else
             {
@@ -867,12 +862,14 @@ namespace GUI
                     groupBox6.Visible = false;
                     _contanteVerkoop = false;
                     _contanteVerkoopLid = true;
+                    btAfrekenen.Enabled = false;
                 }
                 else
                 {
                     groupBox6.Visible = false;
                     _contanteVerkoop = true;
                     _contanteVerkoopLid = false;
+                    btAfrekenen.Enabled = false;
                 }
             }
         }
@@ -1036,10 +1033,7 @@ namespace GUI
             {
                 return true;
             }
-            else // DialogResult.No
-            {
-                return false;
-            }
+            return false;
         }
 
         private void updatesToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1067,11 +1061,6 @@ namespace GUI
                 MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Nieuwe updates zijn geïnstalleerd! Bij 'File' zit een tabje 'Updates'. Daar staat precies omschreven wat er is veranderd.");
         }
 
         private bool CheckIfBestelling()
