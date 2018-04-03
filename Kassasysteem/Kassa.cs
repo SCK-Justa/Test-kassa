@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using Kassasysteem;
 using Logic;
 using Logic.Classes;
@@ -14,6 +13,7 @@ namespace GUI
     public partial class Kassa : Form
     {
         public KassaApp App { get; }
+
         private AfrekenScherm _afrekenScherm;
         private ListViewItem _item;
         private VoorraadScherm _voorraadScherm;
@@ -493,7 +493,7 @@ namespace GUI
 
         private void btWisselendSpeciaalBier_Click(object sender, EventArgs e)
         {
-            AddProductToBestelling("Barbar Blond");
+            AddProductToBestelling("Wolf 7");
         }
 
         private void btRodeWijn_Click(object sender, EventArgs e)

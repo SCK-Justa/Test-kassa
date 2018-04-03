@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbDatumDag7 = new System.Windows.Forms.Label();
             this.lbDatumDag6 = new System.Windows.Forms.Label();
@@ -91,9 +94,11 @@
             this.lvLogs = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.OmzetChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OmzetChart)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -722,6 +727,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.OmzetChart);
             this.groupBox3.Controls.Add(this.lvLogs);
             this.groupBox3.Location = new System.Drawing.Point(13, 370);
             this.groupBox3.Name = "groupBox3";
@@ -737,7 +743,7 @@
             this.columnHeader1});
             this.lvLogs.Location = new System.Drawing.Point(7, 20);
             this.lvLogs.Name = "lvLogs";
-            this.lvLogs.Size = new System.Drawing.Size(566, 282);
+            this.lvLogs.Size = new System.Drawing.Size(493, 282);
             this.lvLogs.TabIndex = 0;
             this.lvLogs.UseCompatibleStateImageBehavior = false;
             this.lvLogs.View = System.Windows.Forms.View.Details;
@@ -751,6 +757,21 @@
             // 
             this.columnHeader1.Text = "Logomschrijving";
             this.columnHeader1.Width = 468;
+            // 
+            // OmzetChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.OmzetChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.OmzetChart.Legends.Add(legend1);
+            this.OmzetChart.Location = new System.Drawing.Point(506, 19);
+            this.OmzetChart.Name = "OmzetChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Omzet";
+            this.OmzetChart.Series.Add(series1);
+            this.OmzetChart.Size = new System.Drawing.Size(455, 283);
+            this.OmzetChart.TabIndex = 38;
             // 
             // PenningmeesterScherm
             // 
@@ -768,6 +789,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.OmzetChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -837,5 +859,6 @@
         private System.Windows.Forms.ListView lvLogs;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart OmzetChart;
     }
 }

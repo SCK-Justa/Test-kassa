@@ -23,6 +23,7 @@ namespace Kassasysteem
             FillComboBox();
             ShowJaarOmzet(new DateTime(Convert.ToInt32(cbJaarNr.Text), 1, 1));
             LoadLogView();
+            LoadChart(new DateTime(Convert.ToInt32(cbJaarNr.Text), 1, 1));
         }
 
         private void FillComboBox()
@@ -118,12 +119,8 @@ namespace Kassasysteem
             if (selected >= 0)
             {
                 ShowJaarOmzet(new DateTime(selected, 1, 1));
+                LoadChart(new DateTime(selected, 1, 1));
             }
-        }
-
-        private void ShowDagOmzet()
-        {
-
         }
 
         private void ShowJaarOmzet(DateTime date)
@@ -169,6 +166,23 @@ namespace Kassasysteem
                 MessageBox.Show("Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
                                 exception.Message);
             }
+        }
+
+        private void LoadChart(DateTime date)
+        {
+            OmzetChart.Series["Omzet"].Points.Clear();
+            OmzetChart.Series["Omzet"].Points.AddXY("Januari", App.GetOmzetPerMaand(new DateTime(date.Year, 1, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Februari", App.GetOmzetPerMaand(new DateTime(date.Year, 2, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Maart", App.GetOmzetPerMaand(new DateTime(date.Year, 3, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("April", App.GetOmzetPerMaand(new DateTime(date.Year, 4, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Mei", App.GetOmzetPerMaand(new DateTime(date.Year, 5, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Juni", App.GetOmzetPerMaand(new DateTime(date.Year, 6, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Juli", App.GetOmzetPerMaand(new DateTime(date.Year, 7, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Augustus", App.GetOmzetPerMaand(new DateTime(date.Year, 8, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("September", App.GetOmzetPerMaand(new DateTime(date.Year, 9, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("Oktober", App.GetOmzetPerMaand(new DateTime(date.Year, 10, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("November", App.GetOmzetPerMaand(new DateTime(date.Year, 11, 1)));
+            OmzetChart.Series["Omzet"].Points.AddXY("December", App.GetOmzetPerMaand(new DateTime(date.Year, 12, 1)));
         }
     }
 }
