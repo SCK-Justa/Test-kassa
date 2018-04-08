@@ -301,7 +301,7 @@ namespace GUI
             }
             else
             {
-                if (CheckIfProductIsMunten(productnaam))
+                if (!CheckIfProductIsMunten(productnaam))
                 {
                     AddOrder(productnaam);
                 }
@@ -314,7 +314,7 @@ namespace GUI
 
         private bool CheckIfProductIsMunten(string productnaam)
         {
-            if (productnaam.Equals("Munen"))
+            if (productnaam.Equals("Munten"))
             {
                 return true;
             }
