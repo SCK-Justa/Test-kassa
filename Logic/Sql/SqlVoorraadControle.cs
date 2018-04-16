@@ -33,12 +33,12 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM VoorraadControle;";
+                            cmd.CommandText = "SELECT VcId, VcProductId, VcDatumControle, VcOudeVoorraad, VcNieuweVoorraad, VcOpmerking " +
+                                              "FROM Voorraadcontrolel";
                             cmd.Connection = conn;
 
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                VoorraadControle controle;
                                 while (reader.Read())
                                 {
                                     int id = reader.GetInt32(0);
@@ -53,7 +53,7 @@ namespace Logic.Sql
                                     int nieuweVoorraad = reader.GetInt32(5);
                                     VoorraadEnum soort =
                                         (VoorraadEnum)Enum.Parse(typeof(VoorraadEnum), reader.GetString(5));
-                                    controle = new VoorraadControle(id, product, controleur, datum, oudeVoorraad, nieuweVoorraad, soort);
+                                    VoorraadControle controle = new VoorraadControle(id, product, controleur, datum, oudeVoorraad, nieuweVoorraad, soort);
                                     controles.Add(controle);
                                 }
                                 return controles;

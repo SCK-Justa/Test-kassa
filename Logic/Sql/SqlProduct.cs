@@ -108,7 +108,7 @@ namespace Logic.Sql
 
                         using (SqlCommand cmd = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM Product;";
+                            cmd.CommandText = "SELECT * FROM Product JOIN Soort ON SoortId = ProdSoortId ORDER BY SoortId ASC, ProdNaam ASC;";
                             cmd.Connection = conn;
 
 
