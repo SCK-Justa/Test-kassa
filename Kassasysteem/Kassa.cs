@@ -213,6 +213,10 @@ namespace GUI
                     label4.Visible = true;
                     lbLoginnaam.Visible = true;
                     lbLoginnaam.Text = App.Authentication.GetFullName();
+                    if (App.Authentication.Username == "Admin")
+                    {
+                        developerToolStripMenuItem.Visible = true;
+                    }
                 }
                 else
                 {
@@ -234,6 +238,7 @@ namespace GUI
                 gpEten.Visible = false;
                 gpMenu.Visible = true;
                 lbSpecialDate.Visible = false;
+                developerToolStripMenuItem.Visible = false;
                 string birthdays = CheckForBirthdays();
                 if (birthdays != "")
                 {
@@ -622,7 +627,7 @@ namespace GUI
                     if (verkoop != null)
                     {
                         App.RemoveProductVanBestelling(null, null, verkoop);
-                        MessageBox.Show($@"{verkoop.Naam} wordt als losse verkoop.");
+                        MessageBox.Show($@"{verkoop.Naam} wordt als losse verkoop verwijderd.");
                         UpdateKlantBestelling(null);
                     }
                     else
@@ -692,30 +697,46 @@ namespace GUI
 
         private void btEten_Click(object sender, EventArgs e)
         {
-            gpEten.Visible = true;
-            gpDrinken.Visible = false;
-            gpMenu.Visible = false;
+            // Gaat naar het menu eten
+            SetMenu(true, false, false, false);
         }
 
         private void btDrinken_Click(object sender, EventArgs e)
         {
-            gpDrinken.Visible = true;
-            gpEten.Visible = false;
-            gpMenu.Visible = false;
+            // Gaat naar het menu dranken
+            SetMenu(false, true, false, false);
+        }
+
+        private void btSterkeDranken_Click(object sender, EventArgs e)
+        {
+            // Gaat naar het menu sterke dranken
+            SetMenu(false, false, false, true);
         }
 
         private void btTerug1_Click(object sender, EventArgs e)
         {
-            gpMenu.Visible = true;
-            gpEten.Visible = false;
-            gpDrinken.Visible = false;
+            // Gaat terug naar hoofdmenu
+            SetMenu(false, false, true, false);
         }
 
         private void btTerug2_Click(object sender, EventArgs e)
         {
-            gpMenu.Visible = true;
-            gpDrinken.Visible = false;
-            gpEten.Visible = false;
+            // Gaat terug naar hoofdmenu
+            SetMenu(false, false, true, false);
+        }
+        private void btTerug3_Click(object sender, EventArgs e)
+        {
+            // Gaat terug naar menu dranken
+            SetMenu(false, true, false, false);
+        }
+
+        private void SetMenu(bool eten, bool drinken, bool menu, bool sterke)
+        {
+            gpEten.Visible = eten;
+            gpDrinken.Visible = drinken;
+            gpMenu.Visible = menu;
+            gpSterkeDrank.Visible = sterke;
+
         }
 
         private void afmeldenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1070,6 +1091,22 @@ namespace GUI
                 return true;
             }
             return false;
+        }
+
+        private bool testingValue = false;
+        private void testingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!testingValue)
+            {
+                App.Database.SetConnection(false);
+                testingToolStripMenuItem.Text = "Testing [on]";
+            }
+            else
+            {
+                App.Database.SetConnection(true);
+                testingToolStripMenuItem.Text = "Testing [off]";
+            }
+            testingValue = !testingValue;
         }
     }
 }

@@ -30,7 +30,6 @@ namespace Logic.Classes
 
         public Database()
         {
-            //WriteFile();
             _isConnected = false;
             _connectieString = GetConnectionString("Authentication.txt");
             TryDatabaseConnection();
@@ -102,6 +101,10 @@ namespace Logic.Classes
             }
         }
 
+        public void SetConnection(bool value)
+        {
+            _isConnected = value;
+        }
 
         private void GetDatabaseStuff()
         {

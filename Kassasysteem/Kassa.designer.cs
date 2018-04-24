@@ -99,7 +99,6 @@
         private System.Windows.Forms.Button btEten;
         private System.Windows.Forms.GroupBox gpEten;
         private System.Windows.Forms.GroupBox gpDrinken;
-        private System.Windows.Forms.Button btTerug1;
         private System.Windows.Forms.Button btTerug2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbConnectie;
@@ -188,6 +187,8 @@
             this.openToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rekenmachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.developerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpMenu = new System.Windows.Forms.GroupBox();
             this.btBonnenkaart = new System.Windows.Forms.Button();
             this.btDrinken = new System.Windows.Forms.Button();
@@ -209,7 +210,6 @@
             this.gpDrinken = new System.Windows.Forms.GroupBox();
             this.btSchrobbeler = new System.Windows.Forms.Button();
             this.btKoffie = new System.Windows.Forms.Button();
-            this.btTerug1 = new System.Windows.Forms.Button();
             this.btThee = new System.Windows.Forms.Button();
             this.btWitteWijn = new System.Windows.Forms.Button();
             this.btCocaCola = new System.Windows.Forms.Button();
@@ -230,6 +230,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbConnectie = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btSterkeDranken = new System.Windows.Forms.Button();
+            this.gpSterkeDrank = new System.Windows.Forms.GroupBox();
+            this.btTerug1 = new System.Windows.Forms.Button();
+            this.btTerug3 = new System.Windows.Forms.Button();
+            this.btFamousGrousse = new System.Windows.Forms.Button();
+            this.btBacardi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -240,6 +246,7 @@
             this.gpMenu.SuspendLayout();
             this.gpEten.SuspendLayout();
             this.gpDrinken.SuspendLayout();
+            this.gpSterkeDrank.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -676,7 +683,8 @@
             this.formulierenToolStripMenuItem,
             this.bestellingenToolStripMenuItem,
             this.ledenToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.developerToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.Size = new System.Drawing.Size(1008, 24);
@@ -859,6 +867,21 @@
             this.rekenmachineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rekenmachineToolStripMenuItem.Text = "Rekenmachine";
             this.rekenmachineToolStripMenuItem.Click += new System.EventHandler(this.rekenmachineToolStripMenuItem_Click);
+            // 
+            // developerToolStripMenuItem
+            // 
+            this.developerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testingToolStripMenuItem});
+            this.developerToolStripMenuItem.Name = "developerToolStripMenuItem";
+            this.developerToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.developerToolStripMenuItem.Text = "Developer";
+            // 
+            // testingToolStripMenuItem
+            // 
+            this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
+            this.testingToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.testingToolStripMenuItem.Text = "Testing [off]";
+            this.testingToolStripMenuItem.Click += new System.EventHandler(this.testingToolStripMenuItem_Click);
             // 
             // gpMenu
             // 
@@ -1072,7 +1095,7 @@
             // 
             // gpDrinken
             // 
-            this.gpDrinken.Controls.Add(this.btSchrobbeler);
+            this.gpDrinken.Controls.Add(this.btSterkeDranken);
             this.gpDrinken.Controls.Add(this.btKoffie);
             this.gpDrinken.Controls.Add(this.btTerug1);
             this.gpDrinken.Controls.Add(this.btThee);
@@ -1104,7 +1127,7 @@
             // 
             this.btSchrobbeler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSchrobbeler.Image = ((System.Drawing.Image)(resources.GetObject("btSchrobbeler.Image")));
-            this.btSchrobbeler.Location = new System.Drawing.Point(11, 275);
+            this.btSchrobbeler.Location = new System.Drawing.Point(6, 23);
             this.btSchrobbeler.Name = "btSchrobbeler";
             this.btSchrobbeler.Size = new System.Drawing.Size(96, 50);
             this.btSchrobbeler.TabIndex = 31;
@@ -1121,17 +1144,6 @@
             this.btKoffie.TabIndex = 0;
             this.btKoffie.UseVisualStyleBackColor = true;
             this.btKoffie.Click += new System.EventHandler(this.btKoffie_Click);
-            // 
-            // btTerug1
-            // 
-            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTerug1.Location = new System.Drawing.Point(466, 276);
-            this.btTerug1.Name = "btTerug1";
-            this.btTerug1.Size = new System.Drawing.Size(100, 50);
-            this.btTerug1.TabIndex = 32;
-            this.btTerug1.Text = "Terug";
-            this.btTerug1.UseVisualStyleBackColor = true;
-            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
             // 
             // btThee
             // 
@@ -1347,6 +1359,72 @@
             this.timer.Interval = 20000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btSterkeDranken
+            // 
+            this.btSterkeDranken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSterkeDranken.Location = new System.Drawing.Point(466, 20);
+            this.btSterkeDranken.Name = "btSterkeDranken";
+            this.btSterkeDranken.Size = new System.Drawing.Size(100, 50);
+            this.btSterkeDranken.TabIndex = 33;
+            this.btSterkeDranken.Text = "Sterke \r\ndranken";
+            this.btSterkeDranken.UseVisualStyleBackColor = true;
+            this.btSterkeDranken.Click += new System.EventHandler(this.btSterkeDranken_Click);
+            // 
+            // gpSterkeDrank
+            // 
+            this.gpSterkeDrank.Controls.Add(this.btBacardi);
+            this.gpSterkeDrank.Controls.Add(this.btFamousGrousse);
+            this.gpSterkeDrank.Controls.Add(this.btTerug3);
+            this.gpSterkeDrank.Controls.Add(this.btSchrobbeler);
+            this.gpSterkeDrank.Location = new System.Drawing.Point(12, 391);
+            this.gpSterkeDrank.Name = "gpSterkeDrank";
+            this.gpSterkeDrank.Size = new System.Drawing.Size(566, 327);
+            this.gpSterkeDrank.TabIndex = 29;
+            this.gpSterkeDrank.TabStop = false;
+            this.gpSterkeDrank.Text = "Sterke dranken";
+            // 
+            // btTerug1
+            // 
+            this.btTerug1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug1.Location = new System.Drawing.Point(466, 276);
+            this.btTerug1.Name = "btTerug1";
+            this.btTerug1.Size = new System.Drawing.Size(100, 50);
+            this.btTerug1.TabIndex = 32;
+            this.btTerug1.Text = "Terug";
+            this.btTerug1.UseVisualStyleBackColor = true;
+            this.btTerug1.Click += new System.EventHandler(this.btTerug1_Click);
+            // 
+            // btTerug3
+            // 
+            this.btTerug3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTerug3.Location = new System.Drawing.Point(460, 269);
+            this.btTerug3.Name = "btTerug3";
+            this.btTerug3.Size = new System.Drawing.Size(100, 50);
+            this.btTerug3.TabIndex = 33;
+            this.btTerug3.Text = "Terug";
+            this.btTerug3.UseVisualStyleBackColor = true;
+            this.btTerug3.Click += new System.EventHandler(this.btTerug3_Click);
+            // 
+            // btFamousGrousse
+            // 
+            this.btFamousGrousse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFamousGrousse.Location = new System.Drawing.Point(6, 85);
+            this.btFamousGrousse.Name = "btFamousGrousse";
+            this.btFamousGrousse.Size = new System.Drawing.Size(96, 50);
+            this.btFamousGrousse.TabIndex = 34;
+            this.btFamousGrousse.Text = "Famous Grousse";
+            this.btFamousGrousse.UseVisualStyleBackColor = true;
+            // 
+            // btBacardi
+            // 
+            this.btBacardi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBacardi.Location = new System.Drawing.Point(6, 148);
+            this.btBacardi.Name = "btBacardi";
+            this.btBacardi.Size = new System.Drawing.Size(96, 50);
+            this.btBacardi.TabIndex = 35;
+            this.btBacardi.Text = "Bacardi";
+            this.btBacardi.UseVisualStyleBackColor = true;
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1355,9 +1433,10 @@
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.gpMenu);
             this.Controls.Add(this.gpDrinken);
-            this.Controls.Add(this.lbConnectie);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.gpEten);
+            this.Controls.Add(this.lbConnectie);
+            this.Controls.Add(this.gpSterkeDrank);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -1380,6 +1459,7 @@
             this.gpMenu.ResumeLayout(false);
             this.gpEten.ResumeLayout(false);
             this.gpDrinken.ResumeLayout(false);
+            this.gpSterkeDrank.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1398,5 +1478,13 @@
         private System.Windows.Forms.Label lbSpecialDate;
         private System.Windows.Forms.Label lbBirthdaylb;
         private System.Windows.Forms.ToolStripMenuItem vCRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem developerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testingToolStripMenuItem;
+        private System.Windows.Forms.Button btSterkeDranken;
+        private System.Windows.Forms.GroupBox gpSterkeDrank;
+        private System.Windows.Forms.Button btTerug1;
+        private System.Windows.Forms.Button btTerug3;
+        private System.Windows.Forms.Button btBacardi;
+        private System.Windows.Forms.Button btFamousGrousse;
     }
 }
