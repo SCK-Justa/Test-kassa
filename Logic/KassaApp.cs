@@ -36,7 +36,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw exception;
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -64,7 +67,7 @@ namespace Logic
                 {
                     Console.WriteLine("Connectie geslaagd.");
                     AddProductenFromDbToVoorraad();
-                    GetLoadAllControlesFromProducts();
+                    //GetLoadAllControlesFromProducts(); // Deze functie moet pas als de voorraad van 1 product wordt geopend.
                     _leden = GetLeden();
                     _gebruikers = GetGebruikers();
                     FillSpecialDatesDict();
@@ -84,7 +87,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -150,7 +156,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -172,7 +181,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -229,7 +241,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -254,7 +269,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -314,8 +332,12 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
+            return null;
         }
 
         public List<Bestelling> GetAfgerekendeBestellingen()
@@ -330,8 +352,12 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
+            return null;
         }
 
         public void GetBestellingenFromDb()
@@ -342,7 +368,10 @@ namespace Logic
                 _afgerekendeBestellingen = new List<Bestelling>();
                 if (Database.GetIsConnected())
                 {
+                    // Langer dan een week niet aanwezig, vervalt je bestelling.
+                    // TODO: onbetaalde bestellingen altijd weergeven.
                     List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetBestellingenBetweenDates(DateTime.Now.AddDays(-7), DateTime.Now);
+                    tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)
@@ -359,7 +388,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -386,8 +418,13 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
+
+            return null;
         }
 
         public bool BestellingAfrekenen(Bestelling bestelling, decimal bedrag)
@@ -490,7 +527,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -519,21 +559,36 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
         public List<LosseVerkoop> GetLosseVerkopen(DateTime beginTime, DateTime endTime)
         {
-            if (_losseVerkopen == null || _losseVerkopen.Count <= 0)
+            try
             {
-                _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(beginTime, endTime);
-                if (_losseVerkopen.Count > 0)
+                if (_losseVerkopen == null || _losseVerkopen.Count <= 0)
                 {
-                    _losseVerkopen.Sort((x, y) => -x.BestelDatum.CompareTo(y.BestelDatum));
+                    _losseVerkopen = Database.ProductbestellingRepo.GetLosseVerkopen(beginTime, endTime);
+                    if (_losseVerkopen.Count > 0)
+                    {
+                        _losseVerkopen.Sort((x, y) => -x.BestelDatum.CompareTo(y.BestelDatum));
+                    }
+                }
+
+                return _losseVerkopen;
+            }
+            catch (Exception exception)
+            {
+                if (Database.GetIsConnected())
+                {
+                    throw new Exception(exception.Message);
                 }
             }
-            return _losseVerkopen;
+            return null;
         }
 
         public void AddLosseVerkoop(LosseVerkoop verkoop)
@@ -622,7 +677,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -642,7 +700,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -659,7 +720,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -688,7 +752,10 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
             }
         }
 
@@ -700,7 +767,12 @@ namespace Logic
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                if (Database.GetIsConnected())
+                {
+                    ExceptionThrower(exception);
+                }
+
+                return null;
             }
         }
 
@@ -780,6 +852,11 @@ namespace Logic
                 }
             }
             return jarigen;
+        }
+
+        private void ExceptionThrower(Exception exception)
+        {
+            throw new Exception(exception.Message);
         }
     }
 }

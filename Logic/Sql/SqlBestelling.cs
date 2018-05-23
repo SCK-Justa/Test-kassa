@@ -203,7 +203,7 @@ namespace Logic.Sql
                         {
                             cmd.CommandText = "SELECT * " +
                                               "FROM Bestelling " +
-                                              "WHERE BKassaId = @kassaId AND BDatum >= @beginDate AND BDatum <= @endDate;";
+                                              "WHERE BKassaId = @kassaId AND BDatum >= @beginDate AND BDatum <= @endDate AND BBetalld = 1;";
 
 
                             cmd.Parameters.AddWithValue("@kassaId", 0);

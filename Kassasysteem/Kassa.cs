@@ -267,18 +267,23 @@ namespace GUI
             }
             else
             {
-                foreach (LosseVerkoop p in App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today))
+                if (App.CheckDbConnection())
                 {
-                    if (p.IsLid)
+                    foreach (LosseVerkoop p in App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today))
                     {
-                        UpdateListViewKlantBestelling(p, "€ 0,-", "€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
+                        if (p.IsLid)
+                        {
+                            UpdateListViewKlantBestelling(p, "€ 0,-",
+                                "€" + p.Ledenprijs.ToString(CultureInfo.InvariantCulture), lvProductenInBestelling);
+                        }
+                        else
+                        {
+                            UpdateListViewKlantBestelling(p, "€ " + p.Prijs, "€ 0,-", lvProductenInBestelling);
+                        }
                     }
-                    else
-                    {
-                        UpdateListViewKlantBestelling(p, "€ " + p.Prijs, "€ 0,-", lvProductenInBestelling);
-                    }
+
+                    BerekenPrijsLosseVerkopen();
                 }
-                BerekenPrijsLosseVerkopen();
             }
         }
 
@@ -290,14 +295,7 @@ namespace GUI
             {
                 if (_contanteVerkoop) // Losse verkoop als niet lid
                 {
-                    if (!CheckIfProductIsMunten(productnaam))
-                    {
-                        AddProductToSales(productnaam, false);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Alleen leden kunnen munten bestellen.");
-                    }
+                    AddProductToSales(productnaam, false);
                 }
                 else // Losse verkoop als lid
                 {
@@ -306,14 +304,7 @@ namespace GUI
             }
             else
             {
-                if (!CheckIfProductIsMunten(productnaam))
-                {
-                    AddOrder(productnaam);
-                }
-                else
-                {
-                    MessageBox.Show("Munten kunnen niet worden toegevoegd aan een bestelling.");
-                }
+                AddOrder(productnaam);
             }
         }
 
@@ -326,12 +317,12 @@ namespace GUI
             return false;
         }
 
-        private void AddProductToSales(string productnaam, bool isNotAMember)
+        private void AddProductToSales(string productnaam, bool isAMember)
         {
             LosseVerkoop verkoop = null;
             Product product = App.VindProduct(productnaam);
             bool betalingBonnen = false;
-            if (!isNotAMember)
+            if (isAMember)
             {
                 if (productnaam != "Munten")
                 {
@@ -348,9 +339,10 @@ namespace GUI
             try
             {
                 var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
-                if (bestelling != null)
+                List<Bestelling> bestellingen = App.GetBestellingen();
+                if (bestelling != null && bestellingen != null)
                 {
-                    foreach (Bestelling b in App.GetBestellingen())
+                    foreach (Bestelling b in bestellingen)
                     {
                         if (b.Id == bestelling.Id)
                         {
@@ -404,7 +396,7 @@ namespace GUI
             var bestelling = lvBestellingen.SelectedItems[0].Tag as Bestelling;
             if (bestelling != null)
             {
-                lbKlantnaam.Text = bestelling.GetBesteller();
+                SetKassaBonInfo(bestelling.GetBesteller(), "", "", "", true, true);
                 lvProductenInBestelling.Items.Clear();
                 UpdateKlantBestelling(bestelling);
                 btVerwijderProduct.Enabled = true;
@@ -785,7 +777,7 @@ namespace GUI
                 else
                 {
                     throw new Exception("U heeft geen toegang tot deze pagina." + Environment.NewLine +
-    "Log in voor toegang tot deze pagina.");
+                                            "Log in voor toegang tot deze pagina.");
                 }
             }
             catch (Exception exception)
@@ -869,28 +861,24 @@ namespace GUI
         {
             if (isBestelling)
             {
-                groupBox6.Visible = true;
+                gpNieuweKlant.Visible = true;
                 _contanteVerkoop = false;
                 _contanteVerkoopLid = false;
                 btAfrekenen.Enabled = true;
             }
             else
             {
-                lvProductenInBestelling.Items.Clear();
+                SetKassaBonInfo("Losse bestellingen", "", "", "", false, false);
                 UpdateKlantBestelling(null);
                 if (isLid)
                 {
-                    groupBox6.Visible = false;
                     _contanteVerkoop = false;
                     _contanteVerkoopLid = true;
-                    btAfrekenen.Enabled = false;
                 }
                 else
                 {
-                    groupBox6.Visible = false;
                     _contanteVerkoop = true;
                     _contanteVerkoopLid = false;
-                    btAfrekenen.Enabled = false;
                 }
             }
         }
@@ -899,6 +887,18 @@ namespace GUI
         {
             SelectSellMethod(true, true);
             cbSoortVerkoop.Text = "Bestelling";
+            SetMenu(false, false, true, false);
+        }
+
+        private void SetKassaBonInfo(string klantnaam, string prijs, string ledenprijs, string datum, bool afrekenknop, bool verwijderknop)
+        {
+            lbKlantnaam.Text = klantnaam;
+            lbDatumklant.Text = datum;
+            lbTotaalPrijs.Text = prijs;
+            lbLedenprijs.Text = ledenprijs;
+            btAfrekenen.Enabled = afrekenknop;
+            gpNieuweKlant.Visible = verwijderknop;
+            lvProductenInBestelling.Items.Clear();
         }
 
         private void voorraadToevoegenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -993,10 +993,7 @@ namespace GUI
             List<LosseVerkoop> losseVerkopen = App.GetLosseVerkopen(DateTime.Today.AddDays(-8), DateTime.Today);
             if (losseVerkopen != null && losseVerkopen.Count > 1)
             {
-                lbKlantnaam.Text = "Losse verkopen";
-                lbTotaalPrijs.Text = "";
-                lbLedenprijs.Text = "";
-                lbDatumklant.Text = "Van " + DateTime.Now.AddDays(-8).ToShortDateString() + " tot " + DateTime.Now.ToShortDateString();
+                SetKassaBonInfo("Losse verkopen", "", "", "Van " + DateTime.Now.AddDays(-8).ToShortDateString() + " tot " + DateTime.Now.ToShortDateString(), false, true);
                 foreach (LosseVerkoop p in losseVerkopen)
                 {
                     if (p.IsLid)
