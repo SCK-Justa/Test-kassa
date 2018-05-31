@@ -16,6 +16,7 @@ namespace Logic
         private List<Formulier> _formulieren;
         private int volgendBestellingNr;
         private Dictionary<DateTime, String> specialDates;
+        private List<Session> _sessions;
 
         private SoundPlayer player;
 
@@ -25,12 +26,14 @@ namespace Logic
         public Authentication Authentication { get; private set; }
         public decimal BedragInKas { get; private set; }
         public Database Database { get; private set; }
+        public Session Session { get; private set; }
 
         public KassaApp(string lokatie)
         {
             try
             {
                 Lokatie = lokatie;
+                Session = new Session("Training", DateTime.Now);
                 // Controleren van de connectie met de Database, is die er, dan data ophalen, anders niet.
                 KassaAppSync(CheckDbConnection());
             }
@@ -41,6 +44,19 @@ namespace Logic
                     ExceptionThrower(exception);
                 }
             }
+        }
+
+        private bool SetSession(string sessionName)
+        {
+            foreach (Session s in _sessions)
+            {
+                if (s.Name.Equals(sessionName))
+                {
+                    Session = s;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool CheckDbConnection()
@@ -371,7 +387,7 @@ namespace Logic
                     // Langer dan een week niet aanwezig, vervalt je bestelling.
                     // TODO: onbetaalde bestellingen altijd weergeven.
                     List<Bestelling> tijdelijkelijst = Database.BestellingRepo.GetBestellingenBetweenDates(DateTime.Now.AddDays(-7), DateTime.Now);
-                    tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
+                    //tijdelijkelijst.AddRange(Database.BestellingRepo.GetUnpaidBestellingen());
                     foreach (Bestelling bestelling in tijdelijkelijst)
                     {
                         if (bestelling.Betaald)
@@ -778,7 +794,7 @@ namespace Logic
 
         public string GetAuthenticationName()
         {
-            if(Authentication != null)
+            if (Authentication != null)
             {
                 return Authentication.Lid.GetLidNaam();
             }
@@ -857,6 +873,41 @@ namespace Logic
         private void ExceptionThrower(Exception exception)
         {
             throw new Exception(exception.Message);
+        }
+
+        public List<Bestelling> GetAllOrders()
+        {
+            List<Bestelling> orders = Database.BestellingRepo.GetAllBestellingen();
+            orders.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
+            return orders;
+        }
+
+        public List<Bestelling> GetPaidOrders()
+        {
+            List<Bestelling> orders = Database.BestellingRepo.GetAllPaidBestellingen();
+            orders.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
+            return orders;
+        }
+
+        public List<Bestelling> GetOrdersBetweenDates(DateTime beginDate, DateTime endDate)
+        { 
+            List<Bestelling> orders = Database.BestellingRepo.GetBestellingenBetweenDates(beginDate, endDate);
+            orders.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
+            return orders;
+        }
+
+        public List<Bestelling> GetUnpaidOrders()
+        {
+            List<Bestelling> orders = Database.BestellingRepo.GetUnpaidBestellingen();
+            orders.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
+            return orders;
+        }
+
+        public List<Bestelling> GetPaidOrdersBySsg()
+        {
+            List<Bestelling> orders = Database.BestellingRepo.GetAllBestellingenPaidBySsg();
+            orders.Sort((x, y) => -x.Datum.CompareTo(y.Datum));
+            return orders;
         }
     }
 }

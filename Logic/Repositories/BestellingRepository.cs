@@ -23,6 +23,16 @@ namespace Logic.Repositories
             return _bestellingServices.GetBestellingenVanLid(lid);
         }
 
+        public List<Bestelling> GetAllBestellingenPaidBySsg()
+        {
+            return _bestellingServices.GetAllBestellingenPaidBySsg();
+        }
+
+        public List<Bestelling> GetAllPaidBestellingen()
+        {
+            return _bestellingServices.GetAllPaidBestellingen();
+        }
+
         public List<Bestelling> GetAllBestellingen()
         {
             return _bestellingServices.GetAllBestellingen();

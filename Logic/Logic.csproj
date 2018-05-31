@@ -57,6 +57,7 @@
     <Compile Include="Classes\Klasse.cs" />
     <Compile Include="Classes\LosseVerkoop.cs" />
     <Compile Include="Classes\Oudercontact.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\VoorraadControle.cs" />
     <Compile Include="Interfaces\IBankServices.cs" />
     <Compile Include="Interfaces\IAdresServices.cs" />

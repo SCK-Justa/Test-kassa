@@ -62,6 +62,12 @@
     <Compile Include="BestelgeschiedenisScherm.Designer.cs">
       <DependentUpon>BestelgeschiedenisScherm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BtsScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BtsScherm.Designer.cs">
+      <DependentUpon>BtsScherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GebruikerScherm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BestelgeschiedenisScherm.resx">
       <DependentUpon>BestelgeschiedenisScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BtsScherm.resx">
+      <DependentUpon>BtsScherm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GebruikerScherm.resx">
       <DependentUpon>GebruikerScherm.cs</DependentUpon>

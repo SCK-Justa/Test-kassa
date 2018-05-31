@@ -27,6 +27,83 @@ namespace Logic.Sql
             throw new NotImplementedException();
         }
 
+        public List<Bestelling> GetAllPaidBestellingen()
+        {
+            try
+            {
+                List<Bestelling> bestellingen = new List<Bestelling>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * " +
+                                              "FROM Bestelling " +
+                                              "WHERE BKassaId = @kassaId AND BBetalld = 1;";
+
+
+                            cmd.Parameters.AddWithValue("@kassaId", 0);
+                            cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    Lid persoon = null;
+                                    string persoonNaam = "";
+                                    if (!reader.IsDBNull(1))
+                                    {
+                                        persoon = sqlLid.GetLidFromId(reader.GetInt32(1));
+                                    }
+                                    if (!reader.IsDBNull(2))
+                                    {
+                                        persoonNaam = reader.GetString(2);
+                                    }
+                                    DateTime datum = reader.GetDateTime(3);
+                                    bool betaald = reader.GetBoolean(4);
+                                    int kassaId = reader.GetInt32(5);
+                                    DateTime datumbetaald = DateTime.Parse("1-1-1900");
+                                    if (betaald)
+                                    {
+                                        datumbetaald = reader.GetDateTime(6);
+                                    }
+                                    bool betaaldBonnen = false;
+                                    if (!reader.IsDBNull(7))
+                                    {
+                                        betaaldBonnen = reader.GetBoolean(7);
+                                    }
+                                    decimal betaaldBedrag = reader.GetDecimal(8);
+                                    Bestelling _bestelling;
+
+                                    if (persoon != null)
+                                    {
+                                        _bestelling = new Bestelling(id, persoon, datum);
+                                    }
+                                    else
+                                    {
+                                        _bestelling = new Bestelling(id, persoonNaam, datum);
+                                    }
+                                    _bestelling.AddProductenToList(GetProductenInBestelling(id));
+                                    _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
+                                }
+                            }
+                            return bestellingen;
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
         public List<Bestelling> GetAllBestellingen()
         {
             try
@@ -162,7 +239,6 @@ namespace Logic.Sql
                                     }
                                     decimal betaaldBedrag = reader.GetDecimal(8);
                                     Bestelling _bestelling;
-
                                     if (persoon != null)
                                     {
                                         _bestelling = new Bestelling(id, persoon, datum);
@@ -171,8 +247,100 @@ namespace Logic.Sql
                                     {
                                         _bestelling = new Bestelling(id, persoonNaam, datum);
                                     }
+                                    string opmerking = "";
+                                    if (!reader.IsDBNull(9))
+                                    {
+                                        opmerking = reader.GetString(9);
+                                    }
+                                    bool bestuur = reader.GetBoolean(10);
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));
                                     _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetBetaaldBestuur(bestuur);
+                                    _bestelling.SetOpmerking(opmerking);
+                                    bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
+                                }
+                            }
+                            return bestellingen;
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public List<Bestelling> GetAllBestellingenPaidBySsg()
+        {
+            try
+            {
+                List<Bestelling> bestellingen = new List<Bestelling>();
+                using (SqlConnection conn = new SqlConnection(connectie))
+                {
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+
+                        using (SqlCommand cmd = new SqlCommand())
+                        {
+                            cmd.CommandText = "SELECT * " +
+                                              "FROM Bestelling " +
+                                              "WHERE BKassaId = @kassaId AND BBetaaldBestuur = 1;";
+
+
+                            cmd.Parameters.AddWithValue("@kassaId", 0);
+                            cmd.Connection = conn;
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32(0);
+                                    Lid persoon = null;
+                                    string persoonNaam = "";
+                                    if (!reader.IsDBNull(1))
+                                    {
+                                        persoon = sqlLid.GetLidFromId(reader.GetInt32(1));
+                                    }
+                                    if (!reader.IsDBNull(2))
+                                    {
+                                        persoonNaam = reader.GetString(2);
+                                    }
+                                    DateTime datum = reader.GetDateTime(3);
+                                    bool betaald = reader.GetBoolean(4);
+                                    int kassaId = reader.GetInt32(5);
+                                    DateTime datumbetaald = DateTime.Parse("1-1-1900");
+                                    if (betaald)
+                                    {
+                                        datumbetaald = reader.GetDateTime(6);
+                                    }
+                                    bool betaaldBonnen = false;
+                                    if (!reader.IsDBNull(7))
+                                    {
+                                        betaaldBonnen = reader.GetBoolean(7);
+                                    }
+                                    decimal betaaldBedrag = reader.GetDecimal(8);
+                                    Bestelling _bestelling;
+                                    if (persoon != null)
+                                    {
+                                        _bestelling = new Bestelling(id, persoon, datum);
+                                    }
+                                    else
+                                    {
+                                        _bestelling = new Bestelling(id, persoonNaam, datum);
+                                    }
+                                    string opmerking = "";
+                                    if (!reader.IsDBNull(9))
+                                    {
+                                        opmerking = reader.GetString(9);
+                                    }
+                                    bool bestuur = reader.GetBoolean(10);
+                                    _bestelling.AddProductenToList(GetProductenInBestelling(id));
+                                    _bestelling.SetBetaaldBedrag(betaaldBedrag);
+                                    _bestelling.SetBetaaldBestuur(bestuur);
+                                    _bestelling.SetOpmerking(opmerking);
                                     bestellingen.Add(SuppGetAllBestellingen(_bestelling, betaald, kassaId, datumbetaald, betaaldBonnen));
                                 }
                             }
@@ -241,11 +409,6 @@ namespace Logic.Sql
                                     }
                                     decimal betaaldBedrag = reader.GetDecimal(8);
                                     Bestelling _bestelling;
-                                    string opmerking = "";
-                                    if (!reader.IsDBNull(9))
-                                    {
-                                        opmerking = reader.GetString(9);
-                                    }
                                     if (persoon != null)
                                     {
                                         _bestelling = new Bestelling(id, persoon, datum);
@@ -253,6 +416,11 @@ namespace Logic.Sql
                                     else
                                     {
                                         _bestelling = new Bestelling(id, persoonNaam, datum);
+                                    }
+                                    string opmerking = "";
+                                    if (!reader.IsDBNull(9))
+                                    {
+                                        opmerking = reader.GetString(9);
                                     }
                                     bool bestuur = reader.GetBoolean(10);
                                     _bestelling.AddProductenToList(GetProductenInBestelling(id));

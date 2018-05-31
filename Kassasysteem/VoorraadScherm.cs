@@ -80,15 +80,15 @@ namespace Kassasysteem
                 {
                     throw new Exception(@"U moet een soort invullen.");
                 }
-                if (nudVoorraad.Value == 0)
+                if (nudVoorraad.Value < 0)
                 {
                     throw new Exception(@"U moet een voorraad invullen.");
                 }
-                if (nudPrijs.Value == 0)
+                if (nudPrijs.Value < 0)
                 {
                     throw new Exception(@"U moet een prijs invullen.");
                 }
-                if (nudLedenprijs.Value == 0)
+                if (nudLedenprijs.Value < 0)
                 {
                     throw new Exception(@"U moet een ledenprijs invullen.");
                 }

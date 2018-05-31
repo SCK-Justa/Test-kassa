@@ -19,6 +19,7 @@ namespace GUI
         private VoorraadScherm _voorraadScherm;
         private PenningmeesterScherm _omzetScherm;
         private KasInUitScherm _kasinuitScherm;
+        private BtsScherm _btsScherm;
 
         private bool _contanteVerkoop;
         private bool _contanteVerkoopLid;
@@ -120,7 +121,7 @@ namespace GUI
 
         private void ChangeLbDagReden(string text)
         {
-            lbDagReden.Text = text;
+            lbSessionName.Text = text;
         }
 
         private void btMaakBestelling_Click(object sender, EventArgs e)
@@ -239,6 +240,7 @@ namespace GUI
                 gpMenu.Visible = true;
                 lbSpecialDate.Visible = false;
                 developerToolStripMenuItem.Visible = false;
+                lbSessionName.Text = App.Session.Name;
                 string birthdays = CheckForBirthdays();
                 if (birthdays != "")
                 {
@@ -308,6 +310,7 @@ namespace GUI
             }
         }
 
+        // Onderstaande methode wordt momenteel niet gebruikt, wegens het niet goed meer uit kunnen voeren van andere functies.
         private bool CheckIfProductIsMunten(string productnaam)
         {
             if (productnaam.Equals("Munten"))
@@ -677,7 +680,7 @@ namespace GUI
                 else
                 {
                     throw new Exception("U heeft geen toegang tot deze pagina." + Environment.NewLine +
-    "Log in voor toegang tot deze pagina.");
+                                            "Log in voor toegang tot deze pagina.");
                 }
             }
             catch (Exception exception)
@@ -1104,6 +1107,37 @@ namespace GUI
                 testingToolStripMenuItem.Text = "Testing [off]";
             }
             testingValue = !testingValue;
+        }
+
+        private void btGreenTea_Click(object sender, EventArgs e)
+        {
+            AddProductToBestelling("Green Tea");
+        }
+
+        private void sessiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bSTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (App.GetIsGemachtigd())
+                {
+                    _btsScherm = new BtsScherm(App);
+                    _btsScherm.ShowDialog();
+                }
+                else
+                {
+                    throw new Exception("U heeft geen toegang tot deze pagina.");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Een error is opgetreden!" + Environment.NewLine + Environment.NewLine +
+                                exception.Message);
+            }
         }
     }
 }

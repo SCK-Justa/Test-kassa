@@ -112,7 +112,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aanmeldenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem2;
-        private System.Windows.Forms.Label lbDagReden;
+        private System.Windows.Forms.Label lbSessionName;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rekenmachineToolStripMenuItem;
 
@@ -125,9 +125,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kassa));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.lbBirthdaylb = new System.Windows.Forms.Label();
             this.lbSpecialDate = new System.Windows.Forms.Label();
-            this.lbDagReden = new System.Windows.Forms.Label();
+            this.lbSessionName = new System.Windows.Forms.Label();
             this.lbLoginnaam = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbDagDatum = new System.Windows.Forms.Label();
@@ -179,6 +180,7 @@
             this.sUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omzetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestelgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verkoopgeschiedenisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,6 +210,7 @@
             this.btCrokyNaturel = new System.Windows.Forms.Button();
             this.btCrokyPaprika = new System.Windows.Forms.Button();
             this.gpDrinken = new System.Windows.Forms.GroupBox();
+            this.btGreenTea = new System.Windows.Forms.Button();
             this.btSterkeDranken = new System.Windows.Forms.Button();
             this.btKoffie = new System.Windows.Forms.Button();
             this.btTerug1 = new System.Windows.Forms.Button();
@@ -236,6 +239,7 @@
             this.btBacardi = new System.Windows.Forms.Button();
             this.btFamousGrousse = new System.Windows.Forms.Button();
             this.btTerug3 = new System.Windows.Forms.Button();
+            this.bSTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -252,9 +256,10 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.lbBirthdaylb);
             this.groupBox1.Controls.Add(this.lbSpecialDate);
-            this.groupBox1.Controls.Add(this.lbDagReden);
+            this.groupBox1.Controls.Add(this.lbSessionName);
             this.groupBox1.Controls.Add(this.lbLoginnaam);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lbDagDatum);
@@ -270,6 +275,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kassa informatie";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Sessie:";
             // 
             // lbBirthdaylb
             // 
@@ -291,15 +306,15 @@
             this.lbSpecialDate.TabIndex = 11;
             this.lbSpecialDate.Text = "label1";
             // 
-            // lbDagReden
+            // lbSessionName
             // 
-            this.lbDagReden.AutoSize = true;
-            this.lbDagReden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDagReden.Location = new System.Drawing.Point(124, 80);
-            this.lbDagReden.Name = "lbDagReden";
-            this.lbDagReden.Size = new System.Drawing.Size(51, 20);
-            this.lbDagReden.TabIndex = 10;
-            this.lbDagReden.Text = "label1";
+            this.lbSessionName.AutoSize = true;
+            this.lbSessionName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSessionName.Location = new System.Drawing.Point(124, 80);
+            this.lbSessionName.Name = "lbSessionName";
+            this.lbSessionName.Size = new System.Drawing.Size(51, 20);
+            this.lbSessionName.TabIndex = 10;
+            this.lbSessionName.Text = "label1";
             // 
             // lbLoginnaam
             // 
@@ -537,7 +552,7 @@
             this.groupBox5.Controls.Add(this.lvProductenInBestelling);
             this.groupBox5.Location = new System.Drawing.Point(584, 188);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(412, 529);
+            this.groupBox5.Size = new System.Drawing.Size(412, 530);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Kassabon";
@@ -653,7 +668,7 @@
             this.lvProductenInBestelling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvProductenInBestelling.Location = new System.Drawing.Point(6, 184);
             this.lvProductenInBestelling.Name = "lvProductenInBestelling";
-            this.lvProductenInBestelling.Size = new System.Drawing.Size(400, 338);
+            this.lvProductenInBestelling.Size = new System.Drawing.Size(400, 337);
             this.lvProductenInBestelling.TabIndex = 34;
             this.lvProductenInBestelling.UseCompatibleStateImageBehavior = false;
             this.lvProductenInBestelling.View = System.Windows.Forms.View.Details;
@@ -780,7 +795,9 @@
             // 
             this.formulierenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sUKToolStripMenuItem,
-            this.omzetToolStripMenuItem1});
+            this.omzetToolStripMenuItem1,
+            this.sessiesToolStripMenuItem,
+            this.bSTToolStripMenuItem});
             this.formulierenToolStripMenuItem.Name = "formulierenToolStripMenuItem";
             this.formulierenToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.formulierenToolStripMenuItem.Text = "Bestuur";
@@ -788,7 +805,7 @@
             // sUKToolStripMenuItem
             // 
             this.sUKToolStripMenuItem.Name = "sUKToolStripMenuItem";
-            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.sUKToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sUKToolStripMenuItem.Text = "SUK";
             this.sUKToolStripMenuItem.Click += new System.EventHandler(this.sUKToolStripMenuItem_Click);
             // 
@@ -797,15 +814,22 @@
             this.omzetToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem1});
             this.omzetToolStripMenuItem1.Name = "omzetToolStripMenuItem1";
-            this.omzetToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.omzetToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.omzetToolStripMenuItem1.Text = "Omzet";
             // 
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem1.Text = "Open...";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
+            // 
+            // sessiesToolStripMenuItem
+            // 
+            this.sessiesToolStripMenuItem.Name = "sessiesToolStripMenuItem";
+            this.sessiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sessiesToolStripMenuItem.Text = "Sessies";
+            this.sessiesToolStripMenuItem.Click += new System.EventHandler(this.sessiesToolStripMenuItem_Click);
             // 
             // bestellingenToolStripMenuItem
             // 
@@ -1095,6 +1119,7 @@
             // 
             // gpDrinken
             // 
+            this.gpDrinken.Controls.Add(this.btGreenTea);
             this.gpDrinken.Controls.Add(this.btSterkeDranken);
             this.gpDrinken.Controls.Add(this.btKoffie);
             this.gpDrinken.Controls.Add(this.btTerug1);
@@ -1122,6 +1147,17 @@
             this.gpDrinken.TabIndex = 46;
             this.gpDrinken.TabStop = false;
             this.gpDrinken.Text = "Drinken";
+            // 
+            // btGreenTea
+            // 
+            this.btGreenTea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGreenTea.Location = new System.Drawing.Point(239, 85);
+            this.btGreenTea.Name = "btGreenTea";
+            this.btGreenTea.Size = new System.Drawing.Size(100, 50);
+            this.btGreenTea.TabIndex = 34;
+            this.btGreenTea.Text = "Ice Tea Green Tea";
+            this.btGreenTea.UseVisualStyleBackColor = true;
+            this.btGreenTea.Click += new System.EventHandler(this.btGreenTea_Click);
             // 
             // btSterkeDranken
             // 
@@ -1314,7 +1350,7 @@
             // 
             this.btChocomel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btChocomel.Image = ((System.Drawing.Image)(resources.GetObject("btChocomel.Image")));
-            this.btChocomel.Location = new System.Drawing.Point(239, 85);
+            this.btChocomel.Location = new System.Drawing.Point(6, 275);
             this.btChocomel.Name = "btChocomel";
             this.btChocomel.Size = new System.Drawing.Size(100, 50);
             this.btChocomel.TabIndex = 9;
@@ -1425,6 +1461,13 @@
             this.btTerug3.UseVisualStyleBackColor = true;
             this.btTerug3.Click += new System.EventHandler(this.btTerug3_Click);
             // 
+            // bSTToolStripMenuItem
+            // 
+            this.bSTToolStripMenuItem.Name = "bSTToolStripMenuItem";
+            this.bSTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bSTToolStripMenuItem.Text = "BST";
+            this.bSTToolStripMenuItem.Click += new System.EventHandler(this.bSTToolStripMenuItem_Click);
+            // 
             // Kassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1486,5 +1529,9 @@
         private System.Windows.Forms.Button btTerug3;
         private System.Windows.Forms.Button btBacardi;
         private System.Windows.Forms.Button btFamousGrousse;
+        private System.Windows.Forms.Button btGreenTea;
+        private System.Windows.Forms.ToolStripMenuItem sessiesToolStripMenuItem;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem bSTToolStripMenuItem;
     }
 }

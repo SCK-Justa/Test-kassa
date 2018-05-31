@@ -195,5 +195,25 @@ namespace Logic.Classes
             }
             return Naam;
         }
+
+        public int GetLidId()
+        {
+            if(Lid != null)
+            {
+                return Lid.Id;
+            }
+
+            return -1;
+        }
+
+        public string GetOpmerking()
+        {
+            if (Opmerking != null)
+            {
+                return Opmerking;
+            }
+
+            return "";
+        }
     }
 }
